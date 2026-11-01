@@ -754,6 +754,11 @@ body{background:#e9eff8}
 #finance.sec{padding-top:12px;background:linear-gradient(180deg,#10308f 0%,#0a2272 50%,#071a5a 100%)}
 .frame.docs{background:radial-gradient(90% 80% at 25% 10%,#4a86f5 0%,#2a62e6 40%,#173fb8 100%)}
 .frame.finance{background:linear-gradient(180deg,#22419a 0%,#16307d 45%,#0c1f5c 100%)}
+
+/* Узор на фоне шапки карточки шага (SVG из макета) */
+.step-head.pat{background-color:#1e63ff;background-image:none;isolation:isolate}
+.step-head.pat::before{content:"";position:absolute;inset:0;border-radius:inherit;background:center/cover no-repeat;z-index:-1;pointer-events:none}
+.step-head.pat1::before{background-image:url(assets/step-bg.svg)}
 </style>
 </head>
 <body>
@@ -1072,7 +1077,7 @@ body{background:#e9eff8}
       <h2 class="h2 head reveal">5 понятных шагов к <span>вашему зачислению</span></h2>
       <div class="steps">
         <div class="step reveal">
-          <div class="step-top"><div class="step-head dots"><span class="n">1 ШАГ</span><h3>Анализ профиля и подбор вузов</h3><img src="assets/st1.png" alt=""></div>
+          <div class="step-top"><div class="step-head pat pat1"><span class="n">1 ШАГ</span><h3>Анализ профиля и подбор вузов</h3><img src="assets/st1.png" alt=""></div>
             <p>Мы не предлагаем стандартные списки. Работа начинается с детального разбора вашей ситуации</p></div>
           <ol><li>Оцениваем средний балл аттестата (GPA), уровень языка и финансовые ожидания.</li><li>Анализируем шансы на получение грантов или академических скидок.</li><li>Формируем персональный шорт-лист из 3–5 надежных университетов, где ваши сильные стороны сработают лучше всего, и согласовываем финальный выбор направлений с вами.</li></ol>
         </div>
