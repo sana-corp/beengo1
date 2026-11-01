@@ -771,6 +771,17 @@ body{background:#e9eff8}
 
 /* картинки шагов из макета */
 .step-head img.st5{width:clamp(92px,9vw,124px);top:-34px;right:4px}
+
+/* ===== Фон футера: отдельная картинка под каждый формат экрана ===== */
+.footer{--fimg:url(assets/foot-16x9.webp);
+  background:linear-gradient(180deg,#3fa8fa 0%,rgba(63,168,250,.6) 8%,rgba(63,168,250,0) 22%),var(--fimg) center top/cover no-repeat,#3fa8fa}
+@media (min-width:1700px){.footer{--fimg:url(assets/foot-21x9.webp)}}
+@media (max-width:1199px){.footer{--fimg:url(assets/foot-4x3.webp)}}
+@media (max-width:980px){.footer{--fimg:url(assets/foot-3x4.webp)}}
+@media (max-width:680px){
+  .footer{--fimg:url(assets/foot-9x16.webp);padding-top:min(128vw,560px);
+    background:linear-gradient(180deg,#3fa8fa 0%,rgba(63,168,250,0) 90px),linear-gradient(180deg,rgba(11,36,102,0) 55%,#0b2466 100%) top/100% 177.8vw no-repeat,var(--fimg) center top/100% auto no-repeat,#0b2466}
+}
 </style>
 </head>
 <body>
