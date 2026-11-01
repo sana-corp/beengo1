@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Beengo Study — поступление в университеты Китая</title>
+<meta name="description" content="Beengo Study помогает абитуриентам из СНГ поступить в топовые университеты Китая: подбор программ, документы, гранты.">
+<link rel="icon" href="assets/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Шрифт Onest: грузится с Google Fonts; если положить файлы в assets/fonts — будет работать и без интернета */
+@font-face{font-family:"Onest";font-weight:400;font-style:normal;font-display:swap;src:local("Onest Regular"),local("Onest-Regular"),url(assets/fonts/Onest-Regular.woff2) format("woff2")}
+@font-face{font-family:"Onest";font-weight:500;font-style:normal;font-display:swap;src:local("Onest Medium"),local("Onest-Medium"),url(assets/fonts/Onest-Medium.woff2) format("woff2")}
+@font-face{font-family:"Onest";font-weight:600;font-style:normal;font-display:swap;src:local("Onest SemiBold"),local("Onest-SemiBold"),url(assets/fonts/Onest-SemiBold.woff2) format("woff2")}
+@font-face{font-family:"Onest";font-weight:700;font-style:normal;font-display:swap;src:local("Onest Bold"),local("Onest-Bold"),url(assets/fonts/Onest-Bold.woff2) format("woff2")}
+/* =========================================================
+   ДИЗАЙН-СИСТЕМА: все отступы кратны 8px
+   ========================================================= */
+:root{
+  --blue:#0b6cf0; --blue-d:#0657c8; --navy:#0d1a3a; --ink:#050d24; --text:#1b2238; --muted:#6b7487;
+  --bg:#eef3fa; --line:#e3e9f3; --chip:#e4efff; --chip-t:#1a5fd1; --yellow:#ffe066;
+  --s1:8px; --s2:16px; --s3:24px; --s4:32px; --s5:40px; --s6:48px; --s8:64px;
+  --section:clamp(64px,8vw,104px);   /* вертикальный отступ секции */
+  --gap:24px;                         /* расстояние между карточками */
+  --pad:32px;                         /* внутренний отступ карточек */
+  --r-xl:36px; --r-lg:28px; --r-md:20px; --r-sm:14px;
+  --shadow:0 10px 30px rgba(19,52,120,.08);
+  --container:1180px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:96px}
+body{font-family:"Onest",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--text);background:var(--bg);line-height:1.45;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+button,input,select,textarea{font:inherit;color:inherit}
+button{cursor:pointer;border:0;background:none}
+.container{width:min(var(--container),100% - 2*var(--s5));margin-inline:auto}
+section{padding:var(--section) 0}
+.h2{font-size:clamp(28px,3.6vw,42px);font-weight:600;color:var(--navy);letter-spacing:-.02em;line-height:1.15}
+.center{text-align:center}
+.sub{color:var(--muted);font-size:clamp(15px,1.6vw,19px);margin-top:var(--s2)}
+.center.sub,.center .sub{margin-inline:auto}
+.head{margin-bottom:var(--s5)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:var(--s1);background:var(--blue);color:#fff;font-weight:600;font-size:14px;letter-spacing:.06em;text-transform:uppercase;border-radius:var(--r-sm);padding:18px var(--s4);transition:background .2s,transform .2s,box-shadow .2s;text-align:center}
+.btn:hover{background:var(--blue-d);transform:translateY(-2px);box-shadow:0 10px 24px rgba(11,108,240,.35)}
+.btn.block{width:100%}
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease}
+.reveal.in{opacity:1;transform:none}
+@keyframes float{50%{transform:translateY(-8px) rotate(-3deg)}}
+.dots{background-image:radial-gradient(currentColor 1.2px,transparent 1.4px);background-size:9px 9px}
+
+/* ---------- Header ---------- */
+.header{position:sticky;top:0;z-index:50;padding:var(--s1) 0;background:linear-gradient(var(--bg),rgba(238,243,250,.85));backdrop-filter:blur(10px)}
+.nav{display:flex;align-items:center;gap:var(--s2);background:#fff;border-radius:var(--r-md);padding:var(--s1) var(--s1) var(--s1) var(--s3);box-shadow:0 4px 18px rgba(19,52,120,.06)}
+.logo{flex:none;display:block}.logo img{height:30px;width:83px}
+.header .container{width:min(1240px,100% - 2*var(--s5))}
+.menu{display:flex;gap:0;margin-left:var(--s1);flex:1;justify-content:center}
+.menu a{font-size:14px;padding:10px 8px;border-radius:10px;color:#2a3147;transition:background .2s;white-space:nowrap}
+.menu a:hover,.menu a.active{background:#eaf1fb}
+.lang{flex:none;display:flex;background:#eef2f8;border-radius:10px;padding:3px;font-size:14px}
+.lang button{padding:6px 10px;border-radius:8px;color:#8a93a6}
+.lang button.on{background:#fff;color:var(--blue);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+.wa{flex:none;display:flex;align-items:center;border:2px solid var(--blue);border-radius:12px;overflow:hidden;font-size:15px;font-weight:500;color:var(--blue-d)}
+.wa .ic{background:var(--blue);display:grid;place-items:center;width:40px;align-self:stretch}
+.wa .num{padding:8px 12px;white-space:nowrap}
+.contact{flex:none;background:var(--blue);color:#fff;padding:12px 20px;border-radius:12px;font-weight:500;font-size:15px;white-space:nowrap;transition:background .2s}
+.contact:hover{background:var(--blue-d)}
+.burger{display:none;width:44px;height:44px;border-radius:12px;background:#eef2f8;place-items:center;margin-left:auto}
+.burger i,.burger i::before,.burger i::after{display:block;width:20px;height:2px;background:var(--navy);border-radius:2px;position:relative;transition:.3s}
+.burger i::before,.burger i::after{content:"";position:absolute;left:0}
+.burger i::before{top:-6px}.burger i::after{top:6px}
+.nav.open .burger i{background:transparent}
+.nav.open .burger i::before{top:0;transform:rotate(45deg)}
+.nav.open .burger i::after{top:0;transform:rotate(-45deg)}
+
+/* ---------- Hero ---------- */
+.hero{padding:var(--s4) 0 var(--section)}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:var(--s6);align-items:center}
+.hero-card{position:relative;border-radius:var(--r-lg);aspect-ratio:555/530;background:linear-gradient(180deg,#3d9bf3 0%,#77b6f1 45%,#cfe0f0 75%,#f7e7d6 100%);isolation:isolate}
+.hero-clip{position:absolute;left:0;right:0;top:-12%;bottom:0;border-radius:0 0 var(--r-lg) var(--r-lg);overflow:hidden;z-index:1;pointer-events:none}
+.hero-clip img{position:absolute;right:-3%;bottom:0;height:100%;width:auto;max-width:none}
+.hero-card h2{position:absolute;left:7%;top:7%;z-index:2;color:#fff;font-size:clamp(34px,4.4vw,54px);font-weight:500;line-height:1.05;letter-spacing:-.02em;text-shadow:0 2px 20px rgba(20,70,160,.18)}
+.hero-card blockquote{position:absolute;left:6%;right:7%;bottom:21%;z-index:3;background:linear-gradient(90deg,rgba(44,70,140,.72),rgba(44,80,160,.45));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);color:#fff;font-style:italic;font-size:clamp(13px,1.25vw,15.5px);line-height:1.4;border-radius:var(--r-sm);padding:var(--s2) var(--s3)}
+.story-btn{position:absolute;left:6%;right:7%;bottom:6%;z-index:3;display:flex;align-items:center;justify-content:space-between;gap:var(--s2);background:#fff;border-radius:var(--r-sm);padding:var(--s2) var(--s3);color:var(--blue);font-size:clamp(12px,1.15vw,14px);font-weight:600;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 10px 30px rgba(20,50,120,.15);transition:transform .2s}
+.story-btn:hover{transform:translateY(-2px)}
+.story-btn span{flex:none;width:28px;height:28px;border-radius:50%;background:var(--blue);display:grid;place-items:center;padding-left:2px}
+.hero-text{text-align:center}
+.tag{display:inline-block;background:#e3ecf8;color:#26324d;font-size:12px;font-weight:600;letter-spacing:.08em;padding:var(--s1) var(--s2);border-radius:999px}
+.hero h1{font-size:clamp(32px,4.2vw,48px);line-height:1.1;letter-spacing:-.02em;color:var(--navy);font-weight:700;margin:var(--s2) 0}
+.hero-text>p{font-size:clamp(16px,1.6vw,19px);color:#3a4258;max-width:470px;margin:0 auto}
+.budget{position:relative;margin:var(--s3) auto;max-width:470px;background:linear-gradient(180deg,#fff6cf,#fff0b6);border-radius:var(--r-md);padding:var(--s3);box-shadow:0 6px 20px rgba(240,180,30,.18)}
+.budget::before{content:"";position:absolute;left:12px;top:12px;width:10px;height:10px;border-radius:50%;background:#fff;box-shadow:inset 0 0 0 1px #f0d98a}
+.budget b{display:block;color:#7a4b06;font-size:clamp(18px,2vw,22px);font-weight:500;line-height:1.25}
+.budget small{display:block;color:#8a5b12;font-size:15px;margin-top:var(--s1)}
+.budget img{position:absolute;right:-22px;top:-30px;width:96px;filter:drop-shadow(0 8px 12px rgba(0,80,30,.25));animation:float 4s ease-in-out infinite}
+.hero .btn{width:100%;max-width:470px;padding:20px}
+.note{color:var(--muted);font-size:13px;margin-top:var(--s2)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);margin-top:var(--s8)}
+.stat{background:#dfeafa;border-radius:var(--r-md);padding:var(--s3) var(--pad)}
+.stat b{display:block;font-size:clamp(28px,3vw,34px);color:var(--blue);font-weight:600;line-height:1.1}
+.stat span{font-size:17px;color:#1d2540}
+
+/* ---------- Why China ---------- */
+.tabs{display:flex;margin:var(--s3) auto 0;background:#fff;border-radius:var(--r-sm);padding:4px;width:max-content;box-shadow:var(--shadow)}
+.tabs button{padding:12px 20px;border-radius:10px;font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#3b4560;transition:.25s}
+.tabs button.on{background:var(--blue);color:#fff}
+.why-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--gap);max-width:1066px;margin:0 auto}
+.why-card{background:#fff;border-radius:var(--r-lg);padding:var(--s4) var(--s1) var(--s1);box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .3s}
+.why-card:hover{transform:translateY(-4px)}
+.why-card h3,.why-card p{padding:0 var(--s3)}
+.why-card h3{font-size:clamp(19px,1.8vw,22px);font-weight:500;color:var(--navy)}
+.why-card p{color:var(--muted);font-size:16px;margin:var(--s1) 0 var(--s3);min-height:3em;transition:opacity .25s}
+.why-card img{border-radius:var(--r-md);width:100%;margin-top:auto}
+.fade{opacity:0}
+
+/* ---------- Pains ---------- */
+.pains{background:linear-gradient(180deg,#fff 0%,#fff 75%,#e9f1fd 100%)}
+.pains .pre{font-size:clamp(18px,2vw,24px);color:var(--navy)}
+.pains .h2{display:flex;justify-content:center;align-items:center;gap:var(--s2);flex-wrap:wrap;margin-top:var(--s1)}
+.pill{display:inline-flex;align-items:center;gap:10px;background:#dbe9ff;border-radius:999px;padding:4px 18px 6px;color:#0e2a66}
+.pill svg{width:28px;height:28px}
+.compare{background:#fff;border-radius:var(--r-xl);padding:var(--s2);display:grid;grid-template-columns:1fr 1fr;gap:var(--s2);box-shadow:0 20px 60px rgba(19,52,120,.12)}
+.side{position:relative;border-radius:var(--r-lg);padding:var(--s8) var(--pad) var(--pad)}
+.side.bad{background:#fdf2f2;color:rgba(229,72,77,.12)}
+.side.good{background:radial-gradient(120% 90% at 70% 10%,#3f8cff 0%,#1559e6 45%,#0c3fb3 100%)}
+.side h3{font-size:clamp(26px,2.8vw,34px);font-weight:600;color:var(--navy);margin-bottom:var(--s3);position:relative;z-index:1;max-width:60%}
+.side.good h3{color:#fff}
+.side .deco{position:absolute;pointer-events:none}
+.side.bad .deco{right:8%;top:-8px;width:clamp(130px,16vw,200px);filter:drop-shadow(0 14px 18px rgba(120,40,40,.15))}
+.side.good .deco{right:-24px;top:-40px;width:clamp(130px,16vw,214px);filter:drop-shadow(0 18px 24px rgba(0,0,0,.25));animation:float 5s ease-in-out infinite}
+.items{display:grid;gap:12px;position:relative}
+.item{background:#fff;border-radius:var(--r-sm);padding:var(--s2) var(--s3);display:grid;grid-template-columns:24px 1fr;gap:4px 12px;color:var(--text)}
+.side.bad .item{background:rgba(255,255,255,.88)}
+.item b{font-weight:500;font-size:18px}
+.item p{grid-column:2;color:var(--muted);font-size:14.5px}
+.item svg{width:22px;height:22px;margin-top:2px}
+
+/* ---------- Programs ---------- */
+.programs-wrap{background:linear-gradient(180deg,#4ea4fb 0%,#77b8fb 60%,#cfe4fd 100%);border-radius:var(--r-xl);padding:var(--s8) var(--s5) var(--s5)}
+.programs-wrap .h2{color:#fff}
+.programs-wrap .sub{color:rgba(255,255,255,.88)}
+.prog-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:var(--gap)}
+.prog{background:#fff;border-radius:var(--r-md);padding:6px;display:flex;flex-direction:column;box-shadow:0 12px 30px rgba(10,60,140,.12);transition:transform .3s}
+.prog:hover{transform:translateY(-6px)}
+.prog-head{position:relative;border-radius:var(--r-sm);overflow:hidden;aspect-ratio:556/312}
+.prog-head img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.prog:hover .prog-head img{transform:scale(1.04)}
+.prog-head h3{position:absolute;left:var(--s2);right:var(--s2);bottom:14px;color:#fff;font-size:clamp(20px,1.9vw,24px);font-weight:600;line-height:1.1;letter-spacing:-.01em;text-shadow:0 2px 12px rgba(0,0,0,.18)}
+.prog-body{padding:14px 10px 10px;display:flex;flex-direction:column;flex:1}
+.row{display:flex;align-items:center;gap:6px;margin-bottom:6px;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;color:#4a5370}
+.row .k{flex:none;min-width:82px}
+.badge{text-transform:none;letter-spacing:0;font-size:11.5px;line-height:1.3;padding:3px 7px;border-radius:6px;background:var(--chip);color:#1c3c78;white-space:nowrap}
+.badge.y{background:#fff1d3;color:#5a3d06}
+.lbl{font-size:10px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;color:#1d2540;margin:12px 0 6px}
+.check{list-style:none}
+.check li{position:relative;padding-left:19px;font-size:12.5px;color:#2b3350;margin-bottom:4px;line-height:1.32}
+.check li::before{content:"";position:absolute;left:0;top:2px;width:12px;height:12px;border-radius:50%;background:var(--dot,#2b82f4) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 14'%3E%3Cpath d='M4 7.2l2 2 4-4.3' fill='none' stroke='white' stroke-width='1.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
+.p1{--dot:#f39a1e}.p2{--dot:#f1b51c}.p3{--dot:#2b82f4}.p4{--dot:#3b4f86}
+.chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:14px}
+.chips span{background:var(--chip);color:var(--chip-t);font-size:11px;line-height:1.3;padding:3px 7px;border-radius:6px}
+.chips em{flex-basis:100%;font-style:normal;color:var(--chip-t);font-size:10px;margin-top:1px}
+.prog .spacer{flex:1;min-height:16px}
+.prog .btn{width:100%;padding:13px;font-size:11.5px;border-radius:12px}
+
+/* ---------- Finance ---------- */
+.finance-wrap{background:linear-gradient(180deg,#1e3f8f 0%,#0b2466 55%,#061945 100%);border-radius:var(--r-xl);padding:var(--s8) var(--s5) var(--s8);color:#fff;overflow:hidden}
+.finance-wrap .h2{color:#fff}.finance-wrap .sub{color:rgba(255,255,255,.85)}
+.fin-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gap);max-width:1000px;margin:var(--s2) auto 0;align-items:start}
+.fin{--c1:#e6efff;--c2:#cfe0ff;--b:#3b7bf0;--t:#0d2b72;border-radius:var(--r-lg);padding:var(--s1);background:var(--b);box-shadow:0 30px 60px rgba(0,0,0,.35);transition:transform .35s}
+.fin.y{--c1:#fff8dc;--c2:#ffeaa3;--b:linear-gradient(#ffdd73,#d79b16);--t:#5a3a05}
+.fin.r{--c1:#fff0ef;--c2:#ffd7d3;--b:linear-gradient(#ff8f86,#c3101e);--t:#7a0f17}
+.fin-in{background:linear-gradient(170deg,var(--c1),var(--c2));border-radius:var(--r-md);padding:var(--s3) var(--s3) 0;color:var(--navy);min-height:330px;display:flex;flex-direction:column;position:relative;overflow:hidden}
+.fin-ic{width:64px;mix-blend-mode:multiply;border-radius:16px;margin-bottom:var(--s2)}
+.fin h3{font-size:22px;font-weight:500;line-height:1.2;margin-bottom:var(--s1)}
+.fin p{font-size:14px;color:#2b3350}
+.fin-ill{margin:auto -8px 0 auto;width:82%;mix-blend-mode:multiply}
+.fin .fbtn{display:block;width:100%;margin-top:var(--s1);background:#fff;border-radius:var(--r-sm);padding:var(--s2);font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;color:var(--t);transition:transform .2s}
+.fin .fbtn:hover{transform:translateY(-2px)}
+@media (min-width:981px){
+  .fin:nth-child(1){transform:rotate(-5deg) translateY(36px)}
+  .fin:nth-child(3){transform:rotate(5deg) translateY(36px)}
+  .fin:nth-child(1) .fin-ill{transform:rotate(5deg)}
+  .fin:nth-child(3) .fin-ill{transform:rotate(-5deg)}
+  .fin:hover{transform:rotate(0) translateY(-6px)!important}
+}
+
+/* ---------- About ---------- */
+.about{background:#0a84ff;color:#fff}
+.about-grid{display:grid;grid-template-columns:.85fr 1fr;gap:var(--s6);align-items:center}
+.about-photo img{width:100%}
+.about-photo{border-radius:var(--r-lg);overflow:hidden;box-shadow:0 30px 60px rgba(0,40,120,.3)}
+.about h2{font-size:clamp(26px,2.8vw,32px);font-weight:600;line-height:1.2}
+.about p{font-size:clamp(16px,1.6vw,19px);margin-top:var(--s3);opacity:.95}
+.hl{display:inline-block;background:var(--yellow);color:var(--navy);border-radius:10px;padding:0 8px;font-weight:600}
+.ok{display:inline-flex;align-items:center;gap:6px;background:#e8fff0;color:#127a32;border-radius:8px;padding:0 8px;font-weight:500}
+.ok::before{content:"✓";display:grid;place-items:center;width:16px;height:16px;border-radius:4px;background:#2fb64b;color:#fff;font-size:11px}
+.about-cards{display:grid;grid-template-columns:1fr 1fr;gap:var(--s2);margin-top:var(--s5)}
+.acard{background:#fff;color:var(--navy);border-radius:var(--r-md);padding:var(--s3)}
+.acard b{display:block;font-size:18px;font-weight:500;margin-bottom:var(--s1)}
+.acard span{font-size:13px;color:#2b3350}
+.acard.y{background:#fff1b8;display:grid;place-items:center;font-size:22px;font-weight:600}
+
+/* ---------- Geo ---------- */
+.geo{background:#fff;padding-bottom:0;overflow:hidden}
+.geo .sub{max-width:640px}
+.globe{position:relative;margin-top:var(--s5)}
+.globe img{width:100%;max-width:1280px;margin:0 auto}
+.countries{display:none;flex-wrap:wrap;justify-content:center;gap:var(--s1);padding:var(--s3) 0 var(--s5)}
+.countries span{background:#fff;border:1px solid var(--line);border-radius:999px;padding:var(--s1) var(--s2);font-size:15px;font-weight:500;box-shadow:var(--shadow)}
+
+/* ---------- Process ---------- */
+.process{background:linear-gradient(180deg,#0f2a8a,#2a5cff)}
+.process-wrap{background:var(--ink);border-radius:var(--r-xl);padding:var(--s8) var(--s8) var(--s8)}
+.process-wrap .h2{color:#fff}
+.process-wrap .h2 span{color:#5b8cff}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s2)}
+.step{display:flex;flex-direction:column;gap:6px}
+.step-top{position:relative;background:#1557f5;border-radius:var(--r-md);padding:var(--s1);color:#fff;min-height:200px}
+.step-head{position:relative;background:#1e63ff;color:rgba(255,255,255,.14);border-radius:var(--r-sm);padding:var(--s2);min-height:110px;overflow:visible}
+.step-head .n{display:inline-block;background:#fff;color:var(--navy);font-size:12px;font-weight:600;padding:3px 9px;border-radius:7px}
+.step-head h3{color:#fff;font-size:19px;font-weight:500;line-height:1.2;margin-top:var(--s1);max-width:58%;position:relative;z-index:1}
+.step-head img{position:absolute;right:-6px;top:-22px;width:clamp(96px,10vw,136px);filter:drop-shadow(0 10px 14px rgba(0,0,0,.25));transition:transform .4s}
+.step:hover .step-head img{transform:translateY(-6px) rotate(-3deg)}
+.step-top p{font-size:14.5px;padding:var(--s2) var(--s1) var(--s1)}
+.step ol{list-style:none;background:linear-gradient(180deg,#11328f,#0a1f63);border-radius:var(--r-md);padding:var(--s3) var(--s2);flex:1;counter-reset:s}
+.step li{counter-increment:s;display:grid;grid-template-columns:28px 1fr;gap:var(--s1);color:#dbe4ff;font-size:13px;margin-bottom:var(--s2)}
+.step li:last-child{margin-bottom:0}
+.step li::before{content:"0" counter(s);color:#5b8cff;font-weight:600;font-size:14px}
+.cta-card{background:#fff3cf;border-radius:var(--r-md);padding:var(--s3);display:flex;flex-direction:column;justify-content:flex-end;color:#3a2405;position:relative;overflow:hidden;min-height:420px}
+.cta-card::before{content:"";position:absolute;inset:0 0 50% 0;color:rgba(230,150,30,.45);background-image:radial-gradient(currentColor 1.2px,transparent 1.4px);background-size:6px 6px;-webkit-mask:radial-gradient(70% 90% at 50% 0,#000 40%,transparent 72%);mask:radial-gradient(70% 90% at 50% 0,#000 40%,transparent 72%)}
+.cta-card h3{font-size:26px;font-weight:600;line-height:1.15;position:relative}
+.cta-card p{font-size:15px;margin:var(--s2) 0 var(--s3);position:relative}
+.cta-card .btn{position:relative}
+
+/* ---------- Stories ---------- */
+.stories-wrap{position:relative;background:#fff8e1;border-radius:var(--r-xl);padding:var(--s8) var(--s8) var(--s8);overflow:hidden}
+.stories-wrap::before,.stories-wrap::after{content:"";position:absolute;color:rgba(245,190,20,.6);background-image:radial-gradient(currentColor 1.4px,transparent 1.6px);background-size:7px 7px;border-radius:50%}
+.stories-wrap::before{width:340px;height:300px;right:-80px;top:180px}
+.stories-wrap::after{width:260px;height:260px;left:-120px;top:330px}
+.stories-wrap .h2{color:#3a1d05;position:relative;z-index:1}
+.story{position:relative;z-index:1;background:#fff;border-radius:var(--r-xl);padding:var(--s6);display:grid;grid-template-columns:1fr 292px;gap:var(--s6);max-width:986px;margin:0 auto;box-shadow:0 20px 50px rgba(160,110,10,.12)}
+.story-top{display:flex;justify-content:space-between;align-items:center;gap:var(--s2);margin-bottom:var(--s2)}
+.story-top h3{font-size:28px;font-weight:500;color:var(--navy)}
+.city{background:#fff3cf;color:#a76a00;border-radius:10px;padding:var(--s1) var(--s2);font-size:15px}
+.ba{display:grid;gap:var(--s1)}
+.ba div{border-radius:var(--r-sm);padding:var(--s2) var(--s2);font-size:14.5px;position:relative}
+.ba small{display:block;font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:4px}
+.ba .b1{background:#eceff3;color:var(--navy)}
+.ba .b2{background:#5ddf8a;color:#fff}
+.ba .b3{background:#2f8cff;color:#fff;padding-right:90px}
+.ba .b3 img{position:absolute;right:-20px;top:-34px;width:88px;animation:float 5s ease-in-out infinite}
+.quote{font-style:italic;color:#4a5370;font-size:17px;margin-top:var(--s3)}
+.video{position:relative;border-radius:var(--r-md);overflow:hidden;display:block;aspect-ratio:292/516;background:#ccd}
+.video img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.video:hover img{transform:scale(1.04)}
+.arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:2;width:60px;height:60px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:var(--shadow);transition:transform .2s}
+.arrow:hover{transform:translateY(-50%) scale(1.08)}
+.arrow.prev{left:var(--s5)}.arrow.next{right:var(--s5);background:#2a5cff;color:#fff}
+
+/* ---------- Docs ---------- */
+.docs-wrap{position:relative;overflow:hidden;border-radius:var(--r-xl);padding:var(--s8) var(--s8) var(--s6) 15%;background:radial-gradient(90% 80% at 25% 10%,#3f7cf2 0%,#1f55dd 40%,#0e2fa0 100%);color:#fff}
+.docs-wrap::before{content:"";position:absolute;inset:0;background:url(assets/docs-bg.png) center top/cover no-repeat;pointer-events:none}
+.docs-top{position:relative;display:grid;grid-template-columns:1.2fr .8fr;align-items:end;gap:var(--s3)}
+.docs-top h2{font-size:clamp(34px,4.6vw,56px);line-height:1.08;font-weight:600;letter-spacing:-.02em;position:relative;z-index:2}
+.docs-top p{font-size:clamp(16px,1.7vw,19px);opacity:.95;margin-top:var(--s2);max-width:440px}
+.docs-top .list{margin-top:var(--s3);font-size:17px}
+.folder{position:relative;margin:-40px -24px -8px -120px;z-index:1}
+.folder img{width:100%;filter:drop-shadow(0 30px 40px rgba(0,10,60,.35));animation:float 6s ease-in-out infinite}
+.doc-grid{position:relative;z-index:2;display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s2);margin-top:var(--s1)}
+.doc{background:#fff;color:var(--text);border-radius:var(--r-md);padding:var(--s2) var(--s3) var(--s3);min-height:156px;box-shadow:inset 0 -10px 18px -10px rgba(19,52,120,.12);transition:transform .25s}
+.doc:hover{transform:translateY(-4px)}
+.doc img{height:60px;width:auto;max-width:96px;object-fit:contain;margin-bottom:var(--s2)}
+.doc b{display:block;font-weight:500;font-size:16px}
+.doc span{display:block;font-size:12.5px;color:var(--muted);margin-top:4px;line-height:1.35}
+.docs-wrap .btn{position:relative;z-index:2;margin-top:var(--s3);padding:20px var(--s6)}
+
+/* ---------- Articles ---------- */
+.articles{background:#fff}
+.filters{display:flex;flex-wrap:wrap;gap:var(--s1);align-items:center;margin-bottom:var(--s3)}
+.filters button{background:#e6f0ff;color:var(--chip-t);font-size:12.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:12px 18px;border-radius:12px;transition:.2s}
+.filters button.on{background:var(--blue);color:#fff}
+.search{margin-left:auto;display:flex;align-items:center;gap:var(--s1);background:#f0f3f8;border-radius:12px;padding:0 var(--s2);min-width:270px}
+.search input{border:0;background:none;outline:none;padding:12px 0;font-size:13px;letter-spacing:.06em;text-transform:uppercase;font-weight:600;width:100%}
+.art-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s2)}
+.art{background:#f0f3f8;border-radius:var(--r-lg);padding:var(--s1) var(--s1) var(--s3);display:flex;flex-direction:column;transition:transform .3s}
+.art:hover{transform:translateY(-4px)}
+.art.hide{display:none}
+.cover{border-radius:var(--r-md);aspect-ratio:330/187;display:grid;place-items:center;text-align:center;padding:var(--s3);font-size:clamp(22px,2.2vw,28px);line-height:1.2;color:#fff}
+.c1{background:radial-gradient(60% 80% at 55% 50%,#ff3b1f 0%,#ff8a1f 45%,#ffd28a 100%)}
+.c2{background:linear-gradient(135deg,#2d6bff 0%,#3a5cff 45%,#a9c3ff 55%,#3c3df0 56%)}
+.c3{background:linear-gradient(160deg,#00e05a 0%,#17e85e 35%,#e5ff7a 36%,#8cff2b 100%);color:#08321a}
+.art .cat{font-size:12px;font-weight:600;letter-spacing:.06em;color:var(--blue);text-transform:uppercase;margin:var(--s3) var(--s2) var(--s1)}
+.art h3{font-size:20px;font-weight:500;color:var(--navy);line-height:1.25;margin:0 var(--s2)}
+.art p{font-size:14px;color:var(--muted);margin:var(--s1) var(--s2) var(--s3)}
+.art a{margin:auto var(--s2) 0;align-self:flex-start;color:var(--blue);font-size:13px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:3px}
+
+/* ---------- FAQ ---------- */
+.faq{background:#1f4fd0}
+.faq-wrap{background:#fffde3;border-radius:var(--r-xl);padding:var(--s8) var(--s8);display:grid;grid-template-columns:.75fr 1fr;gap:var(--s6);align-items:start}
+.faq .eyebrow{color:var(--blue);font-weight:700;font-size:13px;letter-spacing:.08em}
+.faq h2{font-size:clamp(30px,3vw,38px);font-weight:500;color:#000;margin:var(--s2) 0}
+.faq-left p{max-width:300px}
+.faq-left img{width:190px;margin-top:var(--s5);animation:float 5s ease-in-out infinite}
+.qa{display:grid;gap:12px}
+.q{background:#d4e6ff;border-radius:var(--r-md);overflow:hidden}
+.q button{width:100%;display:flex;align-items:center;justify-content:space-between;gap:var(--s2);padding:var(--s3);text-align:left;font-size:19px;font-weight:500;color:var(--navy)}
+.q .ch{flex:none;width:36px;height:36px;border-radius:50%;background:var(--blue);display:grid;place-items:center;transition:.3s}
+.q .ch svg{stroke:#fff;transition:transform .3s}
+.q.open .ch{background:#fff}.q.open .ch svg{stroke:var(--blue);transform:rotate(180deg)}
+.q .a{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s}
+.q.open .a{grid-template-rows:1fr}
+.q .a>div{overflow:hidden}
+.q .a p{padding:0 var(--s3) var(--s3);margin-top:-8px;color:#3a4a70;font-size:15px;max-width:540px}
+
+/* ---------- Checklist ---------- */
+.checklist{background:linear-gradient(180deg,#fff 0%,#dbe9ff 35%,#6fa2ff 70%,#1d4fd8 100%)}
+.checklist .h2{color:#000;font-weight:500}
+.checklist .sub{color:#222;max-width:400px}
+.dl{background:var(--ink);border-radius:var(--r-xl);padding:var(--s3);max-width:484px;margin:0 auto;color:#fff;box-shadow:0 30px 60px rgba(5,13,36,.35)}
+.dl > img{border-radius:var(--r-md);width:100%}
+.dl h3{font-size:21px;font-weight:500;margin:var(--s3) 0 var(--s2)}
+.field{display:flex;align-items:center;gap:12px;background:#28344f;border-radius:var(--r-sm);padding:14px 18px;margin-bottom:12px;font-size:15px}
+.field input[type=text]{background:none;border:0;outline:none;width:100%;color:#fff}
+.field input::placeholder{color:#93a0bd}
+.field input[type=radio]{accent-color:#fff;width:16px;height:16px}
+.dl .btn{width:100%;margin-top:var(--s1)}
+.pdf{display:flex;align-items:center;justify-content:center;gap:var(--s1);font-size:13px;margin-top:var(--s2);color:#d6dcea}
+
+/* ---------- Lead ---------- */
+.lead{background:linear-gradient(180deg,#1747c9 0%,#2f7ee8 60%,#38a2fb 100%);color:#fff}
+.lead-grid{display:grid;grid-template-columns:1fr 1fr;gap:var(--s8);align-items:center}
+.lead h2{font-size:clamp(30px,3.4vw,40px);font-weight:600;line-height:1.1;max-width:500px}
+.lead h2 em{font-style:normal;color:var(--yellow)}
+.lead-grid > div > p{font-size:18px;margin-top:var(--s2);max-width:480px;opacity:.95}
+.form{background:#fff;border-radius:var(--r-xl);padding:var(--s4);color:var(--navy);box-shadow:0 30px 60px rgba(5,30,100,.25)}
+.form label{display:block;font-size:11.5px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#4a5370;margin-bottom:var(--s1)}
+.form .in{width:100%;background:#eef0f4;border:1.5px solid transparent;border-radius:var(--r-sm);padding:18px var(--s3);font-size:16px;margin-bottom:var(--s2);outline:none;transition:border .2s,background .2s;text-transform:none}
+.form .in:focus{border-color:var(--blue);background:#fff}
+.form .in::placeholder{color:#9aa1b0;text-transform:uppercase;letter-spacing:.04em}
+.form select.in{appearance:none;padding-right:56px;text-transform:uppercase;letter-spacing:.04em;color:#4a5370;background:#eef0f4 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='none' stroke='%231b2238' stroke-width='2'%3E%3Cpath d='M3 6l5 5 5-5'/%3E%3C/svg%3E") no-repeat right 24px center;cursor:pointer}
+.form textarea.in{min-height:104px;resize:vertical}
+.form .btn{width:100%}
+.done{text-align:center;padding:var(--s5) 0}
+.done b{display:block;font-size:24px;margin-bottom:var(--s1)}
+
+/* ---------- Footer ---------- */
+.footer{position:relative;background:url(assets/footbg.jpg) center/cover;padding:var(--s8) 0 0}
+.foot-wrap{position:relative;border-radius:var(--r-xl) var(--r-xl) var(--r-xl) var(--r-xl);background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(4,18,60,.82) 85%);backdrop-filter:blur(6px);padding:var(--s6);display:grid;grid-template-columns:1fr 1.25fr;gap:var(--s5);margin-bottom:var(--s5)}
+.fcard{background:linear-gradient(180deg,#fff 0%,#eef4ff 70%,#d8e6ff 100%);border-radius:var(--r-lg);padding:var(--s4);color:var(--navy)}
+.fbrand{display:flex;align-items:center;gap:var(--s2)}
+.fbrand img{height:38px;width:auto}
+.fbrand small{font-style:italic;font-size:12px;color:#2b3350;line-height:1.3}
+.fcard h3{font-size:24px;font-weight:600;line-height:1.2;margin:var(--s3) 0 var(--s1)}
+.fcard p{font-size:16px}
+.fcard .btn{width:100%;margin:var(--s3) 0 var(--s1)}
+.finfo{display:grid;grid-template-columns:1fr 1fr;gap:var(--s1)}
+.finfo div{background:#fff;border-radius:var(--r-sm);padding:var(--s2)}
+.finfo small{display:block;font-size:10.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.finfo span{font-size:15px}
+.fcols{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--s3);color:#fff;align-self:center}
+.fcols h4{font-size:11px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;opacity:.85;margin-bottom:var(--s2)}
+.fcols a{display:block;font-size:15px;margin-bottom:12px;opacity:.95;transition:opacity .2s}
+.fcols a:hover{opacity:1;text-decoration:underline}
+.fcols small{display:block;font-size:12px;opacity:.8;margin-bottom:4px}
+.soc{display:flex;gap:var(--s1)}
+.soc a{width:34px;height:34px;border-radius:8px;background:var(--blue);display:grid;place-items:center;margin:0}
+.fbar{background:#020a24;color:#fff;font-size:13.5px}
+.fbar .container{display:flex;justify-content:space-between;gap:var(--s2);padding:var(--s2) 0;flex-wrap:wrap}
+
+/* ---------- Modal ---------- */
+.modal{position:fixed;inset:0;z-index:100;display:grid;place-items:center;padding:var(--s3);background:rgba(9,20,50,.55);backdrop-filter:blur(4px);opacity:0;pointer-events:none;transition:opacity .25s}
+.modal.show{opacity:1;pointer-events:auto}
+.modal .form{width:min(460px,100%);position:relative;transform:translateY(16px);transition:transform .25s}
+.modal.show .form{transform:none}
+.modal h3{font-size:24px;font-weight:600;margin-bottom:var(--s1)}
+.modal .form > div > p{color:var(--muted);margin-bottom:var(--s3);font-size:15px}
+.close{position:absolute;right:var(--s2);top:var(--s2);width:36px;height:36px;border-radius:50%;background:#f0f3f8;font-size:20px;line-height:1}
+
+
+/* =========================================================
+   ФРЕЙМЫ: каждый блок — аккуратная скруглённая рамка
+   ========================================================= */
+.sec{padding:12px 0}
+.frame{position:relative;width:min(1408px,100% - 32px);margin:0 auto;border-radius:40px;padding:var(--section) 0;overflow:hidden;background:#fff;isolation:isolate}
+.frame .programs-wrap,.frame .finance-wrap,.frame .process-wrap,.frame .stories-wrap,.frame .docs-wrap,.frame .faq-wrap{background:none;border-radius:0;padding:0;box-shadow:none;overflow:visible}
+.frame.why{background:#fff}
+.frame.why .why-card{box-shadow:0 0 0 1px #e6edf7,0 14px 34px rgba(19,52,120,.07)}
+.frame.pains{background:linear-gradient(180deg,#fff 0%,#fff 60%,#eaf2fe 100%)}
+.frame.programs{background:linear-gradient(180deg,#4ea4fb 0%,#77b8fb 60%,#cfe4fd 100%)}
+.frame.finance{background:linear-gradient(180deg,#1e3f8f 0%,#0b2466 55%,#061945 100%)}
+.frame.about{background:#0a84ff}
+.frame.geo{background:#fff;padding-bottom:0}
+.frame.process{background:var(--ink)}
+.frame.stories{background:#fff8e1}
+.frame.docs{background:radial-gradient(90% 80% at 25% 10%,#3f7cf2 0%,#1f55dd 40%,#0e2fa0 100%);color:#fff}
+.frame.docs::before{content:"";position:absolute;inset:0;background:url(assets/docs-bg.png) center top/cover no-repeat;pointer-events:none;z-index:-1}
+.frame .docs-wrap{padding-left:8%}
+.frame .docs-wrap::before{display:none}
+.frame.articles{background:#fff}
+.frame.faq{background:#fffde3}
+.frame.checklist{background:linear-gradient(180deg,#f7faff 0%,#e3edff 35%,#8fb4ff 70%,#3366ea 100%)}
+.frame.lead{background:linear-gradient(150deg,#1646c8 0%,#2468e0 50%,#38a2fb 100%)}
+.frame.lead::before{content:"";position:absolute;width:620px;height:620px;right:-160px;top:-220px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.22),transparent 65%);z-index:-1}
+.frame.lead::after{content:"";position:absolute;width:520px;height:520px;left:-200px;bottom:-260px;border-radius:50%;background:radial-gradient(circle,rgba(120,200,255,.35),transparent 65%);z-index:-1}
+.hero{padding-bottom:var(--s5)}
+.footer{width:min(1408px,100% - 32px);margin:12px auto 16px;border-radius:40px;overflow:hidden}
+.stories-wrap .arrow.prev{left:0}.stories-wrap .arrow.next{right:0}
+
+/* увеличенная типографика (кроме первого блока и программ) */
+.h2{font-size:clamp(30px,3.8vw,46px)}
+.programs-wrap .h2{font-size:clamp(28px,3.6vw,42px)}
+.sub{font-size:clamp(16px,1.7vw,20px)}
+.programs-wrap .sub{font-size:clamp(15px,1.6vw,19px)}
+.why-card h3{font-size:clamp(20px,2vw,25px)} .why-card p{font-size:17px}
+.pains .pre{font-size:clamp(19px,2.1vw,26px)} .item b{font-size:19px} .item p{font-size:15.5px}
+.side h3{font-size:clamp(28px,3vw,38px)}
+.fin h3{font-size:24px} .fin p{font-size:15px} .fin-in{min-height:350px} .fin .fbtn{font-size:13.5px}
+.about h2{font-size:clamp(28px,3vw,38px)} .about p{font-size:clamp(17px,1.7vw,20px)}
+.acard{padding:var(--s3) var(--s4)} .acard b{font-size:20px} .acard span{font-size:15px} .acard.y{font-size:28px}
+.step-head h3{font-size:21px} .step-top p{font-size:16px} .step li{font-size:14.5px} .step li::before{font-size:15px}
+.story-top h3{font-size:32px} .ba div{font-size:16px} .ba small{font-size:13px} .quote{font-size:19px} .city{font-size:16px}
+.doc b{font-size:17px} .doc span{font-size:13.5px} .docs-top p{font-size:clamp(17px,1.8vw,20px)}
+.art h3{font-size:22px} .art p{font-size:15.5px} .cover{font-size:clamp(24px,2.4vw,30px)} .filters button{font-size:13px}
+.faq h2{font-size:clamp(34px,3.4vw,46px)} .faq-left p{font-size:17px;max-width:340px} .q button{font-size:20px} .q .a p{font-size:16.5px}
+.checklist .sub{max-width:480px} .dl{max-width:540px;padding:var(--s4)} .dl h3{font-size:23px} .field{font-size:16px;padding:17px 20px} .pdf{font-size:14px}
+.lead-grid{grid-template-columns:1.05fr 1fr;gap:var(--s8)}
+.lead h2{font-size:clamp(34px,4.2vw,56px);max-width:600px;line-height:1.08}
+.lead-grid > div > p{font-size:clamp(17px,1.8vw,21px);max-width:540px;margin-top:var(--s3)}
+.lead .form{padding:var(--s5);border-radius:var(--r-xl)}
+.lead .form label{font-size:12.5px}
+.lead .form .in{font-size:17px;padding:20px var(--s3)}
+.lead .form textarea.in{min-height:128px}
+.lead .form .btn{padding:21px;font-size:15px}
+
+/* =========================================================
+   АДАПТИВ
+   ========================================================= */
+@media (max-width:1300px){.wa .num{display:none}}
+@media (max-width:1180px){
+  .menu a{padding:10px 8px;font-size:13.5px}
+  .prog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .process-wrap,.stories-wrap,.faq-wrap{padding:var(--s6) var(--s5)}
+  .arrow.prev{left:var(--s1)}.arrow.next{right:var(--s1)}
+}
+@media (max-width:980px){
+  :root{--gap:16px;--pad:24px}
+  .menu,.lang,.wa,.contact{display:none}
+  .burger{display:grid}
+  .nav{flex-wrap:wrap}
+  .nav.open .menu{display:flex;flex-direction:column;flex-basis:100%;margin:var(--s1) 0 4px;order:3}
+  .nav.open .menu a{font-size:16px;padding:12px}
+  .nav.open .lang,.nav.open .contact,.nav.open .wa{flex:none;display:flex;order:4;margin-bottom:var(--s1)}
+  .nav.open .wa .num{display:block}
+  .hero-grid,.about-grid,.lead-grid,.faq-wrap,.foot-wrap{grid-template-columns:1fr}
+  .hero-grid{gap:var(--s4)}
+  .hero-card,.about-photo{max-width:540px;margin:0 auto;width:100%}
+  .hero-card{margin-top:var(--s5)}
+  .hero-text{order:-1}
+  .compare{grid-template-columns:1fr}
+  .side.good .deco{right:-8px}
+  .fin-grid{grid-template-columns:1fr;max-width:420px}
+  .steps{grid-template-columns:repeat(2,1fr)}
+  .story{grid-template-columns:1fr;padding:var(--s4)}
+  .video{max-width:320px;margin:0 auto;width:100%}
+  .arrow{top:auto;bottom:var(--s3);transform:none}.arrow:hover{transform:scale(1.08)}
+  .stories-wrap{padding-bottom:110px}
+  .arrow.prev{left:calc(50% - 72px)}.arrow.next{right:calc(50% - 72px)}
+  .docs-wrap{padding:var(--s6) var(--s4) var(--s5)}
+  .docs-top{grid-template-columns:1fr}
+  .folder{order:-1;margin:-24px auto -32px;max-width:380px}
+  .doc-grid{grid-template-columns:repeat(2,1fr)}
+  .art-grid{grid-template-columns:1fr 1fr}
+  .search{margin-left:0;flex-basis:100%}
+  .faq-left{text-align:center}.faq-left p{margin:0 auto}.faq-left img{display:none}
+  .lead-grid{gap:var(--s5)}
+  .fcols{grid-template-columns:repeat(3,1fr)}
+}
+@media (max-width:680px){
+  :root{--s8:48px}
+  .container{width:calc(100% - 2*var(--s2))}
+  .stats{grid-template-columns:1fr;gap:var(--s1);margin-top:var(--s5)}
+  .why-grid,.art-grid,.steps,.about-cards{grid-template-columns:1fr}
+  .why-card p{min-height:0}
+  .compare{padding:var(--s1);border-radius:var(--r-lg)}
+  .side{padding:var(--s5) var(--s2) var(--s2);border-radius:var(--r-md)}
+  .side h3{max-width:62%}
+  .item{padding:var(--s2)}
+  .programs-wrap,.finance-wrap,.process-wrap,.stories-wrap,.faq-wrap{padding:var(--s5) var(--s2) var(--s3);border-radius:var(--r-lg)}
+  .stories-wrap{padding-bottom:104px}
+  .story{padding:var(--s3) var(--s2)}
+  .prog-grid{grid-template-columns:1fr}
+  .docs-wrap{border-radius:var(--r-lg);padding:var(--s5) var(--s2) var(--s3)}
+  .doc{min-height:0}
+  .docs-wrap .btn{width:100%;padding:18px var(--s2);font-size:13px}
+  .tabs button{padding:11px 14px}
+  .budget img{right:-6px;width:68px}
+  .hero-card{aspect-ratio:auto;height:470px}
+  .hero-clip img{right:-18%}
+  .hero-card blockquote{bottom:118px}
+  .story-btn{bottom:var(--s3);padding:14px var(--s2)}
+  .globe img{width:150%;max-width:none;margin-left:-25%}
+  .countries{display:flex}
+  .step-head h3{max-width:62%}
+  .cta-card{min-height:340px}
+  .q button{font-size:17px;padding:var(--s2) var(--s3)}
+  .form{padding:var(--s3)}
+  .foot-wrap{padding:var(--s2);border-radius:var(--r-lg)}
+  .fcard{padding:var(--s3)}
+  .fcols{grid-template-columns:1fr 1fr;padding:var(--s2)}
+  .fcols > div:last-child{grid-column:span 2}
+  .finfo{grid-template-columns:1fr}
+}
+@media (max-width:420px){
+  .doc-grid{grid-template-columns:1fr}
+  .doc{display:grid;grid-template-columns:56px 1fr;align-items:center;gap:0 var(--s2);padding:var(--s2)}
+  .doc img{grid-row:span 2;margin:0;height:auto;width:56px}
+}
+@media (max-width:980px){.frame .docs-wrap{padding-left:0}.lead-grid{grid-template-columns:1fr}}
+@media (max-width:680px){.sec{padding:6px 0}.frame,.footer{width:calc(100% - 16px);border-radius:28px}.footer{margin:6px auto 8px}.frame.lead::before,.frame.lead::after{display:none}.lead .form{padding:var(--s3)}.story-top h3{font-size:26px}.q button{font-size:17px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="container">
+    <nav class="nav" id="nav">
+      <a href="#top" class="logo"><img src="assets/logo.svg" alt="beengo" width="94" height="34"></a>
+      <div class="menu">
+        <a href="#why">Почему именно Китай?</a>
+        <a href="#pains">Боли и Решения</a>
+        <a href="#programs">Программы</a>
+        <a href="#stories">Отзывы</a>
+        <a href="#process">Процесс</a>
+        <a href="#faq">FAQ</a>
+      </div>
+      <div class="lang"><button class="on">rus</button><button>eng</button></div>
+      <a class="wa" href="https://wa.me/8613073044160" target="_blank" rel="noopener">
+        <span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm5.6 14.2c-.2.7-1.4 1.3-2 1.4-.5.1-1.2.1-1.9-.1-.4-.1-1-.3-1.700-.6-3-1.3-4.9-4.3-5.1-4.5-.1-.2-1.2-1.6-1.2-3.1s.8-2.2 1-2.5c.3-.3.6-.4.8-.4h.6c.2 0 .4 0 .6.5l.9 2.1c.1.2.1.3 0 .5l-.3.5-.4.5c-.1.1-.3.3-.1.6.2.3.8 1.3 1.7 2.1 1.200 1 2.1 1.4 2.4 1.5.3.1.5.1.6-.1l.9-1c.2-.3.4-.2.6-.1l2 1c.3.1.5.2.5.3.1.2.1.7-.1 1.4z"/></svg></span>
+        <span class="num">+86 130 7304 4160</span>
+      </a>
+      <button class="contact" data-open>Связаться с нами</button>
+      <button class="burger" id="burger" aria-label="Меню"><i></i></button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============ HERO ============ -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div class="hero-card reveal">
+        <div class="hero-clip"><img src="assets/alsu.png" alt="Студентка Beengo Алсу" width="580" height="619"></div>
+        <h2>Наша<br>студентка<br>Алсу</h2>
+        <blockquote>«Спокойно обращайтесь в Beengo, они вам действительно помогут. Сейчас я получаю качественное образование без самостоятельного поиска!»</blockquote>
+        <a href="#stories" class="story-btn">Смотреть историю поступления<span><svg width="10" height="12" viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z" fill="#fff"/></svg></span></a>
+      </div>
+      <div class="hero-text reveal">
+        <span class="tag">НАБОР НА 2026-2027 ГОД</span>
+        <h1>Поступите в топовый университет Китая</h1>
+        <p>Beengo Study помогает абитуриентам со всего СНГ подобрать специальность, оформить академические документы и получить приглашение от вуза</p>
+        <div class="budget">
+          <img src="assets/money.png" alt="">
+          <b>Подбираем программы<br>под любой бюджет</b>
+          <small>От грантов и скидок до контрактного обучения</small>
+        </div>
+        <button class="btn" data-open>Бесплатный разбор шансов</button>
+        <div class="note">Это бесплатно и ни к чему не обязывает. Ваши данные в безопасности.</div>
+      </div>
+    </div>
+    <div class="stats">
+      <div class="stat reveal"><b data-count="98" data-suffix="%">98%</b><span>Успешных поступлений</span></div>
+      <div class="stat reveal"><b data-count="50" data-prefix="Более ">Более 50</b><span>Учебных заведений-партнеров</span></div>
+      <div class="stat reveal"><b data-count="7" data-suffix="+ лет">7+ лет</b><span>Опыта в сфере образования</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ WHY CHINA ============ -->
+<section id="why" class="sec"><div class="frame why">
+  <div class="container">
+    <div class="head center">
+      <h2 class="h2 reveal">Почему именно Китай?</h2>
+      <p class="sub reveal">Китай — это маршрут к международной карьере и жизни будущего</p>
+      <div class="tabs">
+        <button class="on" data-tab="s">Для студента</button>
+        <button data-tab="p">Для родителей</button>
+      </div>
+    </div>
+    <div class="why-grid">
+      <article class="why-card reveal">
+        <h3 data-s="Диплом, за которым охотятся работодатели" data-p="Диплом, который открывает двери">Диплом, за которым охотятся работодатели</h3>
+        <p data-s="Доступ к практике и стажировкам в глобальных IT- и технологических гигантах." data-p="Диплом ведущего вуза Китая ценится работодателями по всему миру — это надёжная инвестиция в карьеру ребёнка.">Доступ к практике и стажировкам в глобальных IT- и технологических гигантах.</p>
+        <img src="assets/why1.png" alt="">
+      </article>
+      <article class="why-card reveal">
+        <h3 data-s="Кампусы как из фильмов про будущее" data-p="Безопасность и современная среда">Кампусы как из фильмов про будущее</h3>
+        <p data-s="Роботы-доставщики, пропускная система по биометрии, огромные лаборатории и спорткомплексы." data-p="Охраняемые кампусы с биометрическим доступом, общежития на территории вуза и всё необходимое рядом.">Роботы-доставщики, пропускная система по биометрии, огромные лаборатории и спорткомплексы.</p>
+        <img src="assets/why2.png" alt="">
+      </article>
+      <article class="why-card reveal">
+        <h3 data-s="Деньги на жизнь и путешествия" data-p="Обучение без огромных затрат">Деньги на жизнь и путешествия</h3>
+        <p data-s="Грант покрывает не только учёбу и современное общежитие, но и даёт ежемесячную стипендию на карманные расходы." data-p="Гранты покрывают обучение и проживание, а ежемесячная стипендия снимает часть расходов с семейного бюджета.">Грант покрывает не только учёбу и современное общежитие, но и даёт ежемесячную стипендию на карманные расходы.</p>
+        <img src="assets/why3.png" alt="">
+      </article>
+      <article class="why-card reveal">
+        <h3 data-s="Путешествия по всей Азии" data-p="Близко к дому">Путешествия по всей Азии</h3>
+        <p data-s="На скоростных поездах можно легко объездить всю страну, а на каникулах дешево слетать в соседние азиатские страны." data-p="Удобная логистика и перелёты в города СНГ — ребёнок сможет приезжать домой на каникулы.">На скоростных поездах можно легко объездить всю страну, а на каникулах дешево слетать в соседние азиатские страны.</p>
+        <img src="assets/why4.png" alt="">
+      </article>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ PAINS ============ -->
+<section id="pains" class="sec"><div class="frame pains">
+  <div class="container">
+    <div class="head center">
+      <p class="pre reveal">Самостоятельное поступление - это риски</p>
+      <h2 class="h2 reveal">С Beengo Study - четкая
+        <span class="pill">система <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#2fb64b"/><path d="M7 12.4l3.2 3.2L17 8.8" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      </h2>
+      <p class="sub reveal" style="max-width:640px">Ошибка в одной анкете или упущенный дедлайн могут стоить целого года. Мы берем всю сложную рутину на себя.</p>
+    </div>
+    <div class="compare reveal">
+      <div class="side bad dots">
+        <img class="deco" src="assets/rejected.png" alt="">
+        <h3>Поступать самому</h3>
+        <div class="items">
+          <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="#e5484d" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg><b>Языковой барьер и регламенты</b><p>Сайты большинства университетов на китайском языке. Внутренние требования комиссий не очевидны, из-за чего легко упустить дедлайн подачи.</p></div>
+          <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="#e5484d" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg><b>Ошибки в пакете документов</b><p>Ошибки в переводах или отсутствие нужной печати приводят к автоматическому отклонению заявки приемной комиссией.</p></div>
+          <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="#e5484d" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg><b>Поступление вслепую</b><p>Сложно объективно оценить свой средний балл (GPA). Подача документов только в один вуз наугад часто заканчивается потерей времени и учебного года.</p></div>
+        </div>
+      </div>
+      <div class="side good">
+        <img class="deco" src="assets/trophy.png" alt="">
+        <h3>С Beengo Study</h3>
+        <div class="items">
+          <div class="item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#2fb64b"/><path d="M7 12.4l3.2 3.2L17 8.8" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Прямой контакт с университетами</b><p>Ведем официальную деловую коммуникацию с деканатами на китайском языке и держим все дедлайны под строгим контролем.</p></div>
+          <div class="item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#2fb64b"/><path d="M7 12.4l3.2 3.2L17 8.8" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Двойной аудит и официальные шаблоны</b><p>Выдаем проверенные бланки, помогаем составить сильное мотивационное письмо и досконально проверяем каждый файл перед отправкой в КНР.</p></div>
+          <div class="item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#2fb64b"/><path d="M7 12.4l3.2 3.2L17 8.8" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Страховка зачисления (98% успеха)</b><p>Проводим аудит ваших оценок и подаем документы сразу в 3–5 проверенных вузов с запасом по баллам, чтобы вы гарантированно получили приказ о зачислении.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ PROGRAMS ============ -->
+<section id="programs" class="sec"><div class="frame programs">
+  <div class="container">
+    <div class="programs-wrap">
+      <div class="head center">
+        <h2 class="h2 reveal">Выберите направление обучения в Китае</h2>
+        <p class="sub reveal">Сравните форматы и состав программ, чтобы выбрать подходящее направление.</p>
+      </div>
+      <div class="prog-grid">
+        <article class="prog p1 reveal">
+          <div class="prog-head"><img src="assets/prog1.png" alt="" width="556" height="312"><h3>Языковой год</h3></div>
+          <div class="prog-body">
+            <div class="row"><span class="k">Длительность:</span><span class="badge">0,5-1 год</span></div>
+            <div class="row"><span class="k">Требования:</span><span class="badge y">Обучение с нуля</span></div>
+            <div class="lbl">Этапы обучения:</div>
+            <ul class="check"><li>Интенсивное изучение китайского языка</li><li>Подготовка к экзаменам HSK</li></ul>
+            <div class="lbl">Что входит:</div>
+            <ul class="check"><li>Погружение в культуру и повседневную жизнь</li><li>Краткосрочные и летние программы</li></ul>
+            <div class="spacer"></div>
+            <button class="btn" data-open data-program="Языковой год">Узнать подробнее</button>
+          </div>
+        </article>
+        <article class="prog p2 reveal">
+          <div class="prog-head"><img src="assets/prog2.png" alt="" width="556" height="312"><h3>Колледж</h3></div>
+          <div class="prog-body">
+            <div class="row"><span class="k">Длительность:</span><span class="badge">1+2 / 1+3 года</span></div>
+            <div class="row"><span class="k">Требования:</span><span class="badge y">После 9 или 11 класса</span></div>
+            <div class="lbl">Этапы обучения:</div>
+            <ul class="check"><li>1 год изучения китайского языка</li><li>2-3 года обучения по специальности</li></ul>
+            <div class="lbl">Что входит:</div>
+            <ul class="check"><li>Практическое образование: IT, бизнес, дизайн, технологии, гостиничный сервис и другие направления</li><li>Доступная стоимость обучения</li><li>База для перехода на бакалавриат</li></ul>
+            <div class="chips"><span>IT</span><span>Бизнес</span><span>Дизайн</span><span>Технологии</span><span>Гостиничный сервис</span><em>и другие направления</em></div>
+            <div class="spacer"></div>
+            <button class="btn" data-open data-program="Колледж">Узнать подробнее</button>
+          </div>
+        </article>
+        <article class="prog p3 reveal">
+          <div class="prog-head"><img src="assets/prog3.png" alt="" width="556" height="312"><h3>Бакалавриат</h3></div>
+          <div class="prog-body">
+            <div class="row"><span class="k">Длительность:</span><span class="badge">1+4 / 4 года</span></div>
+            <div class="row"><span class="k">Требования:</span><span class="badge y">После 11 класса</span></div>
+            <div class="lbl">Этапы обучения:</div>
+            <ul class="check"><li>1 год изучения китайского языка</li><li>4 года обучения по специальности</li></ul>
+            <div class="lbl">Что входит:</div>
+            <ul class="check"><li>Программы на английском или китайском языке</li><li>Помощь с документами</li><li>Требования зависят от выбранной программы</li></ul>
+            <div class="chips"><span>Инженерия</span><span>Экономика</span><span>IT</span><span>Медицина</span><span>Искусство</span><em>и другие направления</em></div>
+            <div class="spacer"></div>
+            <button class="btn" data-open data-program="Бакалавриат">Узнать подробнее</button>
+          </div>
+        </article>
+        <article class="prog p4 reveal">
+          <div class="prog-head"><img src="assets/prog4.png" alt="" width="556" height="312"><h3>Магистратура</h3></div>
+          <div class="prog-body">
+            <div class="row"><span class="k">Длительность:</span><span class="badge">2-3 года</span></div>
+            <div class="row"><span class="k">Требования:</span><span class="badge y">После бакалавриата</span></div>
+            <div class="lbl">Этапы обучения:</div>
+            <ul class="check"><li>Углублённое обучение и научные исследования</li><li>Международные стажировки и проекты</li></ul>
+            <div class="lbl">Что входит:</div>
+            <ul class="check"><li>Программы на китайском и английском языках</li></ul>
+            <div class="chips"><span>Инновации</span><span>Технологии</span><span>Бизнес</span><em>и другие направления</em></div>
+            <div class="spacer"></div>
+            <button class="btn" data-open data-program="Магистратура">Узнать подробнее</button>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ FINANCE ============ -->
+<section id="finance" class="sec"><div class="frame finance">
+  <div class="container">
+    <div class="finance-wrap">
+      <div class="head center">
+        <h2 class="h2 reveal">Форматы финансирования</h2>
+        <p class="sub reveal">Гранты, скидки и платное обучение: подберем вариант под ваш бюджет</p>
+      </div>
+      <div class="fin-grid">
+        <div class="fin reveal">
+          <div class="fin-in">
+            <img class="fin-ic" src="assets/fi1.png" alt="">
+            <h3>Полные и частичные гранты</h3>
+            <p>Для абитуриентов с высоким средним баллом или знанием языка. Покрывает 100% стоимости обучения, проживание, а иногда и стипендию.</p>
+            <img class="fin-ill" src="assets/fc1.png" alt="">
+          </div>
+          <button class="fbtn" data-open>Бесплатный разбор шансов</button>
+        </div>
+        <div class="fin y reveal">
+          <div class="fin-in">
+            <img class="fin-ic" src="assets/fi2.png" alt="">
+            <h3>Академические скидки</h3>
+            <p>Для студентов со стабильными хорошими оценками. Скидки от 20% до 70% на оплату обучения или бесплатное проживание.</p>
+            <img class="fin-ill" src="assets/fc2.png" alt="">
+          </div>
+          <button class="fbtn" data-open>Бесплатный разбор шансов</button>
+        </div>
+        <div class="fin r reveal">
+          <div class="fin-in">
+            <img class="fin-ic" src="assets/fi3.png" alt="">
+            <h3>Платный контракт</h3>
+            <p>Для гарантированного поступления без жесткого конкурса. Цены сопоставимы с вузами СНГ, но дают международный диплом.</p>
+            <img class="fin-ill" src="assets/fc3.png" alt="">
+          </div>
+          <button class="fbtn" data-open>Бесплатный разбор шансов</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ ABOUT ============ -->
+<section id="about" class="sec"><div class="frame about">
+  <div class="container about-grid">
+    <div class="about-photo reveal"><img src="assets/about.png" alt="Студент Beengo с полученной визой" width="469" height="653"></div>
+    <div>
+      <h2 class="reveal">Beengo Study - официальный представитель вузов Китая, а не просто посредник</h2>
+      <p class="reveal">Мы не рассылаем заявки наугад. За <span class="hl">+7 лет</span> мы выстроили прямые партнерские отношения с университетами.</p>
+      <p class="reveal">Мы знаем внутренние требования приемных комиссий, поэтому беремся только за те кейсы, в которых <span class="ok">уверены</span></p>
+      <div class="about-cards">
+        <div class="acard reveal"><b>Официальный договор:</b><span>Прописываем все наши обязательства юридически.</span></div>
+        <div class="acard reveal"><b>98% зачислений:</b><span>Делаем подачу сразу в 3-5 вузов для подстраховки.</span></div>
+        <div class="acard reveal"><b>Свои люди в Китае:</b><span>У нас есть кураторы на местах, которые решат любой вопрос.</span></div>
+        <div class="acard y reveal">+7 лет</div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ GEO ============ -->
+<section id="geo" class="sec"><div class="frame geo">
+  <div class="container center">
+    <h2 class="h2 reveal">Официальный представитель вузов в Китае</h2>
+    <p class="sub reveal">Мы выстроили удаленный процесс оформления так, чтобы абитуриенты из любого города могли легко подать документы без лишних поездок.</p>
+  </div>
+  <div class="globe"><img src="assets/globe.png" alt="Карта: Россия, Беларусь, Казахстан, Азербайджан, Кыргызстан, Узбекистан" width="1280" height="674"></div>
+  <div class="countries container">
+    <span>🇷🇺 Россия</span><span>🇰🇿 Казахстан</span><span>🇺🇿 Узбекистан</span><span>🇰🇬 Кыргызстан</span><span>🇧🇾 Беларусь</span><span>🇦🇿 Азербайджан</span>
+  </div>
+</div></section>
+
+<!-- ============ PROCESS ============ -->
+<section id="process" class="sec"><div class="frame process">
+  <div class="container">
+    <div class="process-wrap">
+      <h2 class="h2 head reveal">5 понятных шагов к <span>вашему зачислению</span></h2>
+      <div class="steps">
+        <div class="step reveal">
+          <div class="step-top"><div class="step-head dots"><span class="n">1 ШАГ</span><h3>Анализ профиля и подбор вузов</h3><img src="assets/st1.png" alt=""></div>
+            <p>Мы не предлагаем стандартные списки. Работа начинается с детального разбора вашей ситуации</p></div>
+          <ol><li>Оцениваем средний балл аттестата (GPA), уровень языка и финансовые ожидания.</li><li>Анализируем шансы на получение грантов или академических скидок.</li><li>Формируем персональный шорт-лист из 3–5 надежных университетов, где ваши сильные стороны сработают лучше всего, и согласовываем финальный выбор направлений с вами.</li></ol>
+        </div>
+        <div class="step reveal">
+          <div class="step-top"><div class="step-head dots"><span class="n">2 ШАГ</span><h3>Сбор и проверка документов</h3><img src="assets/st2.png" alt=""></div>
+            <p>Помогаем собрать идеальный пакет документов без ошибок, которые могут стоить вам зачисления.</p></div>
+          <ol><li>Предоставляем четкие шаблоны и инструкции от агентства для сбора всех необходимых справок и выписок.</li><li>Проводим тщательную проверку и аудит каждого документа на соответствие строгим требованиям китайских вузов.</li><li>Консультируем по правильному оформлению мотивационных и рекомендательных писем (без нотариального заверения и переводов с нашей стороны).</li></ol>
+        </div>
+        <div class="step reveal">
+          <div class="step-top"><div class="step-head dots"><span class="n">3 ШАГ</span><h3>Подача заявок в университеты</h3><img src="assets/st3.png" alt=""></div>
+            <p>Берем на себя всю бюрократию и общение с приемными комиссиями.</p></div>
+          <ol><li>Грамотно заполняем анкеты и загружаем досье на порталы выбранных университетов.</li><li>Ведем прямые переговоры и официальную переписку с представителями вузов.</li><li>Оперативно реагируем на запросы приемной комиссии и отслеживаем статусы ваших заявок в режиме реального времени.</li></ol>
+        </div>
+        <div class="step reveal">
+          <div class="step-top"><div class="step-head dots"><span class="n">4 ШАГ</span><h3>Получение приказа о зачислении</h3></div>
+            <p>Самый долгожданный этап — подтверждение вашего места в университете.</p></div>
+          <ol><li>Получаем официальное письмо о зачислении (Admission Notice) от университета.</li><li>Контролируем выпуск формы JW201/JW202, необходимой для оформления студенческой визы.</li><li>Убеждаемся, что за вами закреплен грант, скидка или место в общежитии (если это было предусмотрено условиями).</li></ol>
+        </div>
+        <div class="step reveal">
+          <div class="step-top"><div class="step-head dots"><span class="n">5 ШАГ</span><h3>Финальная подготовка к переезду</h3><img src="assets/st5.png" alt="" style="width:clamp(70px,7vw,92px);right:6px"></div>
+            <p>Помогаем спокойно собраться и уверенно стартовать в новой стране.</p></div>
+          <ol><li>Подготавливаем вас к самостоятельному получению визы и комфортному старту в Китае.</li><li>Даем памятку по покупке билетов, сборам чемодана и правилам въезда в страну.</li><li>Консультируем по первым шагам после прибытия в Китай: регистрация в кампусе, заселение и подключение местной связи.</li></ol>
+        </div>
+        <div class="cta-card reveal">
+          <h3>Узнайте свои шансы на поступление</h3>
+          <p>Оставьте заявку, и наши эксперты бесплатно разберут ваш профиль, оценят шансы на грант и ответят на все вопросы.</p>
+          <a class="btn" href="#stories">Смотреть отзыв Алсу</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ STORIES ============ -->
+<section id="stories" class="sec"><div class="frame stories">
+  <div class="container">
+    <div class="stories-wrap">
+      <h2 class="h2 center head reveal">Истории наших студентов, которые<br>уже живут и учатся в Китае</h2>
+      <button class="arrow prev" aria-label="Назад"><svg width="22" height="22" fill="none" stroke="#0b6cf0" stroke-width="2.4" stroke-linecap="round"><path d="M14 5l-6 6 6 6"/></svg></button>
+      <button class="arrow next" aria-label="Вперёд"><svg width="22" height="22" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M8 5l6 6-6 6"/></svg></button>
+      <article class="story reveal" id="story">
+        <div>
+          <div class="story-top"><h3 data-k="name">Алсу</h3><span class="city">Город: <span data-k="city">Сиань</span></span></div>
+          <div class="ba">
+            <div class="b1"><small>До:</small><span data-k="before">Страх запутаться в документах на стипендию и упустить шанс</span></div>
+            <div class="b2"><small>После:</small><span data-k="after">Полный грант (обучение + жилье + стипендия)</span></div>
+            <div class="b3"><small>Результат с Beengo:</small><span data-k="result">Команда взяла на себя визу, все переводы и оформление.</span><img src="assets/trophy.png" alt=""></div>
+          </div>
+          <p class="quote" data-k="quote">«Спокойно обращайтесь в Beengo, они вам действительно помогут. Сейчас я получаю качественное образование без самостоятельного поиска!»</p>
+        </div>
+        <a class="video" href="#" data-k="video"><img src="assets/story.png" alt="Видео-отзыв студентки" data-k="img"></a>
+      </article>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ DOCUMENTS ============ -->
+<section id="docs" class="sec"><div class="frame docs">
+  <div class="container">
+    <div class="docs-wrap">
+      <div class="docs-top">
+        <div>
+          <h2 class="reveal">Какие документы нужны для поступления?</h2>
+          <p class="reveal">Никакой сложной бюрократии. Передайте нам базовые оригиналы или сканы — остальное мы берем на себя.</p>
+          <div class="list reveal">список:</div>
+        </div>
+        <div class="folder"><img src="assets/folder.png" alt="Папка с документами"></div>
+      </div>
+      <div class="doc-grid">
+        <div class="doc reveal"><img src="assets/i_pass.png" alt=""><b>Заграничный паспорт</b><span>от 1,5 лет действия</span></div>
+        <div class="doc reveal"><img src="assets/i_dipl.png" alt=""><b>Документ об образовании</b><span>Аттестат, диплом или табель с оценками</span></div>
+        <div class="doc reveal"><img src="assets/i_med.png" alt=""><b>Медицинская справка</b><span>Выдаем готовый бланк</span></div>
+        <div class="doc reveal"><img src="assets/i_cert.png" alt=""><b>Сертификаты HSK/IELTS</b><span>только при наличии, не обязательно для старта с нуля</span></div>
+        <div class="doc reveal"><img src="assets/i_crim.png" alt=""><b>Справка о несудимости</b></div>
+        <div class="doc reveal"><img src="assets/i_photo.png" alt=""><b>Фотографии 3×4</b><span>на белом фоне</span></div>
+      </div>
+      <a class="btn" href="#checklist">Получить список документов в PDF</a>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ ARTICLES ============ -->
+<section id="articles" class="sec"><div class="frame articles">
+  <div class="container">
+    <div class="head">
+      <h2 class="h2 reveal">Топ-3 материала, которые нужно<br>изучить перед переездом</h2>
+      <p class="sub reveal" style="color:#1b2238">Коротко и по делу — о программах, документах и студенческой жизни.</p>
+    </div>
+    <div class="filters">
+      <button class="on" data-f="all">Все</button>
+      <button data-f="admission">Поступление</button>
+      <button data-f="programs">Программы</button>
+      <button data-f="docs">Документы</button>
+      <button data-f="life">Жизнь в Китае</button>
+      <button data-f="grants">Стипендии</button>
+      <label class="search"><svg width="16" height="16" fill="none" stroke="#4a5370" stroke-width="2"><circle cx="7" cy="7" r="5"/><path d="M11 11l3.5 3.5"/></svg><input id="q" placeholder="Найти ответ"></label>
+    </div>
+    <div class="art-grid">
+      <article class="art reveal" data-cat="programs admission">
+        <div class="cover c1">Как выбрать программу обучения в Китае</div>
+        <div class="cat">Программы</div>
+        <h3>Как выбрать программу обучения в Китае</h3>
+        <p>Разбираемся в языковых курсах, колледжах, бакалавриате и магистратуре — чтобы сопоставить формат, сроки и свои цели.</p>
+        <a href="#">Читать статью полностью</a>
+      </article>
+      <article class="art reveal" data-cat="docs admission">
+        <div class="cover c2">Какие документы нужны для поступления</div>
+        <div class="cat">Документы</div>
+        <h3>Какие документы нужны для поступления</h3>
+        <p>Базовый список, этапы подготовки и то, от чего зависят требования университета.</p>
+        <a href="#">Читать статью полностью</a>
+      </article>
+      <article class="art reveal" data-cat="life grants">
+        <div class="cover c3">Сколько стоит жизнь студента в Китае</div>
+        <div class="cat">Жизнь в Китае</div>
+        <h3>Сколько стоит жизнь студента в Китае</h3>
+        <p>Из чего складываются расходы на жильё, питание, транспорт и повседневные траты.</p>
+        <a href="#">Читать статью полностью</a>
+      </article>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq" class="sec"><div class="frame faq">
+  <div class="container">
+    <div class="faq-wrap">
+      <div class="faq-left">
+        <div class="eyebrow">FAQ</div>
+        <h2>Вопрос-ответ</h2>
+        <p>Отвечаем на самые частые вопросы студентов и родителей.</p>
+        <img src="assets/trophy.png" alt="">
+      </div>
+      <div class="qa">
+        <div class="q open"><button>Нужно ли знать китайский язык?<span class="ch"><svg width="16" height="16" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M3 6l5 5 5-5"/></svg></span></button>
+          <div class="a"><div><p>Нет. На «Языковом годе» учатся с нуля, а на бакалавриате есть англоязычные программы.</p></div></div></div>
+        <div class="q"><button>Что, если мне откажут в визе?<span class="ch"><svg width="16" height="16" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M3 6l5 5 5-5"/></svg></span></button>
+          <div class="a"><div><p>При полном пакете от университета (Admission Notice и форма JW201/JW202) студенческую визу обычно выдают без проблем. Если отказ всё же случится — разберём причину и поможем подготовить повторную подачу.</p></div></div></div>
+        <div class="q"><button>Сколько денег давать ребенку с собой?<span class="ch"><svg width="16" height="16" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M3 6l5 5 5-5"/></svg></span></button>
+          <div class="a"><div><p>Зависит от города и формата обучения. Если у студента грант со стипендией, базовые расходы во многом покрыты. На консультации посчитаем бюджет на первый месяц под ваш вуз и город.</p></div></div></div>
+        <div class="q"><button>Котируется ли китайский диплом дома?<span class="ch"><svg width="16" height="16" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M3 6l5 5 5-5"/></svg></span></button>
+          <div class="a"><div><p>Да, дипломы ведущих вузов КНР ценятся работодателями. Для отдельных профессий может понадобиться процедура признания диплома — подскажем, как это сделать в вашей стране.</p></div></div></div>
+      </div>
+    </div>
+  </div>
+</div></section>
+
+<!-- ============ CHECKLIST ============ -->
+<section id="checklist" class="sec"><div class="frame checklist">
+  <div class="container">
+    <div class="head center">
+      <h2 class="h2 reveal">Все еще сомневаетесь?<br>Сделайте первый шаг</h2>
+      <p class="sub reveal">Скачайте наш подробный чек-лист: «Пошаговый план поступления на грант в Китай в 2026/2027 году».</p>
+    </div>
+    <form class="dl reveal" id="dl">
+      <img src="assets/check.png" alt="Пошаговый план поступления на грант в Китай в 2026/2027 году">
+      <h3>Куда прислать чек-лист?</h3>
+      <label class="field"><input type="radio" name="ch" checked> Телеграм</label>
+      <label class="field"><input type="text" required placeholder="Напишите свой никнейм"></label>
+      <button class="btn" type="submit">Скачать презентацию о нас бесплатно</button>
+      <div class="pdf"><svg width="16" height="20" viewBox="0 0 16 20"><path d="M2 0h8l6 6v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z" fill="#e5252a"/><path d="M10 0v6h6" fill="#ff8a8d"/><text x="3" y="16" font-size="5" font-weight="700" fill="#fff" font-family="Arial">PDF</text></svg>Никакого спама. Только один полезный PDF-файл</div>
+    </form>
+  </div>
+</div></section>
+
+<!-- ============ LEAD ============ -->
+<section id="lead" class="sec"><div class="frame lead">
+  <div class="container lead-grid">
+    <div>
+      <h2 class="reveal">Оставьте заявку - мы свяжемся с вами и ответим на <em>все вопросы</em></h2>
+      <p class="reveal">Заполните форму и наш специалист подберет для Вас оптимальную программу и поможет с поступлением в Китай</p>
+    </div>
+    <form class="form reveal lead-form">
+      <div class="fbody">
+        <label for="n1">Ваше имя</label>
+        <input class="in" id="n1" required placeholder="Имя Фамилия">
+        <label for="p1">Ваш телефон</label>
+        <input class="in" id="p1" type="tel" required placeholder="+7 777 777 00 00">
+        <select class="in" aria-label="Интересующая программа">
+          <option value="" selected disabled>Интересующая программа</option>
+          <option>Языковой год</option><option>Колледж</option><option>Бакалавриат</option><option>Магистратура</option>
+        </select>
+        <textarea class="in" placeholder="Расскажите о своих целях"></textarea>
+        <button class="btn" type="submit">Оставить заявку</button>
+      </div>
+    </form>
+  </div>
+</div></section>
+</main>
+
+<!-- ============ FOOTER ============ -->
+<footer class="footer">
+  <div class="container">
+    <div class="foot-wrap">
+      <div class="fcard">
+        <div class="fbrand"><img src="assets/logo.svg" alt="beengo"><small>Официальный партнер<br>вузов КНР</small></div>
+        <h3>Поступите в топовый университет Китая</h3>
+        <p>Ваш надёжный партнёр для поступления в университеты Китая.</p>
+        <a class="btn" href="#lead">Заполнить форму</a>
+        <div class="finfo">
+          <div><small>Наш адрес:</small><span>China, Nanjing city, Xingzhi Building, No.18</span></div>
+          <div><small>График работы:</small><span>Пн-Вс, 10:00 – 19:00</span></div>
+        </div>
+      </div>
+      <div class="fcols">
+        <div><h4>Навигация</h4><a href="#why">Почему именно Китай?</a><a href="#pains">Боли и Решения</a><a href="#programs">Программы</a><a href="#stories">Отзывы</a><a href="#process">Процесс</a><a href="#faq">FAQ</a></div>
+        <div><h4>Обратная связь</h4><a href="#lead">Оставить заявку</a><a href="#" data-open>Консультация</a></div>
+        <div><h4>Наши контакты</h4><small>Номер телефона</small><a href="tel:+8613073044160" style="font-size:16px">+86 130 7304 4160</a><small style="margin-top:var(--s2)">Мы онлайн</small>
+          <div class="soc">
+            <a href="https://wa.me/8613073044160" aria-label="WhatsApp"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 2a8 8 0 1 1-4.1 14.9l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 0 1 12 4zm-3.2 4c-.2 0-.5 0-.8.4-.2.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.200 5 4.400 2.400 1 3 .8 3.500.7.500-.1 1.700-.7 1.900-1.400.2-.7.2-1.200.2-1.400l-.5-.3-2-1c-.3-.1-.5-.1-.6.100l-.9 1c-.1.2-.3.2-.6.1a6.600 6.600 0 0 1-3.300-2.900c-.2-.4.200-.4.700-1.300.1-.2 0-.3 0-.5l-.9-2.100c-.2-.5-.4-.4-.6-.4z"/></svg></a>
+            <a href="#" aria-label="Instagram"><svg width="18" height="18" fill="none" stroke="#fff" stroke-width="2"><rect x="2" y="2" width="14" height="14" rx="4"/><circle cx="9" cy="9" r="3.2"/><circle cx="13.2" cy="4.8" r=".6" fill="#fff"/></svg></a>
+            <a href="#" aria-label="Telegram"><svg width="18" height="18" viewBox="0 0 24 24" fill="#fff"><path d="M21.5 3.6 2.9 10.8c-1.300.5-1.300 1.200-.2 1.500l4.800 1.500 1.800 5.600c.2.600.1.800.7.800.5 0 .7-.2 1-.5l2.300-2.200 4.800 3.500c.9.500 1.500.2 1.700-.8l3.100-14.700c.3-1.300-.5-1.900-1.400-1.500zM8.900 13.400l8.800-5.600c.4-.3.800-.1.500.200l-7.300 6.600-.3 3.100z"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="fbar"><div class="container"><span>Beengo Study. Все права защищены</span><a href="#">Политика конфиденциальности</a></div></div>
+</footer>
+
+<!-- ============ MODAL ============ -->
+<div class="modal" id="modal" aria-hidden="true">
+  <form class="form lead-form">
+    <button type="button" class="close" data-close aria-label="Закрыть">×</button>
+    <div class="fbody">
+      <h3>Бесплатный разбор шансов</h3>
+      <p>Оставьте контакты — менеджер свяжется с вами и подберёт программы под ваш бюджет.</p>
+      <label for="n2">Ваше имя</label>
+      <input class="in" id="n2" required placeholder="Имя Фамилия">
+      <label for="p2">Ваш телефон</label>
+      <input class="in" id="p2" type="tel" required placeholder="+7 777 777 00 00">
+      <select class="in" id="progSel" aria-label="Интересующая программа">
+        <option value="" selected disabled>Интересующая программа</option>
+        <option>Языковой год</option><option>Колледж</option><option>Бакалавриат</option><option>Магистратура</option>
+      </select>
+      <button class="btn" type="submit">Отправить заявку</button>
+    </div>
+  </form>
+</div>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+// меню
+const nav=$('#nav');
+$('#burger').onclick=()=>nav.classList.toggle('open');
+$$('.menu a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
+$$('.lang button').forEach(b=>b.onclick=()=>{$$('.lang button').forEach(x=>x.classList.toggle('on',x===b))});
+// вкладки «Почему Китай»
+$$('.tabs button').forEach(b=>b.onclick=()=>{
+  $$('.tabs button').forEach(x=>x.classList.toggle('on',x===b));
+  $$('.why-card [data-s]').forEach(el=>{el.classList.add('fade');setTimeout(()=>{el.textContent=el.dataset[b.dataset.tab];el.classList.remove('fade')},220)});
+});
+// появление при скролле
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+$$('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%4)*70+'ms';io.observe(el)});
+// счётчики
+const co=new IntersectionObserver(es=>es.forEach(e=>{if(!e.isIntersecting)return;co.unobserve(e.target);
+  const el=e.target,to=+el.dataset.count,p=el.dataset.prefix||'',s=el.dataset.suffix||'';let t0=null;
+  const step=t=>{t0??=t;const k=Math.min((t-t0)/1200,1);el.textContent=p+Math.round(to*(1-Math.pow(1-k,3)))+s;if(k<1)requestAnimationFrame(step)};
+  requestAnimationFrame(step)}),{threshold:.6});
+$$('[data-count]').forEach(el=>co.observe(el));
+// активный пункт меню
+const links=$$('.menu a');
+addEventListener('scroll',()=>{let cur='';$$('section[id]').forEach(s=>{if(scrollY>=s.offsetTop-140)cur=s.id});
+  links.forEach(l=>l.classList.toggle('active',!!cur&&l.getAttribute('href')==='#'+cur))},{passive:true});
+// модалка
+const modal=$('#modal');
+$$('[data-open]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();
+  if(b.dataset.program)$('#progSel').value=b.dataset.program;
+  modal.classList.add('show');nav.classList.remove('open')}));
+modal.addEventListener('click',e=>{if(e.target===modal||e.target.closest('[data-close]'))modal.classList.remove('show')});
+addEventListener('keydown',e=>{if(e.key==='Escape')modal.classList.remove('show')});
+// формы (здесь подключите отправку в CRM / Telegram-бота)
+$$('.lead-form').forEach(f=>f.onsubmit=e=>{e.preventDefault();
+  $('.fbody',f).innerHTML='<div class="done"><b>Спасибо! 🎉</b><p style="color:#6b7487">Заявка принята. Мы свяжемся с вами в ближайшее время.</p></div>'});
+$('#dl').onsubmit=e=>{e.preventDefault();const b=$('button',e.target);b.textContent='Готово! Отправим в Телеграм ✓';b.disabled=true};
+// FAQ
+$$('.q button').forEach(b=>b.onclick=()=>{const q=b.parentElement,o=q.classList.contains('open');$$('.q').forEach(x=>x.classList.remove('open'));if(!o)q.classList.add('open')});
+// фильтр статей
+let f='all';
+const filt=()=>{const q=$('#q').value.toLowerCase().trim();
+  $$('.art').forEach(a=>{const okC=f==='all'||a.dataset.cat.split(' ').includes(f);const okQ=!q||a.textContent.toLowerCase().includes(q);a.classList.toggle('hide',!(okC&&okQ))})};
+$$('.filters button').forEach(b=>b.onclick=()=>{f=b.dataset.f;$$('.filters button').forEach(x=>x.classList.toggle('on',x===b));filt()});
+$('#q').oninput=filt;
+// слайдер историй — добавляйте студентов в этот массив
+const stories=[
+  {name:'Алсу',city:'Сиань',before:'Страх запутаться в документах на стипендию и упустить шанс',after:'Полный грант (обучение + жилье + стипендия)',result:'Команда взяла на себя визу, все переводы и оформление.',quote:'«Спокойно обращайтесь в Beengo, они вам действительно помогут. Сейчас я получаю качественное образование без самостоятельного поиска!»',img:'assets/story.png',video:'#'}
+];
+let si=0;
+const show=i=>{si=(i+stories.length)%stories.length;const s=stories[si],card=$('#story');
+  card.style.opacity=0;setTimeout(()=>{$$('[data-k]',card).forEach(el=>{const k=el.dataset.k;if(k==='img')el.src=s.img;else if(k==='video')el.href=s.video;else el.textContent=s[k]});card.style.opacity=1},200)};
+$('#story').style.transition='opacity .2s';
+$('.arrow.prev').onclick=()=>show(si-1);$('.arrow.next').onclick=()=>show(si+1);
+</script>
+</body>
+</html>
