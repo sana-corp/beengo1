@@ -606,6 +606,48 @@ section{padding:var(--section) 0}
   #process.sec{padding:12px 0}
   .frame.process{width:calc(100% - 24px)}
 }
+
+/* ===== О нас: карусель + новая вёрстка ===== */
+.ab-grid{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);gap:clamp(32px,5vw,72px);align-items:center}
+.ab-car{position:relative;border-radius:32px;overflow:hidden;background:#0a6fe0;box-shadow:0 30px 70px rgba(0,30,110,.35);aspect-ratio:469/600}
+.ab-track{display:flex;height:100%;overflow-x:auto;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+.ab-track::-webkit-scrollbar{display:none}
+.ab-slide{flex:0 0 100%;height:100%;margin:0;scroll-snap-align:start;scroll-snap-stop:always}
+.ab-slide img{width:100%;height:100%;object-fit:cover;object-position:center 20%;display:block}
+.ab-ph{display:grid;place-items:center;background:repeating-linear-gradient(135deg,#1a7cf0 0 14px,#1572e6 14px 28px);color:#fff;text-align:center}
+.ab-ph b{display:block;font-size:28px;font-weight:600}.ab-ph span{opacity:.75;font-size:15px}
+.ab-ctrl{position:absolute;left:16px;right:16px;bottom:16px;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 10px 10px 18px;border-radius:999px;background:rgba(5,20,60,.35);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.18)}
+.ab-dots{display:flex;gap:6px}
+.ab-dots button{width:8px;height:8px;border-radius:99px;border:0;padding:0;background:rgba(255,255,255,.45);cursor:pointer;transition:width .3s,background .3s}
+.ab-dots button[aria-selected="true"]{width:26px;background:#fff}
+.ab-arrows{display:flex;gap:8px}
+.ab-arrows button{width:44px;height:44px;border-radius:50%;border:0;display:grid;place-items:center;background:#fff;color:var(--navy);cursor:pointer;transition:transform .2s,background .2s,color .2s}
+.ab-arrows button:hover{background:var(--yellow)}
+.ab-arrows button:active{transform:scale(.92)}
+.ab-text{color:#fff}
+.ab-eyebrow{display:inline-block;padding:8px 14px;border-radius:99px;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.28);font-size:12px;font-weight:600;letter-spacing:.1em;text-transform:uppercase}
+.ab-text h2{margin-top:20px;font-size:clamp(30px,3.4vw,46px);font-weight:600;line-height:1.06;letter-spacing:-.025em}
+.ab-text h2 em{font-style:normal;color:rgba(255,255,255,.62)}
+.ab-text p{margin-top:18px;font-size:clamp(16px,1.5vw,19px);line-height:1.5;max-width:560px;opacity:.95}
+.ab-cards{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:clamp(28px,3vw,40px)}
+.ab-card{background:#fff;color:var(--navy);border-radius:22px;padding:22px;display:flex;flex-direction:column;gap:6px;transition:transform .3s,box-shadow .3s}
+.ab-card:hover{transform:translateY(-4px);box-shadow:0 18px 40px rgba(0,30,110,.25)}
+.ab-card i{width:44px;height:44px;border-radius:14px;display:grid;place-items:center;background:#e4efff;color:var(--blue);margin-bottom:8px}
+.ab-card b{font-size:18px;font-weight:600;letter-spacing:-.01em;line-height:1.2}
+.ab-card span{font-size:14.5px;line-height:1.4;color:#4a5370}
+.ab-card.y{background:var(--yellow);justify-content:flex-end}
+.ab-card.y strong{font-size:clamp(48px,5vw,64px);line-height:.9;font-weight:700;letter-spacing:-.04em}
+.ab-card.y span{color:#5a4a10}
+@media (max-width:980px){.ab-grid{grid-template-columns:1fr}.ab-car{max-width:520px;width:100%;margin:0 auto}}
+@media (max-width:520px){.ab-cards{grid-template-columns:1fr 1fr;gap:10px}.ab-card{padding:16px;border-radius:18px}.ab-card b{font-size:16px}.ab-card span{font-size:13px}.ab-card i{width:38px;height:38px;border-radius:12px}.ab-car{border-radius:24px}.ab-arrows button{width:40px;height:40px}}
+
+/* карусель: управление под фото */
+.ab-car{overflow:visible;background:none;box-shadow:none;aspect-ratio:auto}
+.ab-track{aspect-ratio:469/600;height:auto;border-radius:32px;background:#0a6fe0;box-shadow:0 30px 70px rgba(0,30,110,.35)}
+.ab-ctrl{position:static;margin-top:16px;padding:0;background:none;border:0;backdrop-filter:none;-webkit-backdrop-filter:none}
+.ab-arrows button{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.35)}
+.ab-arrows button:hover{background:#fff;color:var(--navy)}
+@media (max-width:520px){.ab-track{border-radius:24px}}
 </style>
 </head>
 <body>
@@ -872,17 +914,32 @@ section{padding:var(--section) 0}
 
 <!-- ============ ABOUT ============ -->
 <section id="about" class="sec"><div class="frame about">
-  <div class="container about-grid">
-    <div class="about-photo reveal"><img src="assets/about.png" alt="Студент Beengo с полученной визой" width="469" height="653"></div>
-    <div>
-      <h2 class="reveal">Beengo Study - официальный представитель вузов Китая, а не просто посредник</h2>
+  <div class="container ab-grid">
+    <!-- Карусель: чтобы добавить фото, добавьте ещё один <figure class="ab-slide"> с <img> -->
+    <div class="ab-car reveal" aria-roledescription="carousel" aria-label="Наши студенты">
+      <div class="ab-track">
+        <figure class="ab-slide"><img src="assets/about.png" alt="Студент Beengo с полученной визой" width="469" height="653"></figure>
+        <figure class="ab-slide ab-ph"><div><b>Фото 2</b><span>место для вашего фото</span></div></figure>
+        <figure class="ab-slide ab-ph"><div><b>Фото 3</b><span>место для вашего фото</span></div></figure>
+      </div>
+      <div class="ab-ctrl">
+        <div class="ab-dots" role="tablist"></div>
+        <div class="ab-arrows">
+          <button type="button" class="ab-prev" aria-label="Предыдущее фото"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 6l-6 6 6 6"/></svg></button>
+          <button type="button" class="ab-next" aria-label="Следующее фото"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+        </div>
+      </div>
+    </div>
+    <div class="ab-text">
+      <span class="ab-eyebrow reveal">О компании</span>
+      <h2 class="reveal">Beengo Study — официальный представитель вузов Китая, <em>а не просто посредник</em></h2>
       <p class="reveal">Мы не рассылаем заявки наугад. За <span class="hl">+7 лет</span> мы выстроили прямые партнерские отношения с университетами.</p>
       <p class="reveal">Мы знаем внутренние требования приемных комиссий, поэтому беремся только за те кейсы, в которых <span class="ok">уверены</span></p>
-      <div class="about-cards">
-        <div class="acard reveal"><b>Официальный договор:</b><span>Прописываем все наши обязательства юридически.</span></div>
-        <div class="acard reveal"><b>98% зачислений:</b><span>Делаем подачу сразу в 3-5 вузов для подстраховки.</span></div>
-        <div class="acard reveal"><b>Свои люди в Китае:</b><span>У нас есть кураторы на местах, которые решат любой вопрос.</span></div>
-        <div class="acard y reveal">+7 лет</div>
+      <div class="ab-cards">
+        <div class="ab-card reveal"><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M8 13h8M8 17h5"/></svg></i><b>Официальный договор</b><span>Прописываем все наши обязательства юридически.</span></div>
+        <div class="ab-card reveal"><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 12h-4l-3 8L9 4l-3 8H2"/></svg></i><b>98% зачислений</b><span>Делаем подачу сразу в 3–5 вузов для подстраховки.</span></div>
+        <div class="ab-card reveal"><i><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.5"/><path d="M2.5 20a6.5 6.5 0 0 1 13 0M16 4.5a3.5 3.5 0 0 1 0 7M18 14a6 6 0 0 1 3.5 6"/></svg></i><b>Свои люди в Китае</b><span>У нас есть кураторы на местах, которые решат любой вопрос.</span></div>
+        <div class="ab-card y reveal"><strong>7+</strong><b>лет опыта</b><span>помогаем поступать в вузы Китая</span></div>
       </div>
     </div>
   </div>
@@ -1193,6 +1250,18 @@ $$('.form select.in').forEach(sel=>{
   sel.form&&sel.form.addEventListener('reset',()=>setTimeout(render));
   render();
 });
+
+// ===== Карусель «О нас» =====
+(()=>{const car=$('.ab-car');if(!car)return;const tr=car.querySelector('.ab-track'),sl=[...tr.children],dots=car.querySelector('.ab-dots');
+  sl.forEach((_,i)=>{const d=document.createElement('button');d.type='button';d.setAttribute('role','tab');d.setAttribute('aria-label','Фото '+(i+1));d.onclick=()=>go(i);dots.appendChild(d)});
+  const cur=()=>Math.round(tr.scrollLeft/tr.clientWidth);
+  const go=i=>tr.scrollTo({left:((i+sl.length)%sl.length)*tr.clientWidth,behavior:'smooth'});
+  const upd=()=>[...dots.children].forEach((d,i)=>d.setAttribute('aria-selected',i===cur()));
+  tr.addEventListener('scroll',()=>requestAnimationFrame(upd),{passive:true});upd();
+  car.querySelector('.ab-prev').onclick=()=>{go(cur()-1);stop()};car.querySelector('.ab-next').onclick=()=>{go(cur()+1);stop()};
+  let t=setInterval(()=>go(cur()+1),5000);const stop=()=>{clearInterval(t)};
+  ['pointerdown','touchstart'].forEach(e=>tr.addEventListener(e,stop,{passive:true}));
+})();
 // модалка
 const modal=$('#modal');
 $$('[data-open]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();
