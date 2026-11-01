@@ -520,6 +520,20 @@ section{padding:var(--section) 0}
 @media (max-width:980px){.frame .docs-wrap{padding-left:0}.lead-grid{grid-template-columns:1fr}}
 @media (max-width:680px){.sec{padding:6px 0}.frame,.footer{width:calc(100% - 16px);border-radius:28px}.footer{margin:6px auto 8px}.frame.lead::before,.frame.lead::after{display:none}.lead .form{padding:var(--s3)}.story-top h3{font-size:26px}.q button{font-size:17px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
+
+/* ===== Заявка + футер: единый плавный переход ===== */
+#lead.sec{padding-bottom:0}
+.frame.lead{background:linear-gradient(180deg,#1646c8 0%,#2468e0 40%,#3a9ef8 80%,#3fa8fa 100%);border-radius:40px 40px 0 0;padding-bottom:calc(var(--section) + 24px)}
+.frame.lead::after{display:none}
+.footer{margin-top:0;border-radius:0 0 40px 40px;padding-top:clamp(200px,26vw,380px);
+  background:linear-gradient(180deg,#3fa8fa 0%,rgba(63,168,250,.6) 8%,rgba(63,168,250,0) 22%),url(assets/footbg.jpg) center top/cover no-repeat,#3fa8fa}
+.foot-wrap{background:linear-gradient(180deg,rgba(8,30,90,.45),rgba(4,18,60,.72));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.22);box-shadow:0 30px 60px rgba(4,18,60,.25)}
+.fbar{background:rgba(2,10,36,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
+@media (max-width:680px){
+  .frame.lead{border-radius:28px 28px 0 0}
+  .footer{margin-top:0;border-radius:0 0 28px 28px;padding-top:220px;
+    background:linear-gradient(180deg,#3fa8fa 0%,rgba(63,168,250,0) 90px),linear-gradient(180deg,rgba(11,36,102,0) 340px,#0b2466 600px),url(assets/footbg.jpg) 68% top/auto 600px no-repeat,#0b2466}
+}
 </style>
 </head>
 <body>
