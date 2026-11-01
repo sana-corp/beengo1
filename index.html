@@ -684,6 +684,38 @@ section{padding:var(--section) 0}
 /* фон всей страницы — синий, как в макете */
 body{background:#0b6cf0}
 #checklist.sec{background:linear-gradient(180deg,#ffffff 0%,#e8f0ff 16%,#c9dcff 34%,#a3c3ff 52%,#7aa6fb 68%,#5288f2 84%,#3366ea 100%)}
+
+/* ===== Первый экран — точно по макету ===== */
+.hero{background:linear-gradient(180deg,#3f8cf6 0%,#7fb6fa 35%,#b7d6fd 70%,#d3e6fe 100%);padding:8px 0 10px}
+.hero-panel{width:calc(100% - 20px);border-radius:40px;background:linear-gradient(180deg,#e4edf9 0%,#edf3fb 25%,#f8fafd 55%,#ffffff 80%);padding:clamp(110px,9vw,130px) 0 clamp(64px,6vw,88px)}
+.stats-panel{width:calc(100% - 20px);margin-top:10px;border-radius:40px;background:#fff;padding:20px 0}
+.stat{background:#e3effd;border-radius:20px}
+.hero .stats{gap:10px}
+.hero .container{width:min(1280px,100% - 48px)}
+.header{padding-top:16px}
+.header .container{width:calc(100% - 40px);max-width:none}
+.header .nav{border-radius:16px;padding:8px 10px 8px 28px;box-shadow:none}
+.menu{justify-content:flex-start;margin-left:48px;gap:6px}
+.menu a{padding:11px 16px;border-radius:10px;font-size:14.5px}
+.menu a:hover,.menu a.active{background:#e8f1fc}
+@media (max-width:1300px){.menu{margin-left:16px;gap:0}.menu a{padding:10px 10px;font-size:13.5px}}
+@media (max-width:680px){
+  .hero{padding:8px 0}
+  .hero-panel,.stats-panel{width:calc(100% - 16px);border-radius:28px}
+  .hero-panel{padding:92px 0 var(--s5)}
+  .stats-panel{margin-top:8px;padding:12px 0}
+  .header{padding-top:16px}
+  .header .container{width:calc(100% - 32px)}
+  .header .nav{padding:8px 8px 8px 16px}
+  .hero .container{width:calc(100% - 32px)}
+}
+
+.menu{margin-left:40px;gap:2px;min-width:0}
+.menu a{padding:11px 14px}
+.header .nav{gap:12px}
+.hero h1{font-weight:600}
+.hero-text>p{max-width:520px}
+@media (max-width:1300px){.menu{margin-left:12px}.menu a{padding:10px 9px}}
 </style>
 </head>
 <body>
