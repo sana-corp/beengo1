@@ -718,6 +718,19 @@ body{background:#e9eff8}
 @media (max-width:1300px){.menu{margin-left:12px}.menu a{padding:10px 9px}}
 
 .hero{background:linear-gradient(180deg,#3f8cf6 0%,#82b7fa 30%,#bcd8fc 60%,#dde9fa 85%,#e9eff8 100%)}
+
+/* ===== «Почему именно Китай?» — по макету: без рамки, на сером фоне ===== */
+#why.sec{padding:0}
+.frame.why{width:100%;border-radius:0;background:none;padding:clamp(64px,7vw,96px) 0}
+.why .h2{font-weight:500;font-size:clamp(32px,3.4vw,48px);letter-spacing:-.02em}
+.why .sub{font-size:clamp(17px,1.6vw,22px);color:#6b7487}
+.why-grid{max-width:1200px;gap:20px}
+.frame.why .why-card{background:#fff;border-radius:26px;padding:30px 9px 9px;box-shadow:0 0 0 1px rgba(13,26,58,.04),0 10px 30px rgba(19,52,120,.05)}
+.why-card h3,.why-card p{padding:0 16px}
+.why-card h3{font-size:clamp(19px,1.65vw,23px);font-weight:500;letter-spacing:-.01em}
+.why-card p{font-size:clamp(15px,1.3vw,18px);line-height:1.35;margin:12px 0 22px}
+.why-card img{border-radius:20px}
+@media (max-width:680px){.frame.why{width:100%;border-radius:0;padding:48px 0}.frame.why .why-card{padding:22px 8px 8px;border-radius:22px}.why-card h3,.why-card p{padding:0 12px}}
 </style>
 </head>
 <body>
