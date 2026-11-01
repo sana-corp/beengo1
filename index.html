@@ -881,6 +881,47 @@ a,button,.dd-btn,.dd-opt{touch-action:manipulation}
   .stories-wrap .arrow{bottom:0;width:52px;height:52px}
   .stories-wrap .arrow.prev{left:calc(50% - 60px)}.stories-wrap .arrow.next{right:calc(50% - 60px)}
 }
+
+/* ===== Мобильный футер: собран заново ===== */
+@media (max-width:680px){
+  .frame.lead{padding-bottom:40px}
+  .footer{padding-top:84vw;
+    background:linear-gradient(180deg,#3fa8fa 0%,rgba(63,168,250,0) 70px),
+      linear-gradient(180deg,rgba(7,26,90,0) 118vw,#071a5a 150vw) top/100% 100% no-repeat,
+      var(--fimg) center -38vw/100% auto no-repeat,#071a5a}
+  .footer > .container{width:calc(100% - 16px)}
+  .foot-wrap{padding:10px 10px 8px;gap:8px;border-radius:28px;margin-bottom:12px;
+    background:linear-gradient(180deg,rgba(255,255,255,.14) 0%,rgba(10,40,120,.55) 30%,rgba(6,24,80,.9) 100%);
+    backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.18)}
+  .fcard{padding:22px 20px 20px;border-radius:22px}
+  .fcard h3{font-size:22px;margin:16px 0 6px}
+  .fcard p{font-size:15px}
+  .fcard .btn{margin:18px 0 8px}
+  .finfo{grid-template-columns:1fr 1fr;gap:8px}
+  .finfo div{padding:12px}
+  .finfo span{font-size:13.5px;line-height:1.35}
+  .fcols{grid-template-columns:1fr 1fr;gap:20px 12px;padding:18px 12px 14px}
+  .fcols h4{font-size:11px;margin-bottom:6px;opacity:.7}
+  .fcols a{min-height:40px;font-size:15px;line-height:1.25}
+  .fcols > div:last-child{grid-column:span 2;display:grid;grid-template-columns:1fr auto;align-items:end;gap:4px 12px;
+    padding-top:18px;border-top:1px solid rgba(255,255,255,.14)}
+  .fcols > div:last-child h4{grid-column:span 2}
+  .fcols > div:last-child small{grid-column:1}
+  .fcols > div:last-child > a{grid-column:1;font-size:18px!important;font-weight:500}
+  .fcols > div:last-child .soc{grid-column:2;grid-row:3 / span 3;align-self:center}
+  .soc{gap:8px}
+  .fcols .soc a{width:44px;height:44px;min-height:0;display:grid;place-items:center;border-radius:12px;padding:0}
+  .fbar .container{flex-direction:column;align-items:center;gap:0;text-align:center;font-size:13px;padding:10px 0 max(14px,env(safe-area-inset-bottom))}
+  .fbar span{opacity:.75}
+  .fbar a{min-height:40px;opacity:.9;text-decoration:underline;text-underline-offset:3px}
+}
+
+@media (max-width:680px){
+  .footer{padding-top:100vw;background-position:top,top,center -30vw,0 0}
+  .fcols{grid-template-columns:1.15fr .85fr}
+  .fcols > div:last-child small:nth-of-type(2){display:none}
+  .fcols > div:last-child .soc{grid-row:2 / span 2;align-self:end}
+}
 </style>
 </head>
 <body>
