@@ -731,6 +731,23 @@ body{background:#e9eff8}
 .why-card p{font-size:clamp(15px,1.3vw,18px);line-height:1.35;margin:12px 0 22px}
 .why-card img{border-radius:20px}
 @media (max-width:680px){.frame.why{width:100%;border-radius:0;padding:48px 0}.frame.why .why-card{padding:22px 8px 8px;border-radius:22px}.why-card h3,.why-card p{padding:0 12px}}
+
+/* ===== Форматы финансирования — по макету: крупные карточки на всю ширину ===== */
+.fin-grid{max-width:1270px;gap:4px;margin-top:40px}
+.fin{padding:9px;border-radius:32px}
+.fin-in{min-height:440px;border-radius:24px;padding:30px 30px 0}
+.fin-ic{width:72px}
+.fin h3{font-size:clamp(22px,2vw,28px);font-weight:500;letter-spacing:-.01em;line-height:1.15}
+.fin p{font-size:clamp(14px,1.15vw,16px);line-height:1.4}
+.fin-ill{width:88%}
+.fin .fbtn{padding:20px;font-size:14px;border-radius:18px;margin-top:9px}
+@media (min-width:981px){
+  .fin:nth-child(1){transform:rotate(-4deg) translate(14px,40px)}
+  .fin:nth-child(2){transform:translateY(-10px);z-index:2;position:relative}
+  .fin:nth-child(3){transform:rotate(6deg) translate(-14px,54px)}
+  .finance .finance-wrap{padding-bottom:70px}
+}
+@media (max-width:980px){.fin-grid{max-width:460px;gap:20px}.fin-in{min-height:0}}
 </style>
 </head>
 <body>
