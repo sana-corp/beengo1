@@ -590,6 +590,22 @@ section{padding:var(--section) 0}
 .dd-chk{flex:none;width:22px;height:22px;border-radius:50%;display:grid;place-items:center;background:var(--c);color:#fff;opacity:0;transform:scale(.6);transition:.2s}
 .dd-opt[aria-selected="true"] .dd-chk{opacity:1;transform:none}
 @media (max-width:680px){.dd-txt b{font-size:12.5px}.dd.has .dd-txt b,.dd-opt .dd-txt b{font-size:16px}.dd-opt{padding:10px}}
+
+/* ===== Раскладка по макету: блоки на всю ширину, стык без зазоров ===== */
+#finance.sec{padding-bottom:0}
+.frame.finance{border-radius:40px 40px 0 0}
+#about.sec,#geo.sec,#stories.sec,#articles.sec{padding:0}
+.frame.about,.frame.geo,.frame.stories,.frame.articles{width:100%;border-radius:0}
+.frame.geo{background:#fafbff}
+#process.sec{padding:24px 0;background:#0b5cf0}
+.frame.process{width:calc(100% - 48px)}
+.frame.stories{background:#fff8e1}
+@media (max-width:680px){
+  .frame.finance{border-radius:28px 28px 0 0}
+  .frame.about,.frame.geo,.frame.stories,.frame.articles{width:100%;border-radius:0}
+  #process.sec{padding:12px 0}
+  .frame.process{width:calc(100% - 24px)}
+}
 </style>
 </head>
 <body>
