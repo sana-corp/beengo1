@@ -543,6 +543,22 @@ section{padding:var(--section) 0}
 .frame.checklist{width:100%;border-radius:0;background:linear-gradient(180deg,#eef3fa 0%,#e2ecff 16%,#c9dcff 34%,#a3c3ff 52%,#7aa6fb 68%,#5288f2 84%,#3366ea 100%)}
 #checklist + #faq.sec{padding-top:24px}
 @media (max-width:680px){.frame.checklist{width:100%;border-radius:0}#checklist + #faq.sec{padding-top:12px}}
+
+/* ===== Непрерывный фон: чек-лист → FAQ → заявка → футер ===== */
+#checklist.sec,#faq.sec,#lead.sec{margin:0}
+#checklist.sec{background:linear-gradient(180deg,#eef3fa 0%,#e2ecff 16%,#c9dcff 34%,#a3c3ff 52%,#7aa6fb 68%,#5288f2 84%,#3366ea 100%)}
+.frame.checklist{background:none;padding-bottom:calc(var(--section) + 16px)}
+#checklist + #faq.sec{padding:0 0 12px;background:#3366ea linear-gradient(180deg,#3366ea 0%,#2c5fe6 100%)}
+.frame.faq{box-shadow:0 30px 70px rgba(6,25,80,.28)}
+#lead.sec{padding:0;background:linear-gradient(180deg,#2c5fe6 0%,#2a66e6 45%,#3a9ef8 85%,#3fa8fa 100%)}
+.frame.lead{width:100%;border-radius:0;background:none}
+.frame.lead::before{display:none}
+.footer{width:100%;margin:0;border-radius:0}
+@media (max-width:680px){
+  .frame.lead{width:100%;border-radius:0}
+  .footer{width:100%;margin:0;border-radius:0}
+  #checklist + #faq.sec{padding:0 0 6px}
+}
 </style>
 </head>
 <body>
