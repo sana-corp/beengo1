@@ -648,6 +648,10 @@ section{padding:var(--section) 0}
 .ab-arrows button{background:rgba(255,255,255,.16);color:#fff;border:1px solid rgba(255,255,255,.35)}
 .ab-arrows button:hover{background:#fff;color:var(--navy)}
 @media (max-width:520px){.ab-track{border-radius:24px}}
+
+/* Шапка: без серой подложки при прокрутке, только белая плашка */
+.header{background:none;backdrop-filter:none;-webkit-backdrop-filter:none;pointer-events:none}
+.header .nav{pointer-events:auto;background:#fff;box-shadow:0 8px 30px rgba(13,26,58,.12),0 0 0 1px rgba(13,26,58,.04)}
 </style>
 </head>
 <body>
