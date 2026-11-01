@@ -2,7 +2,9 @@
 <html lang="ru">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#0b6cf0">
+<meta name="format-detection" content="telephone=no">
 <title>Beengo Study — поступление в университеты Китая</title>
 <meta name="description" content="Beengo Study помогает абитуриентам из СНГ поступить в топовые университеты Китая: подбор программ, документы, гранты.">
 <link rel="icon" href="assets/logo.svg">
@@ -803,6 +805,82 @@ body{background:#e9eff8}
 @media (max-width:680px){.footer > .container{width:calc(100% - 16px)}.foot-wrap{padding:12px;border-radius:28px;margin-bottom:16px}.fbar .container{width:calc(100% - 32px)}}
 
 @media (min-width:681px){.footer{padding-top:clamp(120px,11vw,170px)}}
+
+/* шаги: верхняя и нижняя карточки почти вплотную (2px), как единое целое */
+.step{gap:2px}
+
+/* =========================================================
+   МОБИЛЬНЫЕ СТАНДАРТЫ (iOS HIG / Material): зоны нажатия ≥44px,
+   шрифт полей 16px (без автозума iOS), читаемые размеры, safe-area
+   ========================================================= */
+html{-webkit-text-size-adjust:100%;text-size-adjust:100%}
+body{-webkit-tap-highlight-color:rgba(11,108,240,.12)}
+a,button,.dd-btn,.dd-opt{touch-action:manipulation}
+:focus-visible{outline:2px solid #0b6cf0;outline-offset:2px}
+.prog-head h3{font-size:clamp(22px,2.1vw,26px)} /* названия программ +2px */
+@media (hover:none){
+  .why-card:hover,.prog:hover,.fin:hover,.doc:hover,.art:hover,.ab-card:hover,.btn:hover,.story-btn:hover{transform:none}
+  .prog:hover .prog-head img,.video:hover img{transform:none}
+}
+@media (max-width:980px){
+  .header{padding-top:max(16px,env(safe-area-inset-top))}
+  .burger{width:44px;height:44px}
+  .nav.open .menu a{min-height:48px;display:flex;align-items:center}
+}
+@media (max-width:680px){
+  input,textarea,select,.search input,.field input{font-size:16px!important}
+  .search input{text-transform:none;letter-spacing:0;font-weight:500}
+  .search{min-height:48px}
+  .filters{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch;margin-inline:-16px;padding:0 16px 4px}
+  .filters::-webkit-scrollbar{display:none}
+  .filters button{flex:none;min-height:44px}
+  .search{flex:none;min-width:240px}
+  /* читаемость мелких подписей */
+  .row{font-size:11px}.row .k{min-width:96px}
+  .badge,.chips span{font-size:12.5px;padding:4px 8px}
+  .chips em{font-size:12px}
+  .lbl{font-size:11.5px}
+  .check li{font-size:14px}
+  .prog .btn{font-size:13px;min-height:48px}
+  .finfo small,.form label,.dd-txt small{font-size:12px}
+  .fcols small{font-size:13px}
+  /* зоны нажатия ≥44px */
+  .fcols a{min-height:44px;display:flex;align-items:center;margin:0}
+  .fcols h4{margin-bottom:4px}
+  .soc{gap:12px}.soc a{width:44px;height:44px;border-radius:12px}
+  .fbar .container{padding:12px 0 max(12px,env(safe-area-inset-bottom))}
+  .fbar a{min-height:44px;display:flex;align-items:center}
+  .art a{padding:12px 0;border-bottom:0;text-decoration:underline;text-underline-offset:4px}
+  .ab-dots button{position:relative}
+  .ab-dots button::after{content:"";position:absolute;inset:-18px -8px}
+  .ab-arrows button{width:48px;height:48px}
+  .tabs button{min-height:44px}
+  .q button{min-height:60px}
+  .btn,.fbtn,.story-btn{min-height:52px}
+  .field{min-height:52px}
+  /* модалка: не выходит за экран, учитывает вырез */
+  .modal{padding:max(12px,env(safe-area-inset-top)) 12px max(12px,env(safe-area-inset-bottom));align-items:end}
+  .modal .form{max-height:calc(100dvh - 24px);overflow-y:auto;overscroll-behavior:contain;border-radius:28px}
+  .close{width:44px;height:44px}
+}
+
+@media (max-width:680px){
+  .filters{display:grid;grid-auto-flow:column;grid-template-rows:auto auto;grid-auto-columns:max-content;column-gap:8px;row-gap:12px;overflow:visible;flex-wrap:initial;margin-inline:0;padding:0}
+  .filters{display:flex;flex-wrap:wrap;gap:8px}
+  .filters .search{order:-1;flex:1 1 100%;min-width:0;margin:0 0 4px}
+  .filters button{flex:0 0 auto}
+}
+
+@media (max-width:680px){
+  .globe img{width:128%;margin-left:-14%}
+  .pains .pre{font-size:17px}
+  .pains .h2{font-size:26px;gap:8px 10px}
+  .pains .pill{padding:2px 12px 4px}
+  .pill svg{width:22px;height:22px}
+  .frame .stories-wrap{padding-bottom:84px}
+  .stories-wrap .arrow{bottom:0;width:52px;height:52px}
+  .stories-wrap .arrow.prev{left:calc(50% - 60px)}.stories-wrap .arrow.next{right:calc(50% - 60px)}
+}
 </style>
 </head>
 <body>
