@@ -1321,6 +1321,48 @@ a,button,.dd-btn,.dd-opt{touch-action:manipulation}
   .fcols a{margin-bottom:8px}
   .fbar .container{padding:14px 0}
 }
+
+/* ===== Правки: Почему Китай, программы, заголовки, иконки, футер, чек-лист ===== */
+/* Почему Китай: без контура и тени */
+.frame.why .why-card,.why-card{box-shadow:none!important;border:0!important}
+
+/* Программы: кнопка с тем же отступом и скруглением, что у картинки */
+.prog{padding:6px}
+.prog-body{padding:14px 10px 0}
+.prog .spacer{min-height:16px}
+.prog-body > .btn,.prog .btn{margin:0 -10px 0;width:calc(100% + 20px);border-radius:var(--r-sm)!important}
+@media (max-width:680px){.prog-body > .btn,.prog .btn{width:calc(100% + 20px)!important}}
+
+/* Заголовки секций: единое начертание Onest Bold */
+.h2,section h2,.frame h2,.docs-top h2,.ab-text h2,.lead h2,.faq h2,.side h3,.story-top h3{font-weight:700!important;letter-spacing:-.02em}
+.pains .h2,.why .h2,.checklist .h2{font-weight:700!important}
+
+/* Иконки соцсетей: белый фон, тёмно-синяя иконка */
+.soc a,.soc a[aria-label]{background:#fff!important;color:#0d1a3a!important}
+.soc a:hover{background:#e8f0ff!important}
+.ch-opt .ch-ic,.ch-opt.tg .ch-ic,.ch-opt.wa .ch-ic{background:#fff;color:#0d1a3a}
+.ch-opt.tg:has(input:checked),.ch-opt.wa:has(input:checked){border-color:#4d8dff}
+
+/* Чек-лист: аккуратнее отступы внутри тёмной карточки */
+.dl{padding:12px 12px 24px;border-radius:32px}
+.dl > img{border-radius:22px}
+.dl h3,.dl .ch-row,.dl .field,.dl .btn,.dl .pdf{margin-left:12px;margin-right:12px}
+.dl .btn{width:calc(100% - 24px)}
+.dl h3{margin-top:24px}
+@media (max-width:680px){.dl{padding:8px 8px 20px;border-radius:28px}.dl > img{border-radius:20px}.dl h3,.dl .ch-row,.dl .field,.dl .btn,.dl .pdf{margin-left:8px;margin-right:8px}.dl .btn{width:calc(100% - 16px)!important}}
+
+/* Футер (телефон): меньше пустоты над фото, навигация вертикально, обратная связь в отдельном фрейме */
+@media (max-width:680px){
+  .frame.lead{padding-bottom:16px}
+  .footer{padding-top:78vw;
+    background:linear-gradient(180deg,#3da3f5 0%,rgba(61,163,245,.6) 10vw,rgba(61,163,245,0) 26vw),
+      linear-gradient(180deg,rgba(7,26,90,0) 100vw,rgba(7,26,90,.7) 128vw,#071a5a 156vw) top/100% 100% no-repeat,
+      url(assets/foot-9x16.webp) center -22vw/100% auto no-repeat,#071a5a}
+  .fcols > div:first-child{display:flex;flex-direction:column;gap:0}
+  .fcols > div:first-child > a{background:none!important;border:0!important;padding:0!important;min-height:44px;font-size:16px;border-radius:0}
+  .fcols > div:nth-child(2){margin:6px 0;padding:16px!important;border:0!important;border-radius:20px;background:rgba(255,255,255,.08)}
+  .fcols > div:nth-child(3){border-top:1px solid rgba(255,255,255,.12)}
+}
 </style>
 </head>
 <body>
