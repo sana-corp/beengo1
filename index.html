@@ -1579,6 +1579,82 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
       linear-gradient(180deg,rgba(7,26,90,0) 86vw,rgba(7,26,90,.7) 100vw,#071a5a 112vw) top/100% 100% no-repeat,
       url(assets/opt/foot-mobile.webp) center 20vw/100% auto no-repeat,#3da3f5!important}
 }
+
+/* Первый экран: Алсу аккуратно внутри карточки, голова чуть выходит за верх */
+.hero-clip{top:-7%!important;overflow:visible!important;clip-path:inset(-20% 0 0 0 round 0 0 var(--r-lg) var(--r-lg))}
+.hero-clip img{height:100%!important;right:2%!important}
+@media (max-width:680px){.hero-clip{top:-5%!important}.hero-clip img{height:96%!important;right:-6%!important}}
+
+/* ===== Пакет правок ===== */
+/* форма заявки: без тени */
+.lead .form,.form{box-shadow:none!important}
+#lead.sec{background:linear-gradient(180deg,#2c5fe6 0%,#2f6ce8 40%,#3a9ef8 85%,#3da3f5 100%)!important}
+
+/* чек-лист: фирменные круглые иконки */
+.ch-opt .ch-ic,.ch-opt.tg .ch-ic,.ch-opt.wa .ch-ic{background:none!important;width:32px;height:32px;border-radius:50%}
+.ch-ic svg{width:32px!important;height:32px!important}
+
+/* статьи: обложки сплошной заливкой, свой цвет у каждой темы */
+.cover{background-image:none!important;font-weight:600;letter-spacing:-.01em}
+.cv-admission{background:#1f5fe0!important;color:#fff}
+.cv-programs{background:#ff8a1f!important;color:#fff}
+.cv-docs{background:#ffcf3f!important;color:#3a2405}
+.cv-life{background:#ff5a4e!important;color:#fff}
+.cv-grants{background:#0b2364!important;color:#fff}
+.art .cat{display:inline-block;align-self:flex-start;padding:4px 10px;border-radius:8px;margin-left:16px;font-size:11px}
+.art[data-cat^="programs"] .cat{background:#fff0e0;color:#c35f00}
+.art[data-cat^="docs"] .cat{background:#fff4cc;color:#7a5500}
+.art[data-cat^="life"] .cat{background:#ffe5e2;color:#c22c22}
+.filters button[data-f="admission"]{--fc:#1f5fe0}.filters button[data-f="programs"]{--fc:#ff8a1f}.filters button[data-f="docs"]{--fc:#e0a800}
+.filters button[data-f="life"]{--fc:#ff5a4e}.filters button[data-f="grants"]{--fc:#0b2364}
+.filters button[data-f]:not([data-f="all"])::before{content:"";display:inline-block;width:8px;height:8px;border-radius:50%;background:var(--fc);margin-right:6px;vertical-align:1px}
+.filters button.on[data-f]:not([data-f="all"]){background:var(--fc);color:#fff}
+.filters button.on::before{background:#fff!important}
+
+/* программы: названия крупнее */
+.prog-head h3{font-size:clamp(26px,2.4vw,32px)!important;letter-spacing:-.02em}
+@media (max-width:680px){.prog-head h3{font-size:28px!important}}
+
+/* «Четкая система»: фрейм шире, книзу скругляется, «Документы» заходят под него */
+@media (min-width:981px){#pains .container{width:calc(100% - 40px)!important;max-width:1440px!important}.compare{padding:16px!important}}
+#pains.sec{position:relative;z-index:2;border-radius:0 0 48px 48px}
+#docs.sec{position:relative;z-index:1;margin-top:-48px;padding-top:60px!important}
+@media (max-width:680px){#pains.sec{border-radius:0 0 32px 32px}#docs.sec{margin-top:-32px;padding-top:42px!important}}
+
+/* истории (телефон): ровные отступы и скругления */
+@media (max-width:680px){
+  .frame.stories{border-radius:32px!important;padding:44px 0 20px!important}
+  .frame.stories .container{width:calc(100% - 24px)!important}
+  .frame .stories-wrap{padding:0!important}
+  .story{padding:10px 10px 18px!important;border-radius:24px!important;gap:16px!important;box-shadow:0 12px 30px rgba(160,110,10,.10)!important}
+  .story > .video{border-radius:16px!important}
+  .story-top,.ba,.quote{margin-left:6px!important;margin-right:6px!important}
+  .stories-wrap .arrow{top:200px!important;width:42px!important;height:42px!important}
+  .stories-wrap .arrow.prev{left:-8px!important}.stories-wrap .arrow.next{right:-8px!important}
+}
+
+/* ===== Анимации ===== */
+/* появление: мягкий подъём с лёгким размытием */
+.reveal{opacity:0;transform:translateY(32px) scale(.985);filter:blur(6px);transition:opacity .9s cubic-bezier(.2,.7,.2,1),transform .9s cubic-bezier(.2,.7,.2,1),filter .9s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none;filter:none}
+/* заголовки секций проявляются по словам */
+.h2 .w{display:inline-block;opacity:0;transform:translateY(.45em);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--wi)*45ms)}
+.h2.words-in .w{opacity:1;transform:none}
+/* шаги: карточки выезжают по очереди, номер «прыгает», список проявляется */
+.step{opacity:0;transform:translateY(40px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--si,0)*120ms)}
+.step.in{opacity:1;transform:none}
+.step .n{display:inline-block;transform:scale(.6);opacity:0;transition:transform .5s cubic-bezier(.3,1.6,.5,1),opacity .4s;transition-delay:calc(var(--si,0)*120ms + .35s)}
+.step.in .n{transform:none;opacity:1}
+.step li{opacity:0;transform:translateX(-10px);transition:opacity .5s,transform .5s;transition-delay:calc(var(--si,0)*120ms + .45s + var(--li,0)*90ms)}
+.step.in li{opacity:1;transform:none}
+.step:hover .step-top{transform:translateY(-4px)}
+.step-top{transition:transform .35s}
+@media (prefers-reduced-motion:reduce){.reveal,.step,.step .n,.step li,.h2 .w{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}}
+/* финансирование: плавное движение без рывков */
+.fin{transition:transform .5s cubic-bezier(.2,.7,.2,1),filter .5s!important}
+
+.process-wrap .h2 .w{color:#fff}
+.process-wrap .h2 > span:not(.w) .w{color:#5b8cff}
 </style>
 </head>
 <body>
@@ -1974,21 +2050,21 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
     </div>
     <div class="art-grid">
       <article class="art reveal" data-cat="programs admission">
-        <div class="cover c1">Как выбрать программу обучения в Китае</div>
+        <div class="cover cv-programs">Как выбрать программу обучения в Китае</div>
         <div class="cat">Программы</div>
         <h3>Как выбрать программу обучения в Китае</h3>
         <p>Разбираемся в языковых курсах, колледжах, бакалавриате и магистратуре — чтобы сопоставить формат, сроки и свои цели.</p>
         <a href="#">Читать статью полностью</a>
       </article>
       <article class="art reveal" data-cat="docs admission">
-        <div class="cover c2">Какие документы нужны для поступления</div>
+        <div class="cover cv-docs">Какие документы нужны для поступления</div>
         <div class="cat">Документы</div>
         <h3>Какие документы нужны для поступления</h3>
         <p>Базовый список, этапы подготовки и то, от чего зависят требования университета.</p>
         <a href="#">Читать статью полностью</a>
       </article>
       <article class="art reveal" data-cat="life grants">
-        <div class="cover c3">Сколько стоит жизнь студента в Китае</div>
+        <div class="cover cv-life">Сколько стоит жизнь студента в Китае</div>
         <div class="cat">Жизнь в Китае</div>
         <h3>Сколько стоит жизнь студента в Китае</h3>
         <p>Из чего складываются расходы на жильё, питание, транспорт и повседневные траты.</p>
@@ -2009,8 +2085,8 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
       <img loading="lazy" decoding="async" src="assets/opt/check.webp" alt="Пошаговый план поступления на грант в Китай в 2026/2027 году">
       <h3>Куда прислать чек-лист?</h3>
       <div class="ch-row" role="radiogroup" aria-label="Куда прислать">
-        <label class="ch-opt tg"><input type="radio" name="ch" value="tg" checked><span class="ch-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg></span><span>Телеграм</span><i></i></label>
-        <label class="ch-opt wa"><input type="radio" name="ch" value="wa"><span class="ch-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg></span><span>WhatsApp</span><i></i></label>
+        <label class="ch-opt tg"><input type="radio" name="ch" value="tg" checked><span class="ch-ic"><svg width="32" height="32" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#27A6E5"/><path fill="#fff" d="M5.4 11.7l11.3-4.4c.5-.2 1 .1.8.9l-1.9 9c-.1.6-.5.8-1 .5l-2.9-2.1-1.4 1.3c-.2.2-.3.3-.6.3l.2-3 5.4-4.9c.2-.2 0-.3-.3-.1l-6.7 4.2-2.9-.9c-.6-.2-.6-.6.1-.8z"/></svg></span><span>Телеграм</span><i></i></label>
+        <label class="ch-opt wa"><input type="radio" name="ch" value="wa"><span class="ch-ic"><svg width="32" height="32" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="#25D366"/><path fill="#fff" d="M12 5.2a6.8 6.8 0 0 0-5.9 10.2L5.2 18.8l3.5-.9A6.8 6.8 0 1 0 12 5.2zm0 12.4c-1 0-2-.3-2.9-.8l-.2-.1-2.1.5.6-2-.1-.2A5.6 5.6 0 1 1 12 17.6zm3.1-4.2c-.2-.1-1-.5-1.2-.5-.2-.1-.3-.1-.4.1l-.5.6c-.1.1-.2.1-.4 0a4.6 4.6 0 0 1-2.3-2c-.2-.3.2-.3.5-1 .1-.1 0-.2 0-.3l-.5-1.3c-.1-.3-.3-.3-.4-.3h-.4c-.1 0-.3.1-.5.2-.2.2-.6.6-.6 1.5s.7 1.8.8 1.9c.1.1 1.3 2 3.2 2.8 1.2.5 1.7.5 2.3.4.4-.1 1-.4 1.2-.8.1-.4.1-.8.1-.8-.1-.1-.2-.1-.4-.2z"/></svg></span><span>WhatsApp</span><i></i></label>
       </div>
       <label class="field ch-tg"><span class="at">@</span><input type="text" id="dlNick" required placeholder="ваш_никнейм" autocomplete="username" autocapitalize="off" spellcheck="false" pattern="[A-Za-z0-9_]{5,32}" title="5–32 символа: латиница, цифры, _"></label>
       <div class="field ch-wa" hidden>
@@ -2276,7 +2352,7 @@ $$('.why-grid,.prog-grid,.fin-grid,.doc-grid,.steps,.ab-cards,.art-grid,.qa,.sta
 (()=>{const g=$('.fin-grid');if(!g)return;const cards=$$('.fin',g);cards.forEach((c,i)=>c.style.setProperty('--i',i));
   const rot=[-7,0,9],dx=[1,0,-1],fy=[44,-14,70],fx=[18,0,-18];let raf=0;
   const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
-  const tick=()=>{raf=0;const vh=innerHeight;
+  let cur=null;const tick=()=>{raf=0;const vh=innerHeight;
     if(innerWidth<=980){cards.forEach((c,i)=>{const nx=cards[i+1];if(!nx){c.style.transform='';return}
         const r=nx.getBoundingClientRect(),me=c.getBoundingClientRect();
         const p=clamp(1-(r.top-me.top)/(me.height),0,1);
@@ -2301,6 +2377,19 @@ $$('.why-grid,.prog-grid,.fin-grid,.doc-grid,.steps,.ab-cards,.art-grid,.qa,.sta
 (()=>{const tz=(Intl.DateTimeFormat().resolvedOptions().timeZone||'');const map={'Asia/Almaty':'🇰🇿','Asia/Qyzylorda':'🇰🇿','Asia/Aqtobe':'🇰🇿','Asia/Aqtau':'🇰🇿','Asia/Atyrau':'🇰🇿','Asia/Oral':'🇰🇿','Asia/Qostanay':'🇰🇿','Asia/Tashkent':'🇺🇿','Asia/Samarkand':'🇺🇿','Asia/Bishkek':'🇰🇬','Europe/Minsk':'🇧🇾','Asia/Baku':'🇦🇿','Asia/Dushanbe':'🇹🇯','Asia/Ashgabat':'🇹🇲','Asia/Yerevan':'🇦🇲','Asia/Tbilisi':'🇬🇪','Europe/Chisinau':'🇲🇩','Europe/Kiev':'🇺🇦','Europe/Kyiv':'🇺🇦','Asia/Shanghai':'🇨🇳','Asia/Urumqi':'🇨🇳'};
   const flag=map[tz];if(!flag)return;
   $$('.tel-code,#dlCode').forEach(sel=>{const o=[...sel.options].find(o=>o.textContent.trim().startsWith(flag));if(o)sel.value=o.value,o.selected=true});})();
+
+// Заголовки секций: разбиваем на слова для анимации
+(()=>{$$('.h2').forEach(h=>{if(h.querySelector('.pill,.ph1,img,svg'))return;
+  const walk=n=>{[...n.childNodes].forEach(c=>{if(c.nodeType===3){const parts=c.textContent.split(/(\s+)/);const f=document.createDocumentFragment();
+      parts.forEach(t=>{if(!t)return;if(/^\s+$/.test(t)){f.appendChild(document.createTextNode(t));return}const sp=document.createElement('span');sp.className='w';sp.textContent=t;f.appendChild(sp)});c.replaceWith(f)}
+    else if(c.nodeType===1&&c.tagName!=='BR')walk(c)})};walk(h);$$('.w',h).forEach((w,i)=>w.style.setProperty('--wi',i));});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('words-in');io.unobserve(e.target)}}),{threshold:.3});
+  $$('.h2').forEach(h=>{if(h.querySelector('.w'))io.observe(h)});})();
+// Шаги: поочерёдное появление
+(()=>{const st=$$('.steps .step,.steps .cta-card');st.forEach((s,i)=>{s.style.setProperty('--si',i%3);$$('li',s).forEach((l,k)=>l.style.setProperty('--li',k));s.classList.remove('reveal')});
+  $$('.steps .step').forEach(s=>s.classList.remove('reveal'));
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.2});
+  $$('.steps .step').forEach(s=>io.observe(s));})();
 // модалка
 const modal=$('#modal');
 $$('[data-open]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();
