@@ -1836,6 +1836,31 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
 
 .hero,.hero-panel{overflow-x:clip}
 .hero-clip{overflow-x:clip!important;overflow-y:visible!important}
+
+/* ===== Пакет правок 4 ===== */
+/* «5 шагов»: синяя рамка 8px со всех сторон, скруглённая; плавный стык с «Историями» */
+#process.sec{background:#fff!important;padding:8px 0!important}
+#process .frame.process{width:calc(100% - 16px)!important;border:8px solid #0b5cf0;border-radius:48px!important;background-clip:padding-box}
+#stories.sec{background:#fff!important;border-radius:0!important;padding-bottom:0!important}
+@media (max-width:680px){#process .frame.process{border-radius:32px!important;border-width:8px}}
+/* обложка «Программы»: тёмно-персиковый текст */
+.cv-programs{background:linear-gradient(160deg,#ffd9b8,#ffc290)!important;color:#b5400e!important}
+/* заявка короче */
+.frame.lead{padding-top:clamp(48px,5vw,72px)!important}
+.lead-grid{gap:clamp(24px,4vw,56px)!important}
+@media (max-width:680px){.frame.lead{padding-top:40px!important}.lead-grid > div > p{margin-top:12px!important}}
+/* футер: больше воздуха между логотипом и заголовком */
+.fcard h3{margin-top:32px!important}
+/* мобильное меню: отступы 8px со всех сторон, WhatsApp как в макете, номер слева */
+@media (max-width:980px){
+  .header .nav.open{padding:8px!important}
+  .header .nav.open .logo{margin-left:8px}
+  .nav.open .menu{margin:8px 0!important}
+  .nav.open .menu a{padding:0 8px!important}
+  .nav.open .wa{border:0!important;background:#eef4ff;border-radius:14px!important;overflow:hidden;justify-content:flex-start!important;min-height:52px;margin:0 0 8px!important}
+  .nav.open .wa .ic{width:52px;border-radius:14px}
+  .nav.open .wa .num{flex:1;text-align:left!important;padding:0 16px;font-size:16px;font-weight:600;color:#0b4fd6}
+}
 </style>
 </head>
 <body>
