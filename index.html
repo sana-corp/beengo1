@@ -7,6 +7,7 @@
 <meta name="format-detection" content="telephone=no">
 <title>Beengo Study — поступление в университеты Китая</title>
 <meta name="description" content="Beengo Study помогает абитуриентам из СНГ поступить в топовые университеты Китая: подбор программ, документы, гранты.">
+<link rel="preload" as="image" href="assets/opt/alsu.webp" fetchpriority="high">
 <link rel="icon" href="assets/logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -263,7 +264,7 @@ section{padding:var(--section) 0}
 
 /* ---------- Docs ---------- */
 .docs-wrap{position:relative;overflow:hidden;border-radius:var(--r-xl);padding:var(--s8) var(--s8) var(--s6) 15%;background:radial-gradient(90% 80% at 25% 10%,#3f7cf2 0%,#1f55dd 40%,#0e2fa0 100%);color:#fff}
-.docs-wrap::before{content:"";position:absolute;inset:0;background:url(assets/docs-bg.png) center top/cover no-repeat;pointer-events:none}
+.docs-wrap::before{content:"";position:absolute;inset:0;background:url(assets/opt/docs-bg.webp) center top/cover no-repeat;pointer-events:none}
 .docs-top{position:relative;display:grid;grid-template-columns:1.2fr .8fr;align-items:end;gap:var(--s3)}
 .docs-top h2{font-size:clamp(34px,4.6vw,56px);line-height:1.08;font-weight:600;letter-spacing:-.02em;position:relative;z-index:2}
 .docs-top p{font-size:clamp(16px,1.7vw,19px);opacity:.95;margin-top:var(--s2);max-width:440px}
@@ -348,7 +349,7 @@ section{padding:var(--section) 0}
 .done b{display:block;font-size:24px;margin-bottom:var(--s1)}
 
 /* ---------- Footer ---------- */
-.footer{position:relative;background:url(assets/footbg.jpg) center/cover;padding:var(--s8) 0 0}
+.footer{position:relative;background:url(assets/opt/footbg.webp) center/cover;padding:var(--s8) 0 0}
 .foot-wrap{position:relative;border-radius:var(--r-xl) var(--r-xl) var(--r-xl) var(--r-xl);background:linear-gradient(180deg,rgba(255,255,255,.05),rgba(4,18,60,.82) 85%);backdrop-filter:blur(6px);padding:var(--s6);display:grid;grid-template-columns:1fr 1.25fr;gap:var(--s5);margin-bottom:var(--s5)}
 .fcard{background:linear-gradient(180deg,#fff 0%,#eef4ff 70%,#d8e6ff 100%);border-radius:var(--r-lg);padding:var(--s4);color:var(--navy)}
 .fbrand{display:flex;align-items:center;gap:var(--s2)}
@@ -397,7 +398,7 @@ section{padding:var(--section) 0}
 .frame.process{background:var(--ink)}
 .frame.stories{background:#fff8e1}
 .frame.docs{background:radial-gradient(90% 80% at 25% 10%,#3f7cf2 0%,#1f55dd 40%,#0e2fa0 100%);color:#fff}
-.frame.docs::before{content:"";position:absolute;inset:0;background:url(assets/docs-bg.png) center top/cover no-repeat;pointer-events:none;z-index:-1}
+.frame.docs::before{content:"";position:absolute;inset:0;background:url(assets/opt/docs-bg.webp) center top/cover no-repeat;pointer-events:none;z-index:-1}
 .frame .docs-wrap{padding-left:8%}
 .frame .docs-wrap::before{display:none}
 .frame.articles{background:#fff}
@@ -528,13 +529,13 @@ section{padding:var(--section) 0}
 .frame.lead{background:linear-gradient(180deg,#1646c8 0%,#2468e0 40%,#3a9ef8 80%,#3fa8fa 100%);border-radius:40px 40px 0 0;padding-bottom:calc(var(--section) + 24px)}
 .frame.lead::after{display:none}
 .footer{margin-top:0;border-radius:0 0 40px 40px;padding-top:clamp(200px,26vw,380px);
-  background:linear-gradient(180deg,#3fa8fa 0%,rgba(63,168,250,.6) 8%,rgba(63,168,250,0) 22%),url(assets/footbg.jpg) center top/cover no-repeat,#3fa8fa}
+  background:linear-gradient(180deg,#3fa8fa 0%,rgba(63,168,250,.6) 8%,rgba(63,168,250,0) 22%),url(assets/opt/footbg.webp) center top/cover no-repeat,#3fa8fa}
 .foot-wrap{background:linear-gradient(180deg,rgba(8,30,90,.45),rgba(4,18,60,.72));backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid rgba(255,255,255,.22);box-shadow:0 30px 60px rgba(4,18,60,.25)}
 .fbar{background:rgba(2,10,36,.78);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
 @media (max-width:680px){
   .frame.lead{border-radius:28px 28px 0 0}
   .footer{margin-top:0;border-radius:0 0 28px 28px;padding-top:220px;
-    background:linear-gradient(180deg,#3fa8fa 0%,rgba(63,168,250,0) 90px),linear-gradient(180deg,rgba(11,36,102,0) 340px,#0b2466 600px),url(assets/footbg.jpg) 68% top/auto 600px no-repeat,#0b2466}
+    background:linear-gradient(180deg,#3fa8fa 0%,rgba(63,168,250,0) 90px),linear-gradient(180deg,rgba(11,36,102,0) 340px,#0b2466 600px),url(assets/opt/footbg.webp) 68% top/auto 600px no-repeat,#0b2466}
 }
 
 /* Чек-лист: плавный градиент по всему блоку */
@@ -760,7 +761,7 @@ body{background:#e9eff8}
 /* Узор на фоне шапки карточки шага (SVG из макета) */
 .step-head.pat{background-color:#1e63ff;background-image:none;isolation:isolate}
 .step-head.pat::before{content:"";position:absolute;inset:0;border-radius:inherit;background:center/cover no-repeat;z-index:-1;pointer-events:none}
-.step-head.pat1::before{background-image:url(assets/step-bg.svg)}
+.step-head.pat1::before{background-image:url(assets/opt/step-bg.webp)}
 
 /* Процесс: меньше синей рамки вокруг тёмного фрейма */
 #process.sec{padding:8px 0}
@@ -775,13 +776,13 @@ body{background:#e9eff8}
 .step-head img.st5{width:clamp(92px,9vw,124px);top:-34px;right:4px}
 
 /* ===== Фон футера: отдельная картинка под каждый формат экрана ===== */
-.footer{--fimg:url(assets/foot-16x9.webp);
+.footer{--fimg:url(assets/opt/foot-16x9.webp);
   background:linear-gradient(180deg,#3fa8fa 0%,rgba(63,168,250,.6) 8%,rgba(63,168,250,0) 22%),var(--fimg) center top/cover no-repeat,#3fa8fa}
-@media (min-width:1700px){.footer{--fimg:url(assets/foot-21x9.webp)}}
-@media (max-width:1199px){.footer{--fimg:url(assets/foot-4x3.webp)}}
-@media (max-width:980px){.footer{--fimg:url(assets/foot-3x4.webp)}}
+@media (min-width:1700px){.footer{--fimg:url(assets/opt/foot-21x9.webp)}}
+@media (max-width:1199px){.footer{--fimg:url(assets/opt/foot-4x3.webp)}}
+@media (max-width:980px){.footer{--fimg:url(assets/opt/foot-3x4.webp)}}
 @media (max-width:680px){
-  .footer{--fimg:url(assets/foot-9x16.webp);padding-top:min(128vw,560px);
+  .footer{--fimg:url(assets/opt/foot-9x16.webp);padding-top:min(128vw,560px);
     background:linear-gradient(180deg,#3fa8fa 0%,rgba(63,168,250,0) 90px),linear-gradient(180deg,rgba(11,36,102,0) 55%,#0b2466 100%) top/100% 177.8vw no-repeat,var(--fimg) center top/100% auto no-repeat,#0b2466}
 }
 
@@ -935,7 +936,7 @@ a,button,.dd-btn,.dd-opt{touch-action:manipulation}
   .footer{padding-top:28px;background:linear-gradient(180deg,#3fa8fa 0%,#2a6fe0 160px,#0e2f8c 520px,#071a5a 100%)}
   .footer > .container{width:calc(100% - 16px)}
   .footer > .container::before{content:"";display:block;aspect-ratio:4/3;border-radius:28px;
-    background:url(assets/foot-4x3.webp) center 72%/cover;box-shadow:0 24px 50px rgba(4,18,60,.35)}
+    background:url(assets/opt/foot-4x3.webp) center 72%/cover;box-shadow:0 24px 50px rgba(4,18,60,.35)}
   .foot-wrap{position:relative;margin-top:-72px;padding:0;gap:0;border:0;border-radius:0;background:none;
     backdrop-filter:none;-webkit-backdrop-filter:none;box-shadow:none;margin-bottom:8px}
   .fcard{margin:0 10px;border-radius:24px;box-shadow:0 20px 40px rgba(4,18,60,.28);position:relative;z-index:1}
@@ -977,7 +978,7 @@ a,button,.dd-btn,.dd-opt{touch-action:manipulation}
     background:
       linear-gradient(180deg,#3fa8fa 0%,rgba(63,168,250,.9) 12vw,rgba(63,168,250,.55) 30vw,rgba(63,168,250,.15) 50vw,rgba(63,168,250,0) 64vw),
       linear-gradient(180deg,rgba(7,26,90,0) 120vw,rgba(7,26,90,.7) 150vw,#071a5a 178vw) top/100% 100% no-repeat,
-      url(assets/foot-9x16.webp) center top/100% auto no-repeat,#071a5a}
+      url(assets/opt/foot-9x16.webp) center top/100% auto no-repeat,#071a5a}
   .foot-wrap{margin-top:0;padding:10px 0 0;border-radius:28px;
     background:linear-gradient(180deg,rgba(255,255,255,.16) 0%,rgba(14,47,140,.55) 22%,rgba(7,26,90,.92) 55%,rgba(7,26,90,.97) 100%);
     backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border:1px solid rgba(255,255,255,.2)}
@@ -991,7 +992,7 @@ a,button,.dd-btn,.dd-opt{touch-action:manipulation}
     background:
       linear-gradient(180deg,#3da3f5 0%,rgba(61,163,245,.92) 14vw,rgba(61,163,245,.6) 32vw,rgba(61,163,245,.2) 52vw,rgba(61,163,245,0) 68vw),
       linear-gradient(180deg,rgba(7,26,90,0) 128vw,rgba(7,26,90,.7) 156vw,#071a5a 182vw) top/100% 100% no-repeat,
-      url(assets/foot-9x16.webp) center top/100% auto no-repeat,#071a5a}
+      url(assets/opt/foot-9x16.webp) center top/100% auto no-repeat,#071a5a}
   .footer .fcols > div:last-child > a{white-space:nowrap;font-size:19px!important}
 }
 
@@ -1347,7 +1348,7 @@ a,button,.dd-btn,.dd-opt{touch-action:manipulation}
   .footer{padding-top:78vw;
     background:linear-gradient(180deg,#3da3f5 0%,rgba(61,163,245,.6) 10vw,rgba(61,163,245,0) 26vw),
       linear-gradient(180deg,rgba(7,26,90,0) 100vw,rgba(7,26,90,.7) 128vw,#071a5a 156vw) top/100% 100% no-repeat,
-      url(assets/foot-9x16.webp) center -22vw/100% auto no-repeat,#071a5a}
+      url(assets/opt/foot-9x16.webp) center -22vw/100% auto no-repeat,#071a5a}
   .fcols > div:first-child{display:flex;flex-direction:column;gap:0}
   .fcols > div:first-child > a{background:none!important;border:0!important;padding:0!important;min-height:44px;font-size:16px;border-radius:0}
   .fcols > div:nth-child(2){margin:6px 0;padding:16px!important;border:0!important;border-radius:20px;background:rgba(255,255,255,.08)}
@@ -1462,7 +1463,7 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
 @media (max-width:680px){.fin .fbtn{border-radius:8px 8px 20px 20px!important}.fin-in{border-radius:20px 20px 8px 8px!important}}
 
 /* узор-принт на фоне карточки «Гранты» */
-.fin:nth-child(1) .fin-in::before{content:"";position:absolute;inset:0;background:url(assets/fin-print.svg) center top/cover no-repeat;z-index:-1;pointer-events:none}
+.fin:nth-child(1) .fin-in::before{content:"";position:absolute;inset:0;background:url(assets/opt/fin-print.webp) center top/cover no-repeat;z-index:-1;pointer-events:none}
 .fin:nth-child(1) .fin-in > *{position:relative}
 .fin:nth-child(1) .fin-in > .fin-cap{position:relative}
 .fin-tassel{filter:none}
@@ -1516,8 +1517,8 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
 
 /* принты на фоне жёлтой и красной карточек */
 .fin.y .fin-in::before,.fin.r .fin-in::before{content:"";position:absolute;inset:0;background:center top/cover no-repeat;z-index:-1;pointer-events:none}
-.fin.y .fin-in::before{background-image:url(assets/fin-print-y.svg)}
-.fin.r .fin-in::before{background-image:url(assets/fin-print-r.svg)}
+.fin.y .fin-in::before{background-image:url(assets/opt/fin-print-y.webp)}
+.fin.r .fin-in::before{background-image:url(assets/opt/fin-print-r.webp)}
 </style>
 </head>
 <body>
@@ -1552,7 +1553,7 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
   <div class="hero-panel"><div class="container">
     <div class="hero-grid">
       <div class="hero-card reveal">
-        <div class="hero-clip"><img src="assets/alsu.png" alt="Студентка Beengo Алсу" width="580" height="619"></div>
+        <div class="hero-clip"><img src="assets/opt/alsu.webp" fetchpriority="high" decoding="async" alt="Студентка Beengo Алсу" width="580" height="619"></div>
         <h2>Наша<br>студентка<br>Алсу</h2>
         <blockquote>«Спокойно обращайтесь в Beengo, они вам действительно помогут. Сейчас я получаю качественное образование без самостоятельного поиска!»</blockquote>
         <a href="#stories" class="story-btn">Смотреть историю поступления<span><svg width="10" height="12" viewBox="0 0 10 12"><path d="M0 0l10 6-10 6z" fill="#fff"/></svg></span></a>
@@ -1562,7 +1563,7 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
         <h1>Поступите в топовый университет Китая</h1>
         <p>Beengo Study помогает абитуриентам со всего СНГ подобрать специальность, оформить академические документы и получить приглашение от вуза</p>
         <div class="budget">
-          <img src="assets/money.png" alt="">
+          <img src="assets/opt/money.webp" alt="">
           <b>Подбираем программы<br>под любой бюджет</b>
           <small>От грантов и скидок до контрактного обучения</small>
         </div>
@@ -1595,22 +1596,22 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
       <article class="why-card reveal">
         <h3 data-s="Диплом, за которым охотятся работодатели" data-p="Диплом, который открывает двери">Диплом, за которым охотятся работодатели</h3>
         <p data-s="Доступ к практике и стажировкам в глобальных IT- и технологических гигантах." data-p="Диплом ведущего вуза Китая ценится работодателями по всему миру — это надёжная инвестиция в карьеру ребёнка.">Доступ к практике и стажировкам в глобальных IT- и технологических гигантах.</p>
-        <img src="assets/why1.png" alt="">
+        <img loading="lazy" decoding="async" src="assets/opt/why1.webp" alt="">
       </article>
       <article class="why-card reveal">
         <h3 data-s="Кампусы как из фильмов про будущее" data-p="Безопасность и современная среда">Кампусы как из фильмов про будущее</h3>
         <p data-s="Роботы-доставщики, пропускная система по биометрии, огромные лаборатории и спорткомплексы." data-p="Охраняемые кампусы с биометрическим доступом, общежития на территории вуза и всё необходимое рядом.">Роботы-доставщики, пропускная система по биометрии, огромные лаборатории и спорткомплексы.</p>
-        <img src="assets/why2.png" alt="">
+        <img loading="lazy" decoding="async" src="assets/opt/why2.webp" alt="">
       </article>
       <article class="why-card reveal">
         <h3 data-s="Деньги на жизнь и путешествия" data-p="Обучение без огромных затрат">Деньги на жизнь и путешествия</h3>
         <p data-s="Грант покрывает не только учёбу и современное общежитие, но и даёт ежемесячную стипендию на карманные расходы." data-p="Гранты покрывают обучение и проживание, а ежемесячная стипендия снимает часть расходов с семейного бюджета.">Грант покрывает не только учёбу и современное общежитие, но и даёт ежемесячную стипендию на карманные расходы.</p>
-        <img src="assets/why3.png" alt="">
+        <img loading="lazy" decoding="async" src="assets/opt/why3.webp" alt="">
       </article>
       <article class="why-card reveal">
         <h3 data-s="Путешествия по всей Азии" data-p="Близко к дому">Путешествия по всей Азии</h3>
         <p data-s="На скоростных поездах можно легко объездить всю страну, а на каникулах дешево слетать в соседние азиатские страны." data-p="Удобная логистика и перелёты в города СНГ — ребёнок сможет приезжать домой на каникулы.">На скоростных поездах можно легко объездить всю страну, а на каникулах дешево слетать в соседние азиатские страны.</p>
-        <img src="assets/why4.png" alt="">
+        <img loading="lazy" decoding="async" src="assets/opt/why4.webp" alt="">
       </article>
     </div>
   </div>
@@ -1626,7 +1627,7 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
       </div>
       <div class="prog-grid">
         <article class="prog p1 reveal">
-          <div class="prog-head"><img src="assets/prog1.png" alt="" width="556" height="312"><h3>Языковой год</h3></div>
+          <div class="prog-head"><img loading="lazy" decoding="async" src="assets/opt/prog1.webp" alt="" width="556" height="312"><h3>Языковой год</h3></div>
           <div class="prog-body">
             <div class="row"><span class="k">Длительность:</span><span class="badge">0,5-1 год</span></div>
             <div class="row"><span class="k">Требования:</span><span class="badge y">Обучение с нуля</span></div>
@@ -1639,7 +1640,7 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
           </div>
         </article>
         <article class="prog p2 reveal">
-          <div class="prog-head"><img src="assets/prog2.png" alt="" width="556" height="312"><h3>Колледж</h3></div>
+          <div class="prog-head"><img loading="lazy" decoding="async" src="assets/opt/prog2.webp" alt="" width="556" height="312"><h3>Колледж</h3></div>
           <div class="prog-body">
             <div class="row"><span class="k">Длительность:</span><span class="badge">1+2 / 1+3 года</span></div>
             <div class="row"><span class="k">Требования:</span><span class="badge y">После 9 или 11 класса</span></div>
@@ -1653,7 +1654,7 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
           </div>
         </article>
         <article class="prog p3 reveal">
-          <div class="prog-head"><img src="assets/prog3.png" alt="" width="556" height="312"><h3>Бакалавриат</h3></div>
+          <div class="prog-head"><img loading="lazy" decoding="async" src="assets/opt/prog3.webp" alt="" width="556" height="312"><h3>Бакалавриат</h3></div>
           <div class="prog-body">
             <div class="row"><span class="k">Длительность:</span><span class="badge">1+4 / 4 года</span></div>
             <div class="row"><span class="k">Требования:</span><span class="badge y">После 11 класса</span></div>
@@ -1667,7 +1668,7 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
           </div>
         </article>
         <article class="prog p4 reveal">
-          <div class="prog-head"><img src="assets/prog4.png" alt="" width="556" height="312"><h3>Магистратура</h3></div>
+          <div class="prog-head"><img loading="lazy" decoding="async" src="assets/opt/prog4.webp" alt="" width="556" height="312"><h3>Магистратура</h3></div>
           <div class="prog-body">
             <div class="row"><span class="k">Длительность:</span><span class="badge">2-3 года</span></div>
             <div class="row"><span class="k">Требования:</span><span class="badge y">После бакалавриата</span></div>
@@ -1697,7 +1698,7 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
     </div>
     <div class="compare reveal">
       <div class="side bad dots">
-        <img class="deco" src="assets/rejected.png" alt="">
+        <img loading="lazy" decoding="async" class="deco" src="assets/opt/rejected.webp" alt="">
         <h3>Поступать самому</h3>
         <div class="items">
           <div class="item"><svg viewBox="0 0 24 24" fill="none" stroke="#e5484d" stroke-width="2.4" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg><b>Языковой барьер и регламенты</b><p>Сайты большинства университетов на китайском языке. Внутренние требования комиссий не очевидны, из-за чего легко упустить дедлайн подачи.</p></div>
@@ -1706,7 +1707,7 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
         </div>
       </div>
       <div class="side good">
-        <img class="deco" src="assets/trophy.png" alt="">
+        <img loading="lazy" decoding="async" class="deco" src="assets/opt/trophy.webp" alt="">
         <h3>С Beengo Study</h3>
         <div class="items">
           <div class="item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#2fb64b"/><path d="M7 12.4l3.2 3.2L17 8.8" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg><b>Прямой контакт с университетами</b><p>Ведем официальную деловую коммуникацию с деканатами на китайском языке и держим все дедлайны под строгим контролем.</p></div>
@@ -1728,15 +1729,15 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
           <p class="reveal">Никакой сложной бюрократии. Передайте нам базовые оригиналы или сканы — остальное мы берем на себя.</p>
           <div class="list reveal">список:</div>
         </div>
-        <div class="folder"><img src="assets/folder.png" alt="Папка с документами"></div>
+        <div class="folder"><img loading="lazy" decoding="async" src="assets/opt/folder.webp" alt="Папка с документами"></div>
       </div>
       <div class="doc-grid">
-        <div class="doc reveal"><img src="assets/i_pass.png" alt=""><b>Заграничный паспорт</b><span>от 1,5 лет действия</span></div>
-        <div class="doc reveal"><img src="assets/i_dipl.png" alt=""><b>Документ об образовании</b><span>Аттестат, диплом или табель с оценками</span></div>
-        <div class="doc reveal"><img src="assets/i_med.png" alt=""><b>Медицинская справка</b><span>Выдаем готовый бланк</span></div>
-        <div class="doc reveal"><img src="assets/i_cert.png" alt=""><b>Сертификаты HSK/IELTS</b><span>только при наличии, не обязательно для старта с нуля</span></div>
-        <div class="doc reveal"><img src="assets/i_crim.png" alt=""><b>Справка о несудимости</b></div>
-        <div class="doc reveal"><img src="assets/i_photo.png" alt=""><b>Фотографии 3×4</b><span>на белом фоне</span></div>
+        <div class="doc reveal"><img loading="lazy" decoding="async" src="assets/opt/i_pass.webp" alt=""><b>Заграничный паспорт</b><span>от 1,5 лет действия</span></div>
+        <div class="doc reveal"><img loading="lazy" decoding="async" src="assets/opt/i_dipl.webp" alt=""><b>Документ об образовании</b><span>Аттестат, диплом или табель с оценками</span></div>
+        <div class="doc reveal"><img loading="lazy" decoding="async" src="assets/opt/i_med.webp" alt=""><b>Медицинская справка</b><span>Выдаем готовый бланк</span></div>
+        <div class="doc reveal"><img loading="lazy" decoding="async" src="assets/opt/i_cert.webp" alt=""><b>Сертификаты HSK/IELTS</b><span>только при наличии, не обязательно для старта с нуля</span></div>
+        <div class="doc reveal"><img loading="lazy" decoding="async" src="assets/opt/i_crim.webp" alt=""><b>Справка о несудимости</b></div>
+        <div class="doc reveal"><img loading="lazy" decoding="async" src="assets/opt/i_photo.webp" alt=""><b>Фотографии 3×4</b><span>на белом фоне</span></div>
       </div>
       <a class="btn" href="#checklist">Получить список документов в PDF</a>
     </div>
@@ -1754,28 +1755,28 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
       <div class="fin-grid">
         <div class="fin reveal">
           <div class="fin-in">
-            <img class="fin-ic" src="assets/fi1.svg" alt="">
+            <img loading="lazy" decoding="async" class="fin-ic" src="assets/fi1.svg" alt="">
             <h3>Полные и частичные гранты</h3>
             <p>Для абитуриентов с высоким средним баллом или знанием языка. Покрывает 100% стоимости обучения, проживание, а иногда и стипендию.</p>
-            <img class="fin-ill fin-cap" src="assets/fc1-cap.png" alt="Шапка выпускника с надписью «Грант»">
+            <img loading="lazy" decoding="async" class="fin-ill fin-cap" src="assets/opt/fc1-cap.webp" alt="Шапка выпускника с надписью «Грант»">
           </div>
           <button class="fbtn" data-open>Бесплатный разбор шансов</button>
         </div>
         <div class="fin y reveal">
           <div class="fin-in">
-            <img class="fin-ic" src="assets/fi2.svg" alt="">
+            <img loading="lazy" decoding="async" class="fin-ic" src="assets/fi2.svg" alt="">
             <h3>Академические скидки</h3>
             <p>Для студентов со стабильными хорошими оценками. Скидки от 20% до 70% на оплату обучения или бесплатное проживание.</p>
-            <img class="fin-ill fin-id" src="assets/fc2-id.png" alt="Студенческий билет со скидкой 20–70%">
+            <img loading="lazy" decoding="async" class="fin-ill fin-id" src="assets/opt/fc2-id.webp" alt="Студенческий билет со скидкой 20–70%">
           </div>
           <button class="fbtn" data-open>Бесплатный разбор шансов</button>
         </div>
         <div class="fin r reveal">
           <div class="fin-in">
-            <img class="fin-ic" src="assets/fi3.svg" alt="">
+            <img loading="lazy" decoding="async" class="fin-ic" src="assets/fi3.svg" alt="">
             <h3>Платный контракт</h3>
             <p>Для гарантированного поступления без жесткого конкурса. Цены сопоставимы с вузами СНГ, но дают международный диплом.</p>
-            <img class="fin-ill fin-doc" src="assets/fc3-doc.png" alt="Документ «Гарантированное поступление» с ручкой">
+            <img loading="lazy" decoding="async" class="fin-ill fin-doc" src="assets/opt/fc3-doc.webp" alt="Документ «Гарантированное поступление» с ручкой">
           </div>
           <button class="fbtn" data-open>Бесплатный разбор шансов</button>
         </div>
@@ -1790,11 +1791,11 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
     <!-- Карусель: чтобы добавить фото, добавьте ещё один <figure class="ab-slide"> с <img> -->
     <div class="ab-car reveal" aria-roledescription="carousel" aria-label="Наши студенты">
       <div class="ab-track">
-        <figure class="ab-slide"><img class="ab-bg" src="assets/ab1.webp" alt="" aria-hidden="true"><img src="assets/ab1.webp" alt="Студентка с приглашением (Offer of Admission)" loading="eager"></figure>
-        <figure class="ab-slide"><img class="ab-bg" src="assets/ab2.webp" alt="" aria-hidden="true"><img src="assets/ab2.webp" alt="Приглашения из китайских университетов" loading="lazy"></figure>
-        <figure class="ab-slide"><img class="ab-bg" src="assets/ab3.webp" alt="" aria-hidden="true"><img src="assets/ab3.webp" alt="Наши студенты получили приглашения в университеты Китая" loading="lazy"></figure>
-        <figure class="ab-slide"><img class="ab-bg" src="assets/ab4.webp" alt="" aria-hidden="true"><img src="assets/ab4.webp" alt="Студент с официальным приглашением" loading="lazy"></figure>
-        <figure class="ab-slide"><img class="ab-bg" src="assets/ab5.webp" alt="" aria-hidden="true"><img src="assets/ab5.webp" alt="Студент Beengo с полученной визой" loading="lazy"></figure>
+        <figure class="ab-slide"><img loading="lazy" decoding="async" class="ab-bg" src="assets/opt/ab1.webp" alt="" aria-hidden="true"><img src="assets/opt/ab1.webp" alt="Студентка с приглашением (Offer of Admission)" loading="eager"></figure>
+        <figure class="ab-slide"><img loading="lazy" decoding="async" class="ab-bg" src="assets/opt/ab2.webp" alt="" aria-hidden="true"><img src="assets/opt/ab2.webp" alt="Приглашения из китайских университетов" loading="lazy"></figure>
+        <figure class="ab-slide"><img loading="lazy" decoding="async" class="ab-bg" src="assets/opt/ab3.webp" alt="" aria-hidden="true"><img src="assets/opt/ab3.webp" alt="Наши студенты получили приглашения в университеты Китая" loading="lazy"></figure>
+        <figure class="ab-slide"><img loading="lazy" decoding="async" class="ab-bg" src="assets/opt/ab4.webp" alt="" aria-hidden="true"><img src="assets/opt/ab4.webp" alt="Студент с официальным приглашением" loading="lazy"></figure>
+        <figure class="ab-slide"><img loading="lazy" decoding="async" class="ab-bg" src="assets/opt/ab5.webp" alt="" aria-hidden="true"><img src="assets/opt/ab5.webp" alt="Студент Beengo с полученной визой" loading="lazy"></figure>
       </div>
       <div class="ab-ctrl">
         <div class="ab-dots" role="tablist"></div>
@@ -1825,7 +1826,7 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
     <h2 class="h2 reveal">Официальный представитель вузов в Китае</h2>
     <p class="sub reveal">Мы выстроили удаленный процесс оформления так, чтобы абитуриенты из любого города могли легко подать документы без лишних поездок.</p>
   </div>
-  <div class="globe"><img src="assets/globe.png" alt="Карта: Россия, Беларусь, Казахстан, Азербайджан, Кыргызстан, Узбекистан" width="1280" height="674"></div>
+  <div class="globe"><img loading="lazy" decoding="async" src="assets/opt/globe.webp" alt="Карта: Россия, Беларусь, Казахстан, Азербайджан, Кыргызстан, Узбекистан" width="1280" height="674"></div>
   <div class="countries container">
     <span>🇷🇺 Россия</span><span>🇰🇿 Казахстан</span><span>🇺🇿 Узбекистан</span><span>🇰🇬 Кыргызстан</span><span>🇧🇾 Беларусь</span><span>🇦🇿 Азербайджан</span>
   </div>
@@ -1844,11 +1845,11 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
           <div class="ba">
             <div class="b1"><small>До:</small><span data-k="before">Страх запутаться в документах на стипендию и упустить шанс</span></div>
             <div class="b2"><small>После:</small><span data-k="after">Полный грант (обучение + жилье + стипендия)</span></div>
-            <div class="b3"><small>Результат с Beengo:</small><span data-k="result">Команда взяла на себя визу, все переводы и оформление.</span><img src="assets/trophy.png" alt=""></div>
+            <div class="b3"><small>Результат с Beengo:</small><span data-k="result">Команда взяла на себя визу, все переводы и оформление.</span><img loading="lazy" decoding="async" src="assets/opt/trophy.webp" alt=""></div>
           </div>
           <p class="quote" data-k="quote">«Спокойно обращайтесь в Beengo, они вам действительно помогут. Сейчас я получаю качественное образование без самостоятельного поиска!»</p>
         </div>
-        <a class="video" href="#" data-k="video"><img src="assets/story.png" alt="Видео-отзыв студентки" data-k="img"></a>
+        <a class="video" href="#" data-k="video"><img loading="lazy" decoding="async" src="assets/opt/story.webp" alt="Видео-отзыв студентки" data-k="img"></a>
       </article>
     </div>
   </div>
@@ -1861,17 +1862,17 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
       <h2 class="h2 head reveal">5 понятных шагов к <span>вашему зачислению</span></h2>
       <div class="steps">
         <div class="step reveal">
-          <div class="step-top"><div class="step-head pat pat1"><span class="n">1 ШАГ</span><h3>Анализ профиля и подбор вузов</h3><img src="assets/st1.png" alt=""></div>
+          <div class="step-top"><div class="step-head pat pat1"><span class="n">1 ШАГ</span><h3>Анализ профиля и подбор вузов</h3><img loading="lazy" decoding="async" src="assets/opt/st1.webp" alt=""></div>
             <p>Мы не предлагаем стандартные списки. Работа начинается с детального разбора вашей ситуации</p></div>
           <ol><li>Оцениваем средний балл аттестата (GPA), уровень языка и финансовые ожидания.</li><li>Анализируем шансы на получение грантов или академических скидок.</li><li>Формируем персональный шорт-лист из 3–5 надежных университетов, где ваши сильные стороны сработают лучше всего, и согласовываем финальный выбор направлений с вами.</li></ol>
         </div>
         <div class="step reveal">
-          <div class="step-top"><div class="step-head pat pat1"><span class="n">2 ШАГ</span><h3>Сбор и проверка документов</h3><img src="assets/st2.png" alt=""></div>
+          <div class="step-top"><div class="step-head pat pat1"><span class="n">2 ШАГ</span><h3>Сбор и проверка документов</h3><img loading="lazy" decoding="async" src="assets/opt/st2.webp" alt=""></div>
             <p>Помогаем собрать идеальный пакет документов без ошибок, которые могут стоить вам зачисления.</p></div>
           <ol><li>Предоставляем четкие шаблоны и инструкции от агентства для сбора всех необходимых справок и выписок.</li><li>Проводим тщательную проверку и аудит каждого документа на соответствие строгим требованиям китайских вузов.</li><li>Консультируем по правильному оформлению мотивационных и рекомендательных писем (без нотариального заверения и переводов с нашей стороны).</li></ol>
         </div>
         <div class="step reveal">
-          <div class="step-top"><div class="step-head pat pat1"><span class="n">3 ШАГ</span><h3>Подача заявок в университеты</h3><img src="assets/st3.png" alt=""></div>
+          <div class="step-top"><div class="step-head pat pat1"><span class="n">3 ШАГ</span><h3>Подача заявок в университеты</h3><img loading="lazy" decoding="async" src="assets/opt/st3.webp" alt=""></div>
             <p>Берем на себя всю бюрократию и общение с приемными комиссиями.</p></div>
           <ol><li>Грамотно заполняем анкеты и загружаем досье на порталы выбранных университетов.</li><li>Ведем прямые переговоры и официальную переписку с представителями вузов.</li><li>Оперативно реагируем на запросы приемной комиссии и отслеживаем статусы ваших заявок в режиме реального времени.</li></ol>
         </div>
@@ -1881,7 +1882,7 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
           <ol><li>Получаем официальное письмо о зачислении (Admission Notice) от университета.</li><li>Контролируем выпуск формы JW201/JW202, необходимой для оформления студенческой визы.</li><li>Убеждаемся, что за вами закреплен грант, скидка или место в общежитии (если это было предусмотрено условиями).</li></ol>
         </div>
         <div class="step reveal">
-          <div class="step-top"><div class="step-head pat pat1"><span class="n">5 ШАГ</span><h3>Финальная подготовка<br>к&nbsp;переезду</h3><img class="st5" src="assets/st5.png" alt=""></div>
+          <div class="step-top"><div class="step-head pat pat1"><span class="n">5 ШАГ</span><h3>Финальная подготовка<br>к&nbsp;переезду</h3><img loading="lazy" decoding="async" class="st5" src="assets/opt/st5.webp" alt=""></div>
             <p>Помогаем спокойно собраться и уверенно стартовать в новой стране.</p></div>
           <ol><li>Подготавливаем вас к самостоятельному получению визы и комфортному старту в Китае.</li><li>Даем памятку по покупке билетов, сборам чемодана и правилам въезда в страну.</li><li>Консультируем по первым шагам после прибытия в Китай: регистрация в кампусе, заселение и подключение местной связи.</li></ol>
         </div>
@@ -1945,7 +1946,7 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
       <p class="sub reveal">Скачайте наш подробный чек-лист: «Пошаговый план поступления на грант в Китай в 2026/2027 году».</p>
     </div>
     <form class="dl reveal" id="dl">
-      <img src="assets/check.png" alt="Пошаговый план поступления на грант в Китай в 2026/2027 году">
+      <img loading="lazy" decoding="async" src="assets/opt/check.webp" alt="Пошаговый план поступления на грант в Китай в 2026/2027 году">
       <h3>Куда прислать чек-лист?</h3>
       <div class="ch-row" role="radiogroup" aria-label="Куда прислать">
         <label class="ch-opt tg"><input type="radio" name="ch" value="tg" checked><span class="ch-ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M9.78 18.65l.28-4.23 7.68-6.92c.34-.31-.07-.46-.52-.19L7.74 13.3 3.64 12c-.88-.25-.89-.86.2-1.3l15.97-6.16c.73-.33 1.43.18 1.15 1.3l-2.72 12.81c-.19.91-.74 1.13-1.5.71L12.6 16.3l-1.99 1.93c-.23.23-.42.42-.83.42z"/></svg></span><span>Телеграм</span><i></i></label>
@@ -1984,7 +1985,7 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
         <div class="eyebrow">FAQ</div>
         <h2>Вопрос-ответ</h2>
         <p>Отвечаем на самые частые вопросы студентов и родителей.</p>
-        <img src="assets/trophy.png" alt="">
+        <img loading="lazy" decoding="async" src="assets/opt/trophy.webp" alt="">
       </div>
       <div class="qa">
         <div class="q open"><button>Нужно ли знать китайский язык?<span class="ch"><svg width="16" height="16" fill="none" stroke-width="2.2" stroke-linecap="round"><path d="M3 6l5 5 5-5"/></svg></span></button>
@@ -2030,7 +2031,7 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
   <div class="container">
     <div class="foot-wrap">
       <div class="fcard">
-        <div class="fbrand"><img src="assets/logo.svg" alt="beengo"><small>Официальный партнер<br>вузов КНР</small></div>
+        <div class="fbrand"><img loading="lazy" decoding="async" src="assets/logo.svg" alt="beengo"><small>Официальный партнер<br>вузов КНР</small></div>
         <h3>Поступите в топовый университет Китая</h3>
         <p>Ваш надёжный партнёр для поступления в университеты Китая.</p>
         <a class="btn" href="#lead">Заполнить форму</a>
@@ -2103,10 +2104,10 @@ addEventListener('scroll',()=>{let cur='';$$('section[id]').forEach(s=>{if(scrol
 
 // ===== Красивый выпадающий список программ =====
 const PROG={
-  'Языковой год':{img:'assets/prog1.png',c:'#f5a300',cb:'#fff4d1',d:'0,5–1 год · с нуля',i:'<path d="M4 5h9M8.5 3v2M6 5c0 4 3 7 7 8M11 5c-1 4-4 7-8 8M14 19l4-9 4 9M15.5 16h5"/>'},
-  'Колледж':{img:'assets/prog2.png',c:'#22a447',cb:'#e3f6e8',d:'1+2 / 1+3 года · после 9 или 11 класса',i:'<path d="M4 20V9l8-5 8 5v11M9 20v-6h6v6M3 20h18"/>'},
-  'Бакалавриат':{img:'assets/prog3.png',c:'#0b6cf0',cb:'#e4efff',d:'1+4 / 4 года · после 11 класса',i:'<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5M22 9v6"/>'},
-  'Магистратура':{img:'assets/prog4.png',c:'#7b4dff',cb:'#efe9ff',d:'2–3 года · после бакалавриата',i:'<path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/>'}
+  'Языковой год':{img:'assets/opt/prog1.webp',c:'#f5a300',cb:'#fff4d1',d:'0,5–1 год · с нуля',i:'<path d="M4 5h9M8.5 3v2M6 5c0 4 3 7 7 8M11 5c-1 4-4 7-8 8M14 19l4-9 4 9M15.5 16h5"/>'},
+  'Колледж':{img:'assets/opt/prog2.webp',c:'#22a447',cb:'#e3f6e8',d:'1+2 / 1+3 года · после 9 или 11 класса',i:'<path d="M4 20V9l8-5 8 5v11M9 20v-6h6v6M3 20h18"/>'},
+  'Бакалавриат':{img:'assets/opt/prog3.webp',c:'#0b6cf0',cb:'#e4efff',d:'1+4 / 4 года · после 11 класса',i:'<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5M22 9v6"/>'},
+  'Магистратура':{img:'assets/opt/prog4.webp',c:'#7b4dff',cb:'#efe9ff',d:'2–3 года · после бакалавриата',i:'<path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/>'}
 };
 const svg=(d,sz=18)=>`<svg width="${sz}" height="${sz}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
 $$('.form select.in').forEach(sel=>{
@@ -2119,13 +2120,13 @@ $$('.form select.in').forEach(sel=>{
   opts.forEach(o=>{const m=PROG[o.text]||{c:'#0b6cf0',cb:'#e4efff',d:'',i:''};
     const li=document.createElement('li');li.className='dd-opt';li.setAttribute('role','option');li.dataset.v=o.value||o.text;
     li.style.setProperty('--c',m.c);li.style.setProperty('--cb',m.cb);
-    li.innerHTML=`<span class="dd-ico">${m.img?`<img src="${m.img}" alt="">`:svg(m.i)}</span><span class="dd-txt"><b>${o.text}</b><small>${m.d}</small></span><span class="dd-chk">${svg('<path d="M5 12l5 5 9-10"/>',13)}</span>`;
+    li.innerHTML=`<span class="dd-ico">${m.img?`<img loading="lazy" decoding="async" src="${m.img}" alt="">`:svg(m.i)}</span><span class="dd-txt"><b>${o.text}</b><small>${m.d}</small></span><span class="dd-chk">${svg('<path d="M5 12l5 5 9-10"/>',13)}</span>`;
     list.appendChild(li)});
   dd.append(btn,list);
   const items=[...list.children];let act=-1;
   const render=()=>{const v=sel.value,m=PROG[v];dd.classList.toggle('has',!!v);
     if(m){dd.style.setProperty('--c',m.c);dd.style.setProperty('--cb',m.cb)}
-    btn.innerHTML=`<span class="dd-ico">${m&&m.img?`<img src="${m.img}" alt="">`:svg('<path d="M4 6h16M4 12h16M4 18h10"/>')}</span><span class="dd-txt"><b>${v||ph}</b><small>${m?m.d:''}</small></span><span class="dd-arr">${svg('<path d="M6 9l6 6 6-6"/>',14)}</span>`;
+    btn.innerHTML=`<span class="dd-ico">${m&&m.img?`<img loading="lazy" decoding="async" src="${m.img}" alt="">`:svg('<path d="M4 6h16M4 12h16M4 18h10"/>')}</span><span class="dd-txt"><b>${v||ph}</b><small>${m?m.d:''}</small></span><span class="dd-arr">${svg('<path d="M6 9l6 6 6-6"/>',14)}</span>`;
     items.forEach(li=>li.setAttribute('aria-selected',li.dataset.v===v))};
   const setAct=i=>{act=(i+items.length)%items.length;items.forEach((li,k)=>li.classList.toggle('act',k===act));items[act].scrollIntoView({block:'nearest'})};
   const open=()=>{$$('.dd.open').forEach(d=>d!==dd&&d.classList.remove('open'));
@@ -2236,7 +2237,7 @@ $$('.filters button').forEach(b=>b.onclick=()=>{f=b.dataset.f;$$('.filters butto
 $('#q').oninput=filt;
 // слайдер историй — добавляйте студентов в этот массив
 const stories=[
-  {name:'Алсу',city:'Сиань',before:'Страх запутаться в документах на стипендию и упустить шанс',after:'Полный грант (обучение + жилье + стипендия)',result:'Команда взяла на себя визу, все переводы и оформление.',quote:'«Спокойно обращайтесь в Beengo, они вам действительно помогут. Сейчас я получаю качественное образование без самостоятельного поиска!»',img:'assets/story.png',video:'#'}
+  {name:'Алсу',city:'Сиань',before:'Страх запутаться в документах на стипендию и упустить шанс',after:'Полный грант (обучение + жилье + стипендия)',result:'Команда взяла на себя визу, все переводы и оформление.',quote:'«Спокойно обращайтесь в Beengo, они вам действительно помогут. Сейчас я получаю качественное образование без самостоятельного поиска!»',img:'assets/opt/story.webp',video:'#'}
 ];
 let si=0;
 const show=i=>{si=(i+stories.length)%stories.length;const s=stories[si],card=$('#story');
