@@ -1043,6 +1043,27 @@ a,button,.dd-btn,.dd-opt{touch-action:manipulation}
 .frame.geo{background:#fff}
 .frame.stories{width:calc(100% - 24px);border-radius:40px;background:#fff8e1}
 @media (max-width:680px){#stories.sec{padding:8px 0}.frame.stories{width:calc(100% - 16px);border-radius:28px}}
+
+/* ===== Единый стиль кнопок: радиус 14px, одинаковая высота и шрифт ===== */
+:root{--btn-r:14px}
+.btn,.contact,.wa,.fin .fbtn,.story-btn,.prog .btn,.cta-card .btn,.docs-wrap .btn,.dl .btn,.form .btn,.fcard .btn,.hero .btn{border-radius:var(--btn-r)}
+.btn,.fin .fbtn,.prog .btn{min-height:52px;font-size:14px;font-weight:600;letter-spacing:.06em}
+.prog .btn{font-size:12.5px}
+.contact{min-height:46px;display:inline-flex;align-items:center}
+.wa{min-height:46px}
+.tabs{border-radius:16px}.tabs button{border-radius:12px}
+.filters button{border-radius:12px}
+.soc a,.fcols .soc a{border-radius:12px}
+.dd-btn,.ch-opt,.form .in,.field{border-radius:var(--btn-r)}
+
+/* Бейдж «О компании» без контура */
+.ab-eyebrow{border:0;background:rgba(255,255,255,.2);padding:8px 16px}
+
+/* Карточка «7+ лет опыта»: светло-жёлтая, цифра тёмно-оранжевая */
+.ab-card.y{background:linear-gradient(160deg,#fffbea 0%,#fff3c4 100%);box-shadow:inset 0 0 0 1px rgba(232,160,20,.18)}
+.ab-card.y strong{color:#e07b00;background:linear-gradient(180deg,#f5a000,#d56a00);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.ab-card.y b{color:#5a3606}
+.ab-card.y span{color:#8a6420}
 </style>
 </head>
 <body>
