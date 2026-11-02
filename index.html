@@ -1077,6 +1077,10 @@ a,button,.dd-btn,.dd-opt{touch-action:manipulation}
 .fin-in{border-radius:24px 24px 8px 8px}
 .fin .fbtn{border-radius:8px 8px 24px 24px;margin-top:6px}
 @media (max-width:680px){.fin{border-radius:28px;padding:8px}.fin-in{border-radius:20px 20px 8px 8px}.fin .fbtn{border-radius:8px 8px 20px 20px}}
+
+@media (min-width:981px){.steps{align-items:start}.step ol{flex:none}.step-top{display:flex;flex-direction:column}.step-top p{flex:1}}
+
+@media (min-width:981px){.steps .cta-card{align-self:stretch}}
 </style>
 </head>
 <body>
@@ -1719,6 +1723,16 @@ $$('.form select.in').forEach(sel=>{
 
 // шапка: компактнее при прокрутке
 (()=>{const h=$('.header');const f=()=>h.classList.toggle('scrolled',scrollY>40);addEventListener('scroll',f,{passive:true});f()})();
+
+// Шаги: на компьютере все шапки, синие карточки и списки одной высоты
+(()=>{const steps=$$('.steps .step');if(!steps.length)return;
+  const parts=['.step-head','.step-top','ol'];
+  const eq=()=>{parts.forEach(sel=>steps.forEach(st=>{const e=$(sel,st);if(e)e.style.minHeight=''}));
+    if(innerWidth<=980)return;
+    parts.forEach(sel=>{const els=steps.map(st=>$(sel,st)).filter(Boolean);const m=Math.max(...els.map(e=>e.getBoundingClientRect().height));els.forEach(e=>e.style.minHeight=Math.ceil(m)+'px')});};
+  let t;addEventListener('resize',()=>{clearTimeout(t);t=setTimeout(eq,120)});
+  (document.fonts?document.fonts.ready:Promise.resolve()).then(eq);addEventListener('load',eq);eq();
+})();
 // модалка
 const modal=$('#modal');
 $$('[data-open]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();
