@@ -1523,8 +1523,11 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
 /* шаги: заголовок по центру */
 .process-wrap .h2{text-align:center;margin-inline:auto;max-width:900px}
 /* истории: низ фрейма сильнее скруглён */
-.frame.stories{border-radius:40px 40px 80px 80px}
-@media (max-width:680px){.frame.stories{border-radius:28px 28px 48px 48px}}
+/* фон «Историй» скругляется снизу, «Шаги» заходят под него */
+#stories.sec{position:relative;z-index:2;border-radius:0 0 48px 48px;padding-bottom:24px}
+#process.sec{position:relative;z-index:1;margin-top:-48px;padding-top:8px}
+#process .frame.process{padding-top:calc(var(--section) + 40px)}
+@media (max-width:680px){#stories.sec{border-radius:0 0 32px 32px;padding-bottom:12px}#process.sec{margin-top:-32px;padding-top:6px}#process .frame.process{padding-top:88px}}
 </style>
 </head>
 <body>
