@@ -1548,6 +1548,30 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
       linear-gradient(180deg,rgba(7,26,90,0) 86vw,rgba(7,26,90,.7) 100vw,#071a5a 112vw) top/100% 100% no-repeat,
       url(assets/opt/foot-mobile.webp) center top/100% auto no-repeat,#071a5a!important}
 }
+
+/* ===== Форма заявки: телефон с кодом страны, единый размер текста ===== */
+.form .in,.form textarea.in,.dd-btn .dd-txt b{font-size:15px!important;font-family:inherit}
+.form .in::placeholder,.form textarea.in::placeholder{font-size:13px;text-transform:uppercase;letter-spacing:.04em;color:#9aa1b0}
+.dd:not(.has) .dd-txt b{font-size:13px!important}
+.tel-row{display:flex;gap:8px;margin-bottom:var(--s2)}
+.tel-row .in{margin-bottom:0;flex:1;min-width:0}
+.tel-code{flex:none;appearance:none;-webkit-appearance:none;border:1.5px solid transparent;border-radius:var(--r-sm);background:#eef0f4 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='none' stroke='%231b2238' stroke-width='2'%3E%3Cpath d='M2 4l4 4 4-4'/%3E%3C/svg%3E") no-repeat right 12px center;padding:0 32px 0 14px;font-size:15px;color:#0d1a3a;cursor:pointer;outline:none}
+.tel-code:focus{border-color:var(--blue);background-color:#fff}
+@media (max-width:680px){.form .in,.form textarea.in,.tel-code{font-size:16px!important}.form .in::placeholder{font-size:13px}}
+
+/* ===== FAQ: без линии, открытый вопрос — другим цветом ===== */
+.q .a p::before{display:none!important}
+.q.open{background:#0b6cf0!important}
+.q.open button{color:#fff!important}
+.q.open .a p{color:rgba(255,255,255,.9)!important}
+.q.open .ch{background:#fff!important}.q.open .ch svg{stroke:#0b6cf0!important}
+
+/* ===== Мобильный: «Финансирование» той же ширины, что «Документы» ===== */
+@media (max-width:680px){.frame.finance{width:calc(100% - 16px)!important}}
+
+@media (max-width:680px){#stories.sec{border-radius:0 0 40px 40px!important;padding-bottom:20px!important}#process.sec{margin-top:-40px!important}#process .frame.process{padding-top:96px!important}.tel-code{padding:0 28px 0 12px;background-position:right 10px center}}
+
+#stories.sec{z-index:3!important}
 </style>
 </head>
 <body>
@@ -2042,7 +2066,21 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
         <label for="n1">Ваше имя</label>
         <input class="in" id="n1" required placeholder="Имя Фамилия">
         <label for="p1">Ваш телефон</label>
-        <input class="in" id="p1" type="tel" required placeholder="+7 777 777 00 00">
+        <div class="tel-row"><select class="tel-code" aria-label="Код страны">
+          <option value="+7" data-f="🇷🇺" selected>🇷🇺 +7</option>
+          <option value="+7" data-f="🇰🇿">🇰🇿 +7</option>
+          <option value="+998">🇺🇿 +998</option>
+          <option value="+996">🇰🇬 +996</option>
+          <option value="+375">🇧🇾 +375</option>
+          <option value="+994">🇦🇿 +994</option>
+          <option value="+992">🇹🇯 +992</option>
+          <option value="+993">🇹🇲 +993</option>
+          <option value="+374">🇦🇲 +374</option>
+          <option value="+995">🇬🇪 +995</option>
+          <option value="+373">🇲🇩 +373</option>
+          <option value="+380">🇺🇦 +380</option>
+          <option value="+86">🇨🇳 +86</option>
+        </select><input class="in" id="p1" type="tel" inputmode="tel" autocomplete="tel-national" required placeholder="777 777 00 00"></div>
         <select class="in" aria-label="Интересующая программа">
           <option value="" selected disabled>Интересующая программа</option>
           <option>Языковой год</option><option>Колледж</option><option>Бакалавриат</option><option>Магистратура</option>
@@ -2095,7 +2133,21 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
       <label for="n2">Ваше имя</label>
       <input class="in" id="n2" required placeholder="Имя Фамилия">
       <label for="p2">Ваш телефон</label>
-      <input class="in" id="p2" type="tel" required placeholder="+7 777 777 00 00">
+      <div class="tel-row"><select class="tel-code" aria-label="Код страны">
+          <option value="+7" data-f="🇷🇺" selected>🇷🇺 +7</option>
+          <option value="+7" data-f="🇰🇿">🇰🇿 +7</option>
+          <option value="+998">🇺🇿 +998</option>
+          <option value="+996">🇰🇬 +996</option>
+          <option value="+375">🇧🇾 +375</option>
+          <option value="+994">🇦🇿 +994</option>
+          <option value="+992">🇹🇯 +992</option>
+          <option value="+993">🇹🇲 +993</option>
+          <option value="+374">🇦🇲 +374</option>
+          <option value="+995">🇬🇪 +995</option>
+          <option value="+373">🇲🇩 +373</option>
+          <option value="+380">🇺🇦 +380</option>
+          <option value="+86">🇨🇳 +86</option>
+        </select><input class="in" id="p2" type="tel" inputmode="tel" autocomplete="tel-national" required placeholder="777 777 00 00"></div>
       <select class="in" id="progSel" aria-label="Интересующая программа">
         <option value="" selected disabled>Интересующая программа</option>
         <option>Языковой год</option><option>Колледж</option><option>Бакалавриат</option><option>Магистратура</option>
@@ -2133,10 +2185,10 @@ addEventListener('scroll',()=>{let cur='';$$('section[id]').forEach(s=>{if(scrol
 
 // ===== Красивый выпадающий список программ =====
 const PROG={
-  'Языковой год':{img:'assets/opt/prog1.webp',c:'#f5a300',cb:'#fff4d1',d:'0,5–1 год · с нуля',i:'<path d="M4 5h9M8.5 3v2M6 5c0 4 3 7 7 8M11 5c-1 4-4 7-8 8M14 19l4-9 4 9M15.5 16h5"/>'},
-  'Колледж':{img:'assets/opt/prog2.webp',c:'#22a447',cb:'#e3f6e8',d:'1+2 / 1+3 года · после 9 или 11 класса',i:'<path d="M4 20V9l8-5 8 5v11M9 20v-6h6v6M3 20h18"/>'},
+  'Языковой год':{img:'assets/opt/prog1.webp',c:'#f07f00',cb:'#ffeedd',d:'0,5–1 год · с нуля',i:'<path d="M4 5h9M8.5 3v2M6 5c0 4 3 7 7 8M11 5c-1 4-4 7-8 8M14 19l4-9 4 9M15.5 16h5"/>'},
+  'Колледж':{img:'assets/opt/prog2.webp',c:'#e0a100',cb:'#fff6d6',d:'1+2 / 1+3 года · после 9 или 11 класса',i:'<path d="M4 20V9l8-5 8 5v11M9 20v-6h6v6M3 20h18"/>'},
   'Бакалавриат':{img:'assets/opt/prog3.webp',c:'#0b6cf0',cb:'#e4efff',d:'1+4 / 4 года · после 11 класса',i:'<path d="M2 9l10-5 10 5-10 5z"/><path d="M6 11v5c3 2 9 2 12 0v-5M22 9v6"/>'},
-  'Магистратура':{img:'assets/opt/prog4.webp',c:'#7b4dff',cb:'#efe9ff',d:'2–3 года · после бакалавриата',i:'<path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/>'}
+  'Магистратура':{img:'assets/opt/prog4.webp',c:'#1f3a7a',cb:'#e3e9f6',d:'2–3 года · после бакалавриата',i:'<path d="M12 3l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.4 6.8 19.1l1-5.8L3.5 9.2l5.9-.9z"/>'}
 };
 const svg=(d,sz=18)=>`<svg width="${sz}" height="${sz}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">${d}</svg>`;
 $$('.form select.in').forEach(sel=>{
@@ -2237,6 +2289,11 @@ $$('.why-grid,.prog-grid,.fin-grid,.doc-grid,.steps,.ab-cards,.art-grid,.qa,.sta
     const top=Math.max(0,(fi.offsetHeight-cap.offsetTop)/cap.offsetHeight*100);t.style.clipPath=`inset(${top.toFixed(1)}% 3% 0 79.5%)`};
   addEventListener('resize',place);cap.complete?place():cap.addEventListener('load',place);
   let raf=0;addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(()=>{raf=0;place()})},{passive:true});place();})();
+
+// Телефон: код страны выбирается автоматически по часовому поясу
+(()=>{const tz=(Intl.DateTimeFormat().resolvedOptions().timeZone||'');const map={'Asia/Almaty':'🇰🇿','Asia/Qyzylorda':'🇰🇿','Asia/Aqtobe':'🇰🇿','Asia/Aqtau':'🇰🇿','Asia/Atyrau':'🇰🇿','Asia/Oral':'🇰🇿','Asia/Qostanay':'🇰🇿','Asia/Tashkent':'🇺🇿','Asia/Samarkand':'🇺🇿','Asia/Bishkek':'🇰🇬','Europe/Minsk':'🇧🇾','Asia/Baku':'🇦🇿','Asia/Dushanbe':'🇹🇯','Asia/Ashgabat':'🇹🇲','Asia/Yerevan':'🇦🇲','Asia/Tbilisi':'🇬🇪','Europe/Chisinau':'🇲🇩','Europe/Kiev':'🇺🇦','Europe/Kyiv':'🇺🇦','Asia/Shanghai':'🇨🇳','Asia/Urumqi':'🇨🇳'};
+  const flag=map[tz];if(!flag)return;
+  $$('.tel-code,#dlCode').forEach(sel=>{const o=[...sel.options].find(o=>o.textContent.trim().startsWith(flag));if(o)sel.value=o.value,o.selected=true});})();
 // модалка
 const modal=$('#modal');
 $$('[data-open]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();
