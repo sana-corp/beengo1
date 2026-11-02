@@ -1937,6 +1937,41 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
 
 @media (max-width:680px){.video .vq{font-size:12.5px!important;padding:10px 12px!important;left:10px;right:10px;bottom:10px}}
 .frame.docs > .container > .docs-wrap > .btn:last-child{margin-bottom:0!important}
+
+/* ===== Пакет правок 7 ===== */
+/* финансирование на телефоне: снова «колода» (карточки прилипают) */
+@media (max-width:980px){.fin-grid .fin{position:sticky!important;top:calc(96px + var(--i,0)*18px)!important;transition:transform .15s linear,filter .15s linear!important}}
+@media (min-width:981px){.fin-grid .fin{transition:transform .25s cubic-bezier(.2,.7,.2,1)!important}}
+/* «Четкая система»: рамка вокруг карточек 8px */
+.compare{padding:8px!important;gap:8px!important;border-radius:40px!important}
+.side{border-radius:32px!important}
+.side.bad{border-radius:32px!important}
+@media (max-width:680px){.compare{border-radius:30px!important}.side{border-radius:24px!important}}
+
+/* ===== Больше «живых» анимаций ===== */
+.reveal{transform:translateY(48px) scale(.97)}
+.reveal.in{transform:none}
+/* декоративные картинки слегка «дышат» и сдвигаются при прокрутке */
+.para{will-change:transform;transition:transform .2s linear}
+@keyframes bob{0%,100%{translate:0 0}50%{translate:0 -10px}}
+.side .deco,.folder img,.budget img,.ab-card.y strong,.ba .b3 img,.fin-ill{animation:bob 5s ease-in-out infinite}
+.side.good .deco{animation-delay:-2s}.folder img{animation-duration:6s}
+/* статистика: появление со счётчиком и подъёмом */
+.stat{transition:transform .3s}
+.stat:hover{transform:translateY(-4px)}
+/* кнопки «дышат» мягким свечением */
+@keyframes glow{0%,100%{box-shadow:0 0 0 0 rgba(11,108,240,0)}50%{box-shadow:0 0 0 8px rgba(11,108,240,.12)}}
+.hero .btn,.lead .form .btn,.dl .btn{animation:glow 2.8s ease-in-out infinite}
+/* карточки программ и «Почему Китай»: картинка плавно увеличивается при наведении */
+.prog-head img,.why-card > img{transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.prog:hover .prog-head img,.why-card:hover > img{transform:scale(1.05)}
+/* шаги: номер шага мягко пульсирует после появления */
+@keyframes pulseN{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.step.in .n{animation:pulseN 2.4s ease-in-out 1.2s infinite}
+@media (prefers-reduced-motion:reduce){.side .deco,.folder img,.budget img,.ab-card.y strong,.ba .b3 img,.fin-ill,.hero .btn,.lead .form .btn,.dl .btn,.step.in .n{animation:none!important}.para{transform:none!important}}
+
+/* sticky работает только без overflow:hidden у предков */
+.frame.finance{overflow:clip!important}
 </style>
 </head>
 <body>
@@ -2644,7 +2679,7 @@ $$('.why-grid,.prog-grid,.fin-grid,.doc-grid,.steps,.ab-cards,.art-grid,.qa,.sta
         const r=nx.getBoundingClientRect(),me=c.getBoundingClientRect();
         const p=clamp(1-(r.top-me.top)/(me.height),0,1);
         c.style.transform=`scale(${1-p*0.06}) rotate(${(i%2?1:-1)*p*4}deg)`;c.style.filter=`brightness(${1-p*.18})`});}
-    else{const r=g.getBoundingClientRect();const p=clamp((vh-r.top)/(vh*0.75),0,1);const e=1-Math.pow(1-p,3);
+    else{const r=g.getBoundingClientRect();const p=clamp((vh*0.95-r.top)/(vh*0.6),0,1);const e=1-Math.pow(1-p,3);
       cards.forEach((c,i)=>{const w=c.offsetWidth+16;const x=dx[i]*w*(1-e)+fx[i]*e;const y=(1-e)*40+fy[i]*e;
         c.style.transform=`translate(${x}px,${y}px) rotate(${rot[i]*e}deg) scale(${.9+.1*e})`;c.style.zIndex=i===1?1:2;c.style.filter=''});}};
   const on=()=>{if(!raf)raf=requestAnimationFrame(tick)};
@@ -2686,6 +2721,11 @@ $$('.why-grid,.prog-grid,.fin-grid,.doc-grid,.steps,.ab-cards,.art-grid,.qa,.sta
 
 // карточки статей кликабельны целиком
 $$('.art').forEach(c=>c.addEventListener('click',e=>{if(e.target.closest('a'))return;const l=c.querySelector('a[href^="article.html"]');if(l)location.href=l.href}));
+
+// параллакс декоративных картинок
+(()=>{if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;const els=$$('.side .deco,.folder,.globe img,.hero-clip img');els.forEach(e=>e.classList.add('para'));let raf=0;
+  const t=()=>{raf=0;const vh=innerHeight;els.forEach(e=>{const r=e.getBoundingClientRect();if(r.bottom<0||r.top>vh)return;const k=((r.top+r.height/2)-vh/2)/vh;const amp=e.closest('.hero-clip')?10:e.closest('.globe')?16:22;e.style.transform=`translate3d(0,${(-k*amp).toFixed(1)}px,0)`})};
+  addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(t)},{passive:true});t();})();
 // модалка
 const modal=$('#modal');
 $$('[data-open]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();
