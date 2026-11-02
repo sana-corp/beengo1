@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Статья — Beengo Study</title>
+<link rel="icon" href="assets/logo.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Onest:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="articles.css">
+</head>
+<body>
+<header class="top"><div class="top-in">
+  <a href="index.html"><img src="assets/logo.svg" alt="beengo"></a>
+  <span class="sp"></span>
+  <a class="back" href="articles.html">← Все статьи</a>
+  <a class="cta" href="index.html#lead">Связаться с нами</a>
+</div></header>
+
+<main class="wrap" id="page"></main>
+<div class="foot">Beengo Study. Все права защищены</div>
+
+<script src="articles-data.js"></script>
+<script>
+const A=window.BEENGO_ARTICLES,C=window.BEENGO_CATS;
+const card=a=>`<a class="card rv" href="article.html#${a.id}">
+  <div class="cover ${C[a.cat].cls}">${a.title}</div>
+  <span class="cat ${a.cat}">${C[a.cat].name}</span>
+  <h3>${a.title}</h3><p>${a.lead}</p>
+  <span class="more">Читать статью</span></a>`;
+let spy=null;
+function render(){
+  const id=location.hash.slice(1);const a=A.find(x=>x.id===id)||A[0];
+  document.title=a.title+' — Beengo Study';
+  const rel=[...A.filter(x=>x.id!==a.id&&x.cat===a.cat),...A.filter(x=>x.id!==a.id&&x.cat!==a.cat)].slice(0,3);
+  document.getElementById('page').innerHTML=`
+  <nav class="crumbs"><a href="index.html">Главная</a><span>/</span><a href="articles.html">Статьи</a><span>/</span><span>${C[a.cat].name}</span></nav>
+  <div class="art-head rv">
+    <div><div class="art-meta"><span class="cat ${a.cat}">${C[a.cat].name}</span><span>${a.read} мин чтения</span></div>
+      <h1>${a.title}</h1><p class="lead">${a.lead}</p></div>
+    <div class="cover ${C[a.cat].cls}">${a.title}</div>
+  </div>
+  <div class="art-body">
+    <aside class="toc" id="toc"><b>Содержание</b>${a.sections.map((s,i)=>`<a href="#${a.id}" data-s="s${i}">${s.q}</a>`).join('')}</aside>
+    <article class="text">
+      ${a.sections.map((s,i)=>`<section id="s${i}" class="rv"><h2>${s.q}</h2>${s.p.map(t=>`<p>${t}</p>`).join('')}</section>`).join('')}
+      <div class="ask rv"><div><b>Остались вопросы?</b><span>Разберём вашу ситуацию на бесплатной консультации.</span></div><a class="cta" href="index.html#lead">Получить консультацию</a></div>
+    </article>
+  </div>
+  <section class="related"><h2>Читайте также</h2><div class="grid">${rel.map(card).join('')}</div>
+    <div style="text-align:center;margin-top:24px"><a class="back" href="articles.html">Все статьи →</a></div></section>`;
+  scrollTo(0,0);
+  // оглавление: переход к разделу и подсветка текущего
+  const toc=document.getElementById('toc'),links=[...toc.querySelectorAll('a')];
+  toc.onclick=e=>{const l=e.target.closest('a');if(!l)return;e.preventDefault();document.getElementById(l.dataset.s).scrollIntoView({behavior:'smooth',block:'start'})};
+  if(spy)spy.disconnect();
+  spy=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting){links.forEach(l=>l.classList.toggle('on',l.dataset.s===en.target.id));const on=toc.querySelector('.on');if(on&&innerWidth<=980)on.scrollIntoView({block:'nearest',inline:'center'})}}),{rootMargin:'-30% 0px -60% 0px'});
+  document.querySelectorAll('.text section').forEach(s=>spy.observe(s));
+  links[0]&&links[0].classList.add('on');
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.1});
+  document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+}
+addEventListener('hashchange',render);render();
+</script>
+</body>
+</html>

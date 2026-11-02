@@ -1861,6 +1861,11 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
   .nav.open .wa .ic{width:52px;border-radius:14px}
   .nav.open .wa .num{flex:1;text-align:left!important;padding:0 16px;font-size:16px;font-weight:600;color:#0b4fd6}
 }
+
+.all-art{display:flex;justify-content:center;margin-top:32px}
+.all-art .btn{min-width:280px}
+@media (max-width:680px){.all-art .btn{width:100%}}
+.art{cursor:pointer}
 </style>
 </head>
 <body>
@@ -2260,23 +2265,24 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
         <div class="cat">Программы</div>
         <h3>Как выбрать программу обучения в Китае</h3>
         <p>Разбираемся в языковых курсах, колледжах, бакалавриате и магистратуре — чтобы сопоставить формат, сроки и свои цели.</p>
-        <a href="#">Читать статью полностью</a>
+        <a href="article.html#kak-vybrat-programmu">Читать статью полностью</a>
       </article>
       <article class="art reveal" data-cat="docs admission">
         <div class="cover cv-docs">Какие документы нужны для поступления</div>
         <div class="cat">Документы</div>
         <h3>Какие документы нужны для поступления</h3>
         <p>Базовый список, этапы подготовки и то, от чего зависят требования университета.</p>
-        <a href="#">Читать статью полностью</a>
+        <a href="article.html#kakie-dokumenty-nuzhny">Читать статью полностью</a>
       </article>
       <article class="art reveal" data-cat="life grants">
         <div class="cover cv-life">Сколько стоит жизнь студента в Китае</div>
         <div class="cat">Жизнь в Китае</div>
         <h3>Сколько стоит жизнь студента в Китае</h3>
         <p>Из чего складываются расходы на жильё, питание, транспорт и повседневные траты.</p>
-        <a href="#">Читать статью полностью</a>
+        <a href="article.html#skolko-stoit-zhizn">Читать статью полностью</a>
       </article>
     </div>
+    <div class="all-art"><a class="btn" href="articles.html">Читать все статьи</a></div>
   </div>
 </div></section>
 
@@ -2602,6 +2608,9 @@ $$('.why-grid,.prog-grid,.fin-grid,.doc-grid,.steps,.ab-cards,.art-grid,.qa,.sta
   let k=0;$$('.stories-wrap .arrow').forEach(a=>a.addEventListener('click',()=>{k=(k+(a.classList.contains('next')?1:2))%3;[...d.children].forEach((x,i)=>x.classList.toggle('on',i===k))}));
   const v=$('.video',card),w=$('.stories-wrap');const pos=()=>{if(!v||!w)return;const r=v.getBoundingClientRect(),q=w.getBoundingClientRect();w.style.setProperty('--vtop',(r.top-q.top+r.height/2)+'px')};
   addEventListener('resize',pos);addEventListener('load',pos);setTimeout(pos,500);pos();})();
+
+// карточки статей кликабельны целиком
+$$('.art').forEach(c=>c.addEventListener('click',e=>{if(e.target.closest('a'))return;const l=c.querySelector('a[href^="article.html"]');if(l)location.href=l.href}));
 // модалка
 const modal=$('#modal');
 $$('[data-open]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();
