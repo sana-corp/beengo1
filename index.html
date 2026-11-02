@@ -1471,6 +1471,14 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
 
 .fin-ill.fin-cap,.fin-tassel{image-rendering:auto;-webkit-backface-visibility:hidden;backface-visibility:hidden}
 .fin-tassel{filter:none!important}
+
+/* иконки и картинки карточек финансирования из макета */
+.fin-ic{width:64px!important;height:64px;mix-blend-mode:normal!important;border-radius:14px;filter:none}
+.fin-ill.fin-id,.fin-ill.fin-doc{mix-blend-mode:normal;transform:none!important;filter:drop-shadow(0 16px 18px rgba(60,30,0,.18))}
+.fin-ill.fin-id{width:88%;max-width:340px;margin:auto -22px -26px auto}
+.fin-ill.fin-doc{width:80%;max-width:300px;margin:auto -12px -40px auto}
+.fin:nth-child(2) .fin-in::after,.fin:nth-child(3) .fin-in::after{display:none!important}
+@media (max-width:680px){.fin-ic{width:56px!important;height:56px}.fin-ill.fin-id{width:80%;margin:8px -16px -22px auto}.fin-ill.fin-doc{width:72%;margin:8px -8px -34px auto}}
 </style>
 </head>
 <body>
@@ -1707,7 +1715,7 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
       <div class="fin-grid">
         <div class="fin reveal">
           <div class="fin-in">
-            <img class="fin-ic" src="assets/fi1.png" alt="">
+            <img class="fin-ic" src="assets/fi1.svg" alt="">
             <h3>Полные и частичные гранты</h3>
             <p>Для абитуриентов с высоким средним баллом или знанием языка. Покрывает 100% стоимости обучения, проживание, а иногда и стипендию.</p>
             <img class="fin-ill fin-cap" src="assets/fc1-cap.png" alt="Шапка выпускника с надписью «Грант»">
@@ -1716,19 +1724,19 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
         </div>
         <div class="fin y reveal">
           <div class="fin-in">
-            <img class="fin-ic" src="assets/fi2.png" alt="">
+            <img class="fin-ic" src="assets/fi2.svg" alt="">
             <h3>Академические скидки</h3>
             <p>Для студентов со стабильными хорошими оценками. Скидки от 20% до 70% на оплату обучения или бесплатное проживание.</p>
-            <img class="fin-ill" src="assets/fc2.png" alt="">
+            <img class="fin-ill fin-id" src="assets/fc2-id.png" alt="Студенческий билет со скидкой 20–70%">
           </div>
           <button class="fbtn" data-open>Бесплатный разбор шансов</button>
         </div>
         <div class="fin r reveal">
           <div class="fin-in">
-            <img class="fin-ic" src="assets/fi3.png" alt="">
+            <img class="fin-ic" src="assets/fi3.svg" alt="">
             <h3>Платный контракт</h3>
             <p>Для гарантированного поступления без жесткого конкурса. Цены сопоставимы с вузами СНГ, но дают международный диплом.</p>
-            <img class="fin-ill" src="assets/fc3.png" alt="">
+            <img class="fin-ill fin-doc" src="assets/fc3-doc.png" alt="Документ «Гарантированное поступление» с ручкой">
           </div>
           <button class="fbtn" data-open>Бесплатный разбор шансов</button>
         </div>
