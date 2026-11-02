@@ -1454,6 +1454,18 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
 .fin-ill.fin-cap{mix-blend-mode:normal;transform:none!important;width:86%;max-width:340px;margin:auto -18px -46px auto;filter:drop-shadow(0 18px 18px rgba(10,30,90,.28)) drop-shadow(0 4px 6px rgba(10,30,90,.2))}
 .fin:nth-child(1) .fin-in::after{content:"";position:absolute;left:0;right:0;bottom:0;height:46px;background:linear-gradient(180deg,rgba(207,224,255,0),rgba(190,212,255,.55));pointer-events:none;z-index:2}
 @media (max-width:680px){.fin-ill.fin-cap{width:78%;margin:8px -14px -40px auto}}
+
+/* кисточка поверх кнопки */
+.fin{position:relative}
+.fin-tassel{position:absolute;z-index:5;pointer-events:none;clip-path:inset(54% 0 0 76%);filter:drop-shadow(0 6px 6px rgba(10,30,90,.25))}
+/* мобильная кнопка финансирования повторяет скругление рамки */
+@media (max-width:680px){.fin .fbtn{border-radius:8px 8px 20px 20px!important}.fin-in{border-radius:20px 20px 8px 8px!important}}
+
+/* узор-принт на фоне карточки «Гранты» */
+.fin:nth-child(1) .fin-in::before{content:"";position:absolute;inset:0;background:url(assets/fin-print.svg) center top/cover no-repeat;z-index:-1;pointer-events:none}
+.fin:nth-child(1) .fin-in > *{position:relative}
+.fin:nth-child(1) .fin-in > .fin-cap{position:relative}
+.fin-tassel{filter:none}
 </style>
 </head>
 <body>
@@ -2135,6 +2147,13 @@ $$('.why-grid,.prog-grid,.fin-grid,.doc-grid,.steps,.ab-cards,.art-grid,.qa,.sta
   addEventListener('scroll',on,{passive:true});addEventListener('resize',on);tick();
   if(matchMedia('(prefers-reduced-motion:reduce)').matches){removeEventListener('scroll',on);cards.forEach(c=>c.style.transform='')}
 })();
+
+// Грант: кисточка шапки свисает поверх кнопки
+(()=>{const cap=$('.fin-cap');if(!cap)return;const card=cap.closest('.fin');const t=cap.cloneNode();t.src='assets/fc1-tassel.png';t.className='fin-tassel';t.alt='';card.appendChild(t);
+  const place=()=>{const c=card.getBoundingClientRect(),r=cap.getBoundingClientRect();const k=card.offsetWidth/c.width||1;
+    t.style.left=(r.left-c.left)*k+'px';t.style.top=(r.top-c.top)*k+'px';t.style.width=r.width*k+'px';const fi=cap.closest('.fin-in').getBoundingClientRect();const top=Math.max(0,(fi.bottom-r.top)/r.height*100);t.style.clipPath=`inset(${Math.max(0,top-1).toFixed(1)}% 0 0 0)`};
+  addEventListener('resize',place);cap.complete?place():cap.addEventListener('load',place);
+  let raf=0;addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(()=>{raf=0;place()})},{passive:true});place();})();
 // модалка
 const modal=$('#modal');
 $$('[data-open]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();
