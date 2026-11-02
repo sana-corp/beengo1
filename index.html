@@ -1283,6 +1283,24 @@ a,button,.dd-btn,.dd-opt{touch-action:manipulation}
 }
 
 @media (min-width:981px){.docs-top > div:first-child{position:relative;z-index:4}.folder{z-index:1}}
+
+/* ===== Правки по макету ===== */
+/* первый экран: контент ниже на 16px, девочка выходит за карточку совсем чуть-чуть */
+@media (min-width:981px){.hero-panel{padding-top:calc(clamp(110px,9vw,130px) + 16px)}}
+.hero-clip{top:-6%}
+/* без теней у жёлтой плашки и у денег */
+.budget{box-shadow:none}
+.budget img{filter:none}
+/* программы: светло-синий фрейм, 16px от краёв, карточки тянутся по ширине */
+.frame.programs{width:calc(100% - 32px)}
+.frame.programs .container{width:calc(100% - 2*clamp(16px,4vw,64px));max-width:1500px}
+@media (max-width:680px){.frame.programs{width:calc(100% - 16px)}.frame.programs .container{width:calc(100% - 24px)}}
+@media (min-width:681px) and (max-width:1180px){.prog-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+/* «Поступать самому»: картинка REJECTED поверх карточек */
+.side .deco{z-index:3}
+.side.bad .items{z-index:1}
+/* документы: папка меньше */
+@media (min-width:981px){.folder{max-width:440px;justify-self:end;margin:-40px -10px -70px 0}.docs-top h2{margin-right:-140px}}
 </style>
 </head>
 <body>
