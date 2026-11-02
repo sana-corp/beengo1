@@ -1363,6 +1363,44 @@ a,button,.dd-btn,.dd-opt{touch-action:manipulation}
   .fcols > div:nth-child(2){margin:6px 0;padding:16px!important;border:0!important;border-radius:20px;background:rgba(255,255,255,.08)}
   .fcols > div:nth-child(3){border-top:1px solid rgba(255,255,255,.12)}
 }
+
+/* ===== Заголовки: SemiBold, тёмно-синий ===== */
+:root{--navy:#0b2364}
+.h2,section h2,.frame h2,.side h3,.story-top h3,.ab-text h2,.faq h2,.lead h2,.docs-top h2{font-weight:600!important}
+.h2,.why .h2,.pains .h2,.checklist .h2,.faq h2,.hero h1,.why-card h3,.side.bad h3,.story-top h3,.art h3,.q button,.prog-head + .prog-body .lbl,.fcard h3,.dl-title{color:#0b2364}
+.hero h1{color:#0b2364}
+.checklist .h2,.faq h2{color:#0b2364!important}
+.stories-wrap .h2{color:#0b2364}
+
+/* ===== Футер: без линии между фреймами, адрес и график в столбик, крупный заголовок ===== */
+.fcols > div:nth-child(3),.fcols > div:last-child{border-top:0!important}
+.finfo{grid-template-columns:1fr!important}
+.fcard h3{font-size:clamp(26px,2.3vw,32px);line-height:1.12;letter-spacing:-.02em}
+@media (max-width:680px){.fcard h3{font-size:26px}}
+
+/* ===== Шаги: заголовки в 2 строки ===== */
+.step-head h3{font-size:clamp(18px,1.45vw,21px)!important;max-width:64%}
+.step:nth-child(4) .step-head h3{max-width:100%}
+@media (max-width:680px){.step-head h3{font-size:19px!important;max-width:60%}.step:nth-child(4) .step-head h3{max-width:100%}}
+
+/* ===== Истории: больше воздуха, стрелки по бокам ===== */
+.story{gap:clamp(20px,3vw,48px)}
+.story-top{margin-bottom:20px}
+.ba{gap:10px}
+.ba div{padding:18px 20px}
+.quote{margin-top:24px}
+@media (max-width:680px){
+  .story{padding:16px!important;gap:20px!important}
+  .story-top{margin:4px 4px 6px}
+  .ba div{padding:16px 18px}
+  .quote{margin:8px 4px 4px}
+  .frame .stories-wrap{padding-bottom:var(--s5)!important}
+  .stories-wrap .arrow{top:calc(var(--s5) + 230px)!important;bottom:auto!important;transform:none;width:44px!important;height:44px!important;box-shadow:0 8px 20px rgba(0,0,0,.18)}
+  .stories-wrap .arrow.prev{left:-4px!important;right:auto!important}
+  .stories-wrap .arrow.next{right:-4px!important;left:auto!important}
+}
+.step:nth-child(5) .step-head h3{max-width:none;font-size:clamp(17px,1.35vw,20px)!important}
+.step:nth-child(5) .step-head img.st5{width:clamp(96px,8.5vw,124px)!important;right:-8px!important;top:-38px!important}
 </style>
 </head>
 <body>
@@ -1726,7 +1764,7 @@ a,button,.dd-btn,.dd-opt{touch-action:manipulation}
           <ol><li>Получаем официальное письмо о зачислении (Admission Notice) от университета.</li><li>Контролируем выпуск формы JW201/JW202, необходимой для оформления студенческой визы.</li><li>Убеждаемся, что за вами закреплен грант, скидка или место в общежитии (если это было предусмотрено условиями).</li></ol>
         </div>
         <div class="step reveal">
-          <div class="step-top"><div class="step-head pat pat1"><span class="n">5 ШАГ</span><h3>Финальная подготовка к переезду</h3><img class="st5" src="assets/st5.png" alt=""></div>
+          <div class="step-top"><div class="step-head pat pat1"><span class="n">5 ШАГ</span><h3>Финальная подготовка<br>к&nbsp;переезду</h3><img class="st5" src="assets/st5.png" alt=""></div>
             <p>Помогаем спокойно собраться и уверенно стартовать в новой стране.</p></div>
           <ol><li>Подготавливаем вас к самостоятельному получению визы и комфортному старту в Китае.</li><li>Даем памятку по покупке билетов, сборам чемодана и правилам въезда в страну.</li><li>Консультируем по первым шагам после прибытия в Китай: регистрация в кампусе, заселение и подключение местной связи.</li></ol>
         </div>
