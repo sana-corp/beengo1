@@ -1418,6 +1418,21 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
 #programs.sec{background:linear-gradient(180deg,#e9eff8 0%,#eef2f9 55%,#f7f9fd 100%);padding-bottom:0}
 /* без теней у REJECTED и кубка */
 .side .deco,.side.bad .deco,.side.good .deco{filter:none!important}
+
+/* ===== Мобильный ритм: блоки чётко отделены друг от друга ===== */
+@media (max-width:680px){
+  .sec{padding:10px 0}
+  .frame{padding:56px 0}
+  .frame.why{padding:48px 0 64px}
+  #programs.sec{padding-top:8px}
+  .frame.pains{padding-top:64px}
+  .frame.articles,.frame.geo{padding-top:64px}
+  .frame.geo{padding-bottom:0}
+  .frame.stories,.frame.faq,.frame.checklist{padding-top:56px}
+  .head{margin-bottom:28px}
+  .h2{font-size:clamp(28px,7.6vw,32px);line-height:1.15}
+  .sub{font-size:16px;line-height:1.45}
+}
 </style>
 </head>
 <body>
