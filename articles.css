@@ -30,11 +30,11 @@ h1{font-size:clamp(30px,4.2vw,52px);font-weight:600;letter-spacing:-.02em;line-h
 
 /* обложки */
 .cover{border-radius:20px;aspect-ratio:330/187;display:grid;place-items:center;text-align:center;padding:24px;font-size:clamp(20px,2vw,26px);font-weight:600;line-height:1.2;color:#14204a}
-.cv-admission{background:linear-gradient(160deg,#d7e6ff,#bcd4ff)}
+.cv-admission{background:linear-gradient(160deg,#d7e6ff,#bcd4ff);color:#1a4fc0}
 .cv-programs{background:linear-gradient(160deg,#ffd9b8,#ffc290);color:#b5400e}
-.cv-docs{background:linear-gradient(160deg,#fff7c2,#ffeb8a)}
-.cv-life{background:linear-gradient(160deg,#ffd9d2,#ffbdb1)}
-.cv-grants{background:linear-gradient(160deg,#dde3f4,#c6d0ec)}
+.cv-docs{background:linear-gradient(160deg,#fff7c2,#ffeb8a);color:#8a6200}
+.cv-life{background:linear-gradient(160deg,#ffd9d2,#ffbdb1);color:#b8261c}
+.cv-grants{background:linear-gradient(160deg,#dde3f4,#c6d0ec);color:#1f3a7a}
 
 /* карточки статей */
 .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
