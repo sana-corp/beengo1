@@ -1719,6 +1719,123 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
   .story-btn{width:auto!important;left:6%!important;right:7%!important}
   .hero-panel{background:linear-gradient(180deg,#e4edf9 0%,#f0f5fc 18%,#ffffff 30%,#ffffff 100%)!important}
 }
+
+/* ===== Пакет правок 3 ===== */
+/* ховер: снова мягкая тень вместо контура */
+.art:hover,.prog:hover,.why-card:hover,.doc:hover,.ab-card:hover{box-shadow:0 14px 34px rgba(19,52,120,.10)!important}
+
+/* обложки статей: пастельные цвета */
+.cover{color:#14204a!important}
+.cv-admission{background:linear-gradient(160deg,#d7e6ff,#bcd4ff)!important}
+.cv-programs{background:linear-gradient(160deg,#ffe2c4,#ffcf9f)!important}
+.cv-docs{background:linear-gradient(160deg,#fff7c2,#ffeb8a)!important}
+.cv-life{background:linear-gradient(160deg,#ffd9d2,#ffbdb1)!important}
+.cv-grants{background:linear-gradient(160deg,#dde3f4,#c6d0ec)!important}
+
+/* чек-лист: квадратные иконки, по левому краю, строка PDF в одну линию */
+.ch-opt .ch-ic,.ch-opt.tg .ch-ic,.ch-opt.wa .ch-ic{border-radius:8px!important;overflow:hidden;width:32px;height:32px}
+.ch-ic svg circle{r:0}
+.ch-opt.tg .ch-ic{background:#27a6e5!important}.ch-opt.wa .ch-ic{background:#25d366!important}
+@media (max-width:680px){.ch-opt{justify-content:flex-start!important;padding:10px 12px!important}}
+.pdf{white-space:nowrap}
+
+/* футер: логотип и подпись свободнее, «Консультация» синей кнопкой без обводки */
+.fbrand{gap:20px!important}
+.fcols > div:nth-child(2) > a,.footer .fcols > div:nth-child(2) > a{border:0!important}
+.footer .fcols > div:nth-child(2) > a:last-child{background:#0b6cf0!important;color:#fff!important}
+@media (min-width:681px){.fcols > div:nth-child(2) > a:last-child{display:inline-flex;align-items:center;padding:10px 16px;border-radius:12px;margin-top:4px}}
+
+/* «О нас»: небольшое скругление снизу */
+.frame.about{border-radius:0 0 40px 40px!important}
+@media (max-width:680px){.frame.about{border-radius:0 0 28px 28px!important}}
+
+/* истории: снизу отступ как по бокам */
+#stories.sec{padding-bottom:12px!important}
+.frame.stories{width:calc(100% - 24px)!important}
+@media (min-width:681px){.frame.stories{padding-bottom:calc(var(--section) - 24px)!important}}
+@media (max-width:680px){#stories.sec{padding-bottom:8px!important}.frame.stories{width:calc(100% - 16px)!important;padding-bottom:16px!important}.story-dots{margin-top:12px}}
+
+/* шаги: светлый фон, тёмный фрейм с отступом 8px со всех сторон */
+#process.sec{background:#fff!important;margin-top:0!important;padding:8px 0!important;border-radius:0!important;overflow:visible!important}
+#process .frame.process{width:calc(100% - 16px)!important;border-radius:40px!important;padding-top:var(--section)!important}
+#articles.sec{margin-top:0!important}
+#articles .frame.articles{padding-top:var(--section)!important}
+@media (max-width:680px){#process .frame.process{border-radius:28px!important;padding-top:56px!important}}
+/* шаги: дополнительная анимация — блик по шапке при появлении */
+.step-head{overflow:hidden}
+.step-head::after{content:"";position:absolute;top:0;bottom:0;left:-60%;width:50%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.28),transparent);transform:skewX(-18deg);pointer-events:none}
+.step.in .step-head::after{animation:stepShine 1.4s cubic-bezier(.2,.7,.2,1) calc(var(--si,0)*120ms + .3s) both}
+@keyframes stepShine{to{left:130%}}
+.step-head img{z-index:2}
+
+/* ===== Шапка: выбор языка на всех экранах, синяя кнопка меню ===== */
+@media (max-width:980px){
+  .nav:not(.open) .lang{display:flex!important;margin-left:auto}
+  .nav .lang{order:2}
+  .burger{order:3;background:#0b6cf0!important;margin-left:8px!important;border-radius:14px!important}
+  .burger i,.burger i::before,.burger i::after{background:#fff!important}
+  .nav.open .burger i{background:transparent!important}
+  .nav.open .lang{flex-basis:auto!important;margin:0 0 0 auto!important;order:2}
+  .nav.open .lang button{flex:none;padding:6px 10px;font-size:14px}
+}
+
+/* ===== Первый экран (телефон) — как в Тильде ===== */
+@media (max-width:980px){
+  .hero-grid{display:flex!important;flex-direction:column;text-align:center;gap:0!important}
+  .hero-text{display:contents}
+  .hero-text .tag{order:1;align-self:center;background:#fff!important}
+  .tag::before{display:none}
+  .hero-text h1{order:2}
+  .hero-text > p{order:3}
+  .hero-text .budget{order:4;width:100%;max-width:none}
+  .hero-card{order:5}
+  .hero-text .btn{order:6;max-width:none;margin-top:16px}
+  .hero-text .note{order:7}
+}
+@media (max-width:680px){
+  .hero-panel{padding:92px 0 28px!important;background:linear-gradient(180deg,#e2ecf9 0%,#edf3fb 34%,#ffffff 46%,#ffffff 100%)!important}
+  .hero .container{width:calc(100% - 24px)!important}
+  .hero-text .tag{margin-bottom:4px;font-size:11.5px!important;padding:9px 16px!important;border-radius:12px!important;color:#14204a}
+  .hero h1{font-size:clamp(28px,8.4vw,34px)!important;line-height:1.1;margin:12px 0 10px!important;font-weight:600}
+  .hero-text > p{font-size:15px;line-height:1.45;color:#2b3350;max-width:none;padding:0 4px}
+  .hero-text .budget{margin:20px 0 14px!important;padding:22px 18px 20px!important;border-radius:20px}
+  .budget::before{display:none}
+  .budget b{font-size:20px!important;line-height:1.25}
+  .budget small{font-size:13.5px!important}
+  .budget img{width:72px!important;right:-4px!important;top:-26px!important}
+  .hero-card{display:flex!important;flex-direction:column;justify-content:flex-end;gap:8px;height:auto!important;min-height:0!important;aspect-ratio:auto!important;padding:200px 12px 12px;margin:0!important;border-radius:22px!important;max-width:none!important}
+  .hero-card h2{font-size:clamp(34px,10.5vw,42px)!important;left:20px!important;top:28px!important;text-align:left}
+  .hero-clip{top:-7%!important}
+  .hero-clip img{height:100%!important;right:-14%!important}
+  .hero-card .story-btn{position:relative!important;left:auto!important;right:auto!important;bottom:auto!important;order:1;width:100%!important;min-height:48px!important;padding:0 16px!important;font-size:12.5px!important;border-radius:14px!important;box-shadow:none}
+  .hero-card blockquote{position:relative!important;left:auto!important;right:auto!important;bottom:auto!important;order:2;text-align:center;font-style:normal;font-size:13.5px!important;padding:12px 14px!important;border-radius:14px}
+  .hero-text .note{font-size:12.5px;margin-top:10px}
+}
+
+@media (max-width:980px){
+  .header .container{width:calc(100% - 24px)!important;max-width:none!important}
+  .header .nav{flex-wrap:nowrap!important;gap:8px!important;padding:8px 8px 8px 16px!important;min-width:0}
+  .logo{flex:none}
+  .nav:not(.open) .lang{flex:none}
+  .nav.open{flex-wrap:wrap!important}
+}
+@media (max-width:360px){.logo img{height:24px!important}.nav .lang button{padding:5px 8px!important;font-size:13px!important}.burger{width:40px!important;height:40px!important}}
+
+/* ===== Мобильная шапка: строка «логотип · язык · меню», выпадающее меню ниже ===== */
+@media (max-width:980px){
+  .header .nav,.header .nav.open{display:grid!important;grid-template-columns:auto 1fr auto auto;align-items:center;column-gap:8px!important;row-gap:0;flex-wrap:nowrap!important}
+  .nav .logo{grid-column:1;grid-row:1}
+  .nav .lang,.nav.open .lang{grid-column:3;grid-row:1;display:flex!important;margin:0!important;order:0!important}
+  .nav .burger,.nav.open .burger{grid-column:4;grid-row:1;margin:0!important;order:0!important}
+  .nav .menu,.nav .wa,.nav .contact{grid-column:1 / -1}
+  .nav.open .menu{grid-row:2;margin:12px 0 8px!important}
+  .nav.open .wa{grid-row:3;margin:0 0 8px!important}
+  .nav.open .contact{grid-row:4;margin:0!important}
+  .nav.open .lang button{flex:none!important;padding:6px 10px!important;font-size:14px!important}
+}
+
+.hero,.hero-panel{overflow-x:clip}
+.hero-clip{overflow-x:clip!important;overflow-y:visible!important}
 </style>
 </head>
 <body>
@@ -2172,7 +2289,7 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
         <input type="tel" id="dlPhone" placeholder="777 777 00 00" inputmode="tel" autocomplete="tel-national" disabled>
       </div>
       <button class="btn" type="submit">Скачать презентацию о нас бесплатно</button>
-      <div class="pdf"><svg width="16" height="20" viewBox="0 0 16 20"><path d="M2 0h8l6 6v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z" fill="#e5252a"/><path d="M10 0v6h6" fill="#ff8a8d"/><text x="3" y="16" font-size="5" font-weight="700" fill="#fff" font-family="Arial">PDF</text></svg>Никакого спама. Только один полезный PDF-файл</div>
+      <div class="pdf"><svg width="16" height="20" viewBox="0 0 16 20"><path d="M2 0h8l6 6v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z" fill="#e5252a"/><path d="M10 0v6h6" fill="#ff8a8d"/><text x="3" y="16" font-size="5" font-weight="700" fill="#fff" font-family="Arial">PDF</text></svg>Без спама, только полезный PDF</div>
     </form>
   </div>
 </div></section>
