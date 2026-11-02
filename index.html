@@ -1134,7 +1134,6 @@ a,button,.dd-btn,.dd-opt{touch-action:manipulation}
   .side h3{max-width:none;font-size:24px;margin-bottom:16px;display:flex;align-items:center;gap:10px}
   .side.bad h3::before,.side.good h3::before{content:"";flex:none;width:36px;height:36px;border-radius:11px;background:#fde0e0 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e5484d' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M7 7l10 10M17 7L7 17'/%3E%3C/svg%3E") center/18px no-repeat}
   .side.good h3::before{background:rgba(255,255,255,.2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/18px no-repeat}
-  .side .deco{display:none}
 }
 
 /* --- «Какие документы нужны» --- */
@@ -1972,6 +1971,32 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
 
 /* sticky работает только без overflow:hidden у предков */
 .frame.finance{overflow:clip!important}
+
+/* ===== Пакет правок 8 ===== */
+html,body{overflow-x:clip!important}
+/* «Четкая система»: отступы от краёв экрана как у программ (16px) */
+#pains .container{width:calc(100% - 32px)!important;max-width:none!important}
+@media (min-width:1500px){#pains .container{max-width:1500px!important}}
+@media (max-width:680px){#pains .container{width:calc(100% - 16px)!important}#pains .head{padding:0 8px}}
+/* принты чуть меньше */
+.side.good{background-size:85% auto,auto!important}
+.side.bad{background-size:85% auto!important}
+@media (max-width:680px){.side.good{background-size:150% auto,auto!important}.side.bad{background-size:150% auto!important}}
+/* описания пунктов на 2px меньше */
+.item p{font-size:13.5px!important}
+@media (max-width:680px){.item p{font-size:13px!important}}
+/* картинки REJECTED и кубок на телефоне снова видны */
+@media (max-width:680px){
+  .side .deco{display:block!important;position:absolute;width:110px!important;top:-14px!important;right:6px!important}
+  .side.good .deco{width:96px!important;top:-26px!important;right:0!important}
+  .side h3{padding-right:96px}
+  .side{padding-top:28px!important}
+}
+/* кнопка чек-листа в одну строку */
+.dl .btn{white-space:nowrap;letter-spacing:.04em!important}
+@media (max-width:680px){.dl .btn{font-size:12.5px!important}}
+
+@media (max-width:680px){.side.bad h3::before,.side.good h3::before{display:none!important}.side h3{padding-right:100px;font-size:26px!important}}
 </style>
 </head>
 <body>
@@ -2429,7 +2454,7 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
         </select>
         <input type="tel" id="dlPhone" placeholder="777 777 00 00" inputmode="tel" autocomplete="tel-national" disabled>
       </div>
-      <button class="btn" type="submit">Скачать презентацию о нас бесплатно</button>
+      <button class="btn" type="submit">Скачать чек-лист бесплатно</button>
       <div class="pdf"><svg width="16" height="20" viewBox="0 0 16 20"><path d="M2 0h8l6 6v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2z" fill="#e5252a"/><path d="M10 0v6h6" fill="#ff8a8d"/><text x="3" y="16" font-size="5" font-weight="700" fill="#fff" font-family="Arial">PDF</text></svg>Без спама, только полезный PDF</div>
     </form>
   </div>
@@ -2671,7 +2696,7 @@ $$('.why-grid,.prog-grid,.fin-grid,.doc-grid,.steps,.ab-cards,.art-grid,.qa,.sta
   })();
 
 // Финансирование: колода карт. Телефон — карты прилипают и складываются стопкой; компьютер — веер раскрывается при прокрутке
-(()=>{const g=$('.fin-grid');if(!g)return;const cards=$$('.fin',g);cards.forEach((c,i)=>c.style.setProperty('--i',i));
+(()=>{const g=$('.fin-grid');if(!g)return;const cards=$$('.fin',g);cards.forEach(c=>{c.classList.remove('reveal');c.classList.add('in')});cards.forEach((c,i)=>c.style.setProperty('--i',i));
   const rot=[-7,0,9],dx=[1,0,-1],fy=[44,-14,70],fx=[18,0,-18];let raf=0;
   const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
   let cur=null;const tick=()=>{raf=0;const vh=innerHeight;
@@ -2679,9 +2704,10 @@ $$('.why-grid,.prog-grid,.fin-grid,.doc-grid,.steps,.ab-cards,.art-grid,.qa,.sta
         const r=nx.getBoundingClientRect(),me=c.getBoundingClientRect();
         const p=clamp(1-(r.top-me.top)/(me.height),0,1);
         c.style.transform=`scale(${1-p*0.06}) rotate(${(i%2?1:-1)*p*4}deg)`;c.style.filter=`brightness(${1-p*.18})`});}
-    else{const r=g.getBoundingClientRect();const p=clamp((vh*0.95-r.top)/(vh*0.6),0,1);const e=1-Math.pow(1-p,3);
-      cards.forEach((c,i)=>{const w=c.offsetWidth+16;const x=dx[i]*w*(1-e)+fx[i]*e;const y=(1-e)*40+fy[i]*e;
-        c.style.transform=`translate(${x}px,${y}px) rotate(${rot[i]*e}deg) scale(${.9+.1*e})`;c.style.zIndex=i===1?1:2;c.style.filter=''});}};
+    else{const r=g.getBoundingClientRect();const p=clamp((vh-r.top)/(vh*0.9),0,1);
+      cards.forEach((c,i)=>{const q=clamp((p-i*0.2)/0.5,0,1);const e=1-Math.pow(1-q,3);
+        const x=fx[i]*e,y=fy[i]*e+(1-e)*220,rz=rot[i]*e+(1-e)*(i===0?-18:i===2?18:6);
+        c.style.transform=`translate(${x}px,${y}px) rotate(${rz}deg) scale(${.82+.18*e})`;c.style.opacity=(0.15+0.85*e).toFixed(3);c.style.zIndex=i===1?1:2;c.style.filter=''});}};
   const on=()=>{if(!raf)raf=requestAnimationFrame(tick)};
   addEventListener('scroll',on,{passive:true});addEventListener('resize',on);tick();
   if(matchMedia('(prefers-reduced-motion:reduce)').matches){removeEventListener('scroll',on);cards.forEach(c=>c.style.transform='')}
