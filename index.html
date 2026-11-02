@@ -1325,7 +1325,7 @@ a,button,.dd-btn,.dd-opt{touch-action:manipulation}
 
 /* Заголовки секций: единое начертание Onest Bold */
 .h2,section h2,.frame h2,.docs-top h2,.ab-text h2,.lead h2,.faq h2,.side h3,.story-top h3{font-weight:700!important;letter-spacing:-.02em}
-.pains .h2,.why .h2,.checklist .h2{font-weight:700!important}
+.pains .h2,.why .h2,.checklist .h2{font-weight:600!important}
 
 /* Иконки соцсетей: белый фон, тёмно-синяя иконка */
 .soc a,.soc a[aria-label]{background:#fff!important;color:#0d1a3a!important}
@@ -1411,6 +1411,13 @@ a,button,.dd-btn,.dd-opt{touch-action:manipulation}
 .fcols > div:first-child{order:1}.fcols > div:last-child{order:2}.fcols > div:nth-child(2){order:3}
 @media (max-width:680px){.fcols > div:nth-child(2){margin:10px 0 4px!important}.fcols > div:last-child{padding-bottom:12px!important}}
 @media (max-width:980px){.fin{top:calc(108px + var(--i,0)*18px)}}
+
+/* все заголовки — SemiBold */
+h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
+/* программы: серый фон плавно переходит в фон «Четкой системы» */
+#programs.sec{background:linear-gradient(180deg,#e9eff8 0%,#eef2f9 55%,#f7f9fd 100%);padding-bottom:0}
+/* без теней у REJECTED и кубка */
+.side .deco,.side.bad .deco,.side.good .deco{filter:none!important}
 </style>
 </head>
 <body>
