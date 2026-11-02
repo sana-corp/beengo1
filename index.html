@@ -1479,6 +1479,40 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
 .fin-ill.fin-doc{width:80%;max-width:300px;margin:auto -12px -40px auto}
 .fin:nth-child(2) .fin-in::after,.fin:nth-child(3) .fin-in::after{display:none!important}
 @media (max-width:680px){.fin-ic{width:56px!important;height:56px}.fin-ill.fin-id{width:80%;margin:8px -16px -22px auto}.fin-ill.fin-doc{width:72%;margin:8px -8px -34px auto}}
+
+/* ===== Карточки финансирования по макету ===== */
+.fin{padding:7px!important;border-radius:30px!important}
+.fin-in{border-radius:24px 24px 10px 10px!important;padding:26px 24px 0!important}
+.fin .fbtn{border-radius:10px 10px 24px 24px!important;margin-top:6px!important;padding:18px 12px!important;font-size:13.5px!important;letter-spacing:.06em}
+.fin{--c1:#f3f7ff;--c2:#cfe0ff}
+.fin.y{--c1:#fffdf3;--c2:#ffe9a6}
+.fin.r{--c1:#fff7f6;--c2:#ffd3cf}
+.fin:nth-child(1){background:linear-gradient(180deg,#4f8ff5,#2f6fe4)!important}
+.fin.y{background:linear-gradient(180deg,#fde58a,#d9a019)!important}
+.fin.r{background:linear-gradient(180deg,#ff9a90,#c8101d)!important}
+.fin-ic{width:56px!important;height:56px;margin-bottom:22px}
+.fin h3{font-size:clamp(20px,1.7vw,24px)!important;font-weight:500!important;line-height:1.15;margin-bottom:10px;color:#071542}
+.fin p{font-size:clamp(13px,1.05vw,14.5px)!important;line-height:1.4;color:#1d2540;font-weight:500}
+.fin-ill.fin-cap{margin:auto -14px -6px auto!important;width:80%!important}
+.fin-ill.fin-id{margin:auto -6px 6px auto!important;width:80%!important}
+.fin-ill.fin-doc{margin:auto 0 -18px auto!important;width:72%!important}
+@media (min-width:981px){
+  .fin-grid{max-width:1180px!important;gap:22px!important;margin-top:56px!important}
+  .finance .finance-wrap{padding-bottom:110px}
+}
+@media (max-width:680px){.fin-ill.fin-cap{width:74%!important}.fin-ill.fin-id{width:74%!important}.fin-ill.fin-doc{width:66%!important}}
+
+/* ===== Цвета карточек финансирования — по пикселям макета ===== */
+.fin-in{background:linear-gradient(180deg,var(--c1) 0%,var(--c1) 55%,var(--c2) 100%)!important}
+.fin:nth-child(1){--c1:#eaf2ff;--c2:#b4d6fd;background:linear-gradient(180deg,#5c9bf8 0%,#4a87e4 55%,#2f6bd8 100%)!important}
+.fin.y{--c1:#fffdf4;--c2:#feeaa2;background:linear-gradient(180deg,#ffe8a4 0%,#fdd869 45%,#bc871a 100%)!important}
+.fin.r{--c1:#fff7f3;--c2:#f6d6cb;background:linear-gradient(180deg,#fbb0a4 0%,#f08a7a 35%,#d8323a 75%,#c0101e 100%)!important}
+.fin .fbtn{background:#fff!important}
+.fin:nth-child(1) .fbtn{color:#123a8c}.fin.y .fbtn{color:#5a3a05}.fin.r .fbtn{color:#a3101c}
+
+.fin-ic{width:64px!important;height:64px}
+.fin .fbtn{font-weight:700!important}
+@media (max-width:680px){.fin-ic{width:56px!important;height:56px}}
 </style>
 </head>
 <body>
@@ -2146,7 +2180,7 @@ $$('.why-grid,.prog-grid,.fin-grid,.doc-grid,.steps,.ab-cards,.art-grid,.qa,.sta
 
 // Финансирование: колода карт. Телефон — карты прилипают и складываются стопкой; компьютер — веер раскрывается при прокрутке
 (()=>{const g=$('.fin-grid');if(!g)return;const cards=$$('.fin',g);cards.forEach((c,i)=>c.style.setProperty('--i',i));
-  const rot=[-6,0,6],dx=[1,0,-1];let raf=0;
+  const rot=[-7,0,9],dx=[1,0,-1],fy=[44,-14,70],fx=[18,0,-18];let raf=0;
   const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
   const tick=()=>{raf=0;const vh=innerHeight;
     if(innerWidth<=980){cards.forEach((c,i)=>{const nx=cards[i+1];if(!nx){c.style.transform='';return}
@@ -2154,8 +2188,8 @@ $$('.why-grid,.prog-grid,.fin-grid,.doc-grid,.steps,.ab-cards,.art-grid,.qa,.sta
         const p=clamp(1-(r.top-me.top)/(me.height),0,1);
         c.style.transform=`scale(${1-p*0.06}) rotate(${(i%2?1:-1)*p*4}deg)`;c.style.filter=`brightness(${1-p*.18})`});}
     else{const r=g.getBoundingClientRect();const p=clamp((vh-r.top)/(vh*0.75),0,1);const e=1-Math.pow(1-p,3);
-      cards.forEach((c,i)=>{const w=c.offsetWidth+16;const x=dx[i]*w*(1-e);const y=(1-e)*40+(i!==1?e*40:-e*10);
-        c.style.transform=`translate(${x}px,${y}px) rotate(${rot[i]*e}deg) scale(${.9+.1*e})`;c.style.zIndex=i===1?3:1;c.style.filter=''});}};
+      cards.forEach((c,i)=>{const w=c.offsetWidth+16;const x=dx[i]*w*(1-e)+fx[i]*e;const y=(1-e)*40+fy[i]*e;
+        c.style.transform=`translate(${x}px,${y}px) rotate(${rot[i]*e}deg) scale(${.9+.1*e})`;c.style.zIndex=i===1?1:2;c.style.filter=''});}};
   const on=()=>{if(!raf)raf=requestAnimationFrame(tick)};
   addEventListener('scroll',on,{passive:true});addEventListener('resize',on);tick();
   if(matchMedia('(prefers-reduced-motion:reduce)').matches){removeEventListener('scroll',on);cards.forEach(c=>c.style.transform='')}
@@ -2163,8 +2197,9 @@ $$('.why-grid,.prog-grid,.fin-grid,.doc-grid,.steps,.ab-cards,.art-grid,.qa,.sta
 
 // Грант: кисточка шапки свисает поверх кнопки
 (()=>{const cap=$('.fin-cap');if(!cap)return;const card=cap.closest('.fin');const t=cap.cloneNode();t.className='fin-tassel';t.alt='';card.appendChild(t);
-  const place=()=>{const c=card.getBoundingClientRect(),r=cap.getBoundingClientRect();const k=card.offsetWidth/c.width||1;
-    t.style.left=(r.left-c.left)*k+'px';t.style.top=(r.top-c.top)*k+'px';t.style.width=r.width*k+'px';const fi=cap.closest('.fin-in').getBoundingClientRect();const top=Math.max(0,(fi.bottom-r.top)/r.height*100);t.style.clipPath=`inset(${top.toFixed(1)}% 3% 0 79.5%)`};
+  const place=()=>{const fi=cap.closest('.fin-in');const L=fi.offsetLeft+cap.offsetLeft,T=fi.offsetTop+cap.offsetTop;
+    t.style.left=L+'px';t.style.top=T+'px';t.style.width=cap.offsetWidth+'px';
+    const top=Math.max(0,(fi.offsetHeight-cap.offsetTop)/cap.offsetHeight*100);t.style.clipPath=`inset(${top.toFixed(1)}% 3% 0 79.5%)`};
   addEventListener('resize',place);cap.complete?place():cap.addEventListener('load',place);
   let raf=0;addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(()=>{raf=0;place()})},{passive:true});place();})();
 // модалка
