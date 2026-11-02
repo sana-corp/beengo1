@@ -1655,6 +1655,70 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
 
 .process-wrap .h2 .w{color:#fff}
 .process-wrap .h2 > span:not(.w) .w{color:#5b8cff}
+
+/* ===== Пакет правок 2 ===== */
+/* заявка заканчивается сразу после формы, футер вплотную */
+.frame.lead{padding-bottom:4px!important}
+.lead-grid{align-items:end}
+@media (min-width:681px){.footer{padding-top:clamp(56px,6vw,90px)!important}}
+@media (max-width:680px){.frame.lead{padding-bottom:4px!important}}
+
+/* обложки статей: лёгкий градиент, без теней; ховер — контур */
+.cv-admission{background:linear-gradient(160deg,#2f6ff0,#1a55d6)!important}
+.cv-programs{background:linear-gradient(160deg,#ff9a35,#ff7d10)!important}
+.cv-docs{background:linear-gradient(160deg,#ffd75a,#ffc72a)!important}
+.cv-life{background:linear-gradient(160deg,#ff6b5f,#f44a3e)!important}
+.cv-grants{background:linear-gradient(160deg,#173478,#0b2364)!important}
+.art,.art:hover,.why-card,.why-card:hover,.doc,.doc:hover,.ab-card,.ab-card:hover,.prog,.prog:hover{box-shadow:none!important}
+.art{transition:box-shadow .25s,transform .25s}
+.art:hover{transform:none!important;box-shadow:inset 0 0 0 2px #0b6cf0!important}
+.prog:hover,.why-card:hover,.doc:hover,.ab-card:hover{transform:none!important;box-shadow:inset 0 0 0 2px rgba(11,108,240,.55)!important}
+/* теги без точек */
+.filters button[data-f]::before{display:none!important}
+
+/* единый стиль тегов-плашек */
+.tag,.ab-eyebrow,.art .cat,.city{border-radius:10px!important;font-size:12px!important;font-weight:600!important;letter-spacing:.08em!important;text-transform:uppercase;padding:7px 12px!important;line-height:1.2;border:0!important}
+.city{text-transform:none;letter-spacing:0!important;font-size:14px!important}
+@media (max-width:680px){.tag{background:#fff!important}}
+
+/* шапка без тени */
+.header .nav,.nav.open{box-shadow:none!important}
+
+/* деньги: без тени */
+.budget img{filter:none!important}
+
+/* первый экран: градиент заканчивается на уровне плашки «Подбираем программы» */
+.hero-panel{background:linear-gradient(180deg,#e4edf9 0%,#f0f5fc 28%,#ffffff 52%,#ffffff 100%)!important}
+
+/* карточки статистики: одинаковые отступы со всех сторон */
+.stat{padding:24px!important;display:flex;flex-direction:column;justify-content:center;gap:4px}
+.stats-panel{padding:16px 0!important}
+.hero .stats-panel .container{width:calc(100% - 32px)!important;max-width:1280px}
+
+/* истории: отступы 16px, Алсу + город вместе, плотнее блоки, стрелки по центру видео, точки */
+.story-top{justify-content:flex-start!important;gap:8px!important;margin-bottom:12px!important}
+.ba{gap:8px!important}
+.story-dots{display:flex;justify-content:center;gap:6px;margin-top:16px}
+.story-dots i{width:8px;height:8px;border-radius:9px;background:rgba(160,110,10,.3);transition:width .3s,background .3s}
+.story-dots i.on{width:24px;background:#f0a500}
+@media (max-width:680px){
+  .frame.stories{padding:40px 0 16px!important}
+  .frame.stories .container{width:calc(100% - 32px)!important}
+  .story{padding:16px!important;gap:16px!important;box-shadow:none!important}
+  .story-top,.ba,.quote{margin-left:0!important;margin-right:0!important}
+  .stories-wrap .arrow{top:calc(var(--vtop,200px))!important;transform:translateY(-50%)!important}
+  .stories-wrap .arrow.prev{left:-6px!important}.stories-wrap .arrow.next{right:-6px!important}
+  /* кнопка «Смотреть историю» в одну строку */
+  .story-btn{font-size:12px!important;letter-spacing:.04em!important;white-space:nowrap;padding:0 14px!important}
+  /* Алсу на телефоне */
+  .hero-clip{top:-4%!important}.hero-clip img{height:94%!important;right:-2%!important}
+}
+@media (min-width:681px){.story{box-shadow:none!important}}
+
+@media (max-width:680px){
+  .story-btn{width:auto!important;left:6%!important;right:7%!important}
+  .hero-panel{background:linear-gradient(180deg,#e4edf9 0%,#f0f5fc 18%,#ffffff 30%,#ffffff 100%)!important}
+}
 </style>
 </head>
 <body>
@@ -1699,7 +1763,7 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
         <h1>Поступите в топовый университет Китая</h1>
         <p>Beengo Study помогает абитуриентам со всего СНГ подобрать специальность, оформить академические документы и получить приглашение от вуза</p>
         <div class="budget">
-          <img src="assets/opt/money.webp" alt="">
+          <img src="assets/money.png" alt="">
           <b>Подбираем программы<br>под любой бюджет</b>
           <small>От грантов и скидок до контрактного обучения</small>
         </div>
@@ -1827,8 +1891,8 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
   <div class="container">
     <div class="head center">
       <p class="pre reveal">Самостоятельное поступление - это риски</p>
-      <h2 class="h2 reveal"><span class="ph1">С Beengo Study —</span> <span class="ph2">четкая
-        <span class="pill">система <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#2fb64b"/><path d="M7 12.4l3.2 3.2L17 8.8" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+      <h2 class="h2 reveal"><span class="ph1">С Beengo Study -</span> <span class="ph2">четкая
+        <span class="pill">система <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10.5" fill="#2fb64b" stroke="#fff" stroke-width="2.4"/><path d="M7.6 12.3l3 3 5.8-6.2" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
       </span></h2>
       <p class="sub reveal" style="max-width:640px">Ошибка в одной анкете или упущенный дедлайн могут стоить целого года. Мы берем всю сложную рутину на себя.</p>
     </div>
@@ -1943,7 +2007,7 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
     </div>
     <div class="ab-text">
       <span class="ab-eyebrow reveal">О компании</span>
-      <h2 class="reveal">Beengo Study — официальный представитель вузов Китая, <em>а не просто посредник</em></h2>
+      <h2 class="reveal">Beengo Study - официальный представитель вузов Китая, <em>а не просто посредник</em></h2>
       <p class="reveal">Мы не рассылаем заявки наугад. За <span class="hl">+7 лет</span> мы выстроили прямые партнерские отношения с университетами.</p>
       <p class="reveal">Мы знаем внутренние требования приемных комиссий, поэтому беремся только за те кейсы, в которых <span class="ok">уверены</span></p>
       <div class="ab-cards">
@@ -2390,6 +2454,12 @@ $$('.why-grid,.prog-grid,.fin-grid,.doc-grid,.steps,.ab-cards,.art-grid,.qa,.sta
   $$('.steps .step').forEach(s=>s.classList.remove('reveal'));
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.2});
   $$('.steps .step').forEach(s=>io.observe(s));})();
+
+// Истории: точки и стрелки по центру видео
+(()=>{const card=$('#story');if(!card)return;const d=document.createElement('div');d.className='story-dots';for(let i=0;i<3;i++){const x=document.createElement('i');if(!i)x.className='on';d.appendChild(x)}card.after(d);
+  let k=0;$$('.stories-wrap .arrow').forEach(a=>a.addEventListener('click',()=>{k=(k+(a.classList.contains('next')?1:2))%3;[...d.children].forEach((x,i)=>x.classList.toggle('on',i===k))}));
+  const v=$('.video',card),w=$('.stories-wrap');const pos=()=>{if(!v||!w)return;const r=v.getBoundingClientRect(),q=w.getBoundingClientRect();w.style.setProperty('--vtop',(r.top-q.top+r.height/2)+'px')};
+  addEventListener('resize',pos);addEventListener('load',pos);setTimeout(pos,500);pos();})();
 // модалка
 const modal=$('#modal');
 $$('[data-open]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();
