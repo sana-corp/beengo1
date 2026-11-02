@@ -1513,6 +1513,11 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
 .fin-ic{width:64px!important;height:64px}
 .fin .fbtn{font-weight:700!important}
 @media (max-width:680px){.fin-ic{width:56px!important;height:56px}}
+
+/* принты на фоне жёлтой и красной карточек */
+.fin.y .fin-in::before,.fin.r .fin-in::before{content:"";position:absolute;inset:0;background:center top/cover no-repeat;z-index:-1;pointer-events:none}
+.fin.y .fin-in::before{background-image:url(assets/fin-print-y.svg)}
+.fin.r .fin-in::before{background-image:url(assets/fin-print-r.svg)}
 </style>
 </head>
 <body>
