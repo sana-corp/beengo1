@@ -1081,6 +1081,185 @@ a,button,.dd-btn,.dd-opt{touch-action:manipulation}
 @media (min-width:981px){.steps{align-items:start}.step ol{flex:none}.step-top{display:flex;flex-direction:column}.step-top p{flex:1}}
 
 @media (min-width:981px){.steps .cta-card{align-self:stretch}}
+
+/* =========================================================
+   МОБИЛЬНАЯ ПОЛИРОВКА v2 + МИКРОАНИМАЦИИ
+   ========================================================= */
+/* бейдж «О компании» — мягкий квадрат */
+.ab-eyebrow{border-radius:10px}
+
+/* --- шапка (мобильная) --- */
+@media (max-width:980px){
+  .nav:not(.open) .contact{display:none!important}
+  .header .nav{padding:8px 8px 8px 18px;min-height:60px}
+  .logo img{height:28px;width:auto}
+  .burger{border-radius:14px;background:#f1f4f9}
+  .nav.open{border-radius:22px;padding:12px 12px 14px 18px;box-shadow:0 24px 60px rgba(13,26,58,.18)}
+  .nav.open .menu{margin:12px 0 8px;gap:2px}
+  .nav.open .menu a{font-size:17px;padding:0 12px;border-radius:12px;min-height:50px}
+  .nav.open .menu a:active{background:#eef3fb}
+  .nav.open .lang,.nav.open .wa,.nav.open .contact{order:4;margin:0}
+  .nav.open .lang{flex-basis:100%;justify-content:stretch;margin-bottom:8px}
+  .nav.open .lang button{flex:1;padding:12px;font-size:15px}
+  .nav.open .wa,.nav.open .contact{flex:1 1 100%;justify-content:center;min-height:52px;border-radius:14px;margin-bottom:8px}
+  .nav.open .wa .num{flex:1;text-align:center}
+  .nav.open .contact{font-size:14px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;margin-bottom:0}
+}
+
+/* --- единые кнопки на телефоне --- */
+@media (max-width:680px){
+  .btn,.fin .fbtn,.story-btn,.prog .btn,.docs-wrap .btn,.dl .btn,.form .btn,.fcard .btn,.hero .btn,.cta-card .btn{
+    min-height:54px!important;padding:0 20px!important;border-radius:14px!important;font-size:13.5px!important;
+    font-weight:600!important;letter-spacing:.06em!important;text-transform:uppercase;width:100%;display:flex!important;align-items:center;justify-content:center;text-align:center;line-height:1.2}
+  .story-btn{justify-content:space-between!important}
+}
+
+/* --- программы: свайп-карусель на телефоне --- */
+@media (max-width:680px){
+  .prog-grid{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 -16px;padding:4px 16px 8px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .prog-grid::-webkit-scrollbar{display:none}
+  .prog{flex:0 0 84%;scroll-snap-align:center;border-radius:24px;padding:8px}
+  .prog-head{border-radius:18px;aspect-ratio:16/10}
+  .prog-head h3{font-size:24px;bottom:14px;left:16px}
+  .prog-body{padding:16px 8px 8px}
+  .prog .row{display:grid;grid-template-columns:1fr;gap:4px;margin-bottom:10px}
+  .prog-body .row + .row{margin-top:0}
+  .prog-body > .row{display:inline-grid;width:calc(50% - 4px);vertical-align:top;background:#f3f6fb;border-radius:12px;padding:10px}
+  .prog-body > .row:first-child{margin-right:8px}
+  .prog .row .k{min-width:0;font-size:10.5px}
+  .prog .badge{background:none!important;padding:0;font-size:14px;font-weight:600;white-space:normal;color:#0d1a3a}
+  .prog .lbl{margin-top:12px}
+}
+.dots-ind{display:none}
+@media (max-width:680px){
+  .dots-ind{display:flex;justify-content:center;gap:6px;margin-top:14px}
+  .dots-ind i{width:7px;height:7px;border-radius:9px;background:rgba(255,255,255,.5);transition:width .3s,background .3s}
+  .dots-ind i.on{width:22px;background:#fff}
+  .finance .dots-ind i{background:rgba(255,255,255,.35)}.finance .dots-ind i.on{background:#fff}
+}
+
+/* --- «Самостоятельное поступление» (мобильная) --- */
+@media (max-width:680px){
+  .pains .pre{font-size:15px;color:#6b7487}
+  .pains .h2{flex-wrap:nowrap;font-size:clamp(20px,6.2vw,26px);gap:8px;white-space:nowrap}
+  .pains .pill{padding:2px 10px 3px;gap:6px}
+  .pill svg{width:20px;height:20px}
+  .compare{gap:10px;padding:8px;background:#f4f7fb;box-shadow:none}
+  .side{padding:22px 14px 14px;border-radius:22px}
+  .side h3{max-width:none;font-size:24px;margin-bottom:16px;display:flex;align-items:center;gap:10px}
+  .side.bad h3::before,.side.good h3::before{content:"";flex:none;width:36px;height:36px;border-radius:11px;background:#fde0e0 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23e5484d' stroke-width='2.6' stroke-linecap='round'%3E%3Cpath d='M7 7l10 10M17 7L7 17'/%3E%3C/svg%3E") center/18px no-repeat}
+  .side.good h3::before{background:rgba(255,255,255,.2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23fff' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M6 12.5l4 4 8-9'/%3E%3C/svg%3E") center/18px no-repeat}
+  .side .deco{display:none}
+  .items{gap:8px}
+  .item{display:block;padding:16px;border-radius:16px}
+  .item svg{display:none}
+  .item b{display:block;font-size:17px;line-height:1.25;margin-bottom:6px}
+  .item p{font-size:14.5px;line-height:1.45;margin:0}
+  .side.bad .item{border-left:3px solid #f2a7a9}
+  .side.good .item{border-left:3px solid #2fb64b}
+}
+
+/* --- «Какие документы нужны» --- */
+.frame.docs::before{background-size:auto 520px;background-repeat:repeat;opacity:.55}
+@media (max-width:680px){
+  .frame.docs::before{background-size:auto 300px}
+  .folder{max-width:260px;margin:-16px auto -18px}
+  .docs-top h2{font-size:30px}
+  .docs-top .list{font-size:13px;text-transform:uppercase;letter-spacing:.1em;opacity:.75;margin-top:18px}
+  .doc-grid{grid-template-columns:1fr 1fr!important;gap:8px}
+  .doc{display:flex!important;flex-direction:column;align-items:flex-start;gap:0;padding:14px!important;min-height:0;border-radius:18px}
+  .doc img{width:40px!important;height:40px!important;object-fit:contain;margin:0 0 10px!important;grid-row:auto}
+  .doc b{font-size:15px!important;line-height:1.25}
+  .doc span{font-size:12.5px!important;margin-top:4px;line-height:1.35}
+}
+
+/* --- финансирование: карусель с наклоном на телефоне --- */
+@media (max-width:980px){
+  .fin-grid{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:0;max-width:none!important;margin:24px -16px 0;padding:30px 9% 40px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .fin-grid::-webkit-scrollbar{display:none}
+  .fin{flex:0 0 82%;scroll-snap-align:center;transform:rotate(-4deg) scale(.92);transition:transform .45s cubic-bezier(.2,.8,.2,1)}
+  .fin:nth-child(even){transform:rotate(4deg) scale(.92)}
+  .fin.cur{transform:rotate(0) scale(1)}
+  .fin-in{min-height:0}
+}
+
+/* --- истории (мобильная) --- */
+@media (max-width:680px){
+  .stories-wrap::before,.stories-wrap::after{display:none}
+  .story{display:flex!important;flex-direction:column;gap:14px;padding:12px!important;border-radius:26px}
+  .story > .video{order:-1;max-width:none!important;width:100%;aspect-ratio:4/5;border-radius:18px}
+  .story-top{margin:4px 6px 4px}
+  .story-top h3{font-size:24px!important}
+  .ba{gap:6px}
+  .ba div{border-radius:14px;padding:12px 14px}
+  .ba .b3 img{width:64px;right:-6px;top:-22px}
+  .quote{font-size:15.5px;margin:6px 6px 8px;padding-left:12px;border-left:3px solid #ffd76a}
+}
+
+/* --- шаги: картинки крупнее + покачивание --- */
+.step-head img{width:clamp(120px,12vw,168px)!important;top:-38px!important;right:-10px!important;animation:float 5s ease-in-out infinite}
+.step:nth-child(2) .step-head img{animation-delay:-1.2s}.step:nth-child(3) .step-head img{animation-delay:-2.4s}.step:nth-child(5) .step-head img{animation-delay:-3.6s}
+.step-head h3{max-width:55%}
+@media (max-width:680px){.step-head img{width:132px!important;top:-30px!important}.step-head h3{max-width:58%}}
+
+/* --- МИКРОАНИМАЦИИ --- */
+@keyframes shine{0%{transform:translateX(-120%) skewX(-20deg)}60%,100%{transform:translateX(260%) skewX(-20deg)}}
+@keyframes pulseDot{0%{box-shadow:0 0 0 0 rgba(47,182,75,.55)}100%{box-shadow:0 0 0 10px rgba(47,182,75,0)}}
+@keyframes nudge{0%,100%{transform:translateX(0)}50%{transform:translateX(4px)}}
+@keyframes wiggle{0%,100%{transform:rotate(0)}25%{transform:rotate(-6deg)}75%{transform:rotate(6deg)}}
+@keyframes popIn{from{opacity:0;transform:translateY(16px) scale(.97)}to{opacity:1;transform:none}}
+/* блик на основных кнопках */
+.btn{position:relative;overflow:hidden;isolation:isolate}
+.btn::after{content:"";position:absolute;top:0;bottom:0;left:0;width:40%;background:linear-gradient(90deg,transparent,rgba(255,255,255,.35),transparent);transform:translateX(-120%) skewX(-20deg);z-index:-1;pointer-events:none}
+.hero .btn::after,.lead .btn::after,.cta-card .btn::after,.dl .btn::after{animation:shine 3.6s ease-in-out infinite}
+.btn:hover::after{animation:shine .9s ease-out}
+.btn:active,.fbtn:active,.dd-btn:active,.ch-opt:active{transform:scale(.97)}
+/* «живая» точка в бейдже набора */
+.tag{display:inline-flex;align-items:center;gap:8px}
+.tag::before{content:"";width:8px;height:8px;border-radius:50%;background:#2fb64b;animation:pulseDot 1.6s ease-out infinite}
+/* стрелка в кнопке истории */
+.story-btn span{animation:nudge 1.6s ease-in-out infinite}
+/* иконки и картинки оживают */
+.fin-ic{transition:transform .4s}.fin:hover .fin-ic{animation:wiggle .6s ease-in-out}
+.ab-card i{transition:transform .3s,background .3s}.ab-card:hover i{transform:translateY(-3px) rotate(-6deg);background:#d6e6ff}
+.doc img{transition:transform .35s}.doc:hover img{transform:translateY(-4px) rotate(-4deg) scale(1.06)}
+.why-card img{transition:transform .6s}.why-card:hover img{transform:scale(1.03)}
+.ok::before{animation:wiggle 2.4s ease-in-out infinite;animation-delay:1s}
+.hl{background:linear-gradient(90deg,#ffe066,#ffd23f,#ffe066);background-size:200% 100%;animation:hlMove 4s linear infinite}
+@keyframes hlMove{to{background-position:200% 0}}
+/* поочерёдное появление карточек */
+.reveal.in{transition-delay:var(--d,0s)}
+/* курсор-подсветка у карточек */
+.why-card,.art,.ab-card,.doc{transition:transform .3s,box-shadow .3s}
+.art:hover{box-shadow:0 18px 40px rgba(19,52,120,.12)}
+/* вопрос-ответ: плавно */
+.q{transition:background .3s}
+.q button:hover .ch{transform:scale(1.08)}
+.q .ch{transition:transform .2s,background .3s}
+@media (prefers-reduced-motion:reduce){.btn::after,.tag::before,.story-btn span,.step-head img,.hl,.ok::before{animation:none!important}}
+
+.pains .ph2{display:inline-flex;align-items:center;gap:12px;white-space:nowrap}
+@media (max-width:680px){
+  .pains .h2{flex-direction:column;flex-wrap:wrap;white-space:normal;font-size:28px;gap:6px}
+  .pains .ph1{display:block}
+  .pains .ph2{gap:8px}
+}
+
+@media (max-width:680px){
+  .prog-body{display:grid!important;grid-template-columns:1fr 1fr;column-gap:8px;align-content:start}
+  .prog-body > *{grid-column:1 / -1}
+  .prog-body > .row{grid-column:auto;width:auto!important;margin:0 0 8px!important;display:flex!important;flex-direction:column;align-items:flex-start}
+  .prog-body .spacer{min-height:12px}
+  .prog-body > .btn{align-self:end}
+  .docs-wrap .btn{letter-spacing:.02em!important;font-size:12.5px!important;white-space:nowrap}
+}
+
+@media (max-width:680px){.prog-grid{align-items:flex-start}.fin .fbtn{font-size:12.5px!important;letter-spacing:.03em!important;white-space:nowrap}}
+
+.frame.docs::before{background-repeat:no-repeat!important;background-size:70% auto!important;background-position:center 30%!important;opacity:.6}
+@media (max-width:680px){.frame.docs::before{background-size:160% auto!important;background-position:center 18%!important}}
+.doc img{height:48px;max-width:72px}
+.doc{min-height:0;padding:18px 22px 20px}
 </style>
 </head>
 <body>
@@ -1253,9 +1432,9 @@ a,button,.dd-btn,.dd-opt{touch-action:manipulation}
   <div class="container">
     <div class="head center">
       <p class="pre reveal">Самостоятельное поступление - это риски</p>
-      <h2 class="h2 reveal">С Beengo Study - четкая
+      <h2 class="h2 reveal"><span class="ph1">С Beengo Study —</span> <span class="ph2">четкая
         <span class="pill">система <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="11" fill="#2fb64b"/><path d="M7 12.4l3.2 3.2L17 8.8" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
-      </h2>
+      </span></h2>
       <p class="sub reveal" style="max-width:640px">Ошибка в одной анкете или упущенный дедлайн могут стоить целого года. Мы берем всю сложную рутину на себя.</p>
     </div>
     <div class="compare reveal">
@@ -1733,6 +1912,18 @@ $$('.form select.in').forEach(sel=>{
   let t;addEventListener('resize',()=>{clearTimeout(t);t=setTimeout(eq,120)});
   (document.fonts?document.fonts.ready:Promise.resolve()).then(eq);addEventListener('load',eq);eq();
 })();
+
+// поочерёдное появление элементов в сетках
+$$('.why-grid,.prog-grid,.fin-grid,.doc-grid,.steps,.ab-cards,.art-grid,.qa,.stats,.items').forEach(g=>[...g.children].forEach((c,i)=>c.style.setProperty('--d',(i*0.08).toFixed(2)+'s')));
+// свайп-карусели на телефоне: программы и финансирование (точки + автопрокрутка)
+(()=>{const mk=(sel,itemSel,auto)=>{const g=$(sel);if(!g)return;const items=$$(itemSel,g);const ind=document.createElement('div');ind.className='dots-ind';items.forEach(()=>ind.appendChild(document.createElement('i')));g.after(ind);
+  const cur=()=>{const c=g.scrollLeft+g.clientWidth/2;let b=0,d=1e9;items.forEach((it,i)=>{const m=it.offsetLeft+it.offsetWidth/2,dd=Math.abs(m-c);if(dd<d){d=dd;b=i}});return b};
+  const upd=()=>{const k=cur();[...ind.children].forEach((d,i)=>d.classList.toggle('on',i===k));items.forEach((it,i)=>it.classList.toggle('cur',i===k))};
+  g.addEventListener('scroll',()=>requestAnimationFrame(upd),{passive:true});addEventListener('resize',upd);upd();
+  if(!auto)return;let t=null,stopped=false;const go=()=>{if(stopped||g.scrollWidth<=g.clientWidth+4)return;const k=(cur()+1)%items.length;const it=items[k];g.scrollTo({left:it.offsetLeft-(g.clientWidth-it.offsetWidth)/2,behavior:'smooth'})};
+  const io=new IntersectionObserver(es=>es.forEach(e=>{clearInterval(t);if(e.isIntersecting&&!stopped)t=setInterval(go,3500)}),{threshold:.4});io.observe(g);
+  ['pointerdown','touchstart','wheel'].forEach(ev=>g.addEventListener(ev,()=>{stopped=true;clearInterval(t)},{passive:true}));};
+  mk('.prog-grid','.prog',true);mk('.fin-grid','.fin',true);})();
 // модалка
 const modal=$('#modal');
 $$('[data-open]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();
