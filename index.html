@@ -1114,22 +1114,6 @@ a,button,.dd-btn,.dd-opt{touch-action:manipulation}
   .story-btn{justify-content:space-between!important}
 }
 
-/* --- программы: свайп-карусель на телефоне --- */
-@media (max-width:680px){
-  .prog-grid{display:flex!important;overflow-x:auto;scroll-snap-type:x mandatory;gap:12px;margin:0 -16px;padding:4px 16px 8px;scrollbar-width:none;-webkit-overflow-scrolling:touch}
-  .prog-grid::-webkit-scrollbar{display:none}
-  .prog{flex:0 0 84%;scroll-snap-align:center;border-radius:24px;padding:8px}
-  .prog-head{border-radius:18px;aspect-ratio:16/10}
-  .prog-head h3{font-size:24px;bottom:14px;left:16px}
-  .prog-body{padding:16px 8px 8px}
-  .prog .row{display:grid;grid-template-columns:1fr;gap:4px;margin-bottom:10px}
-  .prog-body .row + .row{margin-top:0}
-  .prog-body > .row{display:inline-grid;width:calc(50% - 4px);vertical-align:top;background:#f3f6fb;border-radius:12px;padding:10px}
-  .prog-body > .row:first-child{margin-right:8px}
-  .prog .row .k{min-width:0;font-size:10.5px}
-  .prog .badge{background:none!important;padding:0;font-size:14px;font-weight:600;white-space:normal;color:#0d1a3a}
-  .prog .lbl{margin-top:12px}
-}
 .dots-ind{display:none}
 @media (max-width:680px){
   .dots-ind{display:flex;justify-content:center;gap:6px;margin-top:14px}
@@ -1239,15 +1223,10 @@ a,button,.dd-btn,.dd-opt{touch-action:manipulation}
 }
 
 @media (max-width:680px){
-  .prog-body{display:grid!important;grid-template-columns:1fr 1fr;column-gap:8px;align-content:start}
-  .prog-body > *{grid-column:1 / -1}
-  .prog-body > .row{grid-column:auto;width:auto!important;margin:0 0 8px!important;display:flex!important;flex-direction:column;align-items:flex-start}
-  .prog-body .spacer{min-height:12px}
-  .prog-body > .btn{align-self:end}
   .docs-wrap .btn{letter-spacing:.02em!important;font-size:12.5px!important;white-space:nowrap}
 }
 
-@media (max-width:680px){.prog-grid{align-items:flex-start}.fin .fbtn{font-size:12.5px!important;letter-spacing:.03em!important;white-space:nowrap}}
+@media (max-width:680px){.fin .fbtn{font-size:12.5px!important;letter-spacing:.03em!important;white-space:nowrap}}
 
 .frame.docs::before{background-repeat:no-repeat!important;background-size:70% auto!important;background-position:center 30%!important;opacity:.6}
 @media (max-width:680px){.frame.docs::before{background-size:160% auto!important;background-position:center 18%!important}}
@@ -1967,7 +1946,7 @@ $$('.why-grid,.prog-grid,.fin-grid,.doc-grid,.steps,.ab-cards,.art-grid,.qa,.sta
   if(!auto)return;let t=null,stopped=false;const go=()=>{if(stopped||g.scrollWidth<=g.clientWidth+4)return;const k=(cur()+1)%items.length;const it=items[k];g.scrollTo({left:it.offsetLeft-(g.clientWidth-it.offsetWidth)/2,behavior:'smooth'})};
   const io=new IntersectionObserver(es=>es.forEach(e=>{clearInterval(t);if(e.isIntersecting&&!stopped)t=setInterval(go,3500)}),{threshold:.4});io.observe(g);
   ['pointerdown','touchstart','wheel'].forEach(ev=>g.addEventListener(ev,()=>{stopped=true;clearInterval(t)},{passive:true}));};
-  mk('.prog-grid','.prog',true);mk('.fin-grid','.fin',true);})();
+  mk('.fin-grid','.fin',true);})();
 // модалка
 const modal=$('#modal');
 $$('[data-open]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();
