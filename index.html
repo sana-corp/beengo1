@@ -2227,6 +2227,15 @@ html,body{overflow-x:clip!important}
 .stories-wrap .arrow.next{right:var(--ax,0px)!important;left:auto!important}
 #story .ba[hidden],#story .city[hidden],#story .vq[hidden]{display:none!important}
 #story.short .story-top{margin-bottom:0!important}
+
+/* глобус: широкая картинка на компьютере, обрезанная в рамке на телефоне */
+.globe img{width:100%!important;max-width:1280px!important;margin:0 auto!important;display:block}
+.countries{display:none!important}
+@media (max-width:680px){
+  .frame.geo{padding-bottom:16px!important}
+  .globe{margin:24px 16px 0;border-radius:24px;overflow:hidden;background:#fff;box-shadow:inset 0 0 0 1px #e6edf7}
+  .globe img{width:100%!important;margin:0!important}
+}
 </style>
 </head>
 <body>
@@ -2539,7 +2548,7 @@ html,body{overflow-x:clip!important}
     <h2 class="h2 reveal">Официальный представитель вузов в Китае</h2>
     <p class="sub reveal">Мы выстроили удаленный процесс оформления так, чтобы абитуриенты из любого города могли легко подать документы без лишних поездок.</p>
   </div>
-  <div class="globe"><img loading="lazy" decoding="async" src="assets/opt/globe.webp" alt="Карта: Россия, Беларусь, Казахстан, Азербайджан, Кыргызстан, Узбекистан" width="1280" height="674"></div>
+  <div class="globe"><picture><source media="(max-width:680px)" srcset="assets/opt/globe-m.webp"><img loading="lazy" decoding="async" src="assets/opt/globe-d.webp" width="2000" height="1002" alt="Карта стран, откуда к нам приходят студенты: Россия, Беларусь, Казахстан, Азербайджан, Кыргызстан, Узбекистан"></picture></div>
   <div class="countries container">
     <span>🇷🇺 Россия</span><span>🇰🇿 Казахстан</span><span>🇺🇿 Узбекистан</span><span>🇰🇬 Кыргызстан</span><span>🇧🇾 Беларусь</span><span>🇦🇿 Азербайджан</span>
   </div>
