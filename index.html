@@ -2144,6 +2144,14 @@ html,body{overflow-x:clip!important}
   .side h3{font-size:24px!important;line-height:1.1!important;padding-right:110px!important;letter-spacing:-.01em}
   .side.good h3{padding-right:90px!important}
 }
+
+/* финансирование: весь тёмный блок скругляется снизу, «О нас» заходит под него */
+#finance.sec{position:relative;z-index:2;border-radius:0 0 48px 48px;padding-bottom:0!important;overflow:clip}
+.frame.finance{border-radius:40px 40px 0 0!important;background:none!important}
+.frame.finance{padding-bottom:calc(var(--section) + 8px)!important}
+#about.sec{position:relative;z-index:1;margin-top:-48px!important}
+#about .frame.about{padding-top:calc(var(--section) + 48px)!important}
+@media (max-width:680px){#finance.sec{border-radius:0 0 32px 32px}#about.sec{margin-top:-32px!important}#about .frame.about{padding-top:88px!important}}
 </style>
 </head>
 <body>
