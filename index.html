@@ -2097,6 +2097,21 @@ html,body{overflow-x:clip!important}
 .side.in-view .item{opacity:1;transform:none}
 @media (prefers-reduced-motion:reduce){.item{opacity:1!important;transform:none!important}}
 @media (min-width:681px) and (max-width:980px){.hero-card h2{text-align:left!important;left:7%!important}}
+
+/* ===== Пакет правок 11 ===== */
+/* телефон: Алсу целиком, ближе к центру карточки */
+@media (max-width:680px){
+  .hero-clip{top:-6%!important;left:0!important;right:0!important}
+  .hero-clip img{height:100%!important;width:auto!important;right:auto!important;left:50%!important;translate:-50% 0!important}
+  .hero-card h2{text-shadow:0 2px 16px rgba(20,60,150,.35)}
+}
+/* планшет: плашка, карточка Алсу и кнопка одной ширины */
+@media (min-width:681px) and (max-width:980px){
+  .hero-text .budget,.hero-card,.hero-text .btn{width:100%!important;max-width:600px!important;margin-left:auto!important;margin-right:auto!important}
+  .hero-text > p{max-width:600px;margin-left:auto;margin-right:auto}
+  .hero-card{margin-top:8px!important}
+  .hero-text .btn{margin-top:16px!important}
+}
 </style>
 </head>
 <body>
