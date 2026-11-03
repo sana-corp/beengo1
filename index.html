@@ -7,7 +7,7 @@
 <meta name="format-detection" content="telephone=no">
 <title>Beengo Study — поступление в университеты Китая</title>
 <meta name="description" content="Beengo Study помогает абитуриентам из СНГ поступить в топовые университеты Китая: подбор программ, документы, гранты.">
-<link rel="preload" as="image" href="assets/opt/alsu.webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/alsu-hero.png" fetchpriority="high">
 <link rel="icon" href="assets/logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2112,6 +2112,33 @@ html,body{overflow-x:clip!important}
   .hero-card{margin-top:8px!important}
   .hero-text .btn{margin-top:16px!important}
 }
+
+/* ===== Пакет правок 12 ===== */
+/* «Четкая система» на планшете: две карточки в одну строку */
+@media (min-width:681px) and (max-width:980px){
+  .compare{grid-template-columns:1fr 1fr!important}
+  .items{grid-template-columns:1fr!important}
+  .items .item:last-child{grid-column:auto}
+  .side{padding:28px 16px 16px!important}
+  .side h3{font-size:26px!important;padding-right:96px!important;margin-bottom:16px}
+  .side .deco{width:110px!important;top:-10px!important;right:8px!important}
+  .side.good .deco{width:100px!important;top:-24px!important;right:0!important}
+}
+/* финансирование: блок скругляется снизу */
+.frame.finance{border-radius:40px!important}
+#finance.sec{padding-bottom:12px!important}
+@media (max-width:680px){.frame.finance{border-radius:28px!important}#finance.sec{padding-bottom:8px!important}}
+/* «О нас»: белый фон вокруг, плавный переход к блоку с глобусом */
+#about.sec{background:#fff!important}
+/* модальное окно: крестик не перекрывает заголовок */
+.modal .fbody h3{padding-right:48px}
+.modal .close{top:16px!important;right:16px!important;width:40px!important;height:40px!important;border-radius:12px!important;display:grid;place-items:center;font-size:22px;background:#f0f3f8;z-index:2}
+/* форма заявки: поля ниже */
+.lead .form .in,.form .in{padding:14px 18px!important;min-height:0}
+.lead .form textarea.in{min-height:96px!important}
+.tel-code{min-height:50px}
+.lead .dd-btn{min-height:54px!important;padding-top:10px!important;padding-bottom:10px!important}
+.lead .form label{margin-bottom:6px}
 </style>
 </head>
 <body>
@@ -2146,7 +2173,7 @@ html,body{overflow-x:clip!important}
   <div class="hero-panel"><div class="container">
     <div class="hero-grid">
       <div class="hero-card reveal">
-        <div class="hero-clip"><img src="assets/opt/alsu.webp" fetchpriority="high" decoding="async" alt="Студентка Beengo Алсу" width="742" height="656"></div>
+        <div class="hero-clip"><img src="assets/alsu-hero.png" fetchpriority="high" decoding="async" alt="Студентка Beengo Алсу" width="742" height="656"></div>
         <h2>Наша<br>студентка<br>Алсу</h2>
         <blockquote>«Спокойно обращайтесь в Beengo, они вам действительно помогут. Сейчас я получаю качественное образование без самостоятельного поиска!»</blockquote>
         <a href="#stories" class="story-btn">Смотреть историю поступления<span><svg width="9" height="10" viewBox="0 0 10 11"><path d="M1.6 1.2c0-.8.9-1.3 1.6-.9l6 3.9c.6.4.6 1.3 0 1.7l-6 3.9c-.7.4-1.6-.1-1.6-.9z" fill="#fff"/></svg></span></a>
@@ -2543,7 +2570,7 @@ html,body{overflow-x:clip!important}
       <h2 class="h2 reveal">Все еще сомневаетесь?<br>Сделайте первый шаг</h2>
       <p class="sub reveal">Скачайте наш подробный чек-лист: «Пошаговый план поступления на грант в Китай в 2026/2027 году».</p>
     </div>
-    <form class="dl reveal" id="dl">
+    <form class="dl" id="dl">
       <img loading="lazy" decoding="async" src="assets/opt/checklist-cover.webp" alt="Пошаговый план поступления на грант в Китай в 2026/2027 году">
       <h3>Куда прислать чек-лист?</h3>
       <div class="ch-row" role="radiogroup" aria-label="Куда прислать">
@@ -2874,6 +2901,12 @@ $$('.art').forEach(c=>c.addEventListener('click',e=>{if(e.target.closest('a'))re
   $$('.prog-grid > .reveal,.art-grid > .reveal,.stats > .reveal').forEach(c=>c.classList.add('pop'));
   $$('.side').forEach(sd=>{$$('.item',sd).forEach((it,k)=>it.style.setProperty('--ii',k));
     const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){sd.classList.add('in-view');io.unobserve(sd)}}),{threshold:.15});io.observe(sd)});})();
+
+// подстраховка появления: если наблюдатель не сработал (например, во встроенных браузерах), показываем по прокрутке
+(()=>{const chk=()=>{const vh=innerHeight;$$('.reveal:not(.in)').forEach(e=>{const r=e.getBoundingClientRect();if(r.top<vh*0.95&&r.bottom>0)e.classList.add('in')});
+  $$('.side:not(.in-view)').forEach(e=>{if(e.getBoundingClientRect().top<innerHeight*0.9)e.classList.add('in-view')});
+  $$('.steps .step:not(.in)').forEach(e=>{if(e.getBoundingClientRect().top<innerHeight*0.9)e.classList.add('in')})};
+  let t=0;addEventListener('scroll',()=>{if(!t)t=setTimeout(()=>{t=0;chk()},120)},{passive:true});addEventListener('load',chk);setTimeout(chk,800);})();
 // модалка
 const modal=$('#modal');
 $$('[data-open]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();
