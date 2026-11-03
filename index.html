@@ -2221,6 +2221,12 @@ html,body{overflow-x:clip!important}
 /* стрелки историй — по центру белой карточки */
 .stories-wrap .arrow{top:var(--stop,50%)!important;transform:translateY(-50%)!important;bottom:auto!important}
 .stories-wrap .arrow:hover{transform:translateY(-50%) scale(1.06)!important}
+
+/* стрелки историй: позиция считается скриптом */
+.stories-wrap .arrow.prev{left:var(--ax,0px)!important;right:auto!important}
+.stories-wrap .arrow.next{right:var(--ax,0px)!important;left:auto!important}
+#story .ba[hidden],#story .city[hidden],#story .vq[hidden]{display:none!important}
+#story.short .story-top{margin-bottom:0!important}
 </style>
 </head>
 <body>
@@ -3060,6 +3066,13 @@ $$('[data-open]').forEach(b=>b.addEventListener('click',()=>{b.dataset.program?Q
   b.addEventListener('click',()=>{box.classList.add('playing');v.controls=true;v.play().catch(()=>{})});
   v.addEventListener('pause',()=>{if(v.ended||v.currentTime<0.3){box.classList.remove('playing');v.controls=false}});
   v.addEventListener('ended',()=>{box.classList.remove('playing');v.controls=false;v.currentTime=0;v.load()});})();
+
+// стрелки историй: по центру карточки по высоте, по горизонтали — посередине между краем жёлтого фрейма и белой карточкой
+function posArrows(){const w=$('.stories-wrap'),c=$('#story');if(!w||!c)return;const q=w.getBoundingClientRect(),r=c.getBoundingClientRect(),fr=w.closest('.frame').getBoundingClientRect();
+  const gapL=r.left-fr.left,mid=gapL/2,ar=$('.stories-wrap .arrow');const aw=ar?ar.offsetWidth:56;
+  const x=gapL>aw+16?(fr.left-q.left)+mid-aw/2:(r.left-q.left)-aw/2;
+  w.style.setProperty('--ax',x+'px');w.style.setProperty('--stop',(r.top-q.top+r.height/2)+'px')}
+addEventListener('resize',posArrows);addEventListener('load',posArrows);setTimeout(posArrows,600);
 // модалка
 const modal=$('#modal');
 $$('[data-open]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();
@@ -3090,11 +3103,13 @@ $('#q').oninput=filt;
 // слайдер историй — добавляйте студентов в этот массив
 const stories=[
   {name:'Алсу',city:'Сиань',before:'Страх запутаться в документах на стипендию и упустить шанс',after:'Полный грант (обучение + жилье + стипендия)',result:'Команда взяла на себя визу, все переводы и оформление.',quote:'«Спокойно обращайтесь в Beengo, они вам действительно помогут. Сейчас я получаю качественное образование без самостоятельного поиска!»',poster:'assets/video/alsu.jpg',video:'assets/video/alsu.mp4'},
-  {name:'Жетиген',city:'Цзиньхуа',before:'Не знал, как найти подходящий университет и общаться с приёмной комиссией',after:'Поступил в университет в Цзиньхуа и учится в Китае',result:'Взяли на себя все сложные этапы: подбор вуза, переговоры с приёмной комиссией и подачу документов.',quote:'«Взяли на себя все сложные этапы, которые я бы не смог сделать один. Подача получилась очень лёгкой и быстрой»',poster:'assets/video/zhetigen.jpg',video:'assets/video/zhetigen.mp4'}
+  {name:'Жетиген',city:'Цзиньхуа',before:'Не знал, как найти подходящий университет и общаться с приёмной комиссией',after:'Поступил в университет в Цзиньхуа и учится в Китае',result:'Взяли на себя все сложные этапы: подбор вуза, переговоры с приёмной комиссией и подачу документов.',quote:'«Взяли на себя все сложные этапы, которые я бы не смог сделать один. Подача получилась очень лёгкой и быстрой»',poster:'assets/video/zhetigen.jpg',video:'assets/video/zhetigen.mp4'},
+  {name:'Видео-отзыв студента',city:'',before:'',after:'',result:'',quote:'',poster:'assets/video/student3.jpg',video:'assets/video/student3.mp4'},
+  {name:'Видео-отзыв студентки',city:'',before:'',after:'',result:'',quote:'',poster:'assets/video/student4.jpg',video:'assets/video/student4.mp4'}
 ];
 let si=0;
 const show=i=>{si=(i+stories.length)%stories.length;const s=stories[si],card=$('#story');
-  card.style.opacity=0;setTimeout(()=>{$$('[data-k]',card).forEach(el=>{const k=el.dataset.k;if(k==='video'){const v=el.querySelector('video');v.pause();v.removeAttribute('controls');v.poster=s.poster;v.src=s.video;el.classList.remove('playing')}else el.textContent=s[k]});card.style.opacity=1},200)};
+  card.style.opacity=0;setTimeout(()=>{$$('[data-k]',card).forEach(el=>{const k=el.dataset.k;if(k==='video'){const v=el.querySelector('video');v.pause();v.removeAttribute('controls');v.poster=s.poster;v.src=s.video;el.classList.remove('playing')}else{el.textContent=s[k];const box=el.closest('.ba > div')||(el.closest('.city'))||(el.classList.contains('vq')?el:null);if(box)box.hidden=!s[k]}});const ba=card.querySelector('.ba');if(ba)ba.hidden=!s.before&&!s.after&&!s.result;card.classList.toggle('short',!s.before);card.style.opacity=1;posArrows()},200)};
 $('#story').style.transition='opacity .2s';
 $('.arrow.prev').onclick=()=>show(si-1);$('.arrow.next').onclick=()=>show(si+1);
 </script>
