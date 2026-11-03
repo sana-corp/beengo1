@@ -2171,6 +2171,39 @@ html,body{overflow-x:clip!important}
 @keyframes waRing{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}100%{box-shadow:0 0 0 14px rgba(37,211,102,0)}}
 @media (max-width:980px){.wa-float{right:16px;bottom:max(16px,env(safe-area-inset-bottom));width:58px;height:58px;padding:0;justify-content:center;border-radius:18px}.wa-float span{display:none}}
 @media (prefers-reduced-motion:reduce){.wa-float::after,.dl-dot{animation:none}}
+
+/* ===== Квиз «Бесплатный разбор шансов» ===== */
+.modal .form{width:min(560px,100%)!important}
+.quiz{display:none}
+.modal.quiz-on .quiz{display:block}
+.modal.quiz-on .fbody{display:none}
+.qz-top{display:flex;align-items:center;gap:14px;margin:4px 56px 22px 0}
+.qz-step{font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#6b7487;white-space:nowrap}
+.qz-step b{color:#0b6cf0}
+.qz-bar{flex:1;height:6px;border-radius:6px;background:#e8eef8;overflow:hidden}
+.qz-bar i{display:block;height:100%;width:25%;border-radius:6px;background:linear-gradient(90deg,#0b6cf0,#4aa3ff);transition:width .5s cubic-bezier(.2,.7,.2,1)}
+.qz-pane{display:none}
+.qz-pane.on{display:block;animation:qzIn .45s cubic-bezier(.2,.7,.2,1)}
+.qz-pane.back{animation-name:qzInBack}
+@keyframes qzIn{from{opacity:0;transform:translateX(28px)}to{opacity:1;transform:none}}
+@keyframes qzInBack{from{opacity:0;transform:translateX(-28px)}to{opacity:1;transform:none}}
+.qz-pane h3{font-size:24px;font-weight:600;color:#071542;line-height:1.2}
+.qz-sub{color:#6b7487;font-size:14.5px;margin:6px 0 18px}
+.qz-opts{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.qz-opts button{text-align:left;background:#f1f5fc;border:1.5px solid transparent;border-radius:14px;padding:14px 16px;min-height:72px;transition:border-color .2s,background .2s,transform .15s}
+.qz-opts button:hover{border-color:#0b6cf0;background:#fff}
+.qz-opts button:active{transform:scale(.97)}
+.qz-opts button.sel{border-color:#0b6cf0;background:#e8f0ff}
+.qz-opts b{display:block;font-size:15px;font-weight:600;color:#071542}
+.qz-opts span{display:block;font-size:12.5px;color:#6b7487;margin-top:3px}
+.qz-back{margin-top:16px;font-size:14px;font-weight:600;color:#0b6cf0;padding:8px 0}
+.qz-result{background:linear-gradient(160deg,#e9f9ef,#d5f2df);border-radius:16px;padding:16px 18px;margin:0 48px 18px 0;color:#0f5a2c}
+.qz-result small{display:block;font-size:11.5px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;opacity:.75}
+.qz-result b{display:block;font-size:19px;margin:4px 0 6px;color:#0b4a24}
+.qz-result p{font-size:14px;line-height:1.45;margin:0!important;color:#1d5c34!important}
+.qz-result + h3{font-size:20px!important}
+@media (max-width:520px){.qz-opts{grid-template-columns:1fr}.qz-opts button{min-height:0;padding:12px 14px}.qz-pane h3{font-size:21px}.qz-result{margin-right:52px}}
+@media (prefers-reduced-motion:reduce){.qz-pane.on{animation:none}}
 </style>
 </head>
 <body>
@@ -2735,7 +2768,42 @@ html,body{overflow-x:clip!important}
 <div class="modal" id="modal" aria-hidden="true">
   <form class="form lead-form">
     <button type="button" class="close" data-close aria-label="Закрыть">×</button>
+    <div class="quiz" id="quiz">
+      <div class="qz-top"><span class="qz-step">Шаг <b id="qzN">1</b> из 4</span><div class="qz-bar"><i id="qzBar"></i></div></div>
+      <div class="qz-pane on" data-q="lvl">
+        <h3>Какое у вас образование?</h3>
+        <p class="qz-sub">Подберём подходящую ступень обучения</p>
+        <div class="qz-opts">
+          <button type="button" data-v="9"><b>Окончил 9 класс</b><span>или заканчиваю</span></button>
+          <button type="button" data-v="11"><b>Окончил 11 класс</b><span>или заканчиваю</span></button>
+          <button type="button" data-v="college"><b>Колледж / техникум</b><span>есть диплом СПО</span></button>
+          <button type="button" data-v="bach"><b>Бакалавриат</b><span>есть диплом или учусь</span></button>
+        </div>
+      </div>
+      <div class="qz-pane" data-q="money">
+        <h3>Какой бюджет на обучение в год?</h3>
+        <p class="qz-sub">Это поможет понять, на что делать ставку: грант, скидку или контракт</p>
+        <div class="qz-opts">
+          <button type="button" data-v="grant"><b>Только грант</b><span>хочу учиться бесплатно</span></button>
+          <button type="button" data-v="low"><b>До $3 000</b><span>готов частично оплачивать</span></button>
+          <button type="button" data-v="mid"><b>$3 000 – $6 000</b><span>рассматриваю контракт</span></button>
+          <button type="button" data-v="high"><b>Больше $6 000</b><span>важно качество вуза</span></button>
+        </div>
+      </div>
+      <div class="qz-pane" data-q="lang">
+        <h3>Какой язык вы знаете?</h3>
+        <p class="qz-sub">Можно начать и с нуля — у нас есть языковой год</p>
+        <div class="qz-opts">
+          <button type="button" data-v="none"><b>Пока никакой</b><span>начну с нуля</span></button>
+          <button type="button" data-v="en"><b>Английский</b><span>средний уровень и выше</span></button>
+          <button type="button" data-v="zh"><b>Китайский</b><span>изучаю / есть HSK</span></button>
+          <button type="button" data-v="both"><b>Оба языка</b><span>английский и китайский</span></button>
+        </div>
+      </div>
+      <button type="button" class="qz-back" id="qzBack" hidden>← Назад</button>
+    </div>
     <div class="fbody">
+      <div class="qz-result" id="qzRes" hidden></div>
       <h3>Бесплатный разбор шансов</h3>
       <p>Оставьте контакты — менеджер свяжется с вами и подберёт программы под ваш бюджет.</p>
       <label for="n2">Ваше имя</label>
@@ -2948,6 +3016,27 @@ $$('.art').forEach(c=>c.addEventListener('click',e=>{if(e.target.closest('a'))re
 (()=>{const b=$('.wa-float');if(!b)return;const f=$('.footer');
   const t=()=>{const past=scrollY>innerHeight*0.6;const nearFoot=f&&f.getBoundingClientRect().top<innerHeight-40;const menu=$('#nav')&&$('#nav').classList.contains('open');b.classList.toggle('show',past&&!nearFoot&&!menu)};
   addEventListener('scroll',t,{passive:true});addEventListener('click',()=>setTimeout(t,50));t();})();
+
+// Квиз перед формой разбора шансов
+const QZ=(()=>{const m=$('#modal'),panes=$$('.qz-pane',m),bar=$('#qzBar'),num=$('#qzN'),back=$('#qzBack'),res=$('#qzRes');let k=0,ans={};
+  const show=(i,dir)=>{panes.forEach((p,j)=>{p.classList.toggle('on',j===i);p.classList.toggle('back',dir<0)});k=i;num.textContent=i+1;bar.style.width=((i+1)/4*100)+'%';back.hidden=i===0};
+  const prog=()=>{const l=ans.lvl,mo=ans.money,la=ans.lang;
+    let p=l==='9'?'Колледж':l==='bach'?'Магистратура':l==='college'?'Бакалавриат':'Бакалавриат';
+    if(la==='none'&&p!=='Колледж')p='Языковой год';return p};
+  const verdict=()=>{const l=ans.lvl,mo=ans.money,la=ans.lang;let score=0;
+    if(la==='zh'||la==='both')score+=2;else if(la==='en')score+=1;if(l==='bach'||l==='11')score+=1;
+    const want=mo==='grant'?'грант':mo==='low'?'грант или скидку':'место в сильном вузе';
+    const lvl=score>=3?'высокие':score>=2?'хорошие':'реальные';
+    const tip=la==='none'?'Начнём с языкового года — после него шансы на грант заметно выше.':la==='en'?'Подберём англоязычные программы, где гранты дают охотнее.':'С китайским языком выбор вузов и грантов максимальный.';
+    return {title:`Шансы получить ${want}: ${lvl}`,text:`Подходящий формат: ${prog()}. ${tip} Оставьте контакты — пришлём 3–5 вузов под ваш профиль.`}};
+  panes.forEach((p,i)=>$$('button',p).forEach(b=>b.addEventListener('click',()=>{$$('button',p).forEach(x=>x.classList.toggle('sel',x===b));ans[p.dataset.q]=b.dataset.v;
+    setTimeout(()=>{if(i<panes.length-1)show(i+1,1);else finish()},220)})));
+  back.onclick=()=>{if(k>0)show(k-1,-1)};
+  const finish=()=>{const v=verdict();res.innerHTML=`<small>Результат</small><b>${v.title}</b><p>${v.text}</p>`;res.hidden=false;
+    bar.style.width='100%';m.classList.remove('quiz-on');const sel=$('#progSel');if(sel){sel.value=prog();sel.dispatchEvent(new Event('change'))}
+    const n=$('#n2');n&&setTimeout(()=>n.focus({preventScroll:true}),200)};
+  return {start(){ans={};$$('.qz-opts button',m).forEach(b=>b.classList.remove('sel'));res.hidden=true;m.classList.add('quiz-on');show(0,1)},skip(){res.hidden=true;m.classList.remove('quiz-on')}};})();
+$$('[data-open]').forEach(b=>b.addEventListener('click',()=>{b.dataset.program?QZ.skip():QZ.start()}));
 // модалка
 const modal=$('#modal');
 $$('[data-open]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();
