@@ -7,7 +7,7 @@
 <meta name="format-detection" content="telephone=no">
 <title>Beengo Study — поступление в университеты Китая</title>
 <meta name="description" content="Beengo Study помогает абитуриентам из СНГ поступить в топовые университеты Китая: подбор программ, документы, гранты.">
-<link rel="preload" as="image" href="assets/alsu-hero.webp" fetchpriority="high">
+<link rel="preload" as="image" href="assets/alsu-hero-1100.webp" imagesrcset="assets/alsu-hero-800.webp 800w, assets/alsu-hero-1100.webp 1100w, assets/alsu-hero.webp 1558w" imagesizes="(max-width:680px) 360px, (max-width:980px) 560px, 640px" fetchpriority="high">
 <link rel="icon" href="assets/logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -2152,6 +2152,25 @@ html,body{overflow-x:clip!important}
 #about.sec{position:relative;z-index:1;margin-top:-48px!important}
 #about .frame.about{padding-top:calc(var(--section) + 48px)!important}
 @media (max-width:680px){#finance.sec{border-radius:0 0 32px 32px}#about.sec{margin-top:-32px!important}#about .frame.about{padding-top:88px!important}}
+
+/* ===== Дедлайн гранта ===== */
+.deadline{display:inline-flex;align-items:center;gap:8px;margin:14px auto 0;padding:8px 14px;border-radius:10px;background:#fff1e6;color:#b5400e;font-size:13.5px;font-weight:500}
+.deadline b{font-weight:700}
+.dl-dot{width:8px;height:8px;border-radius:50%;background:#ff6a1a;animation:pulseOr 1.6s ease-out infinite}
+@keyframes pulseOr{0%{box-shadow:0 0 0 0 rgba(255,106,26,.55)}100%{box-shadow:0 0 0 9px rgba(255,106,26,0)}}
+.hero-text .deadline{display:flex;width:max-content;max-width:100%}
+.deadline.on-blue{background:rgba(255,255,255,.16);color:#fff;margin:20px 0 0}
+.deadline.on-blue .dl-dot{background:#ffe066}
+@media (max-width:980px){.hero-text .deadline{order:7;align-self:center}.hero-text .note{order:8}}
+@media (max-width:680px){.deadline{font-size:12.5px;padding:8px 12px}}
+/* ===== Плавающая кнопка WhatsApp ===== */
+.wa-float{position:fixed;right:20px;bottom:20px;z-index:90;display:flex;align-items:center;gap:10px;height:60px;padding:0 16px;border-radius:18px;background:#25d366;color:#fff;font-weight:600;font-size:15px;box-shadow:0 10px 30px rgba(18,140,70,.35);transition:transform .25s,opacity .3s;opacity:0;transform:translateY(20px);pointer-events:none}
+.wa-float.show{opacity:1;transform:none;pointer-events:auto}
+.wa-float:hover{transform:translateY(-3px)}
+.wa-float::after{content:"";position:absolute;inset:0;border-radius:inherit;box-shadow:0 0 0 0 rgba(37,211,102,.5);animation:waRing 2.4s ease-out infinite}
+@keyframes waRing{0%{box-shadow:0 0 0 0 rgba(37,211,102,.5)}100%{box-shadow:0 0 0 14px rgba(37,211,102,0)}}
+@media (max-width:980px){.wa-float{right:16px;bottom:max(16px,env(safe-area-inset-bottom));width:58px;height:58px;padding:0;justify-content:center;border-radius:18px}.wa-float span{display:none}}
+@media (prefers-reduced-motion:reduce){.wa-float::after,.dl-dot{animation:none}}
 </style>
 </head>
 <body>
@@ -2186,7 +2205,7 @@ html,body{overflow-x:clip!important}
   <div class="hero-panel"><div class="container">
     <div class="hero-grid">
       <div class="hero-card reveal">
-        <div class="hero-clip"><img src="assets/alsu-hero.webp" fetchpriority="high" decoding="async" alt="Студентка Beengo Алсу" width="1558" height="1662"></div>
+        <div class="hero-clip"><img src="assets/alsu-hero-1100.webp" srcset="assets/alsu-hero-800.webp 800w, assets/alsu-hero-1100.webp 1100w, assets/alsu-hero.webp 1558w" sizes="(max-width:680px) 360px, (max-width:980px) 560px, 640px" fetchpriority="high" decoding="async" alt="Студентка Beengo Алсу" width="1558" height="1662"></div>
         <h2>Наша<br>студентка<br>Алсу</h2>
         <blockquote>«Спокойно обращайтесь в Beengo, они вам действительно помогут. Сейчас я получаю качественное образование без самостоятельного поиска!»</blockquote>
         <a href="#stories" class="story-btn">Смотреть историю поступления<span><svg width="9" height="10" viewBox="0 0 10 11"><path d="M1.6 1.2c0-.8.9-1.3 1.6-.9l6 3.9c.6.4.6 1.3 0 1.7l-6 3.9c-.7.4-1.6-.1-1.6-.9z" fill="#fff"/></svg></span></a>
@@ -2201,6 +2220,7 @@ html,body{overflow-x:clip!important}
           <small>От грантов и скидок до контрактного обучения</small>
         </div>
         <button class="btn" data-open>Бесплатный разбор шансов</button>
+        <div class="deadline"><span class="dl-dot"></span>Приём на грант 2026/27 закрывается <b>31 марта</b></div>
         <div class="note">Это бесплатно и ни к чему не обязывает. Ваши данные в безопасности.</div>
       </div>
     </div>
@@ -2645,6 +2665,7 @@ html,body{overflow-x:clip!important}
     <div>
       <h2 class="reveal">Оставьте заявку - мы свяжемся с вами и ответим на <em>все вопросы</em></h2>
       <p class="reveal">Заполните форму и наш специалист подберет для Вас оптимальную программу и поможет с поступлением в Китай</p>
+      <div class="deadline on-blue reveal"><span class="dl-dot"></span>Приём на грант 2026/27 закрывается <b>31 марта</b></div>
     </div>
     <form class="form reveal lead-form">
       <div class="fbody">
@@ -2707,6 +2728,8 @@ html,body{overflow-x:clip!important}
   </div>
   <div class="fbar"><div class="container"><span>Beengo Study. Все права защищены</span><a href="#">Политика конфиденциальности</a></div></div>
 </footer>
+
+<a class="wa-float" href="https://wa.me/8613073044160" target="_blank" rel="noopener" aria-label="Написать в WhatsApp"><svg width="28" height="28" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg><span>Написать в WhatsApp</span></a>
 
 <!-- ============ MODAL ============ -->
 <div class="modal" id="modal" aria-hidden="true">
@@ -2920,6 +2943,11 @@ $$('.art').forEach(c=>c.addEventListener('click',e=>{if(e.target.closest('a'))re
   $$('.side:not(.in-view)').forEach(e=>{if(e.getBoundingClientRect().top<innerHeight*0.9)e.classList.add('in-view')});
   $$('.steps .step:not(.in)').forEach(e=>{if(e.getBoundingClientRect().top<innerHeight*0.9)e.classList.add('in')})};
   let t=0;addEventListener('scroll',()=>{if(!t)t=setTimeout(()=>{t=0;chk()},120)},{passive:true});addEventListener('load',chk);setTimeout(chk,800);})();
+
+// плавающая WhatsApp: появляется после первого экрана, прячется у футера и в открытом меню
+(()=>{const b=$('.wa-float');if(!b)return;const f=$('.footer');
+  const t=()=>{const past=scrollY>innerHeight*0.6;const nearFoot=f&&f.getBoundingClientRect().top<innerHeight-40;const menu=$('#nav')&&$('#nav').classList.contains('open');b.classList.toggle('show',past&&!nearFoot&&!menu)};
+  addEventListener('scroll',t,{passive:true});addEventListener('click',()=>setTimeout(t,50));t();})();
 // модалка
 const modal=$('#modal');
 $$('[data-open]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();
