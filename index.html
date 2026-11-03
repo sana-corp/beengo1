@@ -2214,6 +2214,13 @@ html,body{overflow-x:clip!important}
 .vplay:hover{transform:translate(-50%,-50%) scale(1.06)}
 .video.playing .vplay,.video.playing .vq{opacity:0;pointer-events:none}
 @media (max-width:680px){.vplay{width:60px;height:60px;border-radius:18px}}
+
+/* видео: кнопка ▶ по центру, без обводки и тени */
+.vplay{top:50%!important;box-shadow:none!important;background:rgba(11,108,240,.9)!important}
+.vplay::after{display:none!important}
+/* стрелки историй — по центру белой карточки */
+.stories-wrap .arrow{top:var(--stop,50%)!important;transform:translateY(-50%)!important;bottom:auto!important}
+.stories-wrap .arrow:hover{transform:translateY(-50%) scale(1.06)!important}
 </style>
 </head>
 <body>
@@ -2998,7 +3005,7 @@ $$('.why-grid,.prog-grid,.fin-grid,.doc-grid,.steps,.ab-cards,.art-grid,.qa,.sta
 // Истории: точки и стрелки по центру видео
 addEventListener('DOMContentLoaded',()=>{const card=$('#story');if(!card)return;const d=document.createElement('div');d.className='story-dots';for(let i=0;i<stories.length;i++){const x=document.createElement('i');if(!i)x.className='on';d.appendChild(x)}card.after(d);
   let k=0;$$('.stories-wrap .arrow').forEach(a=>a.addEventListener('click',()=>setTimeout(()=>{k=si;[...d.children].forEach((x,i)=>x.classList.toggle('on',i===k))},0)));
-  const v=$('.video',card),w=$('.stories-wrap');const pos=()=>{if(!v||!w)return;const r=v.getBoundingClientRect(),q=w.getBoundingClientRect();w.style.setProperty('--vtop',(r.top-q.top+r.height/2)+'px')};
+  const v=$('.video',card),w=$('.stories-wrap');const pos=()=>{if(!v||!w)return;const r=v.getBoundingClientRect(),q=w.getBoundingClientRect();w.style.setProperty('--vtop',(r.top-q.top+r.height/2)+'px');const sc=card.getBoundingClientRect();w.style.setProperty('--stop',(sc.top-q.top+sc.height/2)+'px')};
   addEventListener('resize',pos);addEventListener('load',pos);setTimeout(pos,500);pos();});
 
 // карточки статей кликабельны целиком
@@ -3083,8 +3090,7 @@ $('#q').oninput=filt;
 // слайдер историй — добавляйте студентов в этот массив
 const stories=[
   {name:'Алсу',city:'Сиань',before:'Страх запутаться в документах на стипендию и упустить шанс',after:'Полный грант (обучение + жилье + стипендия)',result:'Команда взяла на себя визу, все переводы и оформление.',quote:'«Спокойно обращайтесь в Beengo, они вам действительно помогут. Сейчас я получаю качественное образование без самостоятельного поиска!»',poster:'assets/video/alsu.jpg',video:'assets/video/alsu.mp4'},
-  {name:'Жетиген',city:'Цзиньхуа',before:'Не знал, как найти подходящий университет и общаться с приёмной комиссией',after:'Поступил в университет в Цзиньхуа и учится в Китае',result:'Взяли на себя все сложные этапы: подбор вуза, переговоры с приёмной комиссией и подачу документов.',quote:'«Взяли на себя все сложные этапы, которые я бы не смог сделать один. Подача получилась очень лёгкой и быстрой»',poster:'assets/video/zhetigen.jpg',video:'assets/video/zhetigen.mp4'},
-  {name:'[Имя]',city:'[Город]',before:'[До: с какими сложностями пришёл]',after:'[После: куда поступил, грант/скидка]',result:'[Результат с Beengo]',quote:'«[Цитата из видео]»',poster:'assets/video/student3.jpg',video:'assets/video/student3.mp4'}
+  {name:'Жетиген',city:'Цзиньхуа',before:'Не знал, как найти подходящий университет и общаться с приёмной комиссией',after:'Поступил в университет в Цзиньхуа и учится в Китае',result:'Взяли на себя все сложные этапы: подбор вуза, переговоры с приёмной комиссией и подачу документов.',quote:'«Взяли на себя все сложные этапы, которые я бы не смог сделать один. Подача получилась очень лёгкой и быстрой»',poster:'assets/video/zhetigen.jpg',video:'assets/video/zhetigen.mp4'}
 ];
 let si=0;
 const show=i=>{si=(i+stories.length)%stories.length;const s=stories[si],card=$('#story');
