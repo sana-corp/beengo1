@@ -761,7 +761,7 @@ body{background:#e9eff8}
 /* Узор на фоне шапки карточки шага (SVG из макета) */
 .step-head.pat{background-color:#1e63ff;background-image:none;isolation:isolate}
 .step-head.pat::before{content:"";position:absolute;inset:0;border-radius:inherit;background:center/cover no-repeat;z-index:-1;pointer-events:none}
-.step-head.pat1::before{background-image:url(assets/opt/step-bg.webp)}
+.step-head.pat1::before{background-image:url(assets/step-bg.svg)}
 
 /* Процесс: меньше синей рамки вокруг тёмного фрейма */
 #process.sec{padding:8px 0}
@@ -1462,7 +1462,7 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
 @media (max-width:680px){.fin .fbtn{border-radius:8px 8px 20px 20px!important}.fin-in{border-radius:20px 20px 8px 8px!important}}
 
 /* узор-принт на фоне карточки «Гранты» */
-.fin:nth-child(1) .fin-in::before{content:"";position:absolute;inset:0;background:url(assets/opt/fin-print.webp) center top/cover no-repeat;z-index:-1;pointer-events:none}
+.fin:nth-child(1) .fin-in::before{content:"";position:absolute;inset:0;background:url(assets/fin-print.svg) center top/cover no-repeat;z-index:-1;pointer-events:none}
 .fin:nth-child(1) .fin-in > *{position:relative}
 .fin:nth-child(1) .fin-in > .fin-cap{position:relative}
 .fin-tassel{filter:none}
@@ -1516,8 +1516,8 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
 
 /* принты на фоне жёлтой и красной карточек */
 .fin.y .fin-in::before,.fin.r .fin-in::before{content:"";position:absolute;inset:0;background:center top/cover no-repeat;z-index:-1;pointer-events:none}
-.fin.y .fin-in::before{background-image:url(assets/opt/fin-print-y.webp)}
-.fin.r .fin-in::before{background-image:url(assets/opt/fin-print-r.webp)}
+.fin.y .fin-in::before{background-image:url(assets/fin-print-y.svg)}
+.fin.r .fin-in::before{background-image:url(assets/fin-print-r.svg)}
 
 /* шаги: заголовок по центру */
 .process-wrap .h2{text-align:center;margin-inline:auto;max-width:900px}
@@ -1870,7 +1870,7 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
 /* появление без размытия на телефоне (iOS не всегда отрисовывает размытие больших блоков) */
 @media (max-width:980px){.reveal{filter:none!important}}
 /* «Поступать самому»: принт из макета на фоне */
-.side.bad{background:#fdf1f1 url(assets/opt/bad-print.webp) right top/min(100%,660px) auto no-repeat!important}
+.side.bad{background:#fdf1f1 url(assets/bad-print.svg) right top/min(100%,660px) auto no-repeat!important}
 /* деньги: без тени */
 .budget img{filter:none!important}
 /* первый экран: белый начинается раньше, до описания */
@@ -1891,8 +1891,8 @@ h1,h2,.h2,.why .h2,.pains .h2,.checklist .h2{font-weight:600!important}
 
 /* ===== Пакет правок 6 ===== */
 /* принт в «С Beengo Study», оба принта крупнее */
-.side.good{background:url(assets/opt/good-print.webp) left top/120% auto no-repeat,radial-gradient(120% 90% at 70% 10%,#3f8cff 0%,#1559e6 45%,#0c3fb3 100%)!important}
-.side.bad{background:#fdf1f1 url(assets/opt/bad-print.webp) right top/120% auto no-repeat!important}
+.side.good{background:url(assets/good-print.svg) left top/120% auto no-repeat,radial-gradient(120% 90% at 70% 10%,#3f8cff 0%,#1559e6 45%,#0c3fb3 100%)!important}
+.side.bad{background:#fdf1f1 url(assets/bad-print.svg) right top/120% auto no-repeat!important}
 @media (max-width:680px){.side.good{background-size:200% auto,auto!important}.side.bad{background-size:200% auto!important}}
 /* пункты сравнения: плотнее межстрочный интервал */
 .item b{line-height:1.2!important}
@@ -2068,6 +2068,35 @@ html,body{overflow-x:clip!important}
 
 .ab-text .ab-eyebrow{align-self:flex-start}
 .story-top h3{color:#3a2405!important}
+
+/* ===== Пакет правок 10 ===== */
+/* первый экран: скругление панели концентрично шапке (отступ 8px со всех сторон) */
+.hero{padding-top:8px!important}
+.hero-panel{width:calc(100% - 20px)!important;border-radius:24px 24px 40px 40px!important}
+.header{padding-top:16px!important}
+.header .container{width:calc(100% - 36px)!important;max-width:none!important}
+.header .nav{border-radius:16px!important}
+@media (max-width:680px){
+  .hero-panel{width:calc(100% - 16px)!important;border-radius:24px 24px 28px 28px!important}
+  .header .container{width:calc(100% - 32px)!important}
+}
+/* Алсу на планшете: карточка фиксированной пропорции, фото по правому краю */
+@media (min-width:681px) and (max-width:980px){
+  .hero-card{max-width:560px!important;width:100%;margin:24px auto 0!important;aspect-ratio:555/530!important;height:auto!important}
+  .hero-clip{top:-7%!important}
+  .hero-clip img{height:100%!important;right:0!important;left:auto!important}
+}
+/* анимации карточек при прокрутке */
+.reveal.from-left{transform:translateX(-60px) rotate(-1.5deg)}
+.reveal.from-right{transform:translateX(60px) rotate(1.5deg)}
+.reveal.pop{transform:translateY(40px) scale(.92)}
+.reveal.from-left.in,.reveal.from-right.in,.reveal.pop.in{transform:none}
+.item{opacity:0;transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--ii,0)*110ms + .15s)}
+.side.bad .item{transform:translateX(-36px)}
+.side.good .item{transform:translateX(36px)}
+.side.in-view .item{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.item{opacity:1!important;transform:none!important}}
+@media (min-width:681px) and (max-width:980px){.hero-card h2{text-align:left!important;left:7%!important}}
 </style>
 </head>
 <body>
@@ -2109,7 +2138,7 @@ html,body{overflow-x:clip!important}
       </div>
       <div class="hero-text reveal">
         <span class="tag">НАБОР НА 2026-2027 ГОД</span>
-        <h1>Поступите в топовый университет Китая</h1>
+        <h1>Поступите в топовый<br>университет Китая</h1>
         <p>Beengo Study помогает абитуриентам со всего СНГ подобрать специальность, оформить академические документы и получить приглашение от вуза</p>
         <div class="budget">
           <img src="assets/opt/money-hq.webp" alt="" width="333" height="235">
@@ -2823,6 +2852,13 @@ $$('.art').forEach(c=>c.addEventListener('click',e=>{if(e.target.closest('a'))re
 (()=>{if(matchMedia('(prefers-reduced-motion:reduce)').matches)return;const els=$$('.side .deco,.folder,.globe img,.hero-clip img');els.forEach(e=>e.classList.add('para'));let raf=0;
   const t=()=>{raf=0;const vh=innerHeight;els.forEach(e=>{const r=e.getBoundingClientRect();if(r.bottom<0||r.top>vh)return;const k=((r.top+r.height/2)-vh/2)/vh;const amp=e.closest('.hero-clip')?10:e.closest('.globe')?16:22;e.style.transform=`translate3d(0,${(-k*amp).toFixed(1)}px,0)`})};
   addEventListener('scroll',()=>{if(!raf)raf=requestAnimationFrame(t)},{passive:true});t();})();
+
+// направленные появления карточек
+(()=>{const lr=(sel)=>$$(sel).forEach(g=>[...g.children].forEach((c,i)=>{if(!c.classList.contains('reveal'))return;c.classList.add(i%2?'from-right':'from-left')}));
+  lr('.why-grid');lr('.ab-cards');lr('.doc-grid');
+  $$('.prog-grid > .reveal,.art-grid > .reveal,.stats > .reveal').forEach(c=>c.classList.add('pop'));
+  $$('.side').forEach(sd=>{$$('.item',sd).forEach((it,k)=>it.style.setProperty('--ii',k));
+    const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){sd.classList.add('in-view');io.unobserve(sd)}}),{threshold:.15});io.observe(sd)});})();
 // модалка
 const modal=$('#modal');
 $$('[data-open]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();
