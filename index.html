@@ -2283,6 +2283,13 @@ html,body{overflow-x:clip!important}
 .cta-card p{font-size:16px!important;line-height:1.45;z-index:2}
 .cta-badge{z-index:2}
 @media (max-width:680px){.cta-ill{width:48%;top:16px}.cta-card{min-height:420px!important}}
+
+/* шаги: картинки крупнее, чемодан крупнее */
+.step-head img{width:clamp(124px,11.5vw,164px)!important;top:-22px!important;right:-4px!important}
+.step:nth-child(5) .step-head img.st5{width:clamp(108px,9.5vw,140px)!important;top:-26px!important;right:0!important}
+.step-head h3{max-width:56%!important}
+@media (max-width:680px){.step-head img{width:136px!important;top:-18px!important}.step:nth-child(5) .step-head img.st5{width:118px!important;top:-22px!important}}
+.step:nth-child(4) .step-head h3{max-width:100%!important}.step:nth-child(5) .step-head h3{max-width:66%!important}
 </style>
 </head>
 <body>
