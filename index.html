@@ -2236,6 +2236,32 @@ html,body{overflow-x:clip!important}
   .globe{margin:24px 16px 0;border-radius:24px;overflow:hidden;background:#fff;box-shadow:inset 0 0 0 1px #e6edf7}
   .globe img{width:100%!important;margin:0!important}
 }
+
+/* ===== Работаем напрямую с 50+ университетами ===== */
+#unis.sec{background:#fff;padding:0}
+.frame.unis{width:100%;border-radius:0;background:#fff;padding:var(--section) 0 calc(var(--section) - 16px)}
+.uni-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.uni-card{border-radius:24px;overflow:hidden;display:flex;flex-direction:column}
+.uni-card.b{background:linear-gradient(180deg,#fff 0%,#dce9ff 100%)}
+.uni-card.g{background:linear-gradient(180deg,#fff 0%,#d6f7d8 100%)}
+.uni-card.y{background:linear-gradient(180deg,#fff 0%,#fff1dc 100%)}
+.uni-img{position:relative;border-radius:24px;overflow:hidden;aspect-ratio:440/210}
+.uni-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+.uni-card:hover .uni-img img{transform:scale(1.05)}
+.uni-tag{position:absolute;left:20px;top:20px;padding:8px 14px;border-radius:10px;background:rgba(220,232,250,.88);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#14204a}
+.uni-body{padding:20px 24px 28px}
+.uni-body small{display:flex;align-items:center;gap:6px;font-size:14.5px;color:#4a5370}
+.uni-body h3{font-size:clamp(19px,1.6vw,22px);font-weight:500;line-height:1.25;color:#071542;margin-top:8px}
+.uni-marquee{margin-top:32px;overflow:hidden;-webkit-mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);mask:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent)}
+.uni-track{display:flex;gap:8px;width:max-content;animation:uniScroll 40s linear infinite}
+.uni-marquee:hover .uni-track{animation-play-state:paused}
+@keyframes uniScroll{to{transform:translateX(calc(-50% - 4px))}}
+.uni-logo{flex:none;width:236px;height:150px;border-radius:20px;background:#f1f5f9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:12px;text-align:center}
+.uni-logo img{width:72px;height:72px;object-fit:contain}
+.uni-logo span{font-size:12.5px;line-height:1.3;color:#14204a}
+@media (max-width:980px){.uni-grid{grid-template-columns:1fr 1fr}.uni-grid > :last-child{grid-column:1 / -1}}
+@media (max-width:680px){.uni-grid{grid-template-columns:1fr;gap:12px}.uni-grid > :last-child{grid-column:auto}.uni-logo{width:180px;height:132px}.uni-tag{left:12px;top:12px;font-size:11px}.uni-body{padding:16px 18px 22px}}
+@media (prefers-reduced-motion:reduce){.uni-track{animation:none}}
 </style>
 </head>
 <body>
@@ -2575,6 +2601,18 @@ html,body{overflow-x:clip!important}
       </article>
     </div>
   </div>
+</div></section>
+
+<!-- ============ UNIVERSITIES ============ -->
+<section id="unis" class="sec"><div class="frame unis">
+  <div class="container">
+    <div class="head center">
+      <h2 class="h2 reveal">Работаем напрямую с 50+ университетами</h2>
+      <p class="sub reveal">Работаем напрямую и без посредников. Это дает нашим абитуриентам приоритет при рассмотрении заявок и доступ к максимальным квотам на гранты и скидки.</p>
+    </div>
+    <div class="uni-grid"><article class="uni-card b reveal"><div class="uni-img"><img loading="lazy" decoding="async" src="assets/uni/campus1.webp" alt="Сианьский нефтяной университет (XSYU)"><span class="uni-tag">Технические и IT-специальности</span></div><div class="uni-body"><small><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Красивое здание кампуса</small><h3>Сианьский нефтяной университет (XSYU)</h3></div></article><article class="uni-card g reveal"><div class="uni-img"><img loading="lazy" decoding="async" src="assets/uni/campus2.webp" alt="Чжэцзянский педагогический университет (ZJNU)"><span class="uni-tag">Гуманитарные науки и бизнес</span></div><div class="uni-body"><small><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Студенческий городок</small><h3>Чжэцзянский педагогический университет (ZJNU)</h3></div></article><article class="uni-card y reveal"><div class="uni-img"><img loading="lazy" decoding="async" src="assets/uni/campus3.webp" alt="Шанхайский университет (Shanghai University)"><span class="uni-tag">Экономика и международная торговля</span></div><div class="uni-body"><small><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Современные лаборатории</small><h3>Шанхайский университет (Shanghai University)</h3></div></article></div>
+  </div>
+  <div class="uni-marquee" aria-label="Вузы-партнёры"><div class="uni-track"><div class="uni-logo"><img loading="lazy" decoding="async" src="assets/uni/logo1.png" alt=""><span>Anhui Wonder University of Information Engineering</span></div><div class="uni-logo"><img loading="lazy" decoding="async" src="assets/uni/logo2.png" alt=""><span>Shaanxi Institute of International Trade and Commerce</span></div><div class="uni-logo"><img loading="lazy" decoding="async" src="assets/uni/logo3.png" alt=""><span>Heilongjiang Institute of Technology</span></div><div class="uni-logo"><img loading="lazy" decoding="async" src="assets/uni/logo4.png" alt=""><span>Harbin University of Commerce</span></div><div class="uni-logo"><img loading="lazy" decoding="async" src="assets/uni/logo5.png" alt=""><span>Hefei Normal University</span></div><div class="uni-logo"><img loading="lazy" decoding="async" src="assets/uni/logo6.png" alt=""><span>Chengdu Neusoft University</span></div><div class="uni-logo"><img loading="lazy" decoding="async" src="assets/uni/logo1.png" alt="" aria-hidden="true"><span>Anhui Wonder University of Information Engineering</span></div><div class="uni-logo"><img loading="lazy" decoding="async" src="assets/uni/logo2.png" alt="" aria-hidden="true"><span>Shaanxi Institute of International Trade and Commerce</span></div><div class="uni-logo"><img loading="lazy" decoding="async" src="assets/uni/logo3.png" alt="" aria-hidden="true"><span>Heilongjiang Institute of Technology</span></div><div class="uni-logo"><img loading="lazy" decoding="async" src="assets/uni/logo4.png" alt="" aria-hidden="true"><span>Harbin University of Commerce</span></div><div class="uni-logo"><img loading="lazy" decoding="async" src="assets/uni/logo5.png" alt="" aria-hidden="true"><span>Hefei Normal University</span></div><div class="uni-logo"><img loading="lazy" decoding="async" src="assets/uni/logo6.png" alt="" aria-hidden="true"><span>Chengdu Neusoft University</span></div></div></div>
 </div></section>
 
 <!-- ============ PROCESS ============ -->
