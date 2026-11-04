@@ -2530,6 +2530,11 @@ a.uni-card:hover{box-shadow:0 14px 34px rgba(19,52,120,.10)}
 .ab-card.y .ab-y-top strong{animation:none!important}
 .ab-y-top{animation:bob 5s ease-in-out infinite}
 @media (prefers-reduced-motion:reduce){.ab-y-top{animation:none}}
+
+/* «О компании»: сверху в карточках на 4px больше воздуха */
+.ab-card{padding-top:26px;min-height:154px}
+@media (max-width:680px){.ab-card{min-height:0}}
+@media (max-width:520px){.ab-card{padding-top:20px}}
 </style>
 </head>
 <body>
