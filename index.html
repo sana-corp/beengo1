@@ -2520,6 +2520,14 @@ a.uni-card:hover{box-shadow:0 14px 34px rgba(19,52,120,.10)}
 /* «О компании»: залитые иконки цвета «7+», плитка как карточка «7+», три карточки белые */
 .ab-card:not(.y){background:#fff!important}
 .ab-card i,.ab-card:hover i{background:linear-gradient(160deg,#fffbea 0%,#fff3c4 100%)!important;box-shadow:none!important;color:#e07b00}
+
+/* «О компании», только ПК: верхние карточки чуть ниже, «7+» чуть мельче — нижний ряд тоже ниже */
+@media (min-width:981px){
+  .ab-cards{grid-auto-rows:auto!important}
+  .ab-cards > .ab-card:nth-child(-n+2){min-height:128px}
+  .ab-cards > .ab-card:nth-child(n+3){min-height:0}
+  .ab-card.y strong{font-size:clamp(44px,4.4vw,56px)}
+}
 </style>
 </head>
 <body>
