@@ -2520,21 +2520,6 @@ a.uni-card:hover{box-shadow:0 14px 34px rgba(19,52,120,.10)}
 /* «О компании»: залитые иконки цвета «7+», плитка как карточка «7+», три карточки белые */
 .ab-card:not(.y){background:#fff!important}
 .ab-card i,.ab-card:hover i{background:linear-gradient(160deg,#fffbea 0%,#fff3c4 100%)!important;box-shadow:none!important;color:#e07b00}
-
-/* «О компании»: «7+» и «лет опыта» в одну строку; в белых карточках текст прижат книзу — сверху воздух */
-.ab-card:not(.y){justify-content:flex-end}
-.ab-y-top{display:flex;align-items:baseline;flex-wrap:wrap;column-gap:12px;row-gap:2px}
-.ab-y-top strong{flex:none}
-.ab-card.y .ab-y-top b{font-size:clamp(18px,1.6vw,22px)}
-@media (max-width:520px){.ab-y-top{column-gap:8px}.ab-card.y .ab-y-top b{font-size:16px}}
-.ab-card.y .ab-y-top strong{animation:none!important}
-.ab-y-top{animation:bob 5s ease-in-out infinite}
-@media (prefers-reduced-motion:reduce){.ab-y-top{animation:none}}
-
-/* «О компании»: сверху в карточках на 4px больше воздуха */
-.ab-card{padding-top:26px;min-height:154px}
-@media (max-width:680px){.ab-card{min-height:0}}
-@media (max-width:520px){.ab-card{padding-top:20px}}
 </style>
 </head>
 <body>
@@ -2838,7 +2823,7 @@ a.uni-card:hover{box-shadow:0 14px 34px rgba(19,52,120,.10)}
         <div class="ab-card reveal"><b>Официальный договор</b><span>Прописываем все наши обязательства юридически.</span></div>
         <div class="ab-card reveal"><b>98% зачислений</b><span>Делаем подачу сразу в 3–5 вузов для подстраховки.</span></div>
         <div class="ab-card reveal"><b>Свои люди в Китае</b><span>У нас есть кураторы на местах, которые решат любой вопрос.</span></div>
-        <div class="ab-card y reveal"><div class="ab-y-top"><strong>7+</strong><b>лет опыта</b></div><span>помогаем поступать в вузы Китая</span></div>
+        <div class="ab-card y reveal"><strong>7+</strong><b>лет опыта</b><span>помогаем поступать в вузы Китая</span></div>
       </div>
     </div>
   </div>
