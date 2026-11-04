@@ -2326,6 +2326,31 @@ a.uni-card:hover{box-shadow:0 14px 34px rgba(19,52,120,.10)}
 @keyframes urgPulse{0%,100%{box-shadow:0 0 0 2px rgba(255,214,90,.6)}50%{box-shadow:0 0 0 6px rgba(255,170,40,.35)}}
 @media (max-width:680px){.urgent{padding:12px;gap:12px}.urg-days{width:64px;height:64px}.urg-days b{font-size:26px}.urg-txt b{font-size:15.5px}}
 @media (prefers-reduced-motion:reduce){.urgent{animation:none}}
+
+/* ===== Планшет: финансирование веером в 3 колонки, как в макете ===== */
+@media (min-width:681px) and (max-width:980px){
+  .fin-grid{display:grid!important;grid-template-columns:repeat(3,1fr)!important;gap:10px!important;max-width:none!important;margin:40px 0 0!important;padding:0 0 70px!important;overflow:visible!important}
+  .fin-grid .fin{position:relative!important;top:auto!important;margin:0!important;flex:none}
+  .fin-in{padding:18px 14px 0!important;min-height:0!important}
+  .fin-ic{width:48px!important;height:48px!important;margin-bottom:12px}
+  .fin h3{font-size:18px!important}
+  .fin p{font-size:12.5px!important}
+  .fin .fbtn{font-size:11px!important;letter-spacing:.03em!important;padding:14px 6px!important;white-space:nowrap}
+}
+/* ===== Планшет: шаги компактнее, без растягивания ===== */
+@media (min-width:681px) and (max-width:980px){
+  .steps{align-items:start!important}
+  .step ol{padding:18px 16px!important}
+  .step li{font-size:13.5px!important;margin-bottom:12px!important;line-height:1.4}
+  .steps .cta-card{min-height:0!important;align-self:stretch!important;padding:22px!important}
+  .cta-ill{width:46%!important;top:16px!important}
+  .cta-card h3{font-size:26px!important}
+  .cta-card p{font-size:14.5px!important}
+}
+/* принты в «Четкой системе» чуть крупнее */
+.side.good{background-size:105% auto,auto!important}
+.side.bad{background-size:105% auto!important}
+@media (max-width:680px){.side.good{background-size:180% auto,auto!important}.side.bad{background-size:180% auto!important}}
 </style>
 </head>
 <body>
@@ -3084,14 +3109,14 @@ $$('.why-grid,.prog-grid,.fin-grid,.doc-grid,.steps,.ab-cards,.art-grid,.qa,.sta
   const rot=[-7,0,9],dx=[1,0,-1],fy=[44,-14,70],fx=[18,0,-18];let raf=0;
   const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
   let cur=null;const tick=()=>{raf=0;const vh=innerHeight;
-    if(innerWidth<=980){cards.forEach((c,i)=>{const nx=cards[i+1];if(!nx){c.style.transform='';return}
+    if(innerWidth<=680){cards.forEach((c,i)=>{const nx=cards[i+1];if(!nx){c.style.transform='';return}
         const r=nx.getBoundingClientRect(),me=c.getBoundingClientRect();
         const p=clamp(1-(r.top-me.top)/(me.height),0,1);
         c.style.transform=`translateY(${(-p*10).toFixed(1)}px) rotate(${((i%2?1:-1)*p*3).toFixed(2)}deg)`;c.style.filter=`brightness(${(1-p*.15).toFixed(3)})`});}
     else{const r=g.getBoundingClientRect();const p=clamp((vh-r.top)/(vh*0.9),0,1);
       cards.forEach((c,i)=>{const q=clamp((p-i*0.2)/0.5,0,1);const e=1-Math.pow(1-q,3);
-        const x=fx[i]*e,y=fy[i]*e+(1-e)*220,rz=rot[i]*e+(1-e)*(i===0?-18:i===2?18:6);
-        c.style.transform=`translate(${x}px,${y}px) rotate(${rz}deg)`;c.style.opacity=(0.15+0.85*e).toFixed(3);c.style.zIndex=i===1?1:2;c.style.filter=''});}};
+        const kt=innerWidth<=980?0.45:1;const x=fx[i]*e*kt,y=fy[i]*e*kt+(1-e)*220,rz=rot[i]*e*kt+(1-e)*(i===0?-18:i===2?18:6);
+        c.style.transform=`translate(${x}px,${y}px) rotate(${rz}deg)`;c.style.opacity=(0.15+0.85*e).toFixed(3);c.style.zIndex=(innerWidth<=980?(i===1?3:1):(i===1?1:2));c.style.filter=''});}};
   const on=()=>{if(!raf)raf=requestAnimationFrame(tick)};
   addEventListener('scroll',on,{passive:true});addEventListener('resize',on);tick();
   if(matchMedia('(prefers-reduced-motion:reduce)').matches){removeEventListener('scroll',on);cards.forEach(c=>c.style.transform='')}
