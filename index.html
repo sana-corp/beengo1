@@ -2447,6 +2447,27 @@ a.uni-card:hover{box-shadow:0 14px 34px rgba(19,52,120,.10)}
 .why-grid.parents .sv-tag.t2{animation-delay:.15s}.why-grid.parents .sv-tag.t3{animation-delay:.3s;animation-name:pushInC}
 @keyframes pushInC{from{opacity:0;transform:translate(-50%,-14px) scale(.95)}to{opacity:1;transform:translateX(-50%)}}
 @media (max-width:680px){.sv-tag{padding:6px 8px 6px 12px;gap:7px;border-radius:10px}.sv-tag.t2,.sv-tag.t3{padding:6px 12px 6px 8px}}
+
+/* теги из макета (SVG) поверх видео */
+.pv-vid img.sv-tag{padding:0!important;background:none!important;border-radius:20px;height:19%!important;width:auto!important;max-width:none;object-fit:contain!important;display:block}
+@media (max-width:680px){.pv-vid img.sv-tag{height:17%!important;border-radius:12px}}
+
+/* «0 поводов»: фон и рамка из макета, внутри анимация, теги-SVG поверх */
+.pv-safe{background:#9be08f}
+.pv-safe .ps-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.ps-frame{position:absolute;left:35%;top:15.7%;width:30.2%;height:57.4%;border-radius:clamp(10px,1.4vw,22px);border:clamp(3px,.45vw,8px) solid #fff;overflow:hidden;background:#fff}
+.ps-frame img{width:100%;height:100%;object-fit:cover;display:block}
+.why-card .ps-tag{position:absolute;height:20.6%!important;width:auto!important;max-width:none;border-radius:0;display:block;filter:drop-shadow(0 6px 14px rgba(20,90,40,.12))}
+.ps-tag.t1{left:3.9%;top:31.7%}
+.ps-tag.t2{left:56%;top:7.3%}
+.ps-tag.t3{left:30.7%;top:77.3%}
+.why-grid.parents .ps-tag{animation:pushIn .6s cubic-bezier(.3,1.4,.5,1) both}
+.why-grid.parents .ps-tag.t2{animation-delay:.15s}.why-grid.parents .ps-tag.t3{animation-delay:.3s}
+@media (max-width:680px){.pv.pv-safe{aspect-ratio:1710/750!important}}
+
+.why-card .ps-tag,.why-card .ps-frame img{aspect-ratio:auto!important;object-fit:contain!important}
+.why-card .ps-frame img{object-fit:cover!important;border-radius:0!important}
+.pv-safe{background:radial-gradient(rgba(60,170,70,.35) 1.6px,transparent 1.8px) 0 0/9px 9px,linear-gradient(160deg,#d6f8c8 0%,#a4e894 55%,#7fdc7a 100%)!important}
 </style>
 </head>
 <body>
@@ -2535,10 +2556,9 @@ a.uni-card:hover{box-shadow:0 14px 34px rgba(19,52,120,.10)}
           <figure class="cp cp2"><img src="assets/video/campus/c2.webp" alt="Вход по биометрии" loading="lazy" decoding="async" width="360" height="328"></figure>
           <figure class="cp cp3"><img src="assets/video/campus/c3.webp" alt="Современный кампус" loading="lazy" decoding="async" width="360" height="328"></figure>
         </div>
-      <div class="pv pv2 pv-vid"><img loading="lazy" decoding="async" src="assets/video/safety.webp" alt="Кампус: вход по Face ID, охрана, студенты" width="640" height="281">
-  <span class="sv-tag t1">Охрана 24/7<i><svg viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></i></span>
-  <span class="sv-tag t2"><i><svg viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Закрытый кампус</span>
-  <span class="sv-tag t3"><i><svg viewBox="0 0 24 24"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></i>Вход по Face ID</span>
+      <div class="pv pv2 pv-safe">
+  <div class="ps-frame"><img loading="lazy" decoding="async" src="assets/video/safety.webp" alt="Кампус: вход по Face ID, охрана, студенты"></div>
+  <img class="ps-tag t1" src="assets/tag-guard.svg" alt="Охрана 24/7"><img class="ps-tag t2" src="assets/tag-closed.svg" alt="Закрытый кампус"><img class="ps-tag t3" src="assets/tag-faceid.svg" alt="Вход по Face ID">
 </div></article>
       <article class="why-card reveal">
         <h3 data-s="Деньги на жизнь и путешествия" data-p="Бюджет">Деньги на жизнь и путешествия</h3>
