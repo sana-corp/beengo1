@@ -2290,6 +2290,42 @@ html,body{overflow-x:clip!important}
 .step-head h3{max-width:56%!important}
 @media (max-width:680px){.step-head img{width:136px!important;top:-18px!important}.step:nth-child(5) .step-head img.st5{width:118px!important;top:-22px!important}}
 .step:nth-child(4) .step-head h3{max-width:100%!important}.step:nth-child(5) .step-head h3{max-width:66%!important}
+
+/* ===== Единые теги-плашки (по образцу «1 минута · 3 вопроса») ===== */
+.tag,.ab-eyebrow,.art .cat,.uni-tag,.cta-badge,.faq .eyebrow{display:inline-flex!important;align-items:center;gap:6px;padding:6px 12px!important;border-radius:10px!important;font-size:12px!important;font-weight:600!important;letter-spacing:.08em!important;text-transform:uppercase!important;line-height:1.3!important;border:0!important}
+.art .cat{margin-left:16px}
+/* теги поверх фото вузов: белое стекло */
+.uni-tag{background:rgba(255,255,255,.28)!important;color:#fff!important;backdrop-filter:blur(14px) saturate(1.3);-webkit-backdrop-filter:blur(14px) saturate(1.3);box-shadow:inset 0 0 0 1px rgba(255,255,255,.45);text-shadow:0 1px 6px rgba(0,0,0,.25)}
+/* карточки вузов — ссылки */
+a.uni-card{color:inherit;text-decoration:none;transition:box-shadow .25s}
+a.uni-card:hover{box-shadow:0 14px 34px rgba(19,52,120,.10)}
+.uni-link{display:inline-block;margin-top:10px;font-size:13px;font-weight:600;color:#0b6cf0}
+/* «+7 лет» в «О компании» */
+.hl{background:#fff3c4!important;animation:none!important;padding:0 10px!important;border-radius:8px!important}
+.hl{color:#e07b00!important;font-weight:700!important}
+/* карточка квиза: шапочка ниже */
+@media (min-width:981px){.cta-ill{top:64px!important}}
+/* шаги: при наведении подсвечивается весь шаг, без сдвига */
+.step-top,.step ol{transition:background-color .25s,filter .25s,box-shadow .25s!important}
+.step:hover .step-top{transform:none!important;background:#2f72ff!important}
+.step:hover ol{filter:brightness(1.22)}
+.step:hover .step-top,.step:hover ol{box-shadow:0 0 0 2px rgba(120,170,255,.35)}
+/* мобильная лента вузов: воздух сверху и снизу */
+@media (max-width:680px){.uni-marquee{margin-top:20px;padding:8px 0}.uni-logo{height:auto!important;min-height:150px;padding:18px 14px!important;gap:10px}}
+/* галерея «О компании» меньше */
+@media (min-width:981px){.ab-car{max-width:400px!important}.ab-track{min-height:500px!important;max-height:540px}}
+/* ===== Срочность в «Оставьте заявку» ===== */
+.urgent{display:flex;align-items:center;gap:16px;margin-top:24px;padding:14px 18px 14px 14px;border-radius:20px;background:#fff7e0;color:#3a2405;max-width:560px;box-shadow:0 0 0 2px rgba(255,214,90,.6)}
+.urg-days{flex:none;width:78px;height:78px;border-radius:16px;background:linear-gradient(160deg,#ff9a1a,#ff6a00);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;line-height:1}
+.urg-days b{font-size:32px;font-weight:700;letter-spacing:-.02em}
+.urg-days span{font-size:12px;font-weight:600;margin-top:4px;opacity:.95}
+.urg-txt small{display:flex;align-items:center;gap:8px;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#d55a00}
+.urg-txt b{display:block;font-size:18px;font-weight:600;line-height:1.25;margin:4px 0}
+.urg-txt > span{display:block;font-size:13.5px;color:#7a5520;line-height:1.35}
+.urgent{animation:urgPulse 2.6s ease-in-out infinite}
+@keyframes urgPulse{0%,100%{box-shadow:0 0 0 2px rgba(255,214,90,.6)}50%{box-shadow:0 0 0 6px rgba(255,170,40,.35)}}
+@media (max-width:680px){.urgent{padding:12px;gap:12px}.urg-days{width:64px;height:64px}.urg-days b{font-size:26px}.urg-txt b{font-size:15.5px}}
+@media (prefers-reduced-motion:reduce){.urgent{animation:none}}
 </style>
 </head>
 <body>
@@ -2638,7 +2674,7 @@ html,body{overflow-x:clip!important}
       <h2 class="h2 reveal">Работаем напрямую с 50+ университетами</h2>
       <p class="sub reveal">Работаем напрямую и без посредников. Это дает нашим абитуриентам приоритет при рассмотрении заявок и доступ к максимальным квотам на гранты и скидки.</p>
     </div>
-    <div class="uni-grid"><article class="uni-card b reveal"><div class="uni-img"><img loading="lazy" decoding="async" src="assets/uni/campus1.webp" alt="Сианьский нефтяной университет (XSYU)"><span class="uni-tag">Технические и IT-специальности</span></div><div class="uni-body"><small><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Красивое здание кампуса</small><h3>Сианьский нефтяной университет (XSYU)</h3></div></article><article class="uni-card g reveal"><div class="uni-img"><img loading="lazy" decoding="async" src="assets/uni/campus2.webp" alt="Чжэцзянский педагогический университет (ZJNU)"><span class="uni-tag">Гуманитарные науки и бизнес</span></div><div class="uni-body"><small><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Студенческий городок</small><h3>Чжэцзянский педагогический университет (ZJNU)</h3></div></article><article class="uni-card y reveal"><div class="uni-img"><img loading="lazy" decoding="async" src="assets/uni/campus3.webp" alt="Шанхайский университет (Shanghai University)"><span class="uni-tag">Экономика и международная торговля</span></div><div class="uni-body"><small><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Современные лаборатории</small><h3>Шанхайский университет (Shanghai University)</h3></div></article></div>
+    <div class="uni-grid"><a href="https://www.xsyu.edu.cn/" target="_blank" rel="noopener" class="uni-card b reveal"><div class="uni-img"><img loading="lazy" decoding="async" src="assets/uni/campus1.webp" alt="Сианьский нефтяной университет (XSYU)"><span class="uni-tag">Технические и IT-специальности</span></div><div class="uni-body"><small><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Красивое здание кампуса</small><h3>Сианьский нефтяной университет (XSYU)</h3><span class="uni-link">Сайт университета ↗</span></div></a><a href="https://www.zjnu.edu.cn/" target="_blank" rel="noopener" class="uni-card g reveal"><div class="uni-img"><img loading="lazy" decoding="async" src="assets/uni/campus2.webp" alt="Чжэцзянский педагогический университет (ZJNU)"><span class="uni-tag">Гуманитарные науки и бизнес</span></div><div class="uni-body"><small><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Студенческий городок</small><h3>Чжэцзянский педагогический университет (ZJNU)</h3><span class="uni-link">Сайт университета ↗</span></div></a><a href="https://www.shu.edu.cn/" target="_blank" rel="noopener" class="uni-card y reveal"><div class="uni-img"><img loading="lazy" decoding="async" src="assets/uni/campus3.webp" alt="Шанхайский университет (Shanghai University)"><span class="uni-tag">Экономика и международная торговля</span></div><div class="uni-body"><small><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Современные лаборатории</small><h3>Шанхайский университет (Shanghai University)</h3><span class="uni-link">Сайт университета ↗</span></div></a></div>
   </div>
   <div class="uni-marquee" aria-label="Вузы-партнёры"><div class="uni-track"><div class="uni-logo"><img loading="lazy" decoding="async" src="assets/uni/logo1.png" alt=""><span>Anhui Wonder University of Information Engineering</span></div><div class="uni-logo"><img loading="lazy" decoding="async" src="assets/uni/logo2.png" alt=""><span>Shaanxi Institute of International Trade and Commerce</span></div><div class="uni-logo"><img loading="lazy" decoding="async" src="assets/uni/logo3.png" alt=""><span>Heilongjiang Institute of Technology</span></div><div class="uni-logo"><img loading="lazy" decoding="async" src="assets/uni/logo4.png" alt=""><span>Harbin University of Commerce</span></div><div class="uni-logo"><img loading="lazy" decoding="async" src="assets/uni/logo5.png" alt=""><span>Hebei Normal University</span></div><div class="uni-logo"><img loading="lazy" decoding="async" src="assets/uni/logo6.png" alt=""><span>Chengdu Neusoft University</span></div><div class="uni-logo"><img loading="lazy" decoding="async" src="assets/uni/logo1.png" alt="" aria-hidden="true"><span>Anhui Wonder University of Information Engineering</span></div><div class="uni-logo"><img loading="lazy" decoding="async" src="assets/uni/logo2.png" alt="" aria-hidden="true"><span>Shaanxi Institute of International Trade and Commerce</span></div><div class="uni-logo"><img loading="lazy" decoding="async" src="assets/uni/logo3.png" alt="" aria-hidden="true"><span>Heilongjiang Institute of Technology</span></div><div class="uni-logo"><img loading="lazy" decoding="async" src="assets/uni/logo4.png" alt="" aria-hidden="true"><span>Harbin University of Commerce</span></div><div class="uni-logo"><img loading="lazy" decoding="async" src="assets/uni/logo5.png" alt="" aria-hidden="true"><span>Hebei Normal University</span></div><div class="uni-logo"><img loading="lazy" decoding="async" src="assets/uni/logo6.png" alt="" aria-hidden="true"><span>Chengdu Neusoft University</span></div></div></div>
 </div></section>
@@ -2797,7 +2833,10 @@ html,body{overflow-x:clip!important}
     <div>
       <h2 class="reveal">Оставьте заявку - мы свяжемся с вами и ответим на <em>все вопросы</em></h2>
       <p class="reveal">Заполните форму и наш специалист подберет для Вас оптимальную программу и поможет с поступлением в Китай</p>
-      <div class="deadline on-blue reveal"><span class="dl-dot"></span>Приём на грант 2026/27 закрывается <b>31 марта</b></div>
+      <div class="urgent reveal">
+        <div class="urg-days"><b id="urgDays">—</b><span>дней</span></div>
+        <div class="urg-txt"><small><span class="dl-dot"></span>Успейте подать заявку</small><b>Приём на грант 2026/27 закрывается 31 марта</b><span>Количество грантовых мест ограничено — подаём документы в порядке очереди</span></div>
+      </div>
     </div>
     <form class="form reveal lead-form">
       <div class="fbody">
@@ -3149,6 +3188,10 @@ function posArrows(){const w=$('.stories-wrap'),c=$('#story');if(!w||!c)return;c
   const x=gapL>aw+16?(fr.left-q.left)+mid-aw/2:(r.left-q.left)-aw/2;
   w.style.setProperty('--ax',x+'px');w.style.setProperty('--stop',(r.top-q.top+r.height/2)+'px')}
 addEventListener('resize',posArrows);addEventListener('load',posArrows);setTimeout(posArrows,600);
+
+// дней до закрытия приёма на грант
+(()=>{const el=$('#urgDays');if(!el)return;const now=new Date();let y=now.getFullYear();let end=new Date(y,2,31,23,59);if(now>end)end=new Date(y+1,2,31,23,59);
+  el.textContent=Math.max(0,Math.ceil((end-now)/864e5));})();
 // модалка
 const modal=$('#modal');
 $$('[data-open]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();
