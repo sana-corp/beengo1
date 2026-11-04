@@ -2509,9 +2509,9 @@ a.uni-card:hover{box-shadow:0 14px 34px rgba(19,52,120,.10)}
         <h3 data-s="Кампусы как из фильмов про будущее" data-p="0 поводов для тревоги">Кампусы как из фильмов про будущее</h3>
         <p data-s="Роботы-доставщики, пропускная система по биометрии, огромные лаборатории и спорткомплексы." data-p="Закрытые кампусы, охрана 24/7 и один из самых низких уровней уличной преступности в мире.">Роботы-доставщики, пропускная система по биометрии, огромные лаборатории и спорткомплексы.</p>
         <div class="campus" aria-label="Робот-доставщик, вход по биометрии, современный кампус">
-          <figure class="cp cp1"><video muted loop playsinline preload="none" poster="assets/video/campus/c1.jpg" aria-label="Робот-доставщик в кампусе"><source src="assets/video/campus/c1.mp4" type="video/mp4"></video></figure>
-          <figure class="cp cp2"><video muted loop playsinline preload="none" poster="assets/video/campus/c2.jpg" aria-label="Вход по биометрии"><source src="assets/video/campus/c2.mp4" type="video/mp4"></video></figure>
-          <figure class="cp cp3"><video muted loop playsinline preload="none" poster="assets/video/campus/c3.jpg" aria-label="Современный кампус"><source src="assets/video/campus/c3.mp4" type="video/mp4"></video></figure>
+          <figure class="cp cp1"><video muted autoplay loop playsinline webkit-playsinline disablepictureinpicture preload="auto" poster="assets/video/campus/c1.jpg" aria-label="Робот-доставщик в кампусе"><source src="assets/video/campus/c1.mp4" type="video/mp4"></video></figure>
+          <figure class="cp cp2"><video muted autoplay loop playsinline webkit-playsinline disablepictureinpicture preload="auto" poster="assets/video/campus/c2.jpg" aria-label="Вход по биометрии"><source src="assets/video/campus/c2.mp4" type="video/mp4"></video></figure>
+          <figure class="cp cp3"><video muted autoplay loop playsinline webkit-playsinline disablepictureinpicture preload="auto" poster="assets/video/campus/c3.jpg" aria-label="Современный кампус"><source src="assets/video/campus/c3.mp4" type="video/mp4"></video></figure>
         </div>
       <div class="pv pv2" aria-hidden="true">
   <div class="pv-shield"><svg viewBox="0 0 120 140"><defs><linearGradient id="shg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5ee08a"/><stop offset="1" stop-color="#1fa85a"/></linearGradient></defs><path d="M60 6l48 18v40c0 34-22 56-48 70C34 120 12 98 12 64V24z" fill="url(#shg)"/><path d="M38 70l15 15 30-32" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
@@ -3312,10 +3312,14 @@ addEventListener('resize',posArrows);addEventListener('load',posArrows);setTimeo
 (()=>{const el=$('#urgDays');if(!el)return;const now=new Date();let y=now.getFullYear();let end=new Date(y,2,31,23,59);if(now>end)end=new Date(y+1,2,31,23,59);
   el.textContent=Math.max(0,Math.ceil((end-now)/864e5));})();
 
-// «Кампусы»: видео играют, когда карточка на экране
-(()=>{const vs=$$('.campus video');if(!vs.length||matchMedia('(prefers-reduced-motion:reduce)').matches)return;
-  const io=new IntersectionObserver(es=>es.forEach(e=>{vs.forEach(v=>{if(e.isIntersecting){v.preload='auto';v.play().catch(()=>{})}else v.pause()})}),{threshold:.25});
-  io.observe($('.campus'));})();
+// «Кампусы»: видео играют как гифки (с подстраховкой для iPhone и встроенных браузеров)
+(()=>{const vs=$$('.campus video');if(!vs.length)return;
+  vs.forEach(v=>{v.muted=true;v.defaultMuted=true;v.setAttribute('muted','');v.playsInline=true});
+  const play=()=>vs.forEach(v=>{if(v.paused){const pr=v.play();pr&&pr.catch(()=>{})}});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)play();else vs.forEach(v=>v.pause())}),{threshold:.1});
+  io.observe($('.campus'));
+  ['touchstart','pointerdown','scroll','click'].forEach(ev=>addEventListener(ev,()=>{const r=$('.campus').getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)play()},{passive:true}));
+  play();})();
 // модалка
 const modal=$('#modal');
 $$('[data-open]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();
