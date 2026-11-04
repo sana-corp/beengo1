@@ -126,3 +126,9 @@ h1{font-size:clamp(30px,4.2vw,52px);font-weight:600;letter-spacing:-.02em;line-h
   .toc-list a.on{background:#e8f0ff}
   .text section{scroll-margin-top:150px}
 }
+
+/* переключатель языка в шапке статей */
+.lang{flex:none;display:flex;background:#eef2f8;border-radius:10px;padding:3px;font-size:14px;margin-right:4px}
+.lang button{padding:6px 10px;border-radius:8px;color:#8a93a6;background:none;border:0;font:inherit;cursor:pointer}
+.lang button.on{background:#fff;color:var(--blue);box-shadow:0 1px 3px rgba(0,0,0,.08)}
+@media (max-width:680px){.lang{font-size:13px}.lang button{padding:5px 8px}.top-in .back{padding:9px 10px;font-size:13px}}

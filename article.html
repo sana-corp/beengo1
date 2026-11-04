@@ -14,45 +14,62 @@
 <header class="top"><div class="top-in">
   <a href="index.html"><img src="assets/logo.svg" alt="beengo"></a>
   <span class="sp"></span>
-  <a class="back" href="articles.html">← Все статьи</a>
-  <a class="cta" href="index.html#lead">Связаться с нами</a>
+  <a class="back" href="articles.html" data-t="allArts">← Все статьи</a>
+  <a class="cta" href="index.html#lead" data-t="contact">Связаться с нами</a>
 </div></header>
 
 <main class="wrap" id="page"></main>
-<div class="foot">Beengo Study. Все права защищены</div>
+<div class="foot" data-t="rights">Beengo Study. Все права защищены</div>
 
 <script src="articles-data.js"></script>
 <script>
-const A=window.BEENGO_ARTICLES,C=window.BEENGO_CATS;
-const card=a=>`<a class="card rv" href="article.html#${a.id}">
+const L=window.BEENGO_LANG,EN=L==='en';
+const T=EN?{home:'Home',arts:'Articles',toHome:'← Home',allArts:'← All articles',contact:'Contact us',min:'min read',read:'Read article',all:'All',none:'No articles on this topic yet.',
+  prev:'Back',next:'Next',toc:'Contents',q:'Any questions left?',qs:'We’ll review your situation in a free consultation.',consult:'Get a consultation',also:'Read also',allArr:'All articles →',
+  h1:'Articles about admission and life in China',lead:'Short and to the point — about programs, documents, grants and student life.',rights:'Beengo Study. All rights reserved',listTitle:'Articles — Beengo Study'}
+ :{home:'Главная',arts:'Статьи',toHome:'← На главную',allArts:'← Все статьи',contact:'Связаться с нами',min:'мин чтения',read:'Читать статью',all:'Все',none:'Пока нет статей в этой теме.',
+  prev:'Назад',next:'Вперёд',toc:'Содержание',q:'Остались вопросы?',qs:'Разберём вашу ситуацию на бесплатной консультации.',consult:'Получить консультацию',also:'Читайте также',allArr:'Все статьи →',
+  h1:'Статьи о поступлении и жизни в Китае',lead:'Коротко и по делу — о программах, документах, грантах и студенческой жизни.',rights:'Beengo Study. Все права защищены',listTitle:'Статьи — Beengo Study'};
+const Q=EN?'?lang=en':'';
+const A=window.beengoArticles(L),C=window.beengoCats(L);
+document.documentElement.lang=L;
+// шапка: переключатель языка и ссылки с сохранением языка
+(()=>{const top=document.querySelector('.top-in');const lg=document.createElement('div');lg.className='lang';
+  lg.innerHTML=`<button class="${EN?'':'on'}" data-l="ru">rus</button><button class="${EN?'on':''}" data-l="en">eng</button>`;
+  top.insertBefore(lg,top.querySelector('.back'));lg.onclick=e=>{const b=e.target.closest('button');if(b&&b.dataset.l!==L)window.beengoSetLang(b.dataset.l)};
+  document.querySelectorAll('[data-t]').forEach(el=>el.textContent=T[el.dataset.t]);
+  document.querySelectorAll('a[href]').forEach(a=>{const h=a.getAttribute('href');if(EN&&/^(index|articles|article)\.html/.test(h))a.setAttribute('href',h.replace(/^([a-z]+\.html)/,'$1'+Q))});})();
+const link=(page,hash)=>page+Q+(hash?'#'+hash:'');
+
+const card=a=>`<a class="card rv" href="${link('article.html',a.id)}">
   <div class="cover ${C[a.cat].cls}">${a.title}</div>
   <span class="cat ${a.cat}">${C[a.cat].name}</span>
   <h3>${a.title}</h3><p>${a.lead}</p>
-  <span class="more">Читать статью</span></a>`;
+  <span class="more">${T.read}</span></a>`;
 let spy=null;
 function render(){
   const id=location.hash.slice(1);const a=A.find(x=>x.id===id)||A[0];
   document.title=a.title+' — Beengo Study';
   const rel=[...A.filter(x=>x.id!==a.id&&x.cat===a.cat),...A.filter(x=>x.id!==a.id&&x.cat!==a.cat)].slice(0,3);
   document.getElementById('page').innerHTML=`
-  <nav class="crumbs"><a href="index.html">Главная</a><span>/</span><a href="articles.html">Статьи</a><span>/</span><span>${C[a.cat].name}</span></nav>
+  <nav class="crumbs"><a href="${link('index.html')}">${T.home}</a><span>/</span><a href="${link('articles.html')}">${T.arts}</a><span>/</span><span>${C[a.cat].name}</span></nav>
   <div class="art-head rv">
-    <div><div class="art-meta"><span class="cat ${a.cat}">${C[a.cat].name}</span><span>${a.read} мин чтения</span></div>
+    <div><div class="art-meta"><span class="cat ${a.cat}">${C[a.cat].name}</span><span>${a.read} ${T.min}</span></div>
       <h1>${a.title}</h1><p class="lead">${a.lead}</p></div>
     <div class="cover ${C[a.cat].cls}">${a.title}</div>
   </div>
   <div class="art-body">
     <aside class="toc" id="toc">
-      <button class="toc-bar" type="button" aria-expanded="false"><span><small>Содержание</small><em id="tocCur">${a.sections[0].q}</em></span><i aria-hidden="true"></i></button>
-      <div class="toc-list"><b>Содержание</b>${a.sections.map((s,i)=>`<a href="#${a.id}" data-s="s${i}"><span>${String(i+1).padStart(2,'0')}</span>${s.q}</a>`).join('')}</div>
+      <button class="toc-bar" type="button" aria-expanded="false"><span><small>${T.toc}</small><em id="tocCur">${a.sections[0].q}</em></span><i aria-hidden="true"></i></button>
+      <div class="toc-list"><b>${T.toc}</b>${a.sections.map((s,i)=>`<a href="#${a.id}" data-s="s${i}"><span>${String(i+1).padStart(2,'0')}</span>${s.q}</a>`).join('')}</div>
     </aside>
     <article class="text">
       ${a.sections.map((s,i)=>`<section id="s${i}" class="rv"><h2>${s.q}</h2>${s.p.map(t=>`<p>${t}</p>`).join('')}</section>`).join('')}
-      <div class="ask rv"><div><b>Остались вопросы?</b><span>Разберём вашу ситуацию на бесплатной консультации.</span></div><a class="cta" href="index.html#lead">Получить консультацию</a></div>
+      <div class="ask rv"><div><b>${T.q}</b><span>${T.qs}</span></div><a class="cta" href="${link('index.html','lead')}">${T.consult}</a></div>
     </article>
   </div>
-  <section class="related"><h2>Читайте также</h2><div class="grid">${rel.map(card).join('')}</div>
-    <div style="text-align:center;margin-top:24px"><a class="back" href="articles.html">Все статьи →</a></div></section>`;
+  <section class="related"><h2>${T.also}</h2><div class="grid">${rel.map(card).join('')}</div>
+    <div style="text-align:center;margin-top:24px"><a class="back" href="${link('articles.html')}">${T.allArr}</a></div></section>`;
   scrollTo(0,0);
   // оглавление: переход к разделу и подсветка текущего
   const toc=document.getElementById('toc'),links=[...toc.querySelectorAll('.toc-list a')];

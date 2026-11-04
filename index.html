@@ -2470,6 +2470,42 @@ a.uni-card:hover{box-shadow:0 14px 34px rgba(19,52,120,.10)}
 .pv-safe{background:radial-gradient(rgba(60,170,70,.35) 1.6px,transparent 1.8px) 0 0/9px 9px,linear-gradient(160deg,#d6f8c8 0%,#a4e894 55%,#7fdc7a 100%)!important}
 
 .pv-safe{background:url(assets/opt/par-safety-bg.webp) center/cover no-repeat!important}
+
+/* «Форматы финансирования»: иллюстрации целиком — срез исходника совпадает с нижним краем карточки,
+   размер от ширины карточки (без пустот), картинка не качается и не налезает на текст */
+.fin-in{min-height:0!important}
+.fin-in > p{margin-bottom:16px}
+.fin-grid .fin-ill{animation:none!important;display:block;flex:none;height:auto!important;max-width:none!important;margin:auto 0 0 auto!important}
+.fin-grid .fin-ill.fin-cap{width:90%!important;margin-right:-7%!important;margin-bottom:calc(-.1437 * 90%)!important}
+.fin-grid .fin-ill.fin-id{width:84%!important;margin-right:-4%!important}
+.fin-grid .fin-ill.fin-doc{width:70%!important;margin-right:2%!important}
+@media (max-width:680px){.fin-grid .fin-ill.fin-cap{width:74%!important;margin-bottom:calc(-.1437 * 74%)!important}.fin-grid .fin-ill.fin-id{width:70%!important}.fin-grid .fin-ill.fin-doc{width:58%!important}}
+/* «Приём на грант закрывается»: стеклянная карточка с живым отсчётом */
+.urgent{display:block!important;animation:none!important;box-shadow:0 20px 50px rgba(8,30,110,.25)!important;position:relative;overflow:hidden;isolation:isolate;
+  max-width:560px;margin-top:28px;padding:20px 22px 18px!important;border-radius:26px!important;color:#fff!important;
+  background:linear-gradient(140deg,rgba(255,255,255,.22),rgba(255,255,255,.08))!important;border:1px solid rgba(255,255,255,.35);
+  -webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+.urgent::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.22) 50%,transparent 65%);transform:translateX(-100%);animation:urgShine 5.5s ease-in-out infinite 1s}
+@keyframes urgShine{0%,60%{transform:translateX(-100%)}100%{transform:translateX(100%)}}
+.urg-head{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.urg-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 13px 7px 11px;border-radius:999px;background:#ffd84d;color:#3a2405;font-size:12.5px;font-weight:600;letter-spacing:.04em;text-transform:uppercase}
+.urg-badge .dl-dot{background:#ff6a00}
+.urg-date{display:inline-flex;align-items:center;gap:7px;font-size:14px;font-weight:500;color:rgba(255,255,255,.9)}
+.urg-date svg{width:17px;height:17px}
+.urg-title{display:block;font-size:19px;font-weight:600;line-height:1.25;margin:14px 0 12px;color:#fff}
+.urg-cd{display:flex;align-items:stretch;gap:8px}
+.urg-cd > div{flex:1;min-width:0;background:#fff;border-radius:16px;padding:10px 6px 9px;text-align:center;box-shadow:0 8px 20px rgba(8,30,110,.18)}
+.urg-cd b{display:block;font-size:30px;line-height:1;font-weight:600;color:#071542;font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+.urg-cd span{display:block;margin-top:5px;font-size:11px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;color:#6b7487}
+.urg-cd > div:first-child{background:linear-gradient(160deg,#ff9a1a,#ff6a00)}
+.urg-cd > div:first-child b,.urg-cd > div:first-child span{color:#fff}
+.urg-cd i{align-self:center;font-style:normal;font-weight:600;font-size:22px;color:rgba(255,255,255,.7);margin-top:-14px}
+.urg-cd b.tick{animation:urgTick .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes urgTick{from{opacity:.2;transform:translateY(-6px)}to{opacity:1;transform:none}}
+.urg-note{margin:12px 0 0!important;font-size:13.5px!important;line-height:1.4;color:rgba(255,255,255,.85)!important}
+@media (max-width:680px){.urgent{padding:16px 14px 14px!important;border-radius:22px!important}.urg-title{font-size:16.5px;margin:12px 0 10px}
+  .urg-cd{gap:5px}.urg-cd > div{border-radius:13px;padding:9px 2px 8px}.urg-cd b{font-size:24px}.urg-cd span{font-size:9.5px;letter-spacing:.03em}.urg-cd i{font-size:17px}.urg-badge{font-size:11.5px}.urg-date{font-size:13px}}
+@media (prefers-reduced-motion:reduce){.urgent::after,.urg-cd b.tick{animation:none}}
 </style>
 </head>
 <body>
@@ -2714,28 +2750,28 @@ a.uni-card:hover{box-shadow:0 14px 34px rgba(19,52,120,.10)}
       <div class="fin-grid">
         <div class="fin reveal">
           <div class="fin-in">
-            <img loading="lazy" decoding="async" class="fin-ic" src="assets/fi1.svg" alt="">
+            <img decoding="async" fetchpriority="low" class="fin-ic" src="assets/fi1.svg" alt="">
             <h3>Полные и частичные гранты</h3>
             <p>Для абитуриентов с высоким средним баллом или знанием языка. Покрывает 100% стоимости обучения, проживание, а иногда и стипендию.</p>
-            <img loading="lazy" decoding="async" class="fin-ill fin-cap" src="assets/opt/fc1-cap.webp" alt="Шапка выпускника с надписью «Грант»">
+            <img decoding="async" fetchpriority="low" class="fin-ill fin-cap" src="assets/opt/fc1-cap.webp" alt="Шапка выпускника с надписью «Грант»">
           </div>
           <button class="fbtn" data-open>Бесплатный разбор шансов</button>
         </div>
         <div class="fin y reveal">
           <div class="fin-in">
-            <img loading="lazy" decoding="async" class="fin-ic" src="assets/fi2.svg" alt="">
+            <img decoding="async" fetchpriority="low" class="fin-ic" src="assets/fi2.svg" alt="">
             <h3>Академические скидки</h3>
             <p>Для студентов со стабильными хорошими оценками. Скидки от 20% до 70% на оплату обучения или бесплатное проживание.</p>
-            <img loading="lazy" decoding="async" class="fin-ill fin-id" src="assets/opt/fc2-id.webp" alt="Студенческий билет со скидкой 20–70%">
+            <img decoding="async" fetchpriority="low" class="fin-ill fin-id" src="assets/opt/fc2-id.webp" alt="Студенческий билет со скидкой 20–70%">
           </div>
           <button class="fbtn" data-open>Бесплатный разбор шансов</button>
         </div>
         <div class="fin r reveal">
           <div class="fin-in">
-            <img loading="lazy" decoding="async" class="fin-ic" src="assets/fi3.svg" alt="">
+            <img decoding="async" fetchpriority="low" class="fin-ic" src="assets/fi3.svg" alt="">
             <h3>Платный контракт</h3>
             <p>Для гарантированного поступления без жесткого конкурса. Цены сопоставимы с вузами СНГ, но дают международный диплом.</p>
-            <img loading="lazy" decoding="async" class="fin-ill fin-doc" src="assets/opt/fc3-doc.webp" alt="Документ «Гарантированное поступление» с ручкой">
+            <img decoding="async" fetchpriority="low" class="fin-ill fin-doc" src="assets/opt/fc3-doc.webp" alt="Документ «Гарантированное поступление» с ручкой">
           </div>
           <button class="fbtn" data-open>Бесплатный разбор шансов</button>
         </div>
@@ -2981,8 +3017,15 @@ a.uni-card:hover{box-shadow:0 14px 34px rgba(19,52,120,.10)}
       <h2 class="reveal">Оставьте заявку - мы свяжемся с вами и ответим на <em>все вопросы</em></h2>
       <p class="reveal">Заполните форму и наш специалист подберет для Вас оптимальную программу и поможет с поступлением в Китай</p>
       <div class="urgent reveal">
-        <div class="urg-days"><b id="urgDays">—</b><span>дней</span></div>
-        <div class="urg-txt"><small><span class="dl-dot"></span>Успейте подать заявку</small><b>Приём на грант 2026/27 закрывается 31 марта</b><span>Количество грантовых мест ограничено — подаём документы в порядке очереди</span></div>
+        <div class="urg-head"><span class="urg-badge"><span class="dl-dot"></span>Грант 2026/27</span><span class="urg-date"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3.5" y="5" width="17" height="15" rx="3"/><path d="M3.5 10h17M8 3v4M16 3v4"/></svg>до 31 марта</span></div>
+        <b class="urg-title">Приём на грант закрывается через</b>
+        <div class="urg-cd" aria-live="off">
+          <div><b id="urgD">00</b><span>дней</span></div><i>:</i>
+          <div><b id="urgH">00</b><span>часов</span></div><i>:</i>
+          <div><b id="urgM">00</b><span>минут</span></div><i>:</i>
+          <div><b id="urgS">00</b><span>секунд</span></div>
+        </div>
+        <p class="urg-note">Количество грантовых мест ограничено — подаём документы в порядке очереди</p>
       </div>
     </div>
     <form class="form reveal lead-form">
@@ -3342,8 +3385,11 @@ function posArrows(){const w=$('.stories-wrap'),c=$('#story');if(!w||!c)return;c
 addEventListener('resize',posArrows);addEventListener('load',posArrows);setTimeout(posArrows,600);
 
 // дней до закрытия приёма на грант
-(()=>{const el=$('#urgDays');if(!el)return;const now=new Date();let y=now.getFullYear();let end=new Date(y,2,31,23,59);if(now>end)end=new Date(y+1,2,31,23,59);
-  el.textContent=Math.max(0,Math.ceil((end-now)/864e5));})();
+(()=>{const D=$('#urgD');if(!D)return;const H=$('#urgH'),M=$('#urgM'),S=$('#urgS');
+  const end=()=>{const now=new Date();let e=new Date(now.getFullYear(),2,31,23,59,59);if(now>e)e=new Date(now.getFullYear()+1,2,31,23,59,59);return e};
+  const set=(el,v)=>{v=String(v).padStart(2,'0');if(el.textContent!==v){el.textContent=v;el.classList.remove('tick');void el.offsetWidth;el.classList.add('tick')}};
+  const t=()=>{let s=Math.max(0,Math.floor((end()-new Date())/1000));set(D,Math.floor(s/86400));s%=86400;set(H,Math.floor(s/3600));s%=3600;set(M,Math.floor(s/60));set(S,s%60)};
+  t();setInterval(t,1000);})();
 
 // «Кампусы»: видео играют как гифки (с подстраховкой для iPhone и встроенных браузеров)
 (()=>{const vs=$$('.campus video');if(!vs.length)return;

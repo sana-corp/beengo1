@@ -154,7 +154,7 @@ const EN={
 // заявка
 'Оставьте заявку - мы свяжемся с вами и ответим на':'Leave a request — we’ll contact you and answer','все вопросы':'all your questions',
 'Заполните форму и наш специалист подберет для Вас оптимальную программу и поможет с поступлением в Китай':'Fill in the form and our specialist will pick the best program for you and help you get into a Chinese university',
-'дней':'days','Успейте подать заявку':'Apply in time','Приём на грант 2026/27 закрывается 31 марта':'Grant applications for 2026/27 close on March 31',
+'дней':'days','часов':'hours','минут':'minutes','секунд':'seconds','Грант 2026/27':'Grant 2026/27','до 31 марта':'until March 31','Приём на грант закрывается через':'Grant applications close in','Успейте подать заявку':'Apply in time','Приём на грант 2026/27 закрывается 31 марта':'Grant applications for 2026/27 close on March 31',
 'Количество грантовых мест ограничено — подаём документы в порядке очереди':'Grant places are limited — applications are submitted in order of arrival',
 'Ваше имя':'Your name','Ваш телефон':'Your phone','Интересующая программа':'Program of interest',
 '0,5–1 год · с нуля':'0.5–1 year · from zero','1+2 / 1+3 года · после 9 или 11 класса':'1+2 / 1+3 years · after grade 9 or 11','1+4 / 4 года · после 11 класса':'1+4 / 4 years · after grade 11','2–3 года · после бакалавриата':'2–3 years · after a bachelor’s',
@@ -217,6 +217,7 @@ const apply=to=>{if(to===lang)return;lang=to;mo.disconnect();
   document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',(b.textContent.trim()==='eng')===(to==='en')));
   if(to==='en')mo.observe(document.body,{subtree:true,childList:true,characterData:true});
   try{localStorage.setItem('beengo-lang',to)}catch(e){}
+  document.querySelectorAll('a[href]').forEach(a=>{const h=a.getAttribute('href');const m=h.match(/^(articles?\.html)(\?lang=en)?(#.*)?$/);if(m)a.setAttribute('href',m[1]+(to==='en'?'?lang=en':'')+(m[3]||''))});
   dispatchEvent(new Event('resize'))};
 window.beengoLang=()=>lang;
 document.querySelectorAll('.lang button').forEach(b=>b.onclick=()=>apply(b.textContent.trim()==='eng'?'en':'ru'));
