@@ -2265,6 +2265,24 @@ html,body{overflow-x:clip!important}
 
 .cta-badge{position:relative;align-self:flex-start;margin-bottom:14px;padding:6px 12px;border-radius:10px;background:#fff;color:#a76a00;font-size:12px;font-weight:600;letter-spacing:.08em;text-transform:uppercase}
 .cta-card h3{color:#3a2405}
+
+/* шаги: картинки целиком, ниже; блик без обрезки */
+.step-head{overflow:visible!important}
+.step-head::after{display:none!important}
+.step-head::before{content:"";position:absolute;inset:0;border-radius:inherit;pointer-events:none;z-index:1;
+  background:linear-gradient(100deg,transparent 30%,rgba(255,255,255,.28) 50%,transparent 70%) -150% 0/200% 100% no-repeat}
+.step.in .step-head::before{animation:stepShine2 1.4s cubic-bezier(.2,.7,.2,1) calc(var(--si,0)*120ms + .3s) both}
+@keyframes stepShine2{to{background-position:250% 0}}
+.step-head img{top:-14px!important;right:0!important;width:clamp(104px,10vw,140px)!important}
+.step:nth-child(5) .step-head img.st5{top:-18px!important;right:4px!important;width:clamp(86px,7.5vw,108px)!important}
+@media (max-width:680px){.step-head img{top:-10px!important;width:116px!important}}
+/* карточка «Узнайте шансы»: крупнее текст и иллюстрация */
+.cta-card{justify-content:flex-end;padding:28px!important}
+.cta-ill{position:absolute;top:24px;right:16px;width:58%;max-width:230px;filter:none;animation:bob 5s ease-in-out infinite;z-index:1}
+.cta-card h3{font-size:clamp(28px,2.4vw,34px)!important;line-height:1.1;position:relative;z-index:2}
+.cta-card p{font-size:16px!important;line-height:1.45;z-index:2}
+.cta-badge{z-index:2}
+@media (max-width:680px){.cta-ill{width:48%;top:16px}.cta-card{min-height:420px!important}}
 </style>
 </head>
 <body>
@@ -2650,7 +2668,7 @@ html,body{overflow-x:clip!important}
           <ol><li>Подготавливаем вас к самостоятельному получению визы и комфортному старту в Китае.</li><li>Даем памятку по покупке билетов, сборам чемодана и правилам въезда в страну.</li><li>Консультируем по первым шагам после прибытия в Китай: регистрация в кампусе, заселение и подключение местной связи.</li></ol>
         </div>
         <div class="cta-card reveal">
-          <span class="cta-badge">1 минута · 3 вопроса</span>
+          <img class="cta-ill" src="assets/opt/fc1-cap.webp" alt="" loading="lazy" decoding="async"><span class="cta-badge">1 минута · 3 вопроса</span>
           <h3>Узнайте шансы за одну минуту</h3>
           <p>Ответьте на 3 коротких вопроса — и узнаете, на какой грант и программу можете рассчитывать.</p>
           <button class="btn" type="button" data-open>Пройти тест</button>
