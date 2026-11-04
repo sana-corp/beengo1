@@ -3124,7 +3124,7 @@ const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelect
 const nav=$('#nav');
 $('#burger').onclick=()=>nav.classList.toggle('open');
 $$('.menu a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('open')));
-$$('.lang button').forEach(b=>b.onclick=()=>{$$('.lang button').forEach(x=>x.classList.toggle('on',x===b))});
+// переключатель rus/eng — см. assets/i18n.js
 // вкладки «Почему Китай»
 $$('.tabs button').forEach(b=>b.onclick=()=>{
   $$('.tabs button').forEach(x=>x.classList.toggle('on',x===b));const wg=$('.why-grid');wg&&wg.classList.toggle('parents',b.dataset.tab==='p');
@@ -3308,8 +3308,13 @@ const QZ=(()=>{const m=$('#modal'),panes=$$('.qz-pane',m),bar=$('#qzBar'),num=$(
   const prog=()=>{const l=ans.lvl,mo=ans.money,la=ans.lang;
     let p=l==='9'?'Колледж':l==='bach'?'Магистратура':l==='college'?'Бакалавриат':'Бакалавриат';
     if(la==='none'&&p!=='Колледж')p='Языковой год';return p};
-  const verdict=()=>{const l=ans.lvl,mo=ans.money,la=ans.lang;let score=0;
+  const verdict=()=>{const l=ans.lvl,mo=ans.money,la=ans.lang;let score=0;const en=window.beengoLang&&beengoLang()==='en';
     if(la==='zh'||la==='both')score+=2;else if(la==='en')score+=1;if(l==='bach'||l==='11')score+=1;
+    if(en){const want=mo==='grant'?'a grant':mo==='low'?'a grant or discount':'a place at a strong university';
+      const lvl=score>=3?'high':score>=2?'good':'realistic';
+      const pn={'Языковой год':'Language year','Колледж':'College','Бакалавриат':'Bachelor’s','Магистратура':'Master’s'}[prog()];
+      const tip=la==='none'?'We’ll start with a language year — your grant chances are much higher after it.':la==='en'?'We’ll pick English-taught programs, where grants are given more readily.':'With Chinese, your choice of universities and grants is the widest.';
+      return {title:`Chances of getting ${want}: ${lvl}`,text:`Suitable format: ${pn}. ${tip} Leave your contacts — we’ll send 3–5 universities matching your profile.`}}
     const want=mo==='grant'?'грант':mo==='low'?'грант или скидку':'место в сильном вузе';
     const lvl=score>=3?'высокие':score>=2?'хорошие':'реальные';
     const tip=la==='none'?'Начнём с языкового года — после него шансы на грант заметно выше.':la==='en'?'Подберём англоязычные программы, где гранты дают охотнее.':'С китайским языком выбор вузов и грантов максимальный.';
@@ -3364,7 +3369,7 @@ $$('.lead-form').forEach(f=>f.onsubmit=e=>{e.preventDefault();
   nick.addEventListener('input',()=>{nick.value=nick.value.replace(/^@+/,'').replace(/\s/g,'')});
   ph.addEventListener('input',()=>{ph.value=ph.value.replace(/[^\d\s\-()]/g,'')});
   f.onsubmit=e=>{e.preventDefault();const isWa=f.ch.value==='wa';
-    if(isWa&&ph.value.replace(/\D/g,'').length<7){ph.setCustomValidity('Введите номер полностью');ph.reportValidity();ph.setCustomValidity('');return}
+    if(isWa&&ph.value.replace(/\D/g,'').length<7){ph.setCustomValidity(window.beengoLang&&beengoLang()==='en'?'Enter the full number':'Введите номер полностью');ph.reportValidity();ph.setCustomValidity('');return}
     const b=$('button[type=submit]',f);b.textContent=isWa?'Готово! Отправим в WhatsApp ✓':'Готово! Отправим в Телеграм ✓';b.disabled=true};
 })();
 // FAQ
@@ -3388,5 +3393,6 @@ const show=i=>{si=(i+stories.length)%stories.length;const s=stories[si],card=$('
 $('#story').style.transition='opacity .2s';
 $('.arrow.prev').onclick=()=>show(si-1);$('.arrow.next').onclick=()=>show(si+1);
 </script>
+<script src="assets/i18n.js"></script>
 </body>
 </html>
