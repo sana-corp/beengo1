@@ -78,7 +78,7 @@ const EN={
 'Мы знаем внутренние требования приемных комиссий, поэтому беремся только за те кейсы, в которых':'We know the internal requirements of admission committees, so we only take on cases we are','уверены':'confident in',
 'Официальный договор':'Official contract','Прописываем все наши обязательства юридически.':'All our obligations are legally set out.','98% зачислений':'98% admitted','Делаем подачу сразу в 3–5 вузов для подстраховки.':'We apply to 3–5 universities at once to be safe.',
 'Свои люди в Китае':'Our own people in China','У нас есть кураторы на местах, которые решат любой вопрос.':'We have on-site coordinators who can solve any issue.',
-'лет опыта':'years of experience','помогаем поступать в вузы Китая':'helping students get into Chinese universities',
+'лет опыта':'years','помогаем поступать в вузы Китая':'helping students get into Chinese universities',
 'Наши студенты':'Our students','Студентка с приглашением (Offer of Admission)':'Student with an Offer of Admission','Приглашения из китайских университетов':'Invitations from Chinese universities',
 'Наши студенты получили приглашения в университеты Китая':'Our students received invitations to Chinese universities','Студент с официальным приглашением':'Student with an official invitation','Студент Beengo с полученной визой':'Beengo student with a visa',
 'Фото 1':'Photo 1','Фото 2':'Photo 2','Фото 3':'Photo 3','Фото 4':'Photo 4','Фото 5':'Photo 5','Предыдущее фото':'Previous photo','Следующее фото':'Next photo',
