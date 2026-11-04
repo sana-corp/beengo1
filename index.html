@@ -2351,6 +2351,74 @@ a.uni-card:hover{box-shadow:0 14px 34px rgba(19,52,120,.10)}
 .side.good{background-size:105% auto,auto!important}
 .side.bad{background-size:105% auto!important}
 @media (max-width:680px){.side.good{background-size:180% auto,auto!important}.side.bad{background-size:180% auto!important}}
+
+/* ===== «Для родителей»: свои иллюстрации ===== */
+.why-card{position:relative}
+.pv{display:none;position:relative;margin-top:auto;aspect-ratio:1710/750;border-radius:20px;overflow:hidden}
+.why-grid.parents .why-card > img,.why-grid.parents .why-card > .campus{display:none}
+.why-grid.parents .pv{display:block;animation:pvIn .5s cubic-bezier(.2,.7,.2,1)}
+@keyframes pvIn{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:none}}
+.pv-ok{flex:none;width:30px;height:30px;border-radius:9px;background:#22b35e;display:grid;place-items:center}
+/* 1 статус */
+.pv1{background:radial-gradient(120% 120% at 20% 0%,#5aa0ff,#1d56d8)}
+.pv-dip{position:absolute;right:8%;top:14%;width:34%;aspect-ratio:3/3.6;border-radius:10px;background:linear-gradient(160deg,#d32a2a,#9c1414);box-shadow:0 18px 30px rgba(10,20,70,.35),inset 0 0 0 4px rgba(255,214,120,.35);transform:rotate(8deg);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6%;color:#ffd77a}
+.pv-emb{width:34%;aspect-ratio:1;border-radius:50%;border:3px solid #ffd77a;opacity:.9}
+.pv-dip b{font-size:clamp(14px,1.5vw,20px);letter-spacing:.1em}.pv-dip i{font-style:normal;font-size:clamp(9px,.8vw,11px);letter-spacing:.2em;opacity:.85}
+.pv-note{position:absolute;left:6%;top:16%;display:flex;gap:10px;align-items:center;background:#fff;border-radius:14px;padding:10px 14px;box-shadow:0 12px 26px rgba(10,30,90,.25);max-width:62%}
+.pv-note b{display:block;font-size:clamp(13px,1.2vw,16px);color:#071542}.pv-note small{display:block;font-size:clamp(10px,.85vw,12px);color:#5a6580}
+.pv-flags{position:absolute;left:6%;bottom:14%;display:flex;gap:6px}
+.pv-flags span{width:clamp(30px,3vw,40px);aspect-ratio:1;border-radius:10px;background:rgba(255,255,255,.9);display:grid;place-items:center;font-size:clamp(16px,1.6vw,22px);box-shadow:0 6px 14px rgba(10,30,90,.2)}
+/* 2 безопасность */
+.pv2{background:radial-gradient(120% 120% at 50% 0%,#e9fbef,#bfeccd)}
+.pv-shield{position:absolute;left:50%;top:50%;width:26%;transform:translate(-50%,-50%);filter:drop-shadow(0 16px 22px rgba(20,120,60,.3))}
+.pv-chip{position:absolute;display:flex;align-items:center;gap:8px;background:#fff;border-radius:12px;padding:8px 12px;font-size:clamp(11px,1vw,14px);font-weight:600;color:#0d4a28;box-shadow:0 10px 20px rgba(20,90,50,.15);white-space:nowrap}
+.pv-chip.c1{left:6%;top:16%}.pv-chip.c2{right:6%;top:30%}.pv-chip.c3{left:10%;bottom:14%}
+/* 3 бюджет */
+.pv3{background:linear-gradient(160deg,#fff6d8,#ffe08a)}
+.pv-bars{position:absolute;left:8%;right:8%;top:10%;bottom:22%;display:flex;align-items:flex-end;justify-content:center;gap:8%}
+.bar{position:relative;flex:1;max-width:90px;height:100%;display:flex;flex-direction:column;justify-content:flex-end;align-items:center}
+.bar i{display:block;width:100%;height:var(--h);border-radius:12px 12px 6px 6px;background:#c9c2ad;transform-origin:bottom}
+.bar.b3 i{background:linear-gradient(180deg,#3b8cff,#0b5ce0)}
+.bar b{position:absolute;bottom:calc(var(--bh,0px) + 4px);font-size:clamp(11px,1vw,14px);color:#3a2405}
+.bar span{position:absolute;bottom:-22px;font-size:clamp(11px,1vw,13px);font-weight:600;color:#6b4a10}
+.bar.b1 b{bottom:calc(92% + 6px)}.bar.b2 b{bottom:calc(58% + 6px)}.bar.b3 b{bottom:calc(22% + 6px);color:#0b4fd6}
+.bar em{position:absolute;bottom:calc(22% + 30px);font-style:normal;font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;background:#22b35e;color:#fff;padding:4px 8px;border-radius:8px}
+.pv-cap{position:absolute;left:0;right:0;bottom:4%;text-align:center;font-size:clamp(10px,.85vw,12px);color:#7a5520}
+.why-grid.parents .bar i{animation:barUp .9s cubic-bezier(.2,.7,.2,1) both}
+.why-grid.parents .bar.b2 i{animation-delay:.12s}.why-grid.parents .bar.b3 i{animation-delay:.24s}
+@keyframes barUp{from{transform:scaleY(0)}to{transform:scaleY(1)}}
+/* 4 контроль */
+.pv4{background:radial-gradient(120% 120% at 30% 0%,#eee8ff,#cfc2ff)}
+.pv-phone{position:absolute;left:8%;top:10%;bottom:-20%;width:42%;background:#fff;border-radius:22px;padding:14px;box-shadow:0 18px 30px rgba(60,40,140,.25);border:6px solid #1b1640}
+.pv-ph-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px}
+.pv-ph-top b{font-size:clamp(12px,1.1vw,15px);color:#1b1640}.pv-ph-top span{font-size:clamp(16px,1.6vw,22px);font-weight:700;color:#22b35e}
+.pv-row{display:flex;align-items:center;gap:8px;font-size:clamp(10px,.9vw,12.5px);color:#3a3560;padding:7px 0;border-top:1px solid #f0edf8}
+.pv-row i{width:20px;height:20px;border-radius:6px;background:#22b35e;display:grid;place-items:center;flex:none}
+.pv-row i svg{width:11px;height:11px}
+.pv-push{position:absolute;right:5%;top:26%;display:flex;gap:10px;align-items:center;background:#fff;border-radius:14px;padding:10px 14px;box-shadow:0 12px 26px rgba(60,40,140,.25);max-width:52%}
+.pv-push b{display:block;font-size:clamp(12px,1.1vw,15px);color:#1b1640}.pv-push small{display:block;font-size:clamp(10px,.85vw,12px);color:#6b6590}
+.why-grid.parents .pv-note,.why-grid.parents .pv-push{animation:pushIn .7s cubic-bezier(.3,1.4,.5,1) .25s both}
+.why-grid.parents .pv-chip{animation:pushIn .6s cubic-bezier(.3,1.4,.5,1) both}
+.why-grid.parents .pv-chip.c2{animation-delay:.15s}.why-grid.parents .pv-chip.c3{animation-delay:.3s}
+@keyframes pushIn{from{opacity:0;transform:translateY(-14px) scale(.95)}to{opacity:1;transform:none}}
+@media (max-width:680px){.pv-note,.pv-push{padding:8px 10px;gap:8px}.pv-ok{width:24px;height:24px}.pv-phone{padding:10px;border-width:4px;border-radius:16px}.pv-chip{padding:6px 9px}}
+@media (prefers-reduced-motion:reduce){.pv,.bar i,.pv-note,.pv-push,.pv-chip{animation:none!important}}
+
+@media (max-width:680px){
+  .pv{aspect-ratio:4/3}
+  .pv-dip{width:38%;right:6%;top:30%}
+  .pv-note{top:8%;left:5%;max-width:80%}
+  .pv-flags{bottom:8%;left:5%;gap:4px}.pv-flags span{width:30px;font-size:16px;border-radius:8px}
+  .pv-shield{width:34%}
+  .pv-chip.c1{top:8%}.pv-chip.c2{top:auto;bottom:32%;right:4%}.pv-chip.c3{bottom:8%}
+  .pv-bars{top:14%;bottom:24%}
+  .bar span{bottom:-20px}
+  .pv-cap{bottom:3%}
+  .pv-phone{width:54%;left:5%;top:8%}
+  .pv-ph-top{flex-direction:column;align-items:flex-start;gap:2px}
+  .pv-row{font-size:11px;gap:6px}
+  .pv-push{right:4%;top:auto;bottom:10%;max-width:58%}
+}
 </style>
 </head>
 <body>
@@ -2430,7 +2498,11 @@ a.uni-card:hover{box-shadow:0 14px 34px rgba(19,52,120,.10)}
         <h3 data-s="Диплом, за которым охотятся работодатели" data-p="Статус">Диплом, за которым охотятся работодатели</h3>
         <p data-s="Доступ к практике и стажировкам в глобальных IT- и технологических гигантах." data-p="Степени ведущих вузов Китая официально признаются ведомствами по всему СНГ.">Доступ к практике и стажировкам в глобальных IT- и технологических гигантах.</p>
         <img loading="lazy" decoding="async" src="assets/opt/why1.webp" alt="">
-      </article>
+      <div class="pv pv1" aria-hidden="true">
+  <div class="pv-dip"><span class="pv-emb"></span><b>毕业证书</b><i>DIPLOMA</i></div>
+  <div class="pv-note"><span class="pv-ok"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Диплом признан</b><small>Россия · Казахстан · Узбекистан · Кыргызстан</small></div></div>
+  <div class="pv-flags"><span>🇷🇺</span><span>🇰🇿</span><span>🇺🇿</span><span>🇰🇬</span><span>🇧🇾</span><span>🇦🇿</span></div>
+</div></article>
       <article class="why-card reveal">
         <h3 data-s="Кампусы как из фильмов про будущее" data-p="0 поводов для тревоги">Кампусы как из фильмов про будущее</h3>
         <p data-s="Роботы-доставщики, пропускная система по биометрии, огромные лаборатории и спорткомплексы." data-p="Закрытые кампусы, охрана 24/7 и один из самых низких уровней уличной преступности в мире.">Роботы-доставщики, пропускная система по биометрии, огромные лаборатории и спорткомплексы.</p>
@@ -2439,17 +2511,37 @@ a.uni-card:hover{box-shadow:0 14px 34px rgba(19,52,120,.10)}
           <figure class="cp cp2"><img loading="lazy" decoding="async" src="assets/opt/campus-c2.webp" alt="Вход по биометрии"></figure>
           <figure class="cp cp3"><img loading="lazy" decoding="async" src="assets/opt/campus-c3.webp" alt="Современный кампус"></figure>
         </div>
-      </article>
+      <div class="pv pv2" aria-hidden="true">
+  <div class="pv-shield"><svg viewBox="0 0 120 140"><defs><linearGradient id="shg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#5ee08a"/><stop offset="1" stop-color="#1fa85a"/></linearGradient></defs><path d="M60 6l48 18v40c0 34-22 56-48 70C34 120 12 98 12 64V24z" fill="url(#shg)"/><path d="M38 70l15 15 30-32" fill="none" stroke="#fff" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+  <div class="pv-chip c1"><span>🛡️</span>Охрана 24/7</div>
+  <div class="pv-chip c2"><span>🙂</span>Вход по Face ID</div>
+  <div class="pv-chip c3"><span>🏫</span>Закрытый кампус</div>
+</div></article>
       <article class="why-card reveal">
         <h3 data-s="Деньги на жизнь и путешествия" data-p="Бюджет">Деньги на жизнь и путешествия</h3>
         <p data-s="Грант покрывает не только учёбу и современное общежитие, но и даёт ежемесячную стипендию на карманные расходы." data-p="Доступная альтернатива Европе и США без потери качества образования.">Грант покрывает не только учёбу и современное общежитие, но и даёт ежемесячную стипендию на карманные расходы.</p>
         <img loading="lazy" decoding="async" src="assets/opt/why3.webp" alt="">
-      </article>
+      <div class="pv pv3" aria-hidden="true">
+  <div class="pv-bars">
+    <div class="bar b1"><i style="--h:92%"></i><b>$40 000</b><span>США</span></div>
+    <div class="bar b2"><i style="--h:58%"></i><b>$15 000</b><span>Европа</span></div>
+    <div class="bar b3"><em>Грант</em><i style="--h:22%"></i><b>от $3 000</b><span>Китай</span></div>
+  </div>
+  <small class="pv-cap">Средняя стоимость обучения в год</small>
+</div></article>
       <article class="why-card reveal">
         <h3 data-s="Путешествия по всей Азии" data-p="Контроль">Путешествия по всей Азии</h3>
         <p data-s="На скоростных поездах можно легко объездить всю страну, а на каникулах дешево слетать в соседние азиатские страны." data-p="В вузах Китая строгая система посещаемости, формирующая дисциплину.">На скоростных поездах можно легко объездить всю страну, а на каникулах дешево слетать в соседние азиатские страны.</p>
         <img loading="lazy" decoding="async" src="assets/opt/why4.webp" alt="">
-      </article>
+      <div class="pv pv4" aria-hidden="true">
+  <div class="pv-phone">
+    <div class="pv-ph-top"><b>Посещаемость</b><span>98%</span></div>
+    <div class="pv-row"><i><svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></i>09:00 · Китайский язык</div>
+    <div class="pv-row"><i><svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></i>11:00 · Экономика</div>
+    <div class="pv-row"><i><svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></i>14:00 · Математика</div>
+  </div>
+  <div class="pv-push"><span class="pv-ok"><svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12.5l4.2 4.2L19 7" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg></span><div><b>Отметка на паре</b><small>Сегодня, 09:02 · присутствовал</small></div></div>
+</div></article>
     </div>
   </div>
 </div></section>
@@ -3005,7 +3097,7 @@ $$('.menu a').forEach(a=>a.addEventListener('click',()=>nav.classList.remove('op
 $$('.lang button').forEach(b=>b.onclick=()=>{$$('.lang button').forEach(x=>x.classList.toggle('on',x===b))});
 // вкладки «Почему Китай»
 $$('.tabs button').forEach(b=>b.onclick=()=>{
-  $$('.tabs button').forEach(x=>x.classList.toggle('on',x===b));
+  $$('.tabs button').forEach(x=>x.classList.toggle('on',x===b));const wg=$('.why-grid');wg&&wg.classList.toggle('parents',b.dataset.tab==='p');
   $$('.why-card [data-s]').forEach(el=>{el.classList.add('fade');setTimeout(()=>{el.textContent=el.dataset[b.dataset.tab];el.classList.remove('fade')},220)});
 });
 // появление при скролле
