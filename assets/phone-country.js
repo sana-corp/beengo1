@@ -12,7 +12,7 @@ const ALIAS={RU:'рф russia',US:'сша америка соединенные �
   DE:'германия germany',VN:'вьетнам vietnam',IR:'персия',SY:'сирия',EG:'египет',MA:'марокко',TZ:'танзания',ZA:'юар south africa',KZ:'qazaqstan'};
 const C=RAW.split(',').map(x=>({iso:x.slice(0,2),code:'+'+x.slice(2)}));
 const flag=iso=>String.fromCodePoint(...[...iso].map(ch=>0x1F1E6+ch.charCodeAt(0)-65));
-const FL=iso=>'assets/flags/'+iso.toLowerCase()+'.svg';
+const FL=iso=>'assets/flags/'+iso.toLowerCase()+'.webp';
 const isoFromFlag=s=>{const m=[...(s||'')].map(ch=>ch.codePointAt(0)).filter(c=>c>=0x1F1E6&&c<=0x1F1FF);return m.length>=2?String.fromCharCode(m[0]-0x1F1E6+65,m[1]-0x1F1E6+65):null};
 const lang=()=>((window.beengoLang&&window.beengoLang())||document.documentElement.lang)==='en'?'en':'ru';
 const OWN={ru:{KG:'Кыргызстан',US:'США'},en:{}};
@@ -32,7 +32,7 @@ const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const 
 
 const render=()=>{const l=lang(),t=T[l],o=l==='en'?'ru':'en';const s=norm(q.value),dg=q.value.replace(/\D/g,'');
   const all=C.map(c=>({...c,n:name(c.iso,l)}));let html='';
-  const row=(c)=>`<li role="option" data-iso="${c.iso}" aria-selected="${c.iso===cur.iso()}"><img class="cpk-f" data-src="${FL(c.iso)}" width="24" height="16" alt=""><span class="cpk-n">${esc(c.n)}</span><span class="cpk-c">${c.code}</span></li>`;
+  const row=(c)=>`<li role="option" data-iso="${c.iso}" aria-selected="${c.iso===cur.iso()}"><img class="cpk-f" data-src="${FL(c.iso)}" width="24" height="18" alt=""><span class="cpk-n">${esc(c.n)}</span><span class="cpk-c">${c.code}</span></li>`;
   if(!s&&!dg){
     const cis=CIS.map(i=>all.find(x=>x.iso===i)).filter(Boolean),rest=all.filter(x=>!CIS.includes(x.iso)).sort((a,b)=>a.n.localeCompare(b.n,l));
     html=`<li class="cpk-h" role="presentation">${t.cis}</li>${cis.map(row).join('')}<li class="cpk-h" role="presentation">${t.all}</li>${rest.map(row).join('')}`;
@@ -84,13 +84,13 @@ document.querySelectorAll('select.tel-code,#dlCode').forEach(sel=>{
   sel.innerHTML=C.map(c=>`<option value="${c.code}" data-iso="${c.iso}">\u2003\u2009${c.code}</option>`).join('');
   const wrap=document.createElement('span');wrap.className='tel-pick';sel.parentNode.insertBefore(wrap,sel);wrap.appendChild(sel);
   const hit=document.createElement('button');hit.type='button';hit.className='tel-hit';hit.setAttribute('aria-haspopup','dialog');wrap.appendChild(hit);
-  hit.innerHTML='<img class="tel-flag" width="21" height="14" alt=""><span class="tel-num"></span>';
+  hit.innerHTML='<img class="tel-flag" width="20" height="15" alt=""><span class="tel-num"></span>';
   const hf=hit.firstChild,hn=hit.lastChild;
   const sync=()=>{const cs=getComputedStyle(sel);hit.style.paddingLeft=cs.paddingLeft;hit.style.fontSize=cs.fontSize;hit.style.fontWeight=cs.fontWeight;hit.style.letterSpacing=cs.letterSpacing;
     // ширина поля — под самый длинный код (+998) с флагом, чтобы цифры не упирались в стрелку
     const cx=(sync.c||(sync.c=document.createElement('canvas'))).getContext('2d');cx.font=cs.fontWeight+' '+cs.fontSize+' '+cs.fontFamily;
     const tw=Math.max(...['+998','+888','+880'].map(t=>cx.measureText(t).width));
-    sel.style.minWidth=Math.ceil(parseFloat(cs.paddingLeft)+21+7+tw+parseFloat(cs.paddingRight)+4)+'px'};
+    sel.style.minWidth=Math.ceil(parseFloat(cs.paddingLeft)+20+7+tw+parseFloat(cs.paddingRight)+4)+'px'};
   sel.tabIndex=-1;sel.setAttribute('aria-hidden','true');
   const p={wrap,hit,sel,sync,iso:()=>iso,set:(i,user)=>{const o=[...sel.options].find(o=>o.dataset.iso===i);if(!o)return;iso=i;sel.value=o.value;o.selected=true;hf.src=FL(i);hn.textContent=o.value;
     hit.setAttribute('aria-label',T[lang()].label+': '+name(i,lang())+' '+o.value);if(user)sel.dispatchEvent(new Event('change',{bubbles:true}))}};
