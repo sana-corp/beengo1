@@ -213,7 +213,9 @@ const setHeads=to=>heads.forEach(x=>{if(to==='en'){const t=document.createElemen
 const TITLE={ru:document.title,en:'Beengo Study — admission to Chinese universities'};
 const mo=new MutationObserver(ms=>{if(lang!=='en')return;ms.forEach(m=>{if(m.type==='characterData')fixText(m.target,'en');else m.addedNodes.forEach(n=>fixText(n,'en'))})});
 const apply=to=>{if(to===lang)return;lang=to;mo.disconnect();
-  document.documentElement.lang=to;document.title=TITLE[to];fixText(document.body,to);setHeads(to);
+  document.documentElement.lang=to;document.title=TITLE[to];
+  // картинки с текстом: в английской версии — английские варианты (атрибут data-en-src)
+  document.querySelectorAll('img[data-en-src]').forEach(im=>{if(!im.dataset.ruSrc)im.dataset.ruSrc=im.getAttribute('src');const s=to==='en'?im.dataset.enSrc:im.dataset.ruSrc;if(im.getAttribute('src')!==s)im.setAttribute('src',s)});fixText(document.body,to);setHeads(to);
   document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',(b.textContent.trim()==='eng')===(to==='en')));
   if(to==='en')mo.observe(document.body,{subtree:true,childList:true,characterData:true});
   try{localStorage.setItem('beengo-lang',to)}catch(e){}
