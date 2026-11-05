@@ -12,6 +12,7 @@ const ALIAS={RU:'рф russia',US:'сша америка соединенные �
   DE:'германия germany',VN:'вьетнам vietnam',IR:'персия',SY:'сирия',EG:'египет',MA:'марокко',TZ:'танзания',ZA:'юар south africa',KZ:'qazaqstan'};
 const C=RAW.split(',').map(x=>({iso:x.slice(0,2),code:'+'+x.slice(2)}));
 const flag=iso=>String.fromCodePoint(...[...iso].map(ch=>0x1F1E6+ch.charCodeAt(0)-65));
+const FL=iso=>'assets/flags/'+iso.toLowerCase()+'.svg';
 const isoFromFlag=s=>{const m=[...(s||'')].map(ch=>ch.codePointAt(0)).filter(c=>c>=0x1F1E6&&c<=0x1F1FF);return m.length>=2?String.fromCharCode(m[0]-0x1F1E6+65,m[1]-0x1F1E6+65):null};
 const lang=()=>((window.beengoLang&&window.beengoLang())||document.documentElement.lang)==='en'?'en':'ru';
 const OWN={ru:{KG:'Кыргызстан',US:'США'},en:{}};
@@ -27,10 +28,11 @@ box.innerHTML='<div class="cpk-box" role="dialog" aria-modal="false"><div class=
 document.body.appendChild(box);
 const pane=box.querySelector('.cpk-box'),q=box.querySelector('.cpk-q'),list=box.querySelector('.cpk-list'),xb=box.querySelector('.cpk-x');
 let cur=null,act=-1,rows=[];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){const im=e.target;im.src=im.dataset.src;im.removeAttribute('data-src');io.unobserve(im)}}),{root:list,rootMargin:'240px 0px'});
 
 const render=()=>{const l=lang(),t=T[l],o=l==='en'?'ru':'en';const s=norm(q.value),dg=q.value.replace(/\D/g,'');
   const all=C.map(c=>({...c,n:name(c.iso,l)}));let html='';
-  const row=(c)=>`<li role="option" data-iso="${c.iso}" aria-selected="${c.iso===cur.iso()}"><span class="cpk-f">${flag(c.iso)}</span><span class="cpk-n">${esc(c.n)}</span><span class="cpk-c">${c.code}</span></li>`;
+  const row=(c)=>`<li role="option" data-iso="${c.iso}" aria-selected="${c.iso===cur.iso()}"><img class="cpk-f" data-src="${FL(c.iso)}" width="24" height="16" alt=""><span class="cpk-n">${esc(c.n)}</span><span class="cpk-c">${c.code}</span></li>`;
   if(!s&&!dg){
     const cis=CIS.map(i=>all.find(x=>x.iso===i)).filter(Boolean),rest=all.filter(x=>!CIS.includes(x.iso)).sort((a,b)=>a.n.localeCompare(b.n,l));
     html=`<li class="cpk-h" role="presentation">${t.cis}</li>${cis.map(row).join('')}<li class="cpk-h" role="presentation">${t.all}</li>${rest.map(row).join('')}`;
@@ -44,6 +46,7 @@ const render=()=>{const l=lang(),t=T[l],o=l==='en'?'ru':'en';const s=norm(q.valu
     html=res.length?res.map(r=>row(r.c)).join(''):`<li class="cpk-none" role="presentation">${t.none}</li>`;
   }
   list.innerHTML=html;rows=[...list.querySelectorAll('li[data-iso]')];
+  io.disconnect();list.querySelectorAll('img[data-src]').forEach(im=>io.observe(im));
   setAct(s||dg?0:Math.max(0,rows.findIndex(li=>li.dataset.iso===cur.iso())),!(s||dg))};
 const setAct=(i,center)=>{if(!rows.length){act=-1;return}act=(i+rows.length)%rows.length;rows.forEach((li,k)=>li.classList.toggle('act',k===act));
   const li=rows[act];if(center){list.scrollTop=Math.max(0,li.offsetTop-list.clientHeight/2+li.offsetHeight/2)}
@@ -78,17 +81,26 @@ document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!box.hidden)close(t
 const pickers=[];
 document.querySelectorAll('select.tel-code,#dlCode').forEach(sel=>{
   const o0=sel.selectedOptions[0];let iso=(o0&&(o0.dataset.iso||isoFromFlag(o0.textContent)))||'RU';
-  sel.innerHTML=C.map(c=>`<option value="${c.code}" data-iso="${c.iso}">${flag(c.iso)} ${c.code}</option>`).join('');
+  sel.innerHTML=C.map(c=>`<option value="${c.code}" data-iso="${c.iso}">\u2003\u2009${c.code}</option>`).join('');
   const wrap=document.createElement('span');wrap.className='tel-pick';sel.parentNode.insertBefore(wrap,sel);wrap.appendChild(sel);
   const hit=document.createElement('button');hit.type='button';hit.className='tel-hit';hit.setAttribute('aria-haspopup','dialog');wrap.appendChild(hit);
+  hit.innerHTML='<img class="tel-flag" width="21" height="14" alt=""><span class="tel-num"></span>';
+  const hf=hit.firstChild,hn=hit.lastChild;
+  const sync=()=>{const cs=getComputedStyle(sel);hit.style.paddingLeft=cs.paddingLeft;hit.style.fontSize=cs.fontSize;hit.style.fontWeight=cs.fontWeight;hit.style.letterSpacing=cs.letterSpacing;
+    // ширина поля — под самый длинный код (+998) с флагом, чтобы цифры не упирались в стрелку
+    const cx=(sync.c||(sync.c=document.createElement('canvas'))).getContext('2d');cx.font=cs.fontWeight+' '+cs.fontSize+' '+cs.fontFamily;
+    const tw=Math.max(...['+998','+888','+880'].map(t=>cx.measureText(t).width));
+    sel.style.minWidth=Math.ceil(parseFloat(cs.paddingLeft)+21+7+tw+parseFloat(cs.paddingRight)+4)+'px'};
   sel.tabIndex=-1;sel.setAttribute('aria-hidden','true');
-  const p={wrap,hit,sel,iso:()=>iso,set:(i,user)=>{const o=[...sel.options].find(o=>o.dataset.iso===i);if(!o)return;iso=i;sel.value=o.value;o.selected=true;
+  const p={wrap,hit,sel,sync,iso:()=>iso,set:(i,user)=>{const o=[...sel.options].find(o=>o.dataset.iso===i);if(!o)return;iso=i;sel.value=o.value;o.selected=true;hf.src=FL(i);hn.textContent=o.value;
     hit.setAttribute('aria-label',T[lang()].label+': '+name(i,lang())+' '+o.value);if(user)sel.dispatchEvent(new Event('change',{bubbles:true}))}};
-  p.set(iso);hit.addEventListener('click',()=>box.hidden||cur!==p?openFor(p):close(true));
+  p.set(iso);sync();hit.addEventListener('click',()=>box.hidden||cur!==p?openFor(p):close(true));
   hit.addEventListener('keydown',e=>{if(e.key==='ArrowDown'||e.key==='ArrowUp'){e.preventDefault();openFor(p)}});
   sel.addEventListener('mousedown',e=>{e.preventDefault();openFor(p)});
   pickers.push(p)});
 window.beengoPhone={set:iso=>pickers.forEach(p=>p.set(iso))};
+addEventListener('resize',()=>pickers.forEach(p=>p.sync()));
+document.fonts&&document.fonts.ready.then(()=>pickers.forEach(p=>p.sync()));
 // смена языка сайта — обновляем подписи кнопок
 new MutationObserver(()=>pickers.forEach(p=>p.set(p.iso()))).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
 })();
