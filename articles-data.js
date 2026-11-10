@@ -132,6 +132,175 @@ window.BEENGO_ARTICLES = [
         'Китайскоязычные программы чаще дают гранты и открывают больше возможностей для работы. Англоязычные — быстрее по срокам. Выбор зависит от ваших целей.'
       ]}
     ]
+  },
+  {
+    "id": "studencheskaya-viza-x1",
+    "cat": "docs",
+    "read": 5,
+    "title": "Студенческая виза в Китай: X1 или X2",
+    "lead": "Какую визу оформлять, какие документы понадобятся и что сделать в первые 30 дней после приезда.",
+    "sections": [
+      {
+        "q": "Чем отличаются X1 и X2?",
+        "p": [
+          "Виза X1 нужна для учёбы дольше 180 дней: бакалавриат, магистратура, колледж и длинный языковой курс. Виза X2 — для коротких программ до 180 дней, например летней школы или семестра языка.",
+          "Тип визы указан в документах от университета, поэтому выбирать его самостоятельно не придётся."
+        ]
+      },
+      {
+        "q": "Какие документы нужны?",
+        "p": [
+          "Загранпаспорт, письмо о зачислении (Admission Notice), форма JW201 или JW202 от университета, анкета, фотография и, для X1, медицинская справка по форме для иностранцев.",
+          "Точный список и формат подачи зависят от консульства вашей страны — перед подачей стоит проверить требования на его сайте."
+        ]
+      },
+      {
+        "q": "Что сделать после приезда?",
+        "p": [
+          "Виза X1 даётся на въезд, поэтому в течение 30 дней после прибытия нужно оформить вид на жительство для учёбы. Университет подскажет порядок и поможет с записью.",
+          "Если вы живёте не в общежитии, а в съёмной квартире, нужно зарегистрироваться в полиции по месту проживания в течение 24 часов после заселения."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "motivatsionnoe-pismo",
+    "cat": "admission",
+    "read": 6,
+    "title": "Как написать мотивационное письмо",
+    "lead": "Структура письма, которое читают в приёмной комиссии, и ошибки, из-за которых его откладывают.",
+    "sections": [
+      {
+        "q": "Зачем оно нужно?",
+        "p": [
+          "Мотивационное письмо показывает комиссии, почему вы выбрали программу, университет и Китай. Для грантов оно часто весит не меньше оценок: при одинаковом балле выбирают того, у кого понятная цель."
+        ]
+      },
+      {
+        "q": "Какая структура работает лучше всего?",
+        "p": [
+          "Начните с короткой истории, как вы пришли к выбору специальности. Затем — что вы уже сделали: олимпиады, проекты, курсы, языковая подготовка.",
+          "Дальше объясните, почему именно эта программа и этот вуз, и чем вы займётесь после выпуска. Объём — около одной страницы."
+        ]
+      },
+      {
+        "q": "Каких ошибок избегать?",
+        "p": [
+          "Не пересказывайте резюме и не пишите общими фразами вроде «Китай — великая страна». Не отправляйте одно и то же письмо в разные вузы без изменений: комиссии это замечают.",
+          "Перед отправкой попросите кого-то прочитать письмо вслух — так легче найти тяжёлые фразы и ошибки."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "hsk-urovni",
+    "cat": "programs",
+    "read": 5,
+    "title": "Экзамен HSK: уровни и подготовка",
+    "lead": "Какой уровень HSK нужен для разных программ и сколько времени занимает подготовка.",
+    "sections": [
+      {
+        "q": "Что такое HSK?",
+        "p": [
+          "HSK — международный экзамен по китайскому языку. Сертификат действует два года, поэтому сдавать его лучше ближе к поступлению."
+        ]
+      },
+      {
+        "q": "Какой уровень нужен?",
+        "p": [
+          "Для бакалавриата на китайском языке обычно требуют HSK 4, для магистратуры — HSK 4 или 5. Для языкового года сертификат не нужен: учёба начинается с нуля.",
+          "Требования отличаются у разных вузов и программ, поэтому мы сверяем их для каждого университета из вашего списка."
+        ]
+      },
+      {
+        "q": "Сколько готовиться?",
+        "p": [
+          "С нуля до HSK 4 при интенсивных занятиях обычно уходит около года. Как раз столько длится языковой год в китайском университете, после которого студенты переходят на основную программу."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "obshchezhitie-ili-kvartira",
+    "cat": "life",
+    "read": 4,
+    "title": "Общежитие или квартира: где жить студенту",
+    "lead": "Плюсы и минусы жизни в кампусе и в съёмной квартире, цены и что учесть при переезде.",
+    "sections": [
+      {
+        "q": "Чем удобно общежитие?",
+        "p": [
+          "Комнаты на 1–4 человека, до учебных корпусов несколько минут пешком, рядом столовые, спортзал и библиотека. При гранте проживание в общежитии часто уже оплачено."
+        ]
+      },
+      {
+        "q": "Когда стоит снимать квартиру?",
+        "p": [
+          "Квартира даёт больше личного пространства, но обычно дороже и требует залога за 1–3 месяца. Многие студенты переезжают со второго курса, когда уже знают город и язык."
+        ]
+      },
+      {
+        "q": "Что учесть при съёме?",
+        "p": [
+          "Договор аренды, регистрация в полиции в течение 24 часов после заселения и оплата коммунальных услуг через WeChat или Alipay. Перед подписанием договора стоит показать его куратору."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kak-vybrat-gorod",
+    "cat": "admission",
+    "read": 5,
+    "title": "Как выбрать город для учёбы в Китае",
+    "lead": "Большие города или региональные центры: стоимость жизни, климат и возможности после учёбы.",
+    "sections": [
+      {
+        "q": "Пекин и Шанхай или регион?",
+        "p": [
+          "В Пекине и Шанхае самые известные университеты и больше стажировок, но выше цены и конкурс на гранты. В Сиане, Чэнду, Ухане и других региональных центрах жизнь заметно дешевле, а сильных вузов тоже много."
+        ]
+      },
+      {
+        "q": "Как учесть климат?",
+        "p": [
+          "На севере зимы холодные и сухие, на юге — мягкая зима и влажное жаркое лето. Если вы плохо переносите жару или холод, это стоит учесть при выборе."
+        ]
+      },
+      {
+        "q": "Что ещё важно?",
+        "p": [
+          "Подумайте, где вы хотите работать после выпуска: в крупных городах больше международных компаний. Мы подбираем 3–5 вузов в разных городах, чтобы у вас был выбор."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "granty-universitetov",
+    "cat": "grants",
+    "read": 5,
+    "title": "Гранты и скидки от университетов",
+    "lead": "Какие стипендии дают сами вузы и провинции, кроме правительственной CSC, и как на них подать.",
+    "sections": [
+      {
+        "q": "Какие бывают стипендии?",
+        "p": [
+          "Кроме правительственного гранта CSC, есть стипендии провинций и городов, стипендии самих университетов и гранты на изучение китайского языка.",
+          "Они бывают полными — обучение, общежитие и ежемесячная выплата — или частичными, когда покрывается часть стоимости."
+        ]
+      },
+      {
+        "q": "Кто может получить?",
+        "p": [
+          "Решение принимают по среднему баллу, мотивационному письму, уровню языка и иногда по собеседованию. Чем раньше подана заявка, тем больше шансов: места ограничены."
+        ]
+      },
+      {
+        "q": "Как повысить шансы?",
+        "p": [
+          "Подавать заявки сразу в несколько вузов разного уровня и на разные виды стипендий. Мы проверяем, на какие программы у вас есть шансы, и подаём документы в 3–5 университетов."
+        ]
+      }
+    ]
   }
 ];
 
@@ -242,6 +411,157 @@ window.BEENGO_ARTICLES_EN = {
       { q: 'Which is better?', p: [
         'Chinese-taught programs more often come with grants and open more job opportunities. English-taught ones are faster. The choice depends on your goals.'
       ]}
+    ]
+  },
+  "studencheskaya-viza-x1": {
+    "title": "Student visa for China: X1 or X2",
+    "lead": "Which visa to apply for, what documents you need and what to do in the first 30 days after arrival.",
+    "sections": [
+      {
+        "q": "What is the difference between X1 and X2?",
+        "p": [
+          "An X1 visa is for studies longer than 180 days: bachelor’s, master’s, college and long language courses. An X2 visa is for short programs of up to 180 days, such as a summer school or a language semester.",
+          "The visa type is stated in your university documents, so you don’t have to choose it yourself."
+        ]
+      },
+      {
+        "q": "What documents are needed?",
+        "p": [
+          "Your passport, the Admission Notice, the JW201 or JW202 form from the university, an application form, a photo and, for X1, a medical certificate on the form for foreigners.",
+          "The exact list and how to apply depend on the consulate in your country, so check its website before applying."
+        ]
+      },
+      {
+        "q": "What to do after arrival?",
+        "p": [
+          "An X1 visa is an entry visa, so within 30 days of arrival you need to get a residence permit for study. The university will explain the procedure and help you book an appointment.",
+          "If you live in a rented flat rather than a dorm, you must register with the local police within 24 hours of moving in."
+        ]
+      }
+    ]
+  },
+  "motivatsionnoe-pismo": {
+    "title": "How to write a motivation letter",
+    "lead": "The structure of a letter admission committees actually read, and the mistakes that get it put aside.",
+    "sections": [
+      {
+        "q": "Why does it matter?",
+        "p": [
+          "A motivation letter shows the committee why you chose the program, the university and China. For grants it often matters as much as grades: with equal scores, the applicant with a clear goal is chosen."
+        ]
+      },
+      {
+        "q": "Which structure works best?",
+        "p": [
+          "Start with a short story of how you came to choose your major. Then show what you have already done: competitions, projects, courses, language preparation.",
+          "Next, explain why this program and this university, and what you will do after graduation. Aim for about one page."
+        ]
+      },
+      {
+        "q": "Which mistakes to avoid?",
+        "p": [
+          "Don’t retell your CV or write general phrases like “China is a great country”. Don’t send the same letter to different universities unchanged: committees notice.",
+          "Before sending, ask someone to read the letter aloud — it makes heavy sentences and mistakes easier to spot."
+        ]
+      }
+    ]
+  },
+  "hsk-urovni": {
+    "title": "The HSK exam: levels and preparation",
+    "lead": "Which HSK level different programs require and how long preparation takes.",
+    "sections": [
+      {
+        "q": "What is HSK?",
+        "p": [
+          "HSK is the international Chinese language exam. The certificate is valid for two years, so it is best taken closer to admission."
+        ]
+      },
+      {
+        "q": "Which level is required?",
+        "p": [
+          "Chinese-taught bachelor’s programs usually require HSK 4, master’s programs HSK 4 or 5. No certificate is needed for the language year: studies start from zero.",
+          "Requirements differ between universities and programs, so we check them for every university on your list."
+        ]
+      },
+      {
+        "q": "How long to prepare?",
+        "p": [
+          "From zero to HSK 4 usually takes about a year of intensive study — exactly as long as a language year at a Chinese university, after which students move on to the main program."
+        ]
+      }
+    ]
+  },
+  "obshchezhitie-ili-kvartira": {
+    "title": "Dorm or flat: where to live as a student",
+    "lead": "Pros and cons of living on campus and in a rented flat, prices and what to keep in mind when moving.",
+    "sections": [
+      {
+        "q": "Why is a dorm convenient?",
+        "p": [
+          "Rooms for 1–4 people, a few minutes’ walk to classes, canteens, a gym and a library nearby. With a grant, dorm accommodation is often already paid for."
+        ]
+      },
+      {
+        "q": "When is it worth renting a flat?",
+        "p": [
+          "A flat gives more privacy but is usually more expensive and requires a deposit of 1–3 months. Many students move out in their second year, once they know the city and the language."
+        ]
+      },
+      {
+        "q": "What to consider when renting?",
+        "p": [
+          "A rental contract, police registration within 24 hours of moving in, and paying utilities via WeChat or Alipay. Show the contract to your coordinator before signing."
+        ]
+      }
+    ]
+  },
+  "kak-vybrat-gorod": {
+    "title": "How to choose a city to study in China",
+    "lead": "Big cities or regional centres: cost of living, climate and opportunities after graduation.",
+    "sections": [
+      {
+        "q": "Beijing and Shanghai or a regional city?",
+        "p": [
+          "Beijing and Shanghai have the best-known universities and more internships, but higher prices and tougher competition for grants. In Xi’an, Chengdu, Wuhan and other regional centres life is noticeably cheaper, and there are many strong universities too."
+        ]
+      },
+      {
+        "q": "How to factor in the climate?",
+        "p": [
+          "The north has cold, dry winters; the south has mild winters and hot, humid summers. If you don’t cope well with heat or cold, keep this in mind."
+        ]
+      },
+      {
+        "q": "What else matters?",
+        "p": [
+          "Think about where you want to work after graduation: big cities have more international companies. We pick 3–5 universities in different cities so you have a choice."
+        ]
+      }
+    ]
+  },
+  "granty-universitetov": {
+    "title": "Grants and discounts from universities",
+    "lead": "Which scholarships universities and provinces offer besides the CSC government grant, and how to apply.",
+    "sections": [
+      {
+        "q": "What scholarships are there?",
+        "p": [
+          "Besides the CSC government grant, there are provincial and city scholarships, university scholarships and grants for studying Chinese.",
+          "They can be full — tuition, dorm and a monthly allowance — or partial, covering part of the cost."
+        ]
+      },
+      {
+        "q": "Who can get one?",
+        "p": [
+          "Decisions are based on GPA, the motivation letter, language level and sometimes an interview. The earlier you apply, the better your chances: places are limited."
+        ]
+      },
+      {
+        "q": "How to improve your chances?",
+        "p": [
+          "Apply to several universities of different levels and for different types of scholarships at once. We check which programs you have a chance at and apply to 3–5 universities."
+        ]
+      }
     ]
   }
 };

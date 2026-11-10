@@ -47,7 +47,7 @@ document.documentElement.lang=L;
   document.querySelectorAll('[data-t]').forEach(el=>el.textContent=T[el.dataset.t]);
   document.querySelectorAll('a[href]').forEach(a=>{const h=a.getAttribute('href');if(EN&&/^(index|articles|article)\.html/.test(h))a.setAttribute('href',h.replace(/^([a-z]+\.html)/,'$1'+Q))});})();
 const link=(page,hash)=>page+Q+(hash?'#'+hash:'');
-const PER=3;document.title=T.listTitle;
+const PER=12;document.title=T.listTitle;
 let cat='all',page=1;
 const card=a=>`<a class="card rv" href="${link('article.html',a.id)}">
   <div class="cover ${C[a.cat].cls}">${a.title}</div>
