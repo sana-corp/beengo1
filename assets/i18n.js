@@ -85,7 +85,7 @@ const EN={
 // география
 'Мы выстроили удаленный процесс оформления так, чтобы абитуриенты из любого города могли легко подать документы без лишних поездок.':'We built a remote process so applicants from any city can easily submit documents without unnecessary trips.',
 '🇷🇺 Россия':'🇷🇺 Russia','🇰🇿 Казахстан':'🇰🇿 Kazakhstan','🇺🇿 Узбекистан':'🇺🇿 Uzbekistan','🇰🇬 Кыргызстан':'🇰🇬 Kyrgyzstan','🇧🇾 Беларусь':'🇧🇾 Belarus','🇦🇿 Азербайджан':'🇦🇿 Azerbaijan',
-'Карта стран, откуда к нам приходят студенты: Россия, Беларусь, Казахстан, Азербайджан, Кыргызстан, Узбекистан':'Map of countries our students come from: Russia, Belarus, Kazakhstan, Azerbaijan, Kyrgyzstan, Uzbekistan',
+'Карта стран, откуда к нам приходят студенты: Россия, Беларусь, Казахстан, Азербайджан, Кыргызстан, Узбекистан':'Map of countries our students come from: China, Iran, Kuwait, Qatar, Oman, Saudi Arabia, Egypt, Ghana, Nigeria, Kenya, South Africa',
 // истории
 'Город:':'City:','До:':'Before:','После:':'After:','Результат с Beengo:':'Result with Beengo:','Назад':'Back','Вперёд':'Next','Смотреть видео-отзыв':'Watch video review',
 'Сиань':'Xi’an','Цзиньхуа':'Jinhua','Лэшань':'Leshan','Жетиген':'Zhetigen','Айбек':'Aibek','Сауле, 19 лет':'Saule, 19',
@@ -215,6 +215,7 @@ const mo=new MutationObserver(ms=>{if(lang!=='en')return;ms.forEach(m=>{if(m.typ
 const apply=to=>{if(to===lang)return;lang=to;mo.disconnect();
   document.documentElement.lang=to;document.title=TITLE[to];
   // картинки с текстом: в английской версии — английские варианты (атрибут data-en-src)
+  document.querySelectorAll('source[data-en-srcset]').forEach(so=>{if(!so.dataset.ruSrcset)so.dataset.ruSrcset=so.getAttribute('srcset');const s=to==='en'?so.dataset.enSrcset:so.dataset.ruSrcset;if(so.getAttribute('srcset')!==s)so.setAttribute('srcset',s)});
   document.querySelectorAll('img[data-en-src]').forEach(im=>{if(!im.dataset.ruSrc)im.dataset.ruSrc=im.getAttribute('src');const s=to==='en'?im.dataset.enSrc:im.dataset.ruSrc;if(im.getAttribute('src')!==s)im.setAttribute('src',s)});fixText(document.body,to);setHeads(to);
   document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',(b.textContent.trim()==='eng')===(to==='en')));
   if(to==='en')mo.observe(document.body,{subtree:true,childList:true,characterData:true});

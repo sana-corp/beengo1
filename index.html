@@ -2571,6 +2571,44 @@ html.dd-on .wa-float,html.cpk-on .wa-float{opacity:0!important;pointer-events:no
 .cpk.sheet .cpk-q{font-size:16px}
 .cpk.sheet .cpk-list li[data-iso]{padding:12px}
 @media (max-width:680px){html.cpk-on,html.cpk-on body{overflow:hidden}}
+
+/* «Самостоятельное поступление / С Beengo Study», планшет: заголовок карточки в 2 строки —
+   ширина до картинки (папка/кубок), сами картинки не двигаются */
+@media (min-width:681px) and (max-width:980px){
+  .side h3{max-width:none!important;padding-right:124px!important}
+  .side.good h3{padding-right:112px!important}
+}
+@media (min-width:981px) and (max-width:1080px){
+  html[lang="en"] .side.bad h3{padding-right:calc(clamp(160px,15vw,230px) + 6%)!important}
+  html[lang="en"] .side.good h3{min-height:calc(2lh + 0px)}
+}
+
+/* ===== Планшет: «Форматы финансирования» — широкие горизонтальные карточки друг под другом
+   (текст слева, иллюстрация справа), без веера ===== */
+@media (min-width:681px) and (max-width:980px){
+  .fin-grid{display:grid!important;grid-template-columns:1fr!important;gap:16px!important;max-width:720px!important;margin:40px auto 0!important;padding:0 0 8px!important}
+  .fin-grid .fin{position:relative!important;top:auto!important;margin:0!important}
+  .fin-grid .fin-in{display:grid!important;grid-template-columns:minmax(0,1fr) 40%;grid-template-rows:auto auto 1fr;column-gap:20px;
+    padding:28px 28px 0!important;min-height:250px!important;overflow:hidden}
+  .fin-grid .fin-in > .fin-ic{grid-column:1;grid-row:1;width:56px!important;height:56px!important;margin-bottom:16px}
+  .fin-grid .fin-in > h3{grid-column:1;grid-row:2;font-size:24px!important}
+  .fin-grid .fin-in > p{grid-column:1;grid-row:3;font-size:15px!important;line-height:1.45;margin-bottom:28px!important}
+  .fin-grid .fin-in > .fin-ill{grid-column:2;grid-row:1 / span 3;align-self:end;justify-self:end}
+  .fin-grid .fin-ill.fin-cap{width:100%!important;margin:0 -10px calc(-.1437 * 100%) 0!important}
+  .fin-grid .fin-ill.fin-id{width:100%!important;margin:0 -10px 6px 0!important}
+  .fin-grid .fin-ill.fin-doc{width:82%!important;margin:0 4px -14px 0!important}
+  .fin-grid .fin .fbtn{font-size:13.5px!important;letter-spacing:.06em!important;padding:18px 12px!important}
+}
+
+/* Блок заявки: без тени у плашки гранта (тень ложилась на форму); на планшете — всё по центру */
+#lead .urgent{box-shadow:none!important}
+#lead .form{box-shadow:none!important;filter:none!important}
+@media (min-width:681px) and (max-width:980px){
+  #lead .lead-grid > div:first-child{text-align:center}
+  #lead .lead-grid > div:first-child > h2,#lead .lead-grid > div:first-child > p{margin-left:auto!important;margin-right:auto!important;max-width:620px}
+  #lead .urgent{margin-left:auto!important;margin-right:auto!important;text-align:left}
+  #lead .form{max-width:620px;width:100%;margin-left:auto!important;margin-right:auto!important}
+}
 </style>
 </head>
 <body>
@@ -2886,7 +2924,7 @@ html.dd-on .wa-float,html.cpk-on .wa-float{opacity:0!important;pointer-events:no
     <h2 class="h2 reveal">Официальный представитель вузов в Китае</h2>
     <p class="sub reveal">Мы выстроили удаленный процесс оформления так, чтобы абитуриенты из любого города могли легко подать документы без лишних поездок.</p>
   </div>
-  <div class="globe"><picture><source media="(max-width:680px)" srcset="assets/opt/globe-m.webp"><img loading="lazy" decoding="async" src="assets/opt/globe-d.webp" width="2000" height="1002" alt="Карта стран, откуда к нам приходят студенты: Россия, Беларусь, Казахстан, Азербайджан, Кыргызстан, Узбекистан"></picture></div>
+  <div class="globe"><picture><source media="(max-width:680px)" srcset="assets/opt/globe-m.webp" data-en-srcset="assets/opt/globe-m-en.webp"><img loading="lazy" decoding="async" src="assets/opt/globe-d.webp" data-en-src="assets/opt/globe-d-en.webp" width="2000" height="1002" alt="Карта стран, откуда к нам приходят студенты: Россия, Беларусь, Казахстан, Азербайджан, Кыргызстан, Узбекистан"></picture></div>
   <div class="countries container">
     <span>🇷🇺 Россия</span><span>🇰🇿 Казахстан</span><span>🇺🇿 Узбекистан</span><span>🇰🇬 Кыргызстан</span><span>🇧🇾 Беларусь</span><span>🇦🇿 Азербайджан</span>
   </div>
@@ -3357,7 +3395,9 @@ $$('.why-grid,.prog-grid,.fin-grid,.doc-grid,.steps,.ab-cards,.art-grid,.qa,.sta
         c.style.transform=`translateY(${(-p*10).toFixed(1)}px) rotate(${((i%2?1:-1)*p*3).toFixed(2)}deg)`;c.style.filter=`brightness(${(1-p*.15).toFixed(3)})`});}
     else{const r=g.getBoundingClientRect();const p=clamp((vh-r.top)/(vh*0.9),0,1);
       cards.forEach((c,i)=>{const q=clamp((p-i*0.2)/0.5,0,1);const e=1-Math.pow(1-q,3);
-        const kt=innerWidth<=980?0.45:1;const x=fx[i]*e*kt,y=fy[i]*e*kt+(1-e)*220,rz=rot[i]*e*kt+(1-e)*(i===0?-18:i===2?18:6);
+        const tab=innerWidth<=980;let x,y,rz;
+        if(tab){const t=clamp((vh-(r.top+c.offsetTop))/(vh*0.45),0,1),f=1-Math.pow(1-t,3);x=0;y=(1-f)*60;rz=0;c.style.opacity=(0.15+0.85*f).toFixed(3);c.style.transform=`translateY(${y.toFixed(1)}px)`;c.style.zIndex='';c.style.filter='';return}
+        x=fx[i]*e;y=fy[i]*e+(1-e)*220;rz=rot[i]*e+(1-e)*(i===0?-18:i===2?18:6);
         c.style.transform=`translate(${x}px,${y}px) rotate(${rz}deg)`;c.style.opacity=(0.15+0.85*e).toFixed(3);c.style.zIndex=(innerWidth<=980?(i===1?3:1):(i===1?1:2));c.style.filter=''});}};
   const on=()=>{if(!raf)raf=requestAnimationFrame(tick)};
   addEventListener('scroll',on,{passive:true});addEventListener('resize',on);tick();
