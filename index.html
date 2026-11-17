@@ -2609,6 +2609,13 @@ html.dd-on .wa-float,html.cpk-on .wa-float{opacity:0!important;pointer-events:no
   #lead .urgent{margin-left:auto!important;margin-right:auto!important;text-align:left}
   #lead .form{max-width:620px;width:100%;margin-left:auto!important;margin-right:auto!important}
 }
+
+/* «Форматы финансирования», телефон: каждая следующая карточка всегда поверх предыдущей
+   (явный порядок слоёв; без perspective — в Safari она путает порядок у sticky+transform) */
+@media (max-width:680px){
+  .fin-grid{perspective:none!important}
+  .fin-grid .fin:nth-child(1){z-index:1}.fin-grid .fin:nth-child(2){z-index:2}.fin-grid .fin:nth-child(3){z-index:3}
+}
 </style>
 </head>
 <body>
@@ -3389,10 +3396,10 @@ $$('.why-grid,.prog-grid,.fin-grid,.doc-grid,.steps,.ab-cards,.art-grid,.qa,.sta
   const rot=[-7,0,9],dx=[1,0,-1],fy=[44,-14,70],fx=[18,0,-18];let raf=0;
   const clamp=(v,a,b)=>Math.max(a,Math.min(b,v));
   let cur=null;const tick=()=>{raf=0;const vh=innerHeight;
-    if(innerWidth<=680){cards.forEach((c,i)=>{const nx=cards[i+1];if(!nx){c.style.transform='';return}
+    if(innerWidth<=680){cards.forEach((c,i)=>{const nx=cards[i+1];if(!nx){c.style.transform='';c.style.filter='';c.style.zIndex=String(i+1);return}
         const r=nx.getBoundingClientRect(),me=c.getBoundingClientRect();
         const p=clamp(1-(r.top-me.top)/(me.height),0,1);
-        c.style.transform=`translateY(${(-p*10).toFixed(1)}px) rotate(${((i%2?1:-1)*p*3).toFixed(2)}deg)`;c.style.filter=`brightness(${(1-p*.15).toFixed(3)})`});}
+        c.style.transform=`translateY(${(-p*10).toFixed(1)}px) rotate(${((i%2?1:-1)*p*3).toFixed(2)}deg)`;c.style.filter=`brightness(${(1-p*.15).toFixed(3)})`;c.style.zIndex=String(i+1)});}
     else{const r=g.getBoundingClientRect();const p=clamp((vh-r.top)/(vh*0.9),0,1);
       cards.forEach((c,i)=>{const q=clamp((p-i*0.2)/0.5,0,1);const e=1-Math.pow(1-q,3);
         const tab=innerWidth<=980;let x,y,rz;
