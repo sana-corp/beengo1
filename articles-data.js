@@ -301,6 +301,520 @@ window.BEENGO_ARTICLES = [
         ]
       }
     ]
+  },
+  {
+    "id": "sroki-postupleniya",
+    "cat": "admission",
+    "title": "Сроки поступления: календарь абитуриента",
+    "lead": "Когда начинать подготовку, когда подавать документы и когда приходят ответы из университетов.",
+    "read": 5,
+    "sections": [
+      {
+        "q": "Когда начинается учёба?",
+        "p": [
+          "Основной набор в китайские университеты — на осенний семестр, занятия начинаются в сентябре. Часть языковых программ принимает студентов ещё и на весенний семестр, который стартует в феврале–марте."
+        ]
+      },
+      {
+        "q": "Когда подавать документы?",
+        "p": [
+          "Приём заявок на осень обычно открывается в конце осени предыдущего года и идёт до весны. Заявки на гранты закрываются раньше, чем на платное обучение, поэтому начинать стоит заранее.",
+          "Точные даты у каждого вуза свои — мы сверяем их для всех университетов из вашего списка."
+        ]
+      },
+      {
+        "q": "Когда ждать ответа?",
+        "p": [
+          "Решения о зачислении чаще всего приходят весной и в начале лета. После этого университет высылает письмо о зачислении и форму JW201/JW202 для визы."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "sobesedovanie",
+    "cat": "admission",
+    "title": "Собеседование при поступлении: как подготовиться",
+    "lead": "Какие вопросы задают на онлайн-собеседовании и как произвести хорошее впечатление.",
+    "read": 4,
+    "sections": [
+      {
+        "q": "Когда бывает собеседование?",
+        "p": [
+          "Не все вузы его проводят. Чаще всего собеседование назначают для грантовых программ, англоязычного бакалавриата и магистратуры. Обычно оно проходит онлайн и длится 10–20 минут."
+        ]
+      },
+      {
+        "q": "Какие вопросы задают?",
+        "p": [
+          "Почему вы выбрали эту программу и Китай, чем занимались раньше, какие планы после выпуска. На магистратуре могут спросить о дипломной работе и научных интересах."
+        ]
+      },
+      {
+        "q": "Как подготовиться?",
+        "p": [
+          "Проговорите ответы вслух, проверьте камеру и интернет заранее, держите под рукой копии документов. Мы проводим пробное собеседование, чтобы вы чувствовали себя уверенно."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "neskolko-vuzov",
+    "cat": "admission",
+    "title": "Почему стоит подавать документы в несколько вузов",
+    "lead": "Как составить список университетов, чтобы точно поступить и не упустить грант.",
+    "read": 4,
+    "sections": [
+      {
+        "q": "Зачем подавать сразу в несколько?",
+        "p": [
+          "Конкурс на гранты меняется каждый год, и даже сильному абитуриенту могут отказать в одном вузе. Несколько заявок дают подстраховку и возможность выбрать лучшее предложение."
+        ]
+      },
+      {
+        "q": "Как составить список?",
+        "p": [
+          "Мы советуем 3–5 вузов разного уровня: один-два «мечты», два надёжных и один запасной, где ваши баллы заметно выше требований."
+        ]
+      },
+      {
+        "q": "Не слишком ли это сложно?",
+        "p": [
+          "У каждого вуза свой портал и свои требования к документам. Эту часть мы берём на себя: заполняем анкеты, загружаем файлы и отслеживаем статусы всех заявок."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "posle-kolledzha",
+    "cat": "admission",
+    "title": "Поступление после колледжа",
+    "lead": "Можно ли с дипломом колледжа сразу поступить на бакалавриат и какие есть варианты.",
+    "read": 4,
+    "sections": [
+      {
+        "q": "Можно ли сразу на бакалавриат?",
+        "p": [
+          "Да, многие китайские вузы принимают выпускников колледжей на бакалавриат. Требования зависят от университета: важны оценки в дипломе и уровень языка."
+        ]
+      },
+      {
+        "q": "Засчитают ли предметы?",
+        "p": [
+          "Перезачёт предметов возможен не везде и решается индивидуально. Чаще студенты начинают с первого курса, но получают преимущество благодаря профильной подготовке."
+        ]
+      },
+      {
+        "q": "С чего начать?",
+        "p": [
+          "Пришлите нам диплом с приложением — мы подберём вузы, где ваш профиль подходит лучше всего, и проверим шансы на грант."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "bakalavriat-na-angliyskom",
+    "cat": "programs",
+    "title": "Бакалавриат на английском: какие специальности выбрать",
+    "lead": "Какие направления чаще всего доступны на английском языке и что важно учесть при выборе.",
+    "read": 5,
+    "sections": [
+      {
+        "q": "Какие направления есть?",
+        "p": [
+          "Чаще всего на английском преподают бизнес и экономику, международную торговлю, IT и компьютерные науки, инженерные специальности и медицину."
+        ]
+      },
+      {
+        "q": "Какие требования?",
+        "p": [
+          "Обычно нужен сертификат IELTS от 5.5–6.0 или аналог. Некоторые вузы проводят собственный тест или собеседование вместо сертификата."
+        ]
+      },
+      {
+        "q": "Нужен ли китайский?",
+        "p": [
+          "Для учёбы — нет, но базовый китайский сильно упрощает жизнь и работу в Китае. Во многих программах он входит в обязательные предметы."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "magistratura-v-kitae",
+    "cat": "programs",
+    "title": "Магистратура в Китае: сроки и требования",
+    "lead": "Сколько длится обучение, какие документы нужны и как найти научного руководителя.",
+    "read": 5,
+    "sections": [
+      {
+        "q": "Сколько длится магистратура?",
+        "p": [
+          "Обычно 2–3 года. Программы на английском чаще короче, научные программы на китайском — длиннее."
+        ]
+      },
+      {
+        "q": "Что нужно для поступления?",
+        "p": [
+          "Диплом бакалавра с приложением, мотивационное письмо, две рекомендации, сертификат HSK или IELTS и иногда план исследования."
+        ]
+      },
+      {
+        "q": "Нужен ли научный руководитель заранее?",
+        "p": [
+          "Для части программ и грантов полезно заранее получить согласие профессора. Мы помогаем найти подходящих руководителей и составить к ним письмо."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "letnie-programmy",
+    "cat": "programs",
+    "title": "Летние и краткосрочные программы в Китае",
+    "lead": "Как за 2–8 недель попробовать учёбу в Китае, подтянуть язык и выбрать вуз.",
+    "read": 4,
+    "sections": [
+      {
+        "q": "Что это за программы?",
+        "p": [
+          "Летние школы, языковые курсы на семестр и короткие стажировки. Они длятся от пары недель до полугода и проходят прямо в кампусе университета."
+        ]
+      },
+      {
+        "q": "Кому подойдут?",
+        "p": [
+          "Тем, кто хочет проверить, подходит ли жизнь в Китае, подтянуть китайский перед поступлением или выбрать университет, увидев его своими глазами."
+        ]
+      },
+      {
+        "q": "Какая виза нужна?",
+        "p": [
+          "Для программ до 180 дней обычно оформляют студенческую визу X2. Документы для неё выдаёт университет."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "medicina-v-kitae",
+    "cat": "programs",
+    "title": "Медицина в Китае: что важно знать",
+    "lead": "Как устроено медицинское образование для иностранцев и на что обратить внимание при выборе вуза.",
+    "read": 6,
+    "sections": [
+      {
+        "q": "Как устроено обучение?",
+        "p": [
+          "Медицинские программы для иностранцев идут на английском или китайском и обычно длятся 5–6 лет, включая клиническую практику."
+        ]
+      },
+      {
+        "q": "Как выбрать вуз?",
+        "p": [
+          "Смотрите не только на рейтинг, но и на базу для практики и язык обучения в клинике: с пациентами придётся общаться на китайском."
+        ]
+      },
+      {
+        "q": "Признают ли диплом дома?",
+        "p": [
+          "Для работы врачом на родине обычно нужно пройти процедуру признания диплома и сдать экзамены. Требования отличаются по странам — их стоит проверить до поступления, и мы поможем в этом разобраться."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "medicinskaya-spravka",
+    "cat": "docs",
+    "title": "Медицинская справка для иностранцев: как оформить",
+    "lead": "Что такое Foreigner Physical Examination Form, где её заполнить и каких ошибок избегать.",
+    "read": 4,
+    "sections": [
+      {
+        "q": "Что это за документ?",
+        "p": [
+          "Это стандартная форма медосмотра для иностранцев, которые едут в Китай надолго. Её требуют университеты и, для визы X1, консульство."
+        ]
+      },
+      {
+        "q": "Где её оформить?",
+        "p": [
+          "В обычной поликлинике или медицинском центре на родине. Врач заполняет форму, ставит подписи и печать, прикладывает результаты анализов и фото."
+        ]
+      },
+      {
+        "q": "Каких ошибок избегать?",
+        "p": [
+          "Пустых полей, отсутствия печати на фото и просроченной даты: справка обычно действительна около полугода. Перед отправкой мы проверяем каждую страницу."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "perevod-i-apostil",
+    "cat": "docs",
+    "title": "Перевод и апостиль документов",
+    "lead": "Какие документы переводить, нужен ли нотариус и когда понадобится апостиль.",
+    "read": 5,
+    "sections": [
+      {
+        "q": "Что нужно переводить?",
+        "p": [
+          "Обычно аттестат или диплом с оценками, справку о несудимости и иногда медицинскую справку. Перевод делают на английский или китайский — в зависимости от требований вуза."
+        ]
+      },
+      {
+        "q": "Нужен ли апостиль?",
+        "p": [
+          "В 2023 году Китай присоединился к Апостильной конвенции, поэтому документы из стран-участниц могут заверяться апостилем вместо консульской легализации. Нужен ли он именно вам, зависит от вуза и визовых требований."
+        ]
+      },
+      {
+        "q": "Как не ошибиться?",
+        "p": [
+          "Переводите документы только после того, как утверждён список вузов: требования могут отличаться. Мы подскажем, что и в каком виде нужно для каждого университета."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "rekomendatelnye-pisma",
+    "cat": "docs",
+    "title": "Рекомендательные письма: кто пишет и что в них",
+    "lead": "Когда нужны рекомендации, кого попросить и как должно выглядеть хорошее письмо.",
+    "read": 4,
+    "sections": [
+      {
+        "q": "Когда они нужны?",
+        "p": [
+          "Чаще всего для магистратуры и грантовых программ. Обычно просят одно-два письма."
+        ]
+      },
+      {
+        "q": "Кого попросить?",
+        "p": [
+          "Учителя или преподавателя по профильному предмету, классного руководителя, научного руководителя или работодателя — того, кто хорошо знает вас и ваши результаты."
+        ]
+      },
+      {
+        "q": "Что должно быть в письме?",
+        "p": [
+          "Как давно автор вас знает, ваши сильные стороны с конкретными примерами, контакты автора и подпись. Письмо оформляют на бланке учреждения, если это возможно."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "svyaz-i-internet",
+    "cat": "life",
+    "title": "Связь и интернет в Китае",
+    "lead": "Как купить SIM-карту, какие приложения поставить заранее и как оставаться на связи с семьёй.",
+    "read": 4,
+    "sections": [
+      {
+        "q": "Как купить SIM-карту?",
+        "p": [
+          "В салоне оператора по паспорту. Часто университеты помогают оформить связь прямо в первые дни учёбы. Тарифы с интернетом стоят примерно 50–100 юаней в месяц."
+        ]
+      },
+      {
+        "q": "Какие приложения нужны?",
+        "p": [
+          "WeChat для общения и оплаты, Alipay, карты Amap или Baidu Maps и переводчик. Установите их и привяжите номер ещё до вылета."
+        ]
+      },
+      {
+        "q": "Как связаться с семьёй?",
+        "p": [
+          "Многие привычные сервисы в Китае работают ограниченно. Заранее договоритесь с родными, через какое приложение будете созваниваться, и проверьте его."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "strahovka-studenta",
+    "cat": "life",
+    "title": "Медицинская страховка студента",
+    "lead": "Зачем нужна страховка, сколько она стоит и как пользоваться ею в Китае.",
+    "read": 4,
+    "sections": [
+      {
+        "q": "Обязательна ли страховка?",
+        "p": [
+          "Да, китайские университеты обычно требуют от иностранных студентов медицинскую страховку на весь срок обучения. При гранте она часто уже включена."
+        ]
+      },
+      {
+        "q": "Сколько стоит?",
+        "p": [
+          "Чаще всего студенты оформляют страховку, которую предлагает сам университет. Она стоит несколько сотен юаней в год."
+        ]
+      },
+      {
+        "q": "Как ею пользоваться?",
+        "p": [
+          "В кампусе обычно есть медпункт. При серьёзных случаях вас направят в больницу, а чеки потом подают на возмещение. Куратор подскажет порядок в вашем вузе."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "podrabotka",
+    "cat": "life",
+    "title": "Можно ли подрабатывать во время учёбы",
+    "lead": "Какие правила действуют для иностранных студентов и как совмещать работу с учёбой законно.",
+    "read": 4,
+    "sections": [
+      {
+        "q": "Можно ли работать?",
+        "p": [
+          "Иностранным студентам разрешена подработка и стажировки только с согласия университета и с отметкой в виде на жительство. Работа без разрешения может привести к штрафу и проблемам с визой."
+        ]
+      },
+      {
+        "q": "Где обычно подрабатывают?",
+        "p": [
+          "На стажировках по специальности, в проектах университета, на языковых и культурных мероприятиях. Такой опыт ещё и полезен для резюме."
+        ]
+      },
+      {
+        "q": "Как оформить?",
+        "p": [
+          "Обратитесь в международный отдел университета: там объяснят порядок и помогут подготовить документы. Учёба при этом должна оставаться главной."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "eda-v-kampuse",
+    "cat": "life",
+    "title": "Еда в кампусе: столовые, кафе и доставка",
+    "lead": "Где и как питаются студенты в Китае и сколько это стоит.",
+    "read": 4,
+    "sections": [
+      {
+        "q": "Где поесть в кампусе?",
+        "p": [
+          "В каждом кампусе несколько столовых с разной кухней, кафе и магазины. Обед в столовой обычно обходится в 15–30 юаней."
+        ]
+      },
+      {
+        "q": "Есть ли халяль и привычная еда?",
+        "p": [
+          "Во многих университетах есть отдельные столовые или прилавки с халяльной едой. В крупных городах легко найти и привычные блюда."
+        ]
+      },
+      {
+        "q": "А доставка?",
+        "p": [
+          "Доставка еды в Китае очень развита: заказ через приложение приходит за 20–40 минут прямо к общежитию."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "adaptaciya",
+    "cat": "life",
+    "title": "Адаптация в Китае: первые месяцы",
+    "lead": "Как справиться с культурными различиями, найти друзей и не скучать по дому.",
+    "read": 5,
+    "sections": [
+      {
+        "q": "Что будет непривычным?",
+        "p": [
+          "Другой ритм жизни, еда, оплата только через телефон и языковой барьер вне кампуса. Обычно на привыкание уходит один-два месяца."
+        ]
+      },
+      {
+        "q": "Как найти друзей?",
+        "p": [
+          "Вступайте в студенческие клубы, ходите на мероприятия для иностранцев и знакомьтесь с китайскими студентами — им тоже интересно общаться."
+        ]
+      },
+      {
+        "q": "Куда обращаться за помощью?",
+        "p": [
+          "В международный отдел университета и к нашему куратору: мы на связи и помогаем решить бытовые вопросы."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "grant-instituta-konfuciya",
+    "cat": "grants",
+    "title": "Стипендия для изучающих китайский язык",
+    "lead": "Что такое International Chinese Language Teachers Scholarship и кому она подходит.",
+    "read": 5,
+    "sections": [
+      {
+        "q": "Что это за стипендия?",
+        "p": [
+          "Это стипендия для изучения китайского языка в китайских университетах — на семестр, год или полноценную программу. Её часто называют стипендией Института Конфуция."
+        ]
+      },
+      {
+        "q": "Что она покрывает?",
+        "p": [
+          "Как правило, обучение, проживание в общежитии, медицинскую страховку и ежемесячное пособие. Точный состав зависит от типа программы."
+        ]
+      },
+      {
+        "q": "Какие требования?",
+        "p": [
+          "Обычно нужен сертификат HSK и HSKK определённого уровня и рекомендация организации, которая выдвигает кандидата. Требования обновляются каждый год — мы проверяем актуальные."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "kak-sohranit-stipendiyu",
+    "cat": "grants",
+    "title": "Как сохранить стипендию на весь срок учёбы",
+    "lead": "Почему стипендию могут уменьшить или отменить и как этого избежать.",
+    "read": 4,
+    "sections": [
+      {
+        "q": "Стипендию дают один раз?",
+        "p": [
+          "Многие стипендии продлеваются каждый год по итогам учёбы. Университет проверяет оценки, посещаемость и поведение."
+        ]
+      },
+      {
+        "q": "Почему её могут лишить?",
+        "p": [
+          "За пропуски занятий, несданные экзамены, нарушение правил кампуса или визового режима. Иногда стипендию переводят с полной на частичную."
+        ]
+      },
+      {
+        "q": "Как не потерять?",
+        "p": [
+          "Не пропускайте занятия, сдавайте сессии вовремя и сразу сообщайте куратору о трудностях — многие вопросы решаются, если обратиться заранее."
+        ]
+      }
+    ]
+  },
+  {
+    "id": "byudzhet-na-god",
+    "cat": "grants",
+    "title": "Сколько стоит учёба в Китае: бюджет на год",
+    "lead": "Из чего складывается стоимость обучения и проживания и как её снизить.",
+    "read": 5,
+    "sections": [
+      {
+        "q": "Сколько стоит обучение?",
+        "p": [
+          "Без гранта стоимость обучения зависит от вуза, города и языка программы. Языковые курсы и колледжи обычно дешевле бакалавриата, программы на английском — дороже, чем на китайском."
+        ]
+      },
+      {
+        "q": "Что ещё входит в бюджет?",
+        "p": [
+          "Общежитие, страховка, питание, транспорт, связь, учебники и оформление вида на жительство. Мы считаем бюджет под конкретный вуз и город."
+        ]
+      },
+      {
+        "q": "Как сэкономить?",
+        "p": [
+          "Подавать на гранты и скидки, выбирать сильные вузы в региональных городах и питаться в столовых кампуса — это заметно снижает расходы."
+        ]
+      }
+    ]
   }
 ];
 
@@ -560,6 +1074,463 @@ window.BEENGO_ARTICLES_EN = {
         "q": "How to improve your chances?",
         "p": [
           "Apply to several universities of different levels and for different types of scholarships at once. We check which programs you have a chance at and apply to 3–5 universities."
+        ]
+      }
+    ]
+  },
+  "sroki-postupleniya": {
+    "title": "Admission timeline: the applicant’s calendar",
+    "lead": "When to start preparing, when to submit documents and when universities reply.",
+    "sections": [
+      {
+        "q": "When do studies start?",
+        "p": [
+          "The main intake at Chinese universities is for the autumn semester, with classes starting in September. Some language programs also accept students for the spring semester, which starts in February–March."
+        ]
+      },
+      {
+        "q": "When to apply?",
+        "p": [
+          "Applications for autumn usually open in late autumn of the previous year and run until spring. Grant applications close earlier than paid ones, so it is worth starting early.",
+          "Exact dates differ between universities — we check them for every university on your list."
+        ]
+      },
+      {
+        "q": "When to expect an answer?",
+        "p": [
+          "Admission decisions most often arrive in spring and early summer. After that the university sends the admission letter and the JW201/JW202 form for the visa."
+        ]
+      }
+    ]
+  },
+  "sobesedovanie": {
+    "title": "Admission interview: how to prepare",
+    "lead": "What questions are asked in an online interview and how to make a good impression.",
+    "sections": [
+      {
+        "q": "When is there an interview?",
+        "p": [
+          "Not every university holds one. Interviews are most common for grant programs, English-taught bachelor’s and master’s programs. They are usually online and last 10–20 minutes."
+        ]
+      },
+      {
+        "q": "What questions are asked?",
+        "p": [
+          "Why you chose this program and China, what you did before and what you plan after graduation. Master’s applicants may be asked about their thesis and research interests."
+        ]
+      },
+      {
+        "q": "How to prepare?",
+        "p": [
+          "Practise your answers out loud, check your camera and internet in advance, and keep copies of your documents at hand. We run a mock interview so you feel confident."
+        ]
+      }
+    ]
+  },
+  "neskolko-vuzov": {
+    "title": "Why apply to several universities",
+    "lead": "How to build a university list so you get in for sure and don’t miss a grant.",
+    "sections": [
+      {
+        "q": "Why apply to several at once?",
+        "p": [
+          "Grant competition changes every year, and even a strong applicant can be turned down by one university. Several applications give you a safety net and a chance to choose the best offer."
+        ]
+      },
+      {
+        "q": "How to build the list?",
+        "p": [
+          "We recommend 3–5 universities of different levels: one or two “dream” options, two reliable ones and one backup where your grades are well above the requirements."
+        ]
+      },
+      {
+        "q": "Isn’t that too complicated?",
+        "p": [
+          "Every university has its own portal and document requirements. We take this part on: we fill in the forms, upload files and track the status of every application."
+        ]
+      }
+    ]
+  },
+  "posle-kolledzha": {
+    "title": "Applying after college",
+    "lead": "Can you go straight into a bachelor’s with a college diploma, and what are the options.",
+    "sections": [
+      {
+        "q": "Can I go straight into a bachelor’s?",
+        "p": [
+          "Yes, many Chinese universities accept college graduates for bachelor’s programs. Requirements depend on the university: diploma grades and language level matter."
+        ]
+      },
+      {
+        "q": "Will my courses be credited?",
+        "p": [
+          "Course credits are not accepted everywhere and are decided case by case. More often students start from the first year but gain an advantage thanks to their background."
+        ]
+      },
+      {
+        "q": "Where to start?",
+        "p": [
+          "Send us your diploma with the transcript — we will pick universities where your profile fits best and check your grant chances."
+        ]
+      }
+    ]
+  },
+  "bakalavriat-na-angliyskom": {
+    "title": "English-taught bachelor’s: which majors to choose",
+    "lead": "Which fields are most often taught in English and what to consider when choosing.",
+    "sections": [
+      {
+        "q": "Which fields are available?",
+        "p": [
+          "The most common English-taught fields are business and economics, international trade, IT and computer science, engineering and medicine."
+        ]
+      },
+      {
+        "q": "What are the requirements?",
+        "p": [
+          "Usually IELTS 5.5–6.0 or an equivalent is required. Some universities run their own test or an interview instead of a certificate."
+        ]
+      },
+      {
+        "q": "Do I need Chinese?",
+        "p": [
+          "Not for your studies, but basic Chinese makes life and work in China much easier. In many programs it is a compulsory subject."
+        ]
+      }
+    ]
+  },
+  "magistratura-v-kitae": {
+    "title": "Master’s in China: duration and requirements",
+    "lead": "How long it takes, what documents are needed and how to find a supervisor.",
+    "sections": [
+      {
+        "q": "How long is a master’s?",
+        "p": [
+          "Usually 2–3 years. English-taught programs tend to be shorter, research programs in Chinese longer."
+        ]
+      },
+      {
+        "q": "What is needed to apply?",
+        "p": [
+          "A bachelor’s diploma with transcript, a motivation letter, two recommendations, an HSK or IELTS certificate and sometimes a research plan."
+        ]
+      },
+      {
+        "q": "Do I need a supervisor in advance?",
+        "p": [
+          "For some programs and grants it helps to get a professor’s consent in advance. We help find suitable supervisors and write the letter to them."
+        ]
+      }
+    ]
+  },
+  "letnie-programmy": {
+    "title": "Summer and short-term programs in China",
+    "lead": "How to try studying in China, improve your language and choose a university in 2–8 weeks.",
+    "sections": [
+      {
+        "q": "What are these programs?",
+        "p": [
+          "Summer schools, semester language courses and short internships. They last from a couple of weeks to half a year and take place on the university campus."
+        ]
+      },
+      {
+        "q": "Who are they for?",
+        "p": [
+          "Those who want to check whether life in China suits them, improve their Chinese before admission or choose a university by seeing it first-hand."
+        ]
+      },
+      {
+        "q": "What visa is needed?",
+        "p": [
+          "Programs of up to 180 days usually need an X2 student visa. The university issues the documents for it."
+        ]
+      }
+    ]
+  },
+  "medicina-v-kitae": {
+    "title": "Studying medicine in China: what to know",
+    "lead": "How medical education works for international students and what to look for in a university.",
+    "sections": [
+      {
+        "q": "How are studies organised?",
+        "p": [
+          "Medical programs for international students are taught in English or Chinese and usually last 5–6 years, including clinical practice."
+        ]
+      },
+      {
+        "q": "How to choose a university?",
+        "p": [
+          "Look not only at the ranking but also at the clinical base and the language used in hospitals: you will need to talk to patients in Chinese."
+        ]
+      },
+      {
+        "q": "Is the degree recognised at home?",
+        "p": [
+          "To work as a doctor at home you usually need to go through degree recognition and pass exams. Requirements differ by country — check them before applying, and we will help you figure them out."
+        ]
+      }
+    ]
+  },
+  "medicinskaya-spravka": {
+    "title": "Medical certificate for foreigners: how to get it",
+    "lead": "What the Foreigner Physical Examination Form is, where to fill it in and which mistakes to avoid.",
+    "sections": [
+      {
+        "q": "What is this document?",
+        "p": [
+          "It is the standard medical check-up form for foreigners going to China long-term. Universities require it, and so does the consulate for an X1 visa."
+        ]
+      },
+      {
+        "q": "Where to get it?",
+        "p": [
+          "At a regular clinic or medical centre at home. The doctor fills in the form, signs and stamps it, and attaches test results and a photo."
+        ]
+      },
+      {
+        "q": "Which mistakes to avoid?",
+        "p": [
+          "Empty fields, a photo without a stamp and an expired date: the certificate is usually valid for about six months. We check every page before sending."
+        ]
+      }
+    ]
+  },
+  "perevod-i-apostil": {
+    "title": "Translation and apostille of documents",
+    "lead": "Which documents to translate, whether you need a notary and when an apostille is required.",
+    "sections": [
+      {
+        "q": "What needs translating?",
+        "p": [
+          "Usually your school certificate or diploma with grades, the police clearance and sometimes the medical certificate. Translations are made into English or Chinese, depending on the university."
+        ]
+      },
+      {
+        "q": "Do I need an apostille?",
+        "p": [
+          "In 2023 China joined the Apostille Convention, so documents from member countries can be certified with an apostille instead of consular legalisation. Whether you need it depends on the university and visa requirements."
+        ]
+      },
+      {
+        "q": "How not to make a mistake?",
+        "p": [
+          "Translate documents only after your university list is agreed: requirements can differ. We will tell you what is needed, and in what form, for each university."
+        ]
+      }
+    ]
+  },
+  "rekomendatelnye-pisma": {
+    "title": "Recommendation letters: who writes them and what goes in",
+    "lead": "When recommendations are needed, whom to ask and what a good letter looks like.",
+    "sections": [
+      {
+        "q": "When are they needed?",
+        "p": [
+          "Most often for master’s and grant programs. Usually one or two letters are requested."
+        ]
+      },
+      {
+        "q": "Whom to ask?",
+        "p": [
+          "A teacher of a core subject, your class teacher, a research supervisor or an employer — someone who knows you and your results well."
+        ]
+      },
+      {
+        "q": "What should the letter include?",
+        "p": [
+          "How long the author has known you, your strengths with concrete examples, the author’s contacts and signature. If possible, it is printed on the institution’s letterhead."
+        ]
+      }
+    ]
+  },
+  "svyaz-i-internet": {
+    "title": "Mobile and internet in China",
+    "lead": "How to buy a SIM card, which apps to install in advance and how to stay in touch with family.",
+    "sections": [
+      {
+        "q": "How to buy a SIM card?",
+        "p": [
+          "At a carrier’s shop with your passport. Universities often help set up a plan in the first days of study. Plans with internet cost about 50–100 yuan a month."
+        ]
+      },
+      {
+        "q": "Which apps do I need?",
+        "p": [
+          "WeChat for messaging and payments, Alipay, Amap or Baidu Maps and a translator. Install them and link your number before you fly."
+        ]
+      },
+      {
+        "q": "How to keep in touch with family?",
+        "p": [
+          "Many familiar services work with limitations in China. Agree with your family in advance on which app you will use for calls, and test it."
+        ]
+      }
+    ]
+  },
+  "strahovka-studenta": {
+    "title": "Student health insurance",
+    "lead": "Why insurance is needed, how much it costs and how to use it in China.",
+    "sections": [
+      {
+        "q": "Is insurance compulsory?",
+        "p": [
+          "Yes, Chinese universities usually require international students to have health insurance for the whole study period. With a grant it is often already included."
+        ]
+      },
+      {
+        "q": "How much does it cost?",
+        "p": [
+          "Most students take the insurance offered by the university itself. It costs a few hundred yuan a year."
+        ]
+      },
+      {
+        "q": "How to use it?",
+        "p": [
+          "There is usually a medical centre on campus. In serious cases you are referred to a hospital, and receipts are then submitted for reimbursement. Your coordinator will explain the procedure at your university."
+        ]
+      }
+    ]
+  },
+  "podrabotka": {
+    "title": "Can you work part-time while studying",
+    "lead": "Which rules apply to international students and how to combine work and study legally.",
+    "sections": [
+      {
+        "q": "Can I work?",
+        "p": [
+          "International students may take part-time jobs and internships only with the university’s consent and a note in their residence permit. Working without permission can lead to a fine and visa problems."
+        ]
+      },
+      {
+        "q": "Where do students usually work?",
+        "p": [
+          "In internships in their field, university projects, and language and cultural events. Such experience is also great for a CV."
+        ]
+      },
+      {
+        "q": "How to arrange it?",
+        "p": [
+          "Contact the university’s international office: they will explain the procedure and help prepare the documents. Studies must remain the priority."
+        ]
+      }
+    ]
+  },
+  "eda-v-kampuse": {
+    "title": "Food on campus: canteens, cafés and delivery",
+    "lead": "Where and how students eat in China and how much it costs.",
+    "sections": [
+      {
+        "q": "Where to eat on campus?",
+        "p": [
+          "Every campus has several canteens with different cuisines, cafés and shops. Lunch in a canteen usually costs 15–30 yuan."
+        ]
+      },
+      {
+        "q": "Is there halal and familiar food?",
+        "p": [
+          "Many universities have separate canteens or counters with halal food. In big cities familiar dishes are easy to find too."
+        ]
+      },
+      {
+        "q": "What about delivery?",
+        "p": [
+          "Food delivery in China is very developed: an order through an app arrives at your dorm in 20–40 minutes."
+        ]
+      }
+    ]
+  },
+  "adaptaciya": {
+    "title": "Adapting to China: the first months",
+    "lead": "How to cope with cultural differences, make friends and not get homesick.",
+    "sections": [
+      {
+        "q": "What will feel unusual?",
+        "p": [
+          "A different pace of life, food, paying only by phone and the language barrier off campus. Getting used to it usually takes a month or two."
+        ]
+      },
+      {
+        "q": "How to make friends?",
+        "p": [
+          "Join student clubs, go to events for international students and meet Chinese students — they are curious to talk too."
+        ]
+      },
+      {
+        "q": "Where to get help?",
+        "p": [
+          "The university’s international office and our coordinator: we stay in touch and help with everyday issues."
+        ]
+      }
+    ]
+  },
+  "grant-instituta-konfuciya": {
+    "title": "Scholarship for Chinese language learners",
+    "lead": "What the International Chinese Language Teachers Scholarship is and who it suits.",
+    "sections": [
+      {
+        "q": "What is this scholarship?",
+        "p": [
+          "It is a scholarship for studying Chinese at Chinese universities — for a semester, a year or a full program. It is often called the Confucius Institute Scholarship."
+        ]
+      },
+      {
+        "q": "What does it cover?",
+        "p": [
+          "As a rule, tuition, dorm accommodation, health insurance and a monthly allowance. The exact package depends on the program type."
+        ]
+      },
+      {
+        "q": "What are the requirements?",
+        "p": [
+          "Usually HSK and HSKK certificates of a certain level and a recommendation from the nominating organisation. Requirements are updated every year — we check the current ones."
+        ]
+      }
+    ]
+  },
+  "kak-sohranit-stipendiyu": {
+    "title": "How to keep your scholarship for the whole program",
+    "lead": "Why a scholarship can be reduced or cancelled and how to avoid it.",
+    "sections": [
+      {
+        "q": "Is a scholarship given once?",
+        "p": [
+          "Many scholarships are renewed every year based on your studies. The university reviews grades, attendance and conduct."
+        ]
+      },
+      {
+        "q": "Why can it be withdrawn?",
+        "p": [
+          "For missed classes, failed exams, breaking campus rules or visa regulations. Sometimes a full scholarship is changed to a partial one."
+        ]
+      },
+      {
+        "q": "How not to lose it?",
+        "p": [
+          "Don’t skip classes, pass exams on time and tell your coordinator about difficulties right away — many issues can be solved if you ask early."
+        ]
+      }
+    ]
+  },
+  "byudzhet-na-god": {
+    "title": "How much studying in China costs: a yearly budget",
+    "lead": "What makes up tuition and living costs and how to reduce them.",
+    "sections": [
+      {
+        "q": "How much is tuition?",
+        "p": [
+          "Without a grant, tuition depends on the university, the city and the language of the program. Language courses and colleges are usually cheaper than a bachelor’s, and English-taught programs cost more than Chinese-taught ones."
+        ]
+      },
+      {
+        "q": "What else is in the budget?",
+        "p": [
+          "The dorm, insurance, food, transport, mobile, textbooks and the residence permit. We calculate a budget for a specific university and city."
+        ]
+      },
+      {
+        "q": "How to save money?",
+        "p": [
+          "Apply for grants and discounts, choose strong universities in regional cities and eat in campus canteens — this noticeably lowers costs."
         ]
       }
     ]
