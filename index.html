@@ -2616,6 +2616,14 @@ html.dd-on .wa-float,html.cpk-on .wa-float{opacity:0!important;pointer-events:no
   .fin-grid{perspective:none!important}
   .fin-grid .fin:nth-child(1){z-index:1}.fin-grid .fin:nth-child(2){z-index:2}.fin-grid .fin:nth-child(3){z-index:3}
 }
+
+/* Открытое меню (планшет/телефон): кнопки WhatsApp и «Связаться с нами» — одинаковые 8px
+   между собой, по бокам и снизу (как отступ меню) */
+@media (max-width:980px){
+  .header .nav.open{row-gap:0!important}
+  .nav.open .wa{margin:0 0 8px!important}
+  .nav.open .contact{margin:0!important}
+}
 </style>
 </head>
 <body>
