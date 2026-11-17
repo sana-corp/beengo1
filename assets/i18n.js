@@ -215,6 +215,7 @@ const mo=new MutationObserver(ms=>{if(lang!=='en')return;ms.forEach(m=>{if(m.typ
 const apply=to=>{if(to===lang)return;lang=to;mo.disconnect();
   document.documentElement.lang=to;document.title=TITLE[to];
   // картинки с текстом: в английской версии — английские варианты (атрибут data-en-src)
+  document.querySelectorAll('a[data-en-href]').forEach(a=>{if(!a.dataset.ruHref)a.dataset.ruHref=a.getAttribute('href');const h=to==='en'?a.dataset.enHref:a.dataset.ruHref;if(a.getAttribute('href')!==h)a.setAttribute('href',h)});
   document.querySelectorAll('source[data-en-srcset]').forEach(so=>{if(!so.dataset.ruSrcset)so.dataset.ruSrcset=so.getAttribute('srcset');const s=to==='en'?so.dataset.enSrcset:so.dataset.ruSrcset;if(so.getAttribute('srcset')!==s)so.setAttribute('srcset',s)});
   document.querySelectorAll('img[data-en-src]').forEach(im=>{if(!im.dataset.ruSrc)im.dataset.ruSrc=im.getAttribute('src');const s=to==='en'?im.dataset.enSrc:im.dataset.ruSrc;if(im.getAttribute('src')!==s)im.setAttribute('src',s)});fixText(document.body,to);setHeads(to);
   document.querySelectorAll('.lang button').forEach(b=>b.classList.toggle('on',(b.textContent.trim()==='eng')===(to==='en')));
