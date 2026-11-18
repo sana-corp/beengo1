@@ -1,0 +1,22 @@
+[Unit]
+Description=Beengo Study — админка статей
+After=network.target
+
+[Service]
+Type=simple
+EnvironmentFile=/etc/beengo-admin.env
+# статьи и картинки хранятся здесь, а не в папке сайта — git pull их не трогает
+Environment=DATA_DIR=/var/lib/beengo-admin
+StateDirectory=beengo-admin
+DynamicUser=yes
+WorkingDirectory=/var/www/beengo/admin
+ExecStart=/usr/bin/env node /var/www/beengo/admin/server.js
+Restart=always
+RestartSec=3
+NoNewPrivileges=yes
+ProtectSystem=strict
+ProtectHome=yes
+PrivateTmp=yes
+
+[Install]
+WantedBy=multi-user.target

@@ -2624,6 +2624,10 @@ html.dd-on .wa-float,html.cpk-on .wa-float{opacity:0!important;pointer-events:no
   .nav.open .wa{margin:0 0 8px!important}
   .nav.open .contact{margin:0!important}
 }
+
+/* обложки статей из админки */
+.art .cover.has-img{padding:0;overflow:hidden;background:#e9eef7}
+.art .cover.has-img img{width:100%;height:100%;object-fit:cover;display:block}
 </style>
 </head>
 <body>
@@ -3531,6 +3535,21 @@ addEventListener('resize',posArrows);addEventListener('load',posArrows);setTimeo
   io.observe($('.campus'));
   ['touchstart','pointerdown','scroll','click'].forEach(ev=>addEventListener(ev,()=>{const r=$('.campus').getBoundingClientRect();if(r.top<innerHeight&&r.bottom>0)play()},{passive:true}));
   play();})();
+
+// «Топ-3 статьи» на главной: если работает админка — берём статьи из неё
+// (сначала отмеченные «На главной», потом свежие); иначе остаются статьи, вписанные в страницу
+(()=>{const g=$('.art-grid');if(!g||location.protocol==='file:')return;
+  const CAT={admission:['Поступление','Admission','cv-admission'],programs:['Программы','Programs','cv-programs'],docs:['Документы','Documents','cv-docs'],life:['Жизнь в Китае','Life in China','cv-life'],grants:['Стипендии','Scholarships','cv-grants']};
+  fetch('/data/articles.json',{cache:'no-cache'}).then(r=>r.ok?r.json():null).then(j=>{
+    if(!j||!Array.isArray(j.articles)||!j.articles.length)return;
+    const arts=[...j.articles.filter(a=>a.featured),...j.articles.filter(a=>!a.featured)].slice(0,3);
+    const render=()=>{const en=document.documentElement.lang==='en';
+      g.innerHTML=arts.map(a=>{const l=en&&a.en&&a.en.title?a.en:a.ru,c=CAT[a.cat]||CAT.admission;
+        const cover=a.cover?`<div class="cover has-img"><img src="${a.cover}" alt="" loading="lazy" decoding="async"></div>`:`<div class="cover ${c[2]}">${l.title}</div>`;
+        return `<article class="art reveal in" data-dyn="1" data-cat="${a.cat}">${cover}<div class="cat">${en?c[1]:c[0]}</div><h3>${l.title}</h3><p>${l.lead}</p><a href="article.html${en?'?lang=en':''}#${a.id}">${en?'Read the full article':'Читать статью полностью'}</a></article>`}).join('')};
+    render();new MutationObserver(render).observe(document.documentElement,{attributes:true,attributeFilter:['lang']});
+  }).catch(()=>{});
+  g.addEventListener('click',e=>{if(e.target.closest('a'))return;const c=e.target.closest('.art[data-dyn]');const l=c&&c.querySelector('a[href^="article.html"]');if(l)location.href=l.href});})();
 // модалка
 const modal=$('#modal');
 $$('[data-open]').forEach(b=>b.addEventListener('click',e=>{e.preventDefault();

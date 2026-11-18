@@ -22,6 +22,7 @@
 
 <script src="articles-data.js"></script>
 <script>
+window.beengoLoadArticles(()=>{
 const L=window.BEENGO_LANG,EN=L==='en';
 const T=EN?{home:'Home',arts:'Articles',toHome:'← Home',allArts:'← All articles',contact:'Contact us',min:'min read',read:'Read article',all:'All',none:'No articles on this topic yet.',
   prev:'Back',next:'Next',toc:'Contents',q:'Any questions left?',qs:'We’ll review your situation in a free consultation.',consult:'Get a consultation',also:'Read also',allArr:'All articles →',
@@ -41,29 +42,32 @@ document.documentElement.lang=L;
 const link=(page,hash)=>page+Q+(hash?'#'+hash:'');
 
 const card=a=>`<a class="card rv" href="${link('article.html',a.id)}">
-  <div class="cover ${C[a.cat].cls}">${a.title}</div>
+  ${window.beengoCover(a,C)}
   <span class="cat ${a.cat}">${C[a.cat].name}</span>
   <h3>${a.title}</h3><p>${a.lead}</p>
   <span class="more">${T.read}</span></a>`;
 let spy=null;
 function render(){
-  const id=location.hash.slice(1);const a=A.find(x=>x.id===id)||A[0];
-  document.title=a.title+' — Beengo Study';
+  const PV=window.beengoPreview();
+  const id=location.hash.slice(1);const a=PV||A.find(x=>x.id===id)||A[0];
+  const S=window.beengoSections(a),TOC=S.map((x,i)=>({x,i})).filter(o=>o.x.q);
+  document.title=(PV?(EN?'Preview: ':'Предпросмотр: '):'')+new DOMParser().parseFromString(a.title,'text/html').documentElement.textContent+' — Beengo Study';
   const rel=[...A.filter(x=>x.id!==a.id&&x.cat===a.cat),...A.filter(x=>x.id!==a.id&&x.cat!==a.cat)].slice(0,3);
   document.getElementById('page').innerHTML=`
   <nav class="crumbs"><a href="${link('index.html')}">${T.home}</a><span>/</span><a href="${link('articles.html')}">${T.arts}</a><span>/</span><span>${C[a.cat].name}</span></nav>
   <div class="art-head rv">
     <div><div class="art-meta"><span class="cat ${a.cat}">${C[a.cat].name}</span><span>${a.read} ${T.min}</span></div>
       <h1>${a.title}</h1><p class="lead">${a.lead}</p></div>
-    <div class="cover ${C[a.cat].cls}">${a.title}</div>
+    ${window.beengoCover(a,C)}
   </div>
-  <div class="art-body">
+  ${PV?`<div class="pv-banner">${EN?'Preview — this is how the article will look on the site. It is not published yet.':'Предпросмотр — так статья будет выглядеть на сайте. Он виден только вам.'}</div>`:''}
+  <div class="art-body${TOC.length?'':' no-toc'}">
     <aside class="toc" id="toc">
-      <button class="toc-bar" type="button" aria-expanded="false"><span><small>${T.toc}</small><em id="tocCur">${a.sections[0].q}</em></span><i aria-hidden="true"></i></button>
-      <div class="toc-list"><b>${T.toc}</b>${a.sections.map((s,i)=>`<a href="#${a.id}" data-s="s${i}"><span>${String(i+1).padStart(2,'0')}</span>${s.q}</a>`).join('')}</div>
+      <button class="toc-bar" type="button" aria-expanded="false"><span><small>${T.toc}</small><em id="tocCur">${TOC.length?TOC[0].x.q:''}</em></span><i aria-hidden="true"></i></button>
+      <div class="toc-list"><b>${T.toc}</b>${TOC.map((o,k)=>`<a href="#${a.id}" data-s="s${o.i}"><span>${String(k+1).padStart(2,'0')}</span>${o.x.q}</a>`).join('')}</div>
     </aside>
     <article class="text">
-      ${a.sections.map((s,i)=>`<section id="s${i}" class="rv"><h2>${s.q}</h2>${s.p.map(t=>`<p>${t}</p>`).join('')}</section>`).join('')}
+      ${S.map((s,i)=>`<section id="s${i}" class="rv">${s.q?`<h2>${s.q}</h2>`:''}${s.html}</section>`).join('')}
       <div class="ask rv"><div><b>${T.q}</b><span>${T.qs}</span></div><a class="cta" href="${link('index.html','lead')}">${T.consult}</a></div>
     </article>
   </div>
@@ -84,6 +88,7 @@ function render(){
   document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 }
 addEventListener('hashchange',render);render();
+});
 </script>
 </body>
 </html>

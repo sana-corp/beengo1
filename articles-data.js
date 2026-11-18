@@ -1541,3 +1541,52 @@ window.BEENGO_LANG = (()=>{let l=null;try{l=new URLSearchParams(location.search)
 window.beengoArticles = lang => lang!=='en' ? window.BEENGO_ARTICLES : window.BEENGO_ARTICLES.map(a=>Object.assign({},a,window.BEENGO_ARTICLES_EN[a.id]||{}));
 window.beengoCats = lang => { const C={}; for(const k in window.BEENGO_CATS) C[k]=Object.assign({},window.BEENGO_CATS[k],lang==='en'?{name:window.BEENGO_CATS_EN[k]}:{}); return C; };
 window.beengoSetLang = lang => { try{localStorage.setItem('beengo-lang',lang)}catch(e){} const u=new URL(location.href); if(lang==='en')u.searchParams.set('lang','en'); else u.searchParams.delete('lang'); location.replace(u.toString()); };
+
+// ===== Статьи из админки =====
+// Если на сервере работает админка, берём опубликованные статьи из /data/articles.json,
+// иначе (или если сервер не ответил за 4 секунды) — встроенные статьи выше.
+window.beengoLoadArticles = cb => {
+  let called = false; const done = () => { if (called) return; called = true; cb(); };
+  if (location.protocol === 'file:') { done(); return; }
+  const ctrl = window.AbortController ? new AbortController() : null;
+  const tm = setTimeout(() => { if (ctrl) ctrl.abort(); done(); }, 4000);
+  fetch('/data/articles.json', { cache: 'no-cache', signal: ctrl && ctrl.signal })
+    .then(r => r.ok ? r.json() : null)
+    .then(j => {
+      if (!j || !Array.isArray(j.articles) || !j.articles.length) return;
+      window.BEENGO_ARTICLES = j.articles.map(a => ({ id: a.id, cat: a.cat, read: a.read, cover: a.cover || '', date: a.date, featured: a.featured, title: a.ru.title, lead: a.ru.lead, html: a.ru.html }));
+      const E = {}; j.articles.forEach(a => { const e = a.en || {}, o = {}; ['title', 'lead', 'html'].forEach(k => { if (e[k]) o[k] = e[k]; }); E[a.id] = o; });
+      window.BEENGO_ARTICLES_EN = E;
+    })
+    .catch(() => {})
+    .then(() => { clearTimeout(tm); done(); });
+};
+// Предпросмотр статьи из админки (данные передаются через localStorage того же сайта)
+window.beengoPreview = () => {
+  if (!/[?&]preview=1/.test(location.search)) return null;
+  try {
+    const p = JSON.parse(localStorage.getItem('beengo-preview') || 'null'); if (!p) return null;
+    const esc = s => String(s || '').replace(/[&<>"]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]));
+    const l = window.BEENGO_LANG === 'en' && p.en && p.en.title ? p.en : p.ru;
+    const words = (l.html || '').replace(/<[^>]*>/g, ' ').trim().split(/\s+/).filter(Boolean).length;
+    return { id: p.id, cat: p.cat, cover: p.cover, read: Math.max(2, Math.round(words / 160)), title: esc(l.title), lead: esc(l.lead), html: l.html || '', preview: true };
+  } catch (e) { return null; }
+};
+// Разделы статьи: из старого формата (sections) или из HTML — по заголовкам <h2>
+window.beengoSections = a => {
+  if (a.sections) return a.sections.map(s => ({ q: s.q, html: s.p.map(t => '<p>' + t + '</p>').join('') }));
+  const box = document.createElement('div'); box.innerHTML = a.html || ''; const out = []; let cur = null;
+  [...box.childNodes].forEach(n => {
+    if (n.nodeType === 1 && n.tagName === 'H2') { cur = { q: n.innerHTML, html: '' }; out.push(cur); return; }
+    if (!cur) { cur = { q: '', html: '' }; out.push(cur); }
+    if (n.nodeType === 1) cur.html += n.outerHTML;
+    else if (n.textContent.trim()) cur.html += '<p>' + n.textContent.replace(/[&<>]/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c])) + '</p>';
+  });
+  return out;
+};
+// Обложка карточки: картинка из админки или цветная плашка с заголовком
+window.beengoCover = (a, C, extra) => a.cover
+  ? `<div class="cover has-img ${extra || ''}"><img src="${a.cover}" alt="" loading="lazy" decoding="async"></div>`
+  : `<div class="cover ${C[a.cat].cls} ${extra || ''}">${a.title}</div>`;
+// Текст статьи для поиска
+window.beengoText = a => a.html ? a.html.replace(/<[^>]*>/g, ' ') : (a.sections || []).flatMap(x => [x.q, ...x.p]).join(' ');
